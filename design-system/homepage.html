@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIP — Homepage Structure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          header: ['Figtree', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          base: { white: '#ffffff', black: '#030712', lightgray: '#e7e7e7', gray: '#737373' },
+          textcolor: { preheader: '#f97316', h2: '#030712', h3: '#3196a9', h4: '#06b6d4', h5: '#f97316', body: '#737373', link: '#f97316' },
+          primary: { 50:'#f0fafb',100:'#d9f1f4',200:'#b7e4ea',300:'#85d0db',400:'#4db2c3',500:'#3196a9',600:'#2b7a8f',700:'#296475',800:'#295361',900:'#264653',950:'#152d37',DEFAULT:'#3196a9' },
+          secondary: { 50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63',950:'#083344',DEFAULT:'#06b6d4' },
+          tertiary: { 50:'#f3f4fa',100:'#e9ecf6',200:'#d7dbee',300:'#bfc4e2',400:'#a4a7d5',500:'#8d8dc7',600:'#7a75b6',700:'#69639f',800:'#565281',900:'#494768',950:'#2b293d',DEFAULT:'#8d8dc7' },
+          accent: { 50:'#fefce8',100:'#fef9c3',200:'#fef08a',300:'#fde047',400:'#facc15',500:'#eab308',600:'#ca8a04',700:'#a16207',800:'#854d0e',900:'#713f12',950:'#422006',DEFAULT:'#eab308' },
+          cta: { 50:'#fff7ed',100:'#ffedd5',200:'#fed7aa',300:'#fdba74',400:'#fb923c',500:'#f97316',600:'#ea580c',700:'#c2410c',800:'#9a3412',900:'#7c2d12',950:'#431407',DEFAULT:'#f97316' },
+          navy: '#0e1f35',
+          gray: { 50:'#fafafa',100:'#f5f5f5',200:'#e5e5e5',300:'#d4d4d4',400:'#a1a1a1',500:'#737373',600:'#525252',700:'#404040',800:'#262626',900:'#171717',950:'#0a0a0a' },
+        },
+        borderRadius: { '20': '20px' },
+      },
+    },
+  };
+</script>
+<style>
+  /* ── Shared wireframe tokens ── */
+  .wf-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+  .wf-block {
+    border: 1.5px dashed currentColor;
+    border-radius: 6px;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .optional-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #fef9c3;
+    color: #a16207;
+    border: 1px solid #fde047;
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+  /* Nav links in DS header */
+  .ds-nav a { font-family:'Inter',sans-serif; font-size:13px; color:#737373; text-decoration:none; padding:4px 8px; border-radius:4px; }
+  .ds-nav a:hover { background:#f5f5f5; color:#030712; }
+  .ds-nav a.active { color:#3196a9; font-weight:700; }
+</style>
+</head>
+<body class="bg-gray-50 font-body text-base-black">
+
+<!-- DS Page Header -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="font-header font-extrabold text-primary-500 text-lg tracking-tight">HIP</span>
+      <span class="text-gray-300 text-sm">|</span>
+      <span class="font-body text-sm text-gray-500 font-bold uppercase tracking-widest">Design System</span>
+    </div>
+    <nav class="ds-nav flex items-center gap-1">
+      <a href="index.html">Foundations</a>
+      <a href="index.html#inputs">Components</a>
+      <a href="buttons.html">Buttons</a>
+      <a href="homepage.html" class="active">Homepage</a>
+      <a href="icons.html">Icons</a>
+      <a href="sections.html">Sections</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Title -->
+<div class="max-w-7xl mx-auto px-6 pt-10 pb-6">
+  <div class="flex items-end justify-between flex-wrap gap-4">
+    <div>
+      <p class="font-body text-xs font-bold uppercase tracking-widest text-textcolor-preheader mb-1">Structure Reference</p>
+      <h1 class="font-header font-extrabold text-3xl text-base-black">Homepage</h1>
+      <p class="font-body text-sm text-gray-500 mt-1">Orthodontic practice homepage — based on HIP Master V3 Figma at 1440px.</p>
+    </div>
+    <div class="flex items-center gap-4 text-xs font-body">
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-gray-200 border border-dashed border-gray-400 inline-block"></span> Core section</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-yellow-100 border border-dashed border-yellow-400 inline-block"></span> Optional section</span>
+    </div>
+  </div>
+</div>
+
+<!-- Section Order Quick Reference -->
+<div class="max-w-7xl mx-auto px-6 mb-10">
+  <div class="bg-white rounded-xl border border-gray-200 p-5">
+    <p class="wf-label text-gray-500 mb-3">Full section order</p>
+    <div class="flex flex-wrap gap-2">
+      <!-- core -->
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">01 · Top Bar</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">02 · Navigation</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">03 · Hero</span>
+      <span class="font-body text-xs bg-yellow-100 text-yellow-800 rounded px-2 py-1">04 · Highlights ✦</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">05 · Steps</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">06 · Our Practice</span>
+      <span class="font-body text-xs bg-yellow-100 text-yellow-800 rounded px-2 py-1">07 · Brand Logos ✦</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">08 · Our Doctors</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">09 · Who We Help</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">10 · Treatments</span>
+      <span class="font-body text-xs bg-yellow-100 text-yellow-800 rounded px-2 py-1">11 · News & Media ✦</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">12 · Instagram</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">13 · CTA Section</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">14 · Reviews</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">15 · Locations</span>
+      <span class="font-body text-xs bg-gray-100 text-gray-700 rounded px-2 py-1">16 · Footer</span>
+      <span class="font-body text-xs bg-primary-50 text-primary-700 rounded px-2 py-1">17 · Success Formula ◆</span>
+      <span class="font-body text-xs bg-primary-50 text-primary-700 rounded px-2 py-1">18 · Designer Reminder ◆</span>
+      <span class="font-body text-xs bg-secondary-50 text-secondary-700 rounded px-2 py-1">19 · Image Sourcing ◆</span>
+      <span class="font-body text-xs bg-secondary-50 text-secondary-700 rounded px-2 py-1">20 · Icon Usage ◆</span>
+    </div>
+    <p class="font-body text-[11px] text-gray-400 mt-3">✦ Optional — add only when content exists or explicitly requested. &nbsp;◆ Reference only — not a rendered page section.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 01 — TOP UTILITY BAR -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="top-bar">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">01</span>
+    <span class="section-badge text-gray-700">Top Utility Bar</span>
+    <span class="wf-label text-gray-400">Dark navy · 40px tall · Sticky</span>
+  </div>
+  <!-- Wireframe -->
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div style="background:#0e1f35;" class="px-6 py-3 flex items-center justify-between">
+      <!-- Left: Social icons -->
+      <div class="flex items-center gap-3">
+        <span class="wf-label text-gray-400 mr-1">Social:</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">FB</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">IG</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">X</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">YT</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">TT</span>
+      </div>
+      <!-- Right: Utility links -->
+      <div class="flex items-center gap-3">
+        <span class="wf-label text-gray-400 mr-1">Utility:</span>
+        <span class="wf-block border-cta-400 text-cta-400 px-2 py-0.5 text-[10px] font-body font-bold">Call / Text</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">Payment Calculator</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">Referral</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">Portal</span>
+        <span class="wf-block border-gray-500 text-gray-400 px-2 py-0.5 text-[10px] font-body">Virtual Consult</span>
+      </div>
+    </div>
+    <!-- Mobile note -->
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2 flex items-center gap-2">
+      <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+      <span class="font-body text-[11px] text-gray-500">Mobile: collapse to <strong>Call / Text</strong> only</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 02 — MAIN NAVIGATION -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="navigation">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">02</span>
+    <span class="section-badge text-gray-700">Main Navigation</span>
+    <span class="wf-label text-gray-400">White bg · 80px tall · Sticky below top bar</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="wf-block border-primary-400 text-primary-500 px-5 py-2 text-sm font-header font-extrabold">LOGO</div>
+      <!-- Nav items -->
+      <div class="flex items-center gap-1">
+        <span class="font-body text-sm text-gray-700 px-3 py-2 flex items-center gap-1">Our Practice <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+        <span class="font-body text-sm text-gray-700 px-3 py-2 flex items-center gap-1">Services <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+        <span class="font-body text-sm text-gray-700 px-3 py-2 flex items-center gap-1">Patient Resources <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+        <span class="font-body text-sm text-gray-700 px-3 py-2 flex items-center gap-1">Contact Us <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+      </div>
+      <!-- CTA -->
+      <div class="bg-cta-500 text-white font-header font-bold text-sm px-6 py-3 rounded-full">Free Consult</div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2 flex items-center gap-2">
+      <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+      <span class="font-body text-[11px] text-gray-500">Mobile: <strong>Logo + Hamburger</strong> · Sticky bottom bar: <strong>Call / Text | Free Consult</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 03 — HERO BANNER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="hero">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">03</span>
+    <span class="section-badge text-gray-700">Hero Banner</span>
+    <span class="wf-label text-gray-400">Full-width · ~600–700px tall · Image bg</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="relative bg-gray-300 h-72 flex flex-col items-center justify-center text-center px-6">
+      <!-- BG label -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="wf-label text-gray-500">Full-width hero image — real patient smiles / team photo</span>
+      </div>
+      <!-- Dark overlay simulation -->
+      <div class="absolute inset-0 bg-black/30 rounded-t-xl"></div>
+      <!-- Content -->
+      <div class="relative z-10 flex flex-col items-center gap-5">
+        <div class="wf-block border-white/60 text-white px-8 py-3">
+          <p class="font-header font-extrabold text-2xl">"Smiles That Change Lives"</p>
+          <p class="wf-label text-white/70 mt-1">Practice tagline — oversized · bold · high-contrast</p>
+        </div>
+        <div class="bg-cta-500 text-white font-header font-bold text-sm px-6 py-3 rounded-full flex items-center gap-2">
+          Request Free Consult
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Minimal: image + tagline + 1 CTA. No paragraph. Warm authentic photography — real patients, not stock.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 04 — HIGHLIGHTS (OPTIONAL) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="highlights">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-yellow-400 text-yellow-900 text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">04</span>
+    <span class="section-badge text-yellow-800">Highlights — Trust Badges Grid</span>
+    <span class="optional-tag">Optional</span>
+    <span class="wf-label text-gray-400">After Hero · White cards on light-gray bg</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-yellow-200 shadow-sm">
+    <div class="bg-gray-100 p-6">
+      <div class="grid grid-cols-4 gap-3">
+        <!-- 8 cards, 4×2 -->
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">Local</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Owned & Operated</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">13 Locations</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">For Your Convenience</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">For Life</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Treatment + Whitening</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">0% Financing</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">From $99/Month</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">Flexible Hours</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Evenings & Weekends</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">20,000+ People</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Helped Since 1978</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">Same-Day</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Consults & Braces</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg p-3 flex items-start gap-2 border border-gray-200">
+          <div class="w-8 h-8 rounded bg-primary-100 flex-shrink-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded bg-primary-400"></div>
+          </div>
+          <div>
+            <p class="font-header font-bold text-[11px] text-base-black leading-tight">24-Hour</p>
+            <p class="font-body text-[10px] text-gray-500 leading-tight mt-0.5">Emergency Line</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-yellow-50 border-t border-yellow-200 px-6 py-2">
+      <span class="font-body text-[11px] text-yellow-800">Desktop: 4 per row × 2 rows · Tablet: 2 per row · Mobile: 1–2 per row · Teal icons in soft tinted squares.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 05 — STEP SECTION -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="steps">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">05</span>
+    <span class="section-badge text-gray-700">Step Section — Simple & Affordable</span>
+    <span class="wf-label text-gray-400">White bg · 2-col top + 3-step row</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6">
+      <!-- Top: 2-col -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <!-- Left: text -->
+        <div class="wf-block border-gray-300 p-4 flex flex-col gap-2">
+          <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">SIMPLE & AFFORDABLE</p>
+          <p class="font-header font-extrabold text-lg text-base-black">Upgrade Your Smile</p>
+          <p class="font-body text-[11px] text-gray-500 leading-relaxed">Short intro about how easy and affordable treatment is. Two to three sentences max.</p>
+          <div class="bg-base-black text-white font-header font-bold text-xs px-4 py-2 rounded-full inline-flex items-center gap-1.5 self-start mt-1">
+            Request Free Consult
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <!-- Right: image -->
+        <div class="wf-block border-gray-300 bg-gray-100 h-40 flex items-center justify-center">
+          <span class="wf-label text-gray-400">Section image</span>
+        </div>
+      </div>
+      <!-- Bottom: 3 step cards -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="wf-block border-gray-300 p-4 flex flex-col gap-1">
+          <p class="font-header font-extrabold text-4xl text-primary-200">1</p>
+          <p class="font-header font-bold text-sm text-base-black">Request Free Consult</p>
+          <p class="font-body text-[10px] text-gray-500">Short description of step one.</p>
+        </div>
+        <div class="wf-block border-gray-300 p-4 flex flex-col gap-1">
+          <p class="font-header font-extrabold text-4xl text-primary-200">2</p>
+          <p class="font-header font-bold text-sm text-base-black">Select Low Monthly Payment</p>
+          <p class="font-body text-[10px] text-gray-500">Short description of step two.</p>
+        </div>
+        <div class="wf-block border-gray-300 p-4 flex flex-col gap-1">
+          <p class="font-header font-extrabold text-4xl text-primary-200">3</p>
+          <p class="font-header font-bold text-sm text-base-black">Sit Back, Relax & Get Started</p>
+          <p class="font-body text-[10px] text-gray-500">Short description of step three.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">PreHeader in orange · Oversized bold numerals · Dark/black button here to contrast nav's orange CTA.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 06 — OUR PRACTICE (VIDEO) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="our-practice">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">06</span>
+    <span class="section-badge text-gray-700">Our Practice — Video</span>
+    <span class="wf-label text-gray-400">Light bg · 2-col · Video left · Text right</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-primary-50 p-6">
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <!-- Left: video thumbnail -->
+        <div class="wf-block border-primary-300 bg-primary-100 h-48 flex flex-col items-center justify-center gap-3 relative">
+          <div class="w-16 h-16 rounded-full border-2 border-cta-500 flex items-center justify-center bg-white/80">
+            <svg class="w-7 h-7 text-cta-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="wf-label text-primary-500">Rotating text badge around play button</span>
+          <span class="wf-label text-primary-400">Video thumbnail</span>
+        </div>
+        <!-- Right: text -->
+        <div class="flex flex-col gap-2">
+          <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">OUR PRACTICE</p>
+          <p class="font-header font-extrabold text-xl text-base-black">What Sets Us Apart</p>
+          <p class="font-body text-[11px] text-gray-500 leading-relaxed">2–3 sentences on culture, technology, and patient experience. Keep it short — the video does the selling.</p>
+          <div class="border-2 border-primary-500 text-primary-500 font-header font-bold text-xs px-4 py-2 rounded-full inline-flex items-center gap-1.5 self-start mt-1">
+            Learn More
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Circular rotating-text play badge is the signature element. Button links to About / Our Practice page.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 07 — BRAND LOGOS (OPTIONAL) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="brand-logos">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-yellow-400 text-yellow-900 text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">07</span>
+    <span class="section-badge text-yellow-800">Brand / Credential Logos</span>
+    <span class="optional-tag">Optional</span>
+    <span class="wf-label text-gray-400">After Our Practice · 2 rows × 4 logos</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-yellow-200 shadow-sm">
+    <div class="bg-white p-6">
+      <div class="flex flex-col gap-3">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-4 gap-3">
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">ABO</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">ADA</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">Damon Smile</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">AAO</span></div>
+        </div>
+        <!-- Row 2 -->
+        <div class="grid grid-cols-4 gap-3">
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">Spark</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">iTero</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">Invisalign</span></div>
+          <div class="wf-block border-gray-300 bg-gray-50 h-12 flex items-center justify-center"><span class="wf-label text-gray-400">Top Rated Ortho</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-yellow-50 border-t border-yellow-200 px-6 py-2">
+      <span class="font-body text-[11px] text-yellow-800">Grayscale / muted treatment · Mix credentials (ABO/ADA/AAO) with tech brands (Invisalign/iTero/Spark/Damon).</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 08 — OUR DOCTORS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="doctors">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">08</span>
+    <span class="section-badge text-gray-700">Our Doctors</span>
+    <span class="wf-label text-gray-400">White bg · Centered heading + alternating zig-zag rows</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-4">
+      <!-- Section heading -->
+      <div class="text-center pb-2 border-b border-gray-100">
+        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">OUR ORTHODONTISTS</p>
+        <p class="font-header font-extrabold text-xl text-base-black mt-1">We Love Serving Smiles</p>
+        <p class="font-body text-[11px] text-gray-500 mt-1">Intro paragraph — 1–2 lines</p>
+      </div>
+      <!-- Row 1: Text left / Photo right -->
+      <div class="grid grid-cols-2 gap-3 items-center">
+        <div class="wf-block border-gray-300 p-3 flex flex-col gap-1.5">
+          <p class="font-header font-bold text-sm text-base-black">Dr. [Name]</p>
+          <p class="font-body text-[10px] text-gray-500">Short bio — 2–3 lines. Full bio lives on doctor profile page.</p>
+          <span class="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">Learn More <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="wf-block border-gray-300 bg-gray-100 h-28 flex items-center justify-center">
+          <span class="wf-label text-gray-400">Doctor photo</span>
+        </div>
+      </div>
+      <!-- Row 2: Photo left / Text right -->
+      <div class="grid grid-cols-2 gap-3 items-center">
+        <div class="wf-block border-gray-300 bg-gray-100 h-28 flex items-center justify-center">
+          <span class="wf-label text-gray-400">Doctor photo</span>
+        </div>
+        <div class="wf-block border-gray-300 p-3 flex flex-col gap-1.5">
+          <p class="font-header font-bold text-sm text-base-black">Dr. [Name]</p>
+          <p class="font-body text-[10px] text-gray-500">Short bio — 2–3 lines. Full bio lives on doctor profile page.</p>
+          <span class="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">Learn More <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <p class="wf-label text-gray-400 text-center">↑ Pattern repeats for each doctor (4 in master design). Alternate image side every row.</p>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Professional but warm photos — doctors smiling, in-office. Keep bios short; full bios live on profile pages.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 09 — WHO WE HELP -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="who-we-help">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">09</span>
+    <span class="section-badge text-gray-700">Who We Help</span>
+    <span class="wf-label text-gray-400">Light bg · Centered heading + alternating zig-zag rows · Kids / Teens / Adults</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-primary-50 p-6 flex flex-col gap-4">
+      <!-- Heading -->
+      <div class="text-center pb-2 border-b border-primary-100">
+        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">WHO WE HELP</p>
+        <p class="font-header font-extrabold text-xl text-base-black mt-1">Orthodontics Is For Everyone</p>
+        <p class="font-body text-[11px] text-gray-500 mt-1">Short paragraph.</p>
+      </div>
+      <!-- 3 zig-zag rows -->
+      <div class="grid grid-cols-2 gap-3 items-center">
+        <div class="wf-block border-primary-300 p-3 flex flex-col gap-1.5">
+          <p class="font-header font-bold text-sm text-base-black">Kids</p>
+          <p class="font-body text-[10px] text-gray-500">Benefit-led copy — what this age group worries about, answered.</p>
+          <span class="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">Learn More <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="wf-block border-primary-300 bg-primary-100 h-24 flex items-center justify-center">
+          <span class="wf-label text-primary-400">Child patient photo</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 items-center">
+        <div class="wf-block border-primary-300 bg-primary-100 h-24 flex items-center justify-center">
+          <span class="wf-label text-primary-400">Teen patient photo</span>
+        </div>
+        <div class="wf-block border-primary-300 p-3 flex flex-col gap-1.5">
+          <p class="font-header font-bold text-sm text-base-black">Teens</p>
+          <p class="font-body text-[10px] text-gray-500">Benefit-led copy — what this age group worries about, answered.</p>
+          <span class="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">Learn More <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 items-center">
+        <div class="wf-block border-primary-300 p-3 flex flex-col gap-1.5">
+          <p class="font-header font-bold text-sm text-base-black">Adults</p>
+          <p class="font-body text-[10px] text-gray-500">Benefit-led copy — what this age group worries about, answered.</p>
+          <span class="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">Learn More <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="wf-block border-primary-300 bg-primary-100 h-24 flex items-center justify-center">
+          <span class="wf-label text-primary-400">Adult patient photo</span>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Photography clearly matches the segment. Each segment links to its own audience landing page.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 10 — HOW WE HELP (TREATMENTS) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="treatments">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">10</span>
+    <span class="section-badge text-gray-700">How We Help — Treatments</span>
+    <span class="wf-label text-gray-400">White bg · Centered heading + 4 alternating zig-zag rows</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-4">
+      <div class="text-center pb-2 border-b border-gray-100">
+        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">HOW WE HELP</p>
+        <p class="font-header font-extrabold text-xl text-base-black mt-1">Explore Our Treatments</p>
+        <p class="font-body text-[11px] text-gray-500 mt-1">Short paragraph.</p>
+      </div>
+      <!-- 4 treatments, alternating -->
+      <div class="flex flex-col gap-3">
+        <div class="grid grid-cols-2 gap-3 items-center">
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1"><p class="font-header font-bold text-sm">Metal & Ceramic Braces</p><p class="font-body text-[10px] text-gray-500">2–3 lines max.</p><span class="font-body text-[10px] font-bold text-primary-500">Learn More →</span></div>
+          <div class="wf-block border-gray-300 bg-gray-100 h-20 flex items-center justify-center"><span class="wf-label text-gray-400">Treatment image</span></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 items-center">
+          <div class="wf-block border-gray-300 bg-gray-100 h-20 flex items-center justify-center"><span class="wf-label text-gray-400">Treatment image</span></div>
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1"><p class="font-header font-bold text-sm">Invisalign / Clear Aligners</p><p class="font-body text-[10px] text-gray-500">2–3 lines max.</p><span class="font-body text-[10px] font-bold text-primary-500">Learn More →</span></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 items-center">
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1"><p class="font-header font-bold text-sm">Damon System Braces</p><p class="font-body text-[10px] text-gray-500">2–3 lines max.</p><span class="font-body text-[10px] font-bold text-primary-500">Learn More →</span></div>
+          <div class="wf-block border-gray-300 bg-gray-100 h-20 flex items-center justify-center"><span class="wf-label text-gray-400">Treatment image</span></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 items-center">
+          <div class="wf-block border-gray-300 bg-gray-100 h-20 flex items-center justify-center"><span class="wf-label text-gray-400">Treatment image</span></div>
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1"><p class="font-header font-bold text-sm">Retainers & Whitening</p><p class="font-body text-[10px] text-gray-500">2–3 lines max.</p><span class="font-body text-[10px] font-bold text-primary-500">Learn More →</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Same zig-zag rhythm as Doctors and Who We Help. Each row links to a dedicated treatment page.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 11 — NEWS & MEDIA (OPTIONAL) -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="news-media">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-yellow-400 text-yellow-900 text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">11</span>
+    <span class="section-badge text-yellow-800">News & Media — We've Been Featured In…</span>
+    <span class="optional-tag">Optional</span>
+    <span class="wf-label text-gray-400">After Treatments · Real press only</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-yellow-200 shadow-sm">
+    <div class="bg-white p-6">
+      <div class="text-center mb-4">
+        <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">NEWS & MEDIA</p>
+        <p class="font-header font-extrabold text-xl text-base-black mt-1">We've Been Featured In…</p>
+        <p class="font-body text-[11px] text-gray-500 mt-1">Short paragraph — 1–2 lines.</p>
+      </div>
+      <div class="flex gap-4 justify-center">
+        <div class="wf-block border-gray-300 bg-gray-50 px-6 h-10 flex items-center justify-center"><span class="wf-label text-gray-400">Press logo</span></div>
+        <div class="wf-block border-gray-300 bg-gray-50 px-6 h-10 flex items-center justify-center"><span class="wf-label text-gray-400">Press logo</span></div>
+        <div class="wf-block border-gray-300 bg-gray-50 px-6 h-10 flex items-center justify-center"><span class="wf-label text-gray-400">Press logo</span></div>
+        <div class="wf-block border-gray-300 bg-gray-50 px-6 h-10 flex items-center justify-center"><span class="wf-label text-gray-400">Press logo</span></div>
+        <div class="wf-block border-gray-300 bg-gray-50 px-6 h-10 flex items-center justify-center"><span class="wf-label text-gray-400">Press logo</span></div>
+      </div>
+    </div>
+    <div class="bg-yellow-50 border-t border-yellow-200 px-6 py-2">
+      <span class="font-body text-[11px] text-yellow-800">Only real press features — skip entirely if fewer than 3 genuine features. Muted single-color logos, one row.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 12 — INSTAGRAM SLIDER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="instagram">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">12</span>
+    <span class="section-badge text-gray-700">Instagram Slider</span>
+    <span class="wf-label text-gray-400">Horizontal scroll · 4–5 posts visible · Square tiles</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-yellow-400 to-pink-600 flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
+          </div>
+          <span class="font-body text-xs font-bold text-gray-700">@practicehandle</span>
+        </div>
+        <div class="border border-gray-300 text-gray-600 font-body text-xs px-3 py-1 rounded-full">Follow</div>
+      </div>
+      <div class="flex gap-2 overflow-hidden">
+        <div class="wf-block border-gray-300 bg-gray-100 w-32 h-32 flex-shrink-0 flex items-center justify-center"><span class="wf-label text-gray-400 text-center">Post</span></div>
+        <div class="wf-block border-gray-300 bg-gray-100 w-32 h-32 flex-shrink-0 flex items-center justify-center"><span class="wf-label text-gray-400 text-center">Post</span></div>
+        <div class="wf-block border-gray-300 bg-gray-100 w-32 h-32 flex-shrink-0 flex items-center justify-center"><span class="wf-label text-gray-400 text-center">Post</span></div>
+        <div class="wf-block border-gray-300 bg-gray-100 w-32 h-32 flex-shrink-0 flex items-center justify-center"><span class="wf-label text-gray-400 text-center">Post</span></div>
+        <div class="wf-block border-gray-300 bg-gray-100 w-32 h-32 flex-shrink-0 flex items-center justify-center"><span class="wf-label text-gray-400 text-center">Post</span></div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Smile reveals · Team culture · Care tips · Events · Before/after. Square posts — 4–5 visible on desktop.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 13 — CTA SECTION -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="cta-section">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">13</span>
+    <span class="section-badge text-gray-700">CTA Section — Get Started</span>
+    <span class="wf-label text-gray-400">Orange-tinted bg · 2-col · Image left · Text right</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-orange-50 p-6">
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <!-- Left: image -->
+        <div class="wf-block border-cta-300 bg-orange-100 h-40 flex items-center justify-center">
+          <span class="wf-label text-cta-400">Section image</span>
+        </div>
+        <!-- Right: text -->
+        <div class="flex flex-col gap-2">
+          <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">REQUEST APPOINTMENT</p>
+          <p class="font-header font-extrabold text-xl text-base-black">Get Started On Your New Smile Today</p>
+          <p class="font-body text-[11px] text-gray-600">Short paragraph. Outcome-focused headline — "new smile", not service-focused.</p>
+          <div class="bg-cta-500 text-white font-header font-bold text-sm px-6 py-3 rounded-full inline-flex items-center gap-2 self-start mt-1">
+            Request Free Consult
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Soft orange background visually signals "action time." One CTA only — no competing links.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 14 — 5-STAR REVIEWS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="reviews">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">14</span>
+    <span class="section-badge text-gray-700">5-Star Care — Reviews</span>
+    <span class="wf-label text-gray-400">White bg · 2-col top · Review cards bottom · Slider</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-4">
+      <!-- Top: 2-col -->
+      <div class="grid grid-cols-2 gap-4 items-center pb-4 border-b border-gray-100">
+        <div class="flex flex-col gap-1.5">
+          <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">OUR REVIEWS</p>
+          <p class="font-header font-extrabold text-xl text-base-black">Experience 5-Star Care</p>
+          <p class="font-body text-[11px] text-gray-500">Paragraph — 2–3 lines on patient satisfaction.</p>
+        </div>
+        <div class="wf-block border-gray-300 bg-gray-100 h-28 flex items-center justify-center">
+          <span class="wf-label text-gray-400">Section image</span>
+        </div>
+      </div>
+      <!-- Bottom: 2 review cards + controls -->
+      <div class="flex flex-col gap-3">
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Review card -->
+          <div class="wf-block border-gray-300 bg-gray-50 p-3 flex flex-col gap-1.5">
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded bg-blue-500 flex items-center justify-center"><span class="font-header font-bold text-[8px] text-white">G</span></div>
+              <div class="flex gap-0.5">
+                <span class="text-cta-500 text-xs">★★★★★</span>
+              </div>
+            </div>
+            <p class="font-body text-[10px] text-gray-600 italic">"Review excerpt — truncated to 2–3 lines…"</p>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-[10px] font-bold text-gray-500">JOHN S.</span>
+              <span class="font-body text-[10px] text-primary-500 font-bold">Read More</span>
+            </div>
+          </div>
+          <div class="wf-block border-gray-300 bg-gray-50 p-3 flex flex-col gap-1.5">
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded bg-blue-500 flex items-center justify-center"><span class="font-header font-bold text-[8px] text-white">G</span></div>
+              <div class="flex gap-0.5">
+                <span class="text-cta-500 text-xs">★★★★★</span>
+              </div>
+            </div>
+            <p class="font-body text-[10px] text-gray-600 italic">"Review excerpt — truncated to 2–3 lines…"</p>
+            <div class="flex items-center justify-between">
+              <span class="font-body text-[10px] font-bold text-gray-500">SARAH M.</span>
+              <span class="font-body text-[10px] text-primary-500 font-bold">Read More</span>
+            </div>
+          </div>
+        </div>
+        <!-- Slider controls -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="wf-block border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500 text-xs">‹</div>
+            <div class="wf-block border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500 text-xs">›</div>
+          </div>
+          <div class="border border-primary-400 text-primary-500 font-body font-bold text-[11px] px-3 py-1 rounded-full">More Reviews →</div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Google "G" logo on each card. Soft tinted card bg. Short quotes with Read More expansion. Slider rotates many reviews.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 15 — LOCATIONS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="locations">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">15</span>
+    <span class="section-badge text-gray-700">Locations</span>
+    <span class="wf-label text-gray-400">White bg · 2-col top + 2-col bottom (list + map)</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-4">
+      <!-- Top: 2-col -->
+      <div class="grid grid-cols-2 gap-4 items-center pb-4 border-b border-gray-100">
+        <div class="wf-block border-gray-300 bg-gray-100 h-28 flex items-center justify-center">
+          <span class="wf-label text-gray-400">Office exterior / interior photo</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <p class="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">OUR LOCATIONS</p>
+          <p class="font-header font-extrabold text-xl text-base-black">Come Visit Us</p>
+          <p class="font-body text-[11px] text-gray-500">Short paragraph.</p>
+        </div>
+      </div>
+      <!-- Bottom: 2-col info + map -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- Left: info -->
+        <div class="flex flex-col gap-3">
+          <div class="wf-block border-gray-300 p-3">
+            <p class="wf-label text-gray-500 mb-1">LOCATIONS</p>
+            <p class="font-body text-[10px] text-gray-600">Location Name · 123 Main St, City, ST 00000</p>
+            <p class="font-body text-[10px] text-gray-600">Location Name · 456 Oak Ave, City, ST 00000</p>
+            <p class="font-body text-[10px] text-primary-500 mt-1">+ 11 more locations →</p>
+          </div>
+          <div class="wf-block border-gray-300 p-3">
+            <p class="wf-label text-gray-500 mb-1">CONTACT US</p>
+            <p class="font-body text-[10px] text-gray-600">(XXX) XXX-XXXX · Call / Text</p>
+          </div>
+          <div class="wf-block border-gray-300 p-3">
+            <p class="wf-label text-gray-500 mb-1">CONTACT HOURS</p>
+            <p class="font-body text-[10px] text-gray-600">Mon–Fri 8am–6pm</p>
+            <p class="font-body text-[10px] text-gray-600">Sat 9am–3pm</p>
+          </div>
+        </div>
+        <!-- Right: map -->
+        <div class="wf-block border-gray-300 bg-gray-100 h-48 flex flex-col items-center justify-center gap-2">
+          <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          <span class="wf-label text-gray-400 text-center">Interactive map<br>Location pins + pop-up cards</span>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Map pins + pop-up card (photo, address, "Visit This Location" button). Phone + addresses clickable. Hours per weekday.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 16 — FOOTER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-10" id="footer">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-gray-800 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">16</span>
+    <span class="section-badge text-gray-700">Footer</span>
+    <span class="wf-label text-gray-400">Dark navy bg · Logo + CTA · 3 columns · Bottom bar</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+    <div style="background:#0e1f35;" class="p-6 flex flex-col gap-5">
+      <!-- Top row: logo + CTA -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="wf-block border-primary-400 text-primary-300 px-4 py-2 text-sm font-header font-extrabold">LOGO</div>
+        <div class="bg-cta-500 text-white font-header font-bold text-sm px-5 py-2.5 rounded-full">Request Free Consult</div>
+      </div>
+      <!-- 3 columns -->
+      <div class="grid grid-cols-3 gap-6">
+        <div>
+          <p class="wf-label text-primary-300 mb-2">QUICK LINKS</p>
+          <div class="flex flex-col gap-1.5">
+            <p class="font-body text-xs text-white/60">Our Practice</p>
+            <p class="font-body text-xs text-white/60">Services</p>
+            <p class="font-body text-xs text-white/60">Patient Resources</p>
+            <p class="font-body text-xs text-white/60">Contact Us</p>
+          </div>
+        </div>
+        <div>
+          <p class="wf-label text-primary-300 mb-2">CONTACT US</p>
+          <div class="flex flex-col gap-1.5">
+            <p class="font-body text-xs text-white/60">City, ST (per location)</p>
+            <p class="font-body text-xs text-cta-400 font-bold">(XXX) XXX-XXXX · Call / Text</p>
+          </div>
+        </div>
+        <div>
+          <p class="wf-label text-primary-300 mb-2">FOLLOW US</p>
+          <div class="flex gap-2 mt-1">
+            <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center"><span class="wf-label text-white/50">FB</span></div>
+            <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center"><span class="wf-label text-white/50">IG</span></div>
+            <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center"><span class="wf-label text-white/50">X</span></div>
+            <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center"><span class="wf-label text-white/50">YT</span></div>
+            <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center"><span class="wf-label text-white/50">TT</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom bar -->
+      <div class="pt-4 border-t border-white/10">
+        <div class="flex flex-wrap gap-x-4 gap-y-1">
+          <p class="font-body text-[10px] text-white/40">© 2026 Practice Name</p>
+          <p class="font-body text-[10px] text-white/40">Sitemap</p>
+          <p class="font-body text-[10px] text-white/40">Privacy Policy</p>
+          <p class="font-body text-[10px] text-white/40">Accessibility Statement</p>
+          <p class="font-body text-[10px] text-white/40">Notice of Privacy Practices</p>
+        </div>
+        <p class="font-body text-[10px] text-white/30 mt-1">Orthodontic Marketing & Web Design by [Agency]</p>
+      </div>
+    </div>
+    <div class="bg-gray-50 border-t border-gray-200 px-6 py-2">
+      <span class="font-body text-[11px] text-gray-500">Repeat Free Consult CTA — last-chance conversion. HIPAA compliance links required. Floating: accessibility tool (bottom-left) + chat bubble (bottom-right).</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 17 — SUCCESS FORMULA -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="success-formula">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-primary-600 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">17</span>
+    <span class="section-badge text-primary-700">Final Homepage Success Formula</span>
+    <span class="wf-label text-gray-400">Reference only — not a page section</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-primary-200 shadow-sm">
+    <div class="bg-primary-50 p-6">
+      <div class="grid grid-cols-2 gap-4">
+        <!-- Formula items -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Clear Brand Tagline</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">3-Step Easy Start</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Real Doctors & Real Video</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Segment Relevance</span> <span class="text-gray-500">(Kids / Teens / Adults)</span></p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Clear Treatment Paths</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Google Reviews Proof</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Multi-Location Map</span></p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded-full bg-cta-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5">+</span>
+            <p class="font-body text-[12px] text-base-black"><span class="font-bold">Free Consult CTA Repeated</span> <span class="text-gray-500">(nav → steps → CTA → footer)</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- = Result -->
+      <div class="mt-4 pt-4 border-t border-primary-200 flex items-center gap-3">
+        <span class="font-header font-extrabold text-2xl text-primary-600">=</span>
+        <p class="font-header font-extrabold text-[15px] text-primary-800">High-Converting Orthodontic Homepage</p>
+      </div>
+    </div>
+    <div class="bg-primary-100/50 border-t border-primary-200 px-6 py-2">
+      <span class="font-body text-[11px] text-primary-700">Use this as a checklist before any homepage review. Every item must be present and working.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 18 — DESIGNER REMINDER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-10" id="designer-reminder">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-primary-600 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">18</span>
+    <span class="section-badge text-primary-700">Final Designer Reminder</span>
+    <span class="wf-label text-gray-400">Reference only — design north star</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-primary-200 shadow-sm">
+    <div class="bg-white p-8 flex items-start gap-5">
+      <div class="flex-shrink-0 w-1 self-stretch bg-primary-400 rounded-full"></div>
+      <div>
+        <p class="font-header font-extrabold text-[17px] text-base-black leading-relaxed mb-3">
+          "This practice is <span class="text-primary-600">trusted</span>, <span class="text-cta-500">affordable</span>, <span class="text-primary-600">close to me</span>, and starting is easy — the first consult is free."
+        </p>
+        <p class="font-body text-[12px] text-gray-500 leading-relaxed">
+          That is what every visitor — usually a parent or an adult considering aligners — must feel at every scroll depth. The design must stay <strong>warm, professional, and premium</strong>: clinical credibility softened by real smiles. Every section must offer a path to the free consultation.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-200 font-body text-[11px] font-bold text-primary-700">Warm</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-200 font-body text-[11px] font-bold text-primary-700">Professional</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-50 border border-primary-200 font-body text-[11px] font-bold text-primary-700">Premium</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cta-50 border border-cta-200 font-body text-[11px] font-bold text-cta-700">Real Smiles</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cta-50 border border-cta-200 font-body text-[11px] font-bold text-cta-700">Free Consult at every depth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 19 — IMAGE SOURCING INSTRUCTIONS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-6" id="image-sourcing">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-secondary-600 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">19</span>
+    <span class="section-badge text-secondary-700">Image Sourcing Instructions</span>
+    <span class="wf-label text-gray-400">Reference only — production workflow</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-secondary-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-5">
+
+      <!-- Master rule -->
+      <div class="bg-secondary-50 border border-secondary-200 rounded-lg px-4 py-3">
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-secondary-700 mb-1">Master Rule</p>
+        <p class="font-body text-[12px] text-base-black">All images MUST come from the client image drive. Never use stock photos, AI-generated images, or images from outside this drive.</p>
+        <a href="https://drive.google.com/drive/folders/1mwrOevbApaDS0ZOqNYyYGTO3TmAONq3y" target="_blank" class="font-body text-[11px] font-bold text-secondary-600 mt-1 inline-block break-all">drive.google.com/drive/folders/1mwrOevbApaDS0ZOqNYyYGTO3TmAONq3y →</a>
+      </div>
+
+      <!-- Section → Folder Mapping -->
+      <div>
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">Section → Drive Folder Mapping</p>
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <table class="w-full font-body text-[11px]">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="text-left px-3 py-2 font-bold text-gray-600">Homepage Section</th>
+                <th class="text-left px-3 py-2 font-bold text-gray-600">Drive Folder Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Hero Banner</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Hero Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Step Section</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Step Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Our Practice (video thumbnail)</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">What Sets Us Apart Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Our Doctors</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Docter Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Who We Help (Kids / Teens / Adults)</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Services or Who we help section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">How We Help (Treatments)</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">How we help Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Instagram Slider</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Instagram Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">CTA Section</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">CTA Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">5-Star Care (Reviews)</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Testimonial Section</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Locations</td><td class="px-3 py-2 font-mono text-secondary-700 bg-secondary-50">Location Section</td></tr>
+              <tr><td class="px-3 py-2 text-gray-400 italic">Highlights, Brand Logos, News & Media, Footer</td><td class="px-3 py-2 text-gray-400 italic">Icons/logos only — no photos needed</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Image Count Rule -->
+      <div>
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">Image Count Rule</p>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1">
+            <p class="font-body text-[11px] font-bold text-gray-700">Our Doctors</p>
+            <p class="font-body text-[10px] text-gray-500">1 doctor → 1 image &nbsp;|&nbsp; 2 doctors → 2 images &nbsp;|&nbsp; 4 doctors → 4 images. One photo per doctor from the Docter Section folder.</p>
+          </div>
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1">
+            <p class="font-body text-[11px] font-bold text-gray-700">How We Help (Treatments)</p>
+            <p class="font-body text-[10px] text-gray-500">1 per treatment slot (up to 4). Each image must match that specific treatment.</p>
+          </div>
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1">
+            <p class="font-body text-[11px] font-bold text-gray-700">Who We Help</p>
+            <p class="font-body text-[10px] text-gray-500">3 images — one per segment. Kids photo = child patient, Teens = teenager, Adults = adult patient.</p>
+          </div>
+          <div class="wf-block border-gray-300 p-3 flex flex-col gap-1">
+            <p class="font-body text-[11px] font-bold text-gray-700">Other sections</p>
+            <p class="font-body text-[10px] text-gray-500">Hero, Step, Our Practice, CTA → 1 image each. Instagram → 4–6. Reviews → 1. Locations → 1 hero + 1 per location pop-up.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selection Rules -->
+      <div class="bg-gray-50 rounded-lg p-3 flex flex-col gap-1.5">
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1">Selection Rules</p>
+        <p class="font-body text-[11px] text-gray-600">• Match image to item — a doctor row must use <em>that doctor's</em> photo; never substitute.</p>
+        <p class="font-body text-[11px] text-gray-600">• Never reuse the same image across two sections.</p>
+        <p class="font-body text-[11px] text-gray-600">• Choose highest-resolution version when duplicates exist.</p>
+        <p class="font-body text-[11px] text-gray-600">• Prefer crops that fit the section: hero = wide landscape, doctors = portrait-friendly, Instagram = square-croppable.</p>
+        <p class="font-body text-[11px] text-gray-600">• If a section's folder is empty or missing — keep the design placeholder and <span class="font-bold text-cta-600">flag it</span>. Do not substitute from another folder.</p>
+        <p class="font-body text-[11px] text-gray-600">• Keep a record: filename → section, for client review.</p>
+      </div>
+
+    </div>
+    <div class="bg-secondary-50 border-t border-secondary-200 px-6 py-2">
+      <span class="font-body text-[11px] text-secondary-700">Every section pulls ONLY from its own matching Drive folder. Never mix folders.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 20 — ICON USAGE INSTRUCTIONS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-6 mb-10" id="icon-usage">
+  <div class="flex items-center gap-3 mb-3">
+    <span class="w-7 h-7 rounded-full bg-secondary-600 text-white text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0">20</span>
+    <span class="section-badge text-secondary-700">Icon Usage Instructions</span>
+    <span class="wf-label text-gray-400">Reference only — production workflow</span>
+  </div>
+  <div class="rounded-xl overflow-hidden border border-secondary-200 shadow-sm">
+    <div class="bg-white p-6 flex flex-col gap-5">
+
+      <!-- Master rule -->
+      <div class="bg-secondary-50 border border-secondary-200 rounded-lg px-4 py-3">
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-secondary-700 mb-1">Master Rule — Priority Order</p>
+        <div class="flex flex-col gap-1 mt-1">
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">1</span>
+            <p class="font-body text-[12px] text-base-black"><strong>System icon library (142 icons)</strong> — always check <a href="icons.html" class="text-primary-600 font-bold">icons.html</a> FIRST.</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded bg-accent-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">2</span>
+            <p class="font-body text-[12px] text-base-black"><strong>Icon not in library?</strong> Ask the user: "I need [icon name] for [section]."</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="w-5 h-5 rounded bg-gray-400 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">3</span>
+            <p class="font-body text-[12px] text-base-black"><strong>No answer yet?</strong> Place a labeled placeholder and flag it.</p>
+          </div>
+        </div>
+        <p class="font-body text-[10px] text-secondary-600 mt-2">Never pull from Font Awesome, Flaticon, Google Images, etc. Never improvise a custom icon when a library icon exists. Never mix icon styles.</p>
+      </div>
+
+      <!-- Where icons are used -->
+      <div>
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">Where Icons Are Used</p>
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <table class="w-full font-body text-[11px]">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="text-left px-3 py-2 font-bold text-gray-600">Section</th>
+                <th class="text-left px-3 py-2 font-bold text-gray-600">Icons Needed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Top Utility Bar</td><td class="px-3 py-2 text-gray-600">Social icons (FB, IG, X, YouTube, TikTok), phone, calculator, referral, portal, video</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Main Navigation</td><td class="px-3 py-2 text-gray-600">Dropdown chevrons, arrow in CTA button</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-yellow-800 font-semibold">Highlights Grid ✦</td><td class="px-3 py-2 text-gray-600">1 per card — location pin, map, smile, dollar, clock, award badge, person, home pin</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Step Section</td><td class="px-3 py-2 text-gray-600">Arrow icons in buttons</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Our Practice</td><td class="px-3 py-2 text-gray-600">Play button badge (rotating text ring)</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Buttons (site-wide)</td><td class="px-3 py-2 text-gray-600">Arrow-right icon</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Reviews</td><td class="px-3 py-2 text-gray-600">Google "G" logo, star icons, slider arrows (left/right)</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Locations</td><td class="px-3 py-2 text-gray-600">Map pins, phone, clock (hours), close (×) on pop-up, zoom +/−</td></tr>
+              <tr class="border-b border-gray-100"><td class="px-3 py-2 text-gray-700">Footer</td><td class="px-3 py-2 text-gray-600">Social icons, location pins, phone</td></tr>
+              <tr><td class="px-3 py-2 text-gray-700">Floating Widgets</td><td class="px-3 py-2 text-gray-600">Accessibility icon, chat bubble</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Missing icon workflow -->
+      <div>
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">Missing Icon Workflow</p>
+        <div class="grid grid-cols-4 gap-2">
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 flex flex-col gap-1">
+            <span class="w-5 h-5 rounded-full bg-gray-700 text-white text-[10px] font-bold font-body flex items-center justify-center mb-1">1</span>
+            <p class="font-body text-[11px] font-bold text-gray-700">Ask the user</p>
+            <p class="font-body text-[10px] text-gray-500">"I need [icon name] — for [section/card]. Please add it to the icon library or approve an alternative."</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 flex flex-col gap-1">
+            <span class="w-5 h-5 rounded-full bg-gray-700 text-white text-[10px] font-bold font-body flex items-center justify-center mb-1">2</span>
+            <p class="font-body text-[11px] font-bold text-gray-700">Insert placeholder</p>
+            <p class="font-body text-[10px] text-gray-500">Neutral square/circle in the icon slot, labeled with the intended icon name. Visually obvious but layout-neutral.</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 flex flex-col gap-1">
+            <span class="w-5 h-5 rounded-full bg-gray-700 text-white text-[10px] font-bold font-body flex items-center justify-center mb-1">3</span>
+            <p class="font-body text-[11px] font-bold text-gray-700">Log it</p>
+            <p class="font-body text-[10px] text-gray-500">Keep a "Missing Icons" list: icon name → section → status (requested / received / updated).</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 flex flex-col gap-1">
+            <span class="w-5 h-5 rounded-full bg-primary-600 text-white text-[10px] font-bold font-body flex items-center justify-center mb-1">4</span>
+            <p class="font-body text-[11px] font-bold text-gray-700">Replace</p>
+            <p class="font-body text-[10px] text-gray-500">Replace the placeholder as soon as the icon is delivered. Remove from the missing-icons log.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design notes -->
+      <div class="bg-gray-50 rounded-lg p-3 flex flex-col gap-1.5">
+        <p class="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1">Design Notes</p>
+        <p class="font-body text-[11px] text-gray-600">• Highlights grid icons: teal accent color inside soft tinted squares — apply same treatment to any new icon added later.</p>
+        <p class="font-body text-[11px] text-gray-600">• Keep icon sizes consistent per context — utility bar = small, trust-card = large.</p>
+        <p class="font-body text-[11px] text-gray-600">• Placeholders must be obvious in internal reviews (never ship unnoticed) but neutral enough not to break the layout.</p>
+      </div>
+
+    </div>
+    <div class="bg-secondary-50 border-t border-secondary-200 px-6 py-2">
+      <span class="font-body text-[11px] text-secondary-700">All 142 icons must come from <a href="icons.html" class="font-bold text-secondary-600">the system icon library</a> first (7 categories: Social, Communication, User, Navigation, Location, UI, DS-Specific). Check icons.html before reaching for any external set.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Structure Summary -->
+<div class="max-w-7xl mx-auto px-6 mb-16">
+  <div class="bg-white rounded-xl border border-gray-200 p-6">
+    <p class="wf-label text-gray-500 mb-4">Mobile structure — summary</p>
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        <p class="font-body text-xs font-bold text-gray-700 mb-2">Section order</p>
+        <div class="flex flex-col gap-1">
+          <p class="font-body text-[11px] text-gray-600">Top Contact Bar (Call / Text)</p>
+          <p class="font-body text-[11px] text-gray-600">Logo + Hamburger Menu</p>
+          <p class="font-body text-[11px] text-gray-600">Hero (image + tagline + CTA)</p>
+          <p class="font-body text-[11px] text-primary-500 font-bold">Sticky Bottom Bar: Call / Text | Free Consult</p>
+          <p class="font-body text-[11px] text-yellow-700">Highlights (stacked cards) — if included</p>
+          <p class="font-body text-[11px] text-gray-600">Step Section (1-2-3 stacked)</p>
+          <p class="font-body text-[11px] text-gray-600">Our Practice Video</p>
+          <p class="font-body text-[11px] text-yellow-700">Brand Logos (2-col grid) — if included</p>
+          <p class="font-body text-[11px] text-gray-600">Our Doctors (photo above text)</p>
+          <p class="font-body text-[11px] text-gray-600">Who We Help (stacked)</p>
+          <p class="font-body text-[11px] text-gray-600">Treatments (stacked)</p>
+          <p class="font-body text-[11px] text-yellow-700">News & Media logos — if included</p>
+          <p class="font-body text-[11px] text-gray-600">Instagram Slider (swipe)</p>
+          <p class="font-body text-[11px] text-gray-600">CTA Section</p>
+          <p class="font-body text-[11px] text-gray-600">Reviews (single-card slider)</p>
+          <p class="font-body text-[11px] text-gray-600">Locations (list above map)</p>
+          <p class="font-body text-[11px] text-gray-600">Footer</p>
+        </div>
+      </div>
+      <div>
+        <p class="font-body text-xs font-bold text-gray-700 mb-2">Mobile rules</p>
+        <div class="flex flex-col gap-1.5">
+          <p class="font-body text-[11px] text-gray-600">One-column layout everywhere</p>
+          <p class="font-body text-[11px] text-gray-600">Zig-zag rows stack: image first, text second</p>
+          <p class="font-body text-[11px] text-gray-600">Hero tagline to one short line</p>
+          <p class="font-body text-[11px] text-gray-600">Sticky Call / Text + Free Consult bar at all times</p>
+          <p class="font-body text-[11px] text-gray-600">Large tap targets for phone, address, hours</p>
+          <p class="font-body text-[11px] text-gray-600">Map: tap-to-open (avoid heavy embedded map on load)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

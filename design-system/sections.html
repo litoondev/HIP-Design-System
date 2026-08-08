@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIP — Section Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          header: ['Figtree', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          base: { white:'#ffffff', black:'#030712', lightgray:'#e7e7e7', gray:'#737373' },
+          textcolor: { preheader:'#f97316', h2:'#030712', h3:'#3196a9', h4:'#06b6d4', h5:'#f97316', body:'#737373', link:'#f97316' },
+          primary: { 50:'#f0fafb',100:'#d9f1f4',200:'#b7e4ea',300:'#85d0db',400:'#4db2c3',500:'#3196a9',600:'#2b7a8f',700:'#296475',800:'#295361',900:'#264653',950:'#152d37',DEFAULT:'#3196a9' },
+          secondary: { 50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63',950:'#083344',DEFAULT:'#06b6d4' },
+          cta: { 50:'#fff7ed',100:'#ffedd5',200:'#fed7aa',300:'#fdba74',400:'#fb923c',500:'#f97316',600:'#ea580c',700:'#c2410c',800:'#9a3412',900:'#7c2d12',950:'#431407',DEFAULT:'#f97316' },
+          gray: { 50:'#fafafa',100:'#f5f5f5',200:'#e5e5e5',300:'#d4d4d4',400:'#a1a1a1',500:'#737373',600:'#525252',700:'#404040',800:'#262626',900:'#171717',950:'#0a0a0a' },
+        },
+      },
+    },
+  };
+</script>
+<style>
+
+/* ─── DS shell ─── */
+.ds-nav a { font-family:'Inter',sans-serif; font-size:13px; color:#737373; text-decoration:none; padding:4px 8px; border-radius:4px; }
+.ds-nav a:hover { background:#f5f5f5; color:#030712; }
+.ds-nav a.active { color:#3196a9; font-weight:700; }
+
+.side-link { display:block; padding:7px 12px; margin:1px 0; border-left:2px solid transparent; border-radius:0 6px 6px 0; font-family:'Inter',sans-serif; font-size:14px; color:#525252; text-decoration:none; }
+.side-link:hover { color:#030712; background:#fafafa; }
+.side-link.active { border-color:#3196a9; color:#3196a9; font-weight:600; background:#f0fafb; }
+
+/* ─── Section card wrapper ─── */
+.sec-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #e5e5e5;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin-bottom: 48px;
+}
+.sec-label-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+.sec-label-strip .sec-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #030712; color: #fff;
+  font-family:'Inter',sans-serif; font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.sec-label-strip .sec-name {
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; color:#404040;
+}
+.sec-label-strip .sec-tag {
+  font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#3196a9;
+  background:#f0fafb; border:1px solid #b7e4ea; border-radius:4px; padding:2px 7px;
+}
+.sec-note {
+  padding: 10px 18px;
+  background: #f0fafb;
+  border-top: 1px solid #d9f1f4;
+  font-family:'Inter',sans-serif; font-size:11px; color:#296475; line-height:1.6;
+}
+.sec-render { overflow: hidden; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 1 — HERO BANNER
+   Source: Cornerstone Orthodontics (adapted to HIP DS)
+   ══════════════════════════════════════════════ */
+
+.hip-hero {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Figtree', sans-serif;
+}
+/* Photo bg — gradient placeholder */
+.hip-hero-bg {
+  position: absolute; inset: 0; z-index: -3;
+  background: linear-gradient(120deg, #1a2d3f 0%, #2c4a3e 40%, #1e3a2f 100%);
+}
+/* Warm grain overlay */
+.hip-hero-shade {
+  position: absolute; inset: 0; z-index: -2;
+  background: linear-gradient(169deg, rgba(3,7,18,.70) 28%, rgba(49,150,169,.25) 100%);
+  pointer-events: none;
+}
+
+/* Top utility bar */
+.hip-utility-bar {
+  height: 44px;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.hip-socials { display:flex; align-items:center; gap:10px; }
+.hip-social-dot {
+  width:26px; height:26px; border-radius:50%;
+  background: #3196a9;
+  display:grid; place-items:center; flex-shrink:0;
+}
+.hip-social-dot svg { width:13px; height:13px; fill:#fff; }
+.hip-utility-links { display:flex; align-items:center; gap:0; }
+.hip-utility-link {
+  display:flex; align-items:center; gap:6px;
+  padding:0 14px; height:44px;
+  font-size:11px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:#fff;
+  border-left:1px solid rgba(255,255,255,.14);
+}
+.hip-utility-link:first-child { border-left:0; }
+.hip-utility-link svg { width:14px; height:14px; opacity:.8; }
+.hip-utility-link.accent { color:#fb923c; }
+
+/* Main nav */
+.hip-main-nav {
+  height: 76px;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.hip-logo {
+  font-family:'Figtree',sans-serif; font-size:22px; font-weight:800;
+  letter-spacing:-0.5px; color:#fff; text-decoration:none; cursor:pointer;
+}
+.hip-logo span { color:#f97316; }
+.hip-nav-links { display:flex; align-items:center; gap:28px; }
+.hip-nav-link {
+  font-family:'Figtree',sans-serif; font-size:15px; font-weight:700;
+  letter-spacing:.4px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  display:flex; align-items:center; gap:4px;
+  text-decoration:none; cursor:pointer;
+  transition: color .15s;
+}
+.hip-nav-link:hover { color:#fff; }
+.hip-nav-link svg { width:13px; height:13px; opacity:.6; }
+.hip-nav-cta {
+  padding:10px 22px; border-radius:100px;
+  background:#f97316; color:#fff;
+  font-family:'Figtree',sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; display:inline-block;
+  transition: opacity .15s;
+}
+.hip-nav-cta:hover { opacity:.9; }
+
+/* Hero content */
+.hip-hero-content {
+  position: absolute; top: 120px; left: 0; right: 0; bottom: 0; /* starts below utility+nav, never overlaps nav */
+  pointer-events: none; /* lets nav clicks pass through any accidental overlap */
+  display: flex; flex-direction:column; align-items:flex-start; justify-content:center;
+  padding: 0 clamp(40px, 5vw, 80px);
+  gap: 28px;
+}
+.hip-hero-eyebrow {
+  font-family:'Figtree',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:2.5px; text-transform:uppercase; color:#f97316;
+}
+.hip-hero-h1 {
+  margin:0; padding:0;
+  font-family:'Figtree',sans-serif; font-size:clamp(44px,5.5vw,80px);
+  font-weight:600; line-height:1.1; color:#fff; text-transform:capitalize;
+}
+.hip-hero-h1 em { font-style:normal; color:#f97316; }
+.hip-hero-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; pointer-events:auto; }
+.hip-hero-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 20px 14px 26px; border-radius:100px;
+  font-family:'Figtree',sans-serif; font-size:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  border:0; cursor:pointer; white-space:nowrap;
+}
+.hip-hero-btn svg { width:22px; height:22px; flex-shrink:0; }
+.hip-hero-btn.primary { background:#f97316; color:#fff; }
+.hip-hero-btn.secondary { background:#fff; color:#3196a9; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 2 — STEP SECTION (Simple & Affordable)
+   ══════════════════════════════════════════════ */
+
+.hip-steps {
+  background: #030712;
+  font-family:'Figtree',sans-serif;
+  color:#fff;
+  padding: 64px 48px;
+}
+.hip-steps-top {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:48px;
+}
+.hip-steps-text { display:flex; flex-direction:column; gap:14px; }
+.hip-steps-eyebrow {
+  font-family:'Inter',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; color:#f97316;
+}
+.hip-steps-h2 {
+  margin:0; font-family:'Figtree',sans-serif;
+  font-size:clamp(28px,3.5vw,48px); font-weight:800; line-height:1.1; color:#fff;
+}
+.hip-steps-body {
+  font-family:'Inter',sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.65); max-width:380px;
+}
+.hip-steps-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:13px 22px; border-radius:100px;
+  background:transparent; border:2px solid rgba(255,255,255,.3); color:#fff;
+  font-family:'Figtree',sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  cursor:pointer; align-self:flex-start;
+  transition:border-color .2s, background .2s;
+}
+.hip-steps-cta svg { width:18px; height:18px; }
+.hip-steps-img {
+  border-radius:10px; height:220px;
+  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-steps-img span { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+
+.hip-steps-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.hip-step-card {
+  padding:28px 24px; border-radius:12px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  display:flex; flex-direction:column; gap:10px;
+}
+.hip-step-num {
+  font-family:'Figtree',sans-serif; font-size:72px; font-weight:800;
+  line-height:1; color:rgba(249,115,22,.18); letter-spacing:-2px;
+}
+.hip-step-title { font-family:'Figtree',sans-serif; font-size:17px; font-weight:700; color:#fff; line-height:1.3; }
+.hip-step-body { font-family:'Inter',sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.55); }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 3 — OUR PRACTICE (Video)
+   ══════════════════════════════════════════════ */
+
+.hip-practice {
+  background:#f0fafb;
+  font-family:'Figtree',sans-serif;
+  padding:64px 48px;
+  display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+}
+.hip-practice-video {
+  position:relative; border-radius:12px; overflow:hidden;
+  aspect-ratio:4/3;
+  background:linear-gradient(135deg,#1e3a4a 0%,#296475 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-play-badge {
+  position:relative; width:100px; height:100px;
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-play-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid rgba(249,115,22,.5);
+  animation: hip-spin 8s linear infinite;
+}
+@keyframes hip-spin { to { transform:rotate(360deg); } }
+.hip-play-ring-text {
+  position:absolute; inset:0; border-radius:50%;
+  font-family:'Figtree',sans-serif; font-size:7.5px; font-weight:700; letter-spacing:3.2px;
+  text-transform:uppercase; color:rgba(249,115,22,.7);
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-play-btn {
+  width:54px; height:54px; border-radius:50%;
+  background:#f97316; display:grid; place-items:center;
+  box-shadow:0 4px 24px rgba(249,115,22,.4);
+}
+.hip-play-btn svg { width:20px; height:20px; fill:#fff; margin-left:3px; }
+.hip-practice-text { display:flex; flex-direction:column; gap:16px; }
+.hip-practice-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hip-practice-h2 { margin:0; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.2; color:#030712; }
+.hip-practice-body { font-family:'Inter',sans-serif; font-size:15px; line-height:1.7; color:#525252; }
+.hip-practice-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 22px; border-radius:100px;
+  border:2px solid #3196a9; color:#3196a9;
+  font-family:'Figtree',sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  align-self:flex-start; cursor:pointer;
+}
+.hip-practice-cta svg { width:16px; height:16px; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 4 — HOW WE HELP (Treatments)
+   ══════════════════════════════════════════════ */
+
+.hip-how {
+  background:#fff;
+  font-family:'Figtree',sans-serif;
+  padding:64px 48px;
+}
+.hip-how-header { text-align:center; margin-bottom:48px; }
+.hip-how-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; margin-bottom:8px; }
+.hip-how-h2 { margin:0; font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.15; color:#030712; }
+.hip-how-intro { font-family:'Inter',sans-serif; font-size:15px; line-height:1.7; color:#737373; margin-top:10px; max-width:520px; margin-inline:auto; }
+
+.hip-how-row {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  padding:32px 0; border-bottom:1px solid #f5f5f5;
+}
+.hip-how-row:last-child { border-bottom:0; }
+.hip-how-row.reverse { direction:rtl; }
+.hip-how-row.reverse > * { direction:ltr; }
+.hip-how-img {
+  border-radius:10px; height:200px;
+  background:linear-gradient(135deg,#f0fafb 0%,#85d0db 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-how-img.warm { background:linear-gradient(135deg,#fff7ed 0%,#fdba74 100%); }
+.hip-how-img.deep { background:linear-gradient(135deg,#f3f4fa 0%,#a4a7d5 100%); }
+.hip-how-img.soft { background:linear-gradient(135deg,#f0fafb 0%,#4db2c3 100%); }
+.hip-how-img span { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
+.hip-how-text { display:flex; flex-direction:column; gap:12px; }
+.hip-how-tag {
+  display:inline-flex; align-items:center;
+  padding:3px 10px; border-radius:100px;
+  background:#f0fafb; border:1px solid #b7e4ea;
+  font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#3196a9;
+  align-self:flex-start;
+}
+.hip-how-title { margin:0; font-size:22px; font-weight:800; line-height:1.2; color:#030712; }
+.hip-how-body { font-family:'Inter',sans-serif; font-size:14px; line-height:1.7; color:#737373; }
+.hip-how-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'Figtree',sans-serif; font-size:14px; font-weight:700; color:#3196a9;
+  letter-spacing:.3px; cursor:pointer;
+}
+.hip-how-link svg { width:16px; height:16px; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 5 — CTA SECTION (Get Started)
+   ══════════════════════════════════════════════ */
+
+.hip-cta {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  font-family:'Figtree',sans-serif;
+  padding:64px 48px;
+  display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+}
+.hip-cta-img {
+  border-radius:14px; height:280px;
+  background:linear-gradient(135deg,#fed7aa 0%,#fb923c 100%);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.hip-cta-img::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hip-cta-img span { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.6); position:relative; }
+.hip-cta-text { display:flex; flex-direction:column; gap:16px; }
+.hip-cta-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hip-cta-h2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#030712; }
+.hip-cta-body { font-family:'Inter',sans-serif; font-size:15px; line-height:1.7; color:#525252; max-width:400px; }
+.hip-cta-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 20px 15px 28px; border-radius:100px;
+  background:#f97316; color:#fff; border:0;
+  font-family:'Figtree',sans-serif; font-size:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  align-self:flex-start; cursor:pointer;
+  box-shadow:0 6px 32px rgba(249,115,22,.35);
+}
+.hip-cta-btn svg { width:22px; height:22px; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 6 — INTERSECTION / HIGHLIGHTS GRID
+   ══════════════════════════════════════════════ */
+
+.hip-highlights {
+  background:#f5f5f5;
+  font-family:'Figtree',sans-serif;
+  padding:56px 48px;
+}
+.hip-highlights-header { text-align:center; margin-bottom:36px; }
+.hip-highlights-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; margin-bottom:8px; }
+.hip-highlights-h2 { margin:0; font-size:clamp(24px,3vw,38px); font-weight:800; line-height:1.2; color:#030712; }
+.hip-highlights-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+}
+.hip-hi-card {
+  background:#fff; border-radius:12px; padding:22px 18px;
+  display:flex; align-items:flex-start; gap:14px;
+  border:1.5px solid #e5e5e5;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+}
+.hip-hi-icon {
+  width:44px; height:44px; border-radius:10px; flex-shrink:0;
+  background:#f0fafb; display:flex; align-items:center; justify-content:center;
+}
+.hip-hi-icon svg { width:22px; height:22px; color:#3196a9; }
+.hip-hi-copy { display:flex; flex-direction:column; gap:3px; }
+.hip-hi-title { font-family:'Figtree',sans-serif; font-size:14px; font-weight:800; color:#030712; line-height:1.3; }
+.hip-hi-sub { font-family:'Inter',sans-serif; font-size:12px; color:#737373; line-height:1.4; }
+
+
+/* ══════════════════════════════════════════════
+   SECTION 7 — REVIEWS (5-Star Care)
+   ══════════════════════════════════════════════ */
+
+.hip-reviews {
+  background:#030712;
+  font-family:'Figtree',sans-serif;
+  padding:64px 48px;
+}
+.hip-reviews-top {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:36px;
+}
+.hip-reviews-text { display:flex; flex-direction:column; gap:12px; }
+.hip-reviews-eyebrow { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hip-reviews-h2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#fff; }
+.hip-reviews-body { font-family:'Inter',sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.6); }
+.hip-reviews-img {
+  border-radius:10px; height:200px;
+  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+.hip-reviews-img span { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+
+.hip-review-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+.hip-review-card {
+  padding:22px; border-radius:12px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  display:flex; flex-direction:column; gap:10px;
+}
+.hip-review-header { display:flex; align-items:center; gap:10px; }
+.hip-google-g {
+  width:26px; height:26px; border-radius:5px; background:#fff;
+  display:grid; place-items:center;
+}
+.hip-google-g svg { width:16px; height:16px; }
+.hip-stars { display:flex; gap:2px; }
+.hip-stars svg { width:14px; height:14px; fill:#f97316; }
+.hip-review-text { font-family:'Inter',sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.75); font-style:italic; }
+.hip-review-footer { display:flex; align-items:center; justify-content:space-between; }
+.hip-reviewer { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+.hip-read-more { font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:#3196a9; cursor:pointer; }
+
+.hip-reviews-controls { display:flex; align-items:center; justify-content:space-between; }
+.hip-slider-arrows { display:flex; gap:8px; }
+.hip-arrow {
+  width:36px; height:36px; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.6);
+  display:grid; place-items:center; cursor:pointer;
+}
+.hip-arrow svg { width:16px; height:16px; }
+.hip-more-reviews {
+  font-family:'Figtree',sans-serif; font-size:13px; font-weight:700;
+  color:#3196a9; letter-spacing:.5px; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+}
+.hip-more-reviews svg { width:14px; height:14px; }
+
+</style>
+</head>
+<body class="bg-gray-50 text-base-black">
+
+<!-- ═══ DS Top Nav ═══ -->
+<header class="fixed top-0 left-0 right-0 h-14 flex items-center gap-6 px-6 bg-white border-b border-gray-200 z-[100]" style="box-shadow:0 1px 0 #e5e5e5;">
+  <a href="index.html" class="flex items-center gap-[10px] no-underline">
+    <span class="font-header font-extrabold text-[20px] text-base-black">HIP</span>
+    <span class="font-body text-[13px] text-gray-500">Style Guide</span>
+  </a>
+  <nav class="ds-nav flex items-center gap-1 ml-auto">
+    <a href="index.html#colors">Foundations</a>
+    <a href="index.html#inputs">Components</a>
+    <a href="buttons.html">Buttons</a>
+    <a href="homepage.html">Homepage</a>
+    <a href="icons.html">Icons</a>
+    <a href="sections.html" class="active">Sections</a>
+  </nav>
+</header>
+
+<div class="flex pt-14 min-h-screen">
+
+  <!-- ═══ Sidebar ═══ -->
+  <nav class="fixed top-14 bottom-0 left-0 w-56 overflow-y-auto px-3 pt-6 pb-10 border-r border-gray-200 bg-white" style="box-shadow:none;">
+    <p class="px-3 mb-2 font-body text-[10px] font-bold tracking-[1px] uppercase text-gray-400">Section Designs</p>
+    <a class="side-link active" href="#hero">01 · Hero Banner</a>
+    <a class="side-link" href="#steps">02 · Step Section</a>
+    <a class="side-link" href="#practice">03 · Our Practice</a>
+    <a class="side-link" href="#how-we-help">04 · How We Help</a>
+    <a class="side-link" href="#cta">05 · CTA Section</a>
+    <a class="side-link" href="#highlights">06 · Highlights Grid</a>
+    <a class="side-link" href="#reviews">07 · Reviews</a>
+
+    <p class="px-3 mb-2 mt-6 font-body text-[10px] font-bold tracking-[1px] uppercase text-gray-400">DS Tokens Used</p>
+    <div class="px-3 flex flex-col gap-2 mt-1">
+      <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#f97316;"></span><span class="font-body text-[11px] text-gray-600">CTA Orange #f97316</span></div>
+      <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#3196a9;"></span><span class="font-body text-[11px] text-gray-600">Primary Teal #3196a9</span></div>
+      <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm flex-shrink-0" style="background:#030712;"></span><span class="font-body text-[11px] text-gray-600">Base Black #030712</span></div>
+      <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm flex-shrink-0 border border-gray-300" style="background:#fff;"></span><span class="font-body text-[11px] text-gray-600">White #ffffff</span></div>
+    </div>
+  </nav>
+
+  <!-- ═══ Main content ═══ -->
+  <main class="ml-56 flex-1 px-10 pt-10 pb-24 max-w-[1100px]">
+
+    <div class="mb-10">
+      <p class="font-body text-[11px] font-bold uppercase tracking-widest text-cta mb-1">Creative Reference</p>
+      <h1 class="font-header font-extrabold text-[32px] text-base-black leading-tight mt-0 mb-2">Section Designs</h1>
+      <p class="font-body text-[14px] text-gray-500">Full rendered section designs adapted to the HIP design system. All typography, colors, and icons match DS tokens. Use these as creative references when building pages.</p>
+    </div>
+
+
+    <!-- ══ 01 HERO BANNER ══ -->
+    <div class="sec-card" id="hero">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">01</span>
+          <span class="sec-name">Hero Banner</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="sec-tag">Full-bleed · Dark overlay · 2-button</span>
+        </div>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-hero">
+          <div class="hip-hero-bg"></div>
+          <div class="hip-hero-shade"></div>
+
+          <!-- Utility bar -->
+          <div class="hip-utility-bar">
+            <div class="hip-socials">
+              <!-- Facebook -->
+              <a class="hip-social-dot" href="#" aria-label="Facebook">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8.0426C15 11.5639 12.4315 14.4888 9.07258 15V10.0872H10.7097L11.0202 8.0426H9.07258V6.73631C9.07258 6.16836 9.35484 5.6288 10.2298 5.6288H11.1048V3.89655C11.1048 3.89655 10.3145 3.75456 9.52419 3.75456C7.94355 3.75456 6.89919 4.74848 6.89919 6.50913V8.0426H5.12097V10.0872H6.89919V15C3.54032 14.4888 1 11.5639 1 8.0426C1 4.15213 4.13306 1 8 1C11.8669 1 15 4.15213 15 8.0426Z" fill="rgba(255,255,255,0.85)"/></svg>
+              </a>
+              <!-- Instagram -->
+              <a class="hip-social-dot" href="#" aria-label="Instagram">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6.34375C8.90625 6.34375 9.65625 7.09375 9.65625 8C9.65625 8.9375 8.90625 9.6875 8 9.6875C7.0625 9.6875 6.3125 8.9375 6.3125 8C6.3125 7.09375 7.0625 6.34375 8 6.34375ZM11.875 5.0625C12.1562 5.71875 12.0938 7.28125 12.0938 8C12.0938 8.75 12.1562 10.3125 11.875 10.9688C11.7188 11.4062 11.375 11.75 10.9375 11.9062C10.2812 12.1875 8.71875 12.125 8 12.125C7.25 12.125 5.6875 12.1875 5.03125 11.9062C4.59375 11.75 4.25 11.4062 4.09375 10.9688C3.84375 10.3125 3.875 8.75 3.875 8C3.875 7.28125 3.84375 5.71875 4.09375 5.0625C4.25 4.625 4.59375 4.28125 5.03125 4.125C5.6875 3.84375 7.25 3.90625 8 3.90625C8.71875 3.90625 10.2812 3.84375 10.9375 4.125C11.375 4.28125 11.7188 4.625 11.875 5.0625ZM8 10.5625V10.5938C9.40625 10.5938 10.5625 9.4375 10.5625 8.03125V8C10.5625 6.59375 9.40625 5.4375 8 5.4375C6.5625 5.4375 5.4375 6.59375 5.4375 8C5.4375 9.4375 6.5625 10.5625 8 10.5625ZM10.6562 5.9375C10.9688 5.9375 11.25 5.6875 11.25 5.34375C11.25 5 10.9688 4.75 10.6562 4.75C10.3125 4.75 10.0625 5 10.0625 5.34375C10.0625 5.6875 10.3125 5.9375 10.6562 5.9375ZM13.5 1C14.3125 1 15 1.6875 15 2.5V13.5C15 14.3438 14.3125 15 13.5 15H2.5C1.65625 15 1 14.3438 1 13.5V2.5C1 1.6875 1.65625 1 2.5 1H13.5ZM12.9375 10.0625C13 9.25 13 6.78125 12.9375 5.96875C12.9062 5.15625 12.7188 4.4375 12.1562 3.875C11.5625 3.28125 10.8438 3.09375 10.0625 3.0625C9.21875 3 6.75 3 5.9375 3.0625C5.125 3.09375 4.40625 3.28125 3.84375 3.84375C3.25 4.4375 3.0625 5.15625 3.03125 5.9375C2.96875 6.78125 2.96875 9.25 3.03125 10.0625C3.0625 10.875 3.25 11.5938 3.84375 12.1562C4.40625 12.75 5.125 12.9375 5.9375 12.9688C6.75 13.0312 9.21875 13.0312 10.0625 12.9688C10.8438 12.9375 11.5625 12.75 12.1562 12.1562C12.7188 11.5938 12.9062 10.875 12.9375 10.0625Z" fill="rgba(255,255,255,0.85)"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a class="hip-social-dot" href="#" aria-label="YouTube">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.8125 6.34375L9.8125 8.03125L6.8125 9.71875V6.34375ZM15 2.5V13.5C15 14.3438 14.3125 15 13.5 15H2.5C1.65625 15 1 14.3438 1 13.5V2.5C1 1.6875 1.65625 1 2.5 1H13.5C14.3125 1 15 1.6875 15 2.5ZM13.6875 8.03125C13.6875 8.03125 13.6875 6.15625 13.4375 5.28125C13.3125 4.78125 12.9062 4.375 12.4375 4.25C11.5312 4 8 4 8 4C8 4 4.4375 4 3.53125 4.25C3.0625 4.375 2.65625 4.78125 2.53125 5.28125C2.3125 6.15625 2.3125 8.03125 2.3125 8.03125C2.3125 8.03125 2.3125 9.875 2.53125 10.7812C2.65625 11.2812 3.0625 11.6562 3.53125 11.7812C4.4375 12 8 12 8 12C8 12 11.5312 12 12.4375 11.7812C12.9062 11.6562 13.3125 11.2812 13.4375 10.7812C13.6875 9.875 13.6875 8.03125 13.6875 8.03125Z" fill="rgba(255,255,255,0.85)"/></svg>
+              </a>
+              <!-- TikTok -->
+              <a class="hip-social-dot" href="#" aria-label="TikTok">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 6.74219H13.9732C12.7411 6.74219 11.6161 6.35938 10.7054 5.67578V10.5703C10.7054 13.0312 8.75 15 6.33929 15C3.92857 15 2 13.0312 2 10.5703C2 8.10938 3.92857 6.11328 6.33929 6.11328C6.55357 6.11328 6.74107 6.14062 6.95536 6.16797V8.62891C6.74107 8.54688 6.55357 8.51953 6.33929 8.51953C5.24107 8.51953 4.33036 9.44922 4.33036 10.5703C4.33036 11.6914 5.24107 12.6211 6.33929 12.6211C7.4375 12.6211 8.34821 11.6914 8.34821 10.5703V1H10.7054C10.7054 1.02734 10.7054 1.02734 10.7054 1.05469C10.7054 1.24609 10.7054 1.4375 10.7589 1.62891C10.9196 2.53125 11.4554 3.32422 12.2054 3.81641C12.7143 4.17188 13.3304 4.36328 13.9732 4.36328C13.9732 4.36328 13.9732 4.36328 14 4.36328V6.74219Z" fill="rgba(255,255,255,0.85)"/></svg>
+              </a>
+            </div>
+            <div class="hip-utility-links">
+              <a class="hip-utility-link accent" href="#">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0625 1C11.7734 1 12.375 1.60156 12.375 2.3125V13.6875C12.375 14.4258 11.7734 15 11.0625 15H4.9375C4.19922 15 3.625 14.4258 3.625 13.6875V2.3125C3.625 1.60156 4.19922 1 4.9375 1H11.0625ZM8 14.125C8.46484 14.125 8.875 13.7422 8.875 13.25C8.875 12.7852 8.46484 12.375 8 12.375C7.50781 12.375 7.125 12.7852 7.125 13.25C7.125 13.7422 7.50781 14.125 8 14.125ZM11.0625 11.1719V2.64062C11.0625 2.47656 10.8984 2.3125 10.7344 2.3125H5.26562C5.07422 2.3125 4.9375 2.47656 4.9375 2.64062V11.1719C4.9375 11.3633 5.07422 11.5 5.26562 11.5H10.7344C10.8984 11.5 11.0625 11.3633 11.0625 11.1719Z" fill="rgba(255,255,255,0.85)"/></svg>
+                Call / Text
+              </a>
+              <a class="hip-utility-link" href="#">
+                <!-- DS icon: dollar-symbol -->
+                <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 0C6.71504 0 0 6.7157 0 15C0 23.2843 6.71504 30 15 30C23.285 30 30 23.2836 30 15C30 6.71635 23.2843 0 15 0ZM15.908 21.6818V23.4181C15.908 23.689 15.6972 23.8862 15.4256 23.8862H14.2682C13.9967 23.8862 13.778 23.689 13.778 23.4181V21.8345C12.7127 21.7862 11.6382 21.559 10.8249 21.2496C10.3843 21.0825 10.1388 20.6106 10.2557 20.1536L10.4443 19.4186C10.5102 19.1608 10.6826 18.9453 10.9182 18.8246C11.1539 18.7019 11.4307 18.6895 11.6781 18.7841C12.4529 19.0837 13.3681 19.3018 14.3453 19.3018C15.5894 19.3018 16.4413 18.8213 16.4413 17.9479C16.4413 17.1182 15.7429 16.5941 14.1266 16.0477C11.7903 15.2618 10.1904 14.1703 10.1904 12.0521C10.1904 10.131 11.5501 8.6244 13.8746 8.1655V6.58188C13.8746 6.31098 14.1064 6.06815 14.3779 6.06815H15.5353C15.8068 6.06815 16.0059 6.31098 16.0059 6.58188V8.0121C17.0223 8.05583 17.756 8.20662 18.3696 8.40637C18.8337 8.55781 19.1079 9.04413 18.9858 9.51804L18.82 10.176C18.7554 10.4267 18.5896 10.6395 18.3624 10.7622C18.1353 10.8849 17.867 10.9071 17.6215 10.8229C17.0641 10.6317 16.3369 10.458 15.4152 10.458C13.996 10.458 13.5371 11.0697 13.5371 11.6813C13.5371 12.402 14.3015 12.8602 16.1574 13.5593C18.7554 14.4765 19.7992 15.6776 19.7992 17.6418C19.7985 19.5851 18.4257 21.2457 15.908 21.6818Z" fill="rgba(255,255,255,0.8)"/></svg>
+                Payment Calculator
+              </a>
+              <a class="hip-utility-link" href="#">
+                <!-- DS icon: user -->
+                <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1C11.3 1.05 7.77 2.54 5.15 5.15C2.54 7.77 1.05 11.3 1 15C1.02 17.15 1.53 19.28 2.5 21.2C3.47 23.12 4.87 24.8 6.6 26.09L6.74 26.2C9.11 28.02 12.01 29 15 29C17.99 29 20.89 28.02 23.26 26.2L23.4 26.09C25.12 24.8 26.53 23.12 27.5 21.2C28.47 19.28 28.99 17.16 29 15C28.95 11.3 27.46 7.77 24.85 5.15C22.23 2.54 18.7 1.05 15 1ZM9.5 24.7C9.7 23.76 10.22 22.93 10.97 22.33C11.72 21.73 12.65 21.4 13.6 21.4H16.4C17.36 21.4 18.29 21.73 19.03 22.33C19.78 22.93 20.29 23.77 20.5 24.7C18.83 25.68 16.93 26.2 15 26.2C13.07 26.2 11.17 25.68 9.5 24.7ZM22.86 22.89C22.33 21.62 21.43 20.53 20.28 19.77C19.13 19.01 17.78 18.6 16.4 18.6H13.6C12.22 18.6 10.87 19.01 9.72 19.77C8.57 20.53 7.68 21.62 7.14 22.89C6.09 21.86 5.26 20.63 4.68 19.28C4.11 17.93 3.8 16.47 3.79 15C3.83 12.04 5.02 9.21 7.11 7.12C9.2 5.03 12.03 3.84 14.99 3.8C17.95 3.84 20.78 5.03 22.87 7.12C24.96 9.21 26.15 12.04 26.19 15C26.18 16.47 25.88 17.93 25.3 19.28C24.73 20.63 23.89 21.86 22.84 22.89H22.86ZM15 6.6C14.26 6.58 13.52 6.72 12.84 6.99C12.15 7.27 11.53 7.68 11.01 8.2C10.49 8.72 10.07 9.35 9.8 10.03C9.52 10.72 9.39 11.45 9.41 12.19C9.39 12.93 9.53 13.67 9.8 14.35C10.08 15.04 10.49 15.66 11.01 16.18C11.53 16.7 12.16 17.12 12.84 17.39C13.53 17.67 14.26 17.8 15 17.78C15.74 17.8 16.48 17.66 17.16 17.39C17.85 17.11 18.47 16.7 18.99 16.18C19.51 15.66 19.93 15.03 20.2 14.35C20.48 13.66 20.61 12.93 20.59 12.19C20.61 11.45 20.47 10.71 20.2 10.03C19.92 9.34 19.51 8.72 18.99 8.2C18.47 7.68 17.84 7.26 17.16 6.99C16.47 6.71 15.74 6.58 15 6.6ZM15 15C14.63 15.02 14.26 14.96 13.91 14.82C13.56 14.69 13.25 14.48 12.98 14.22C12.72 13.96 12.51 13.64 12.38 13.29C12.25 12.94 12.19 12.57 12.2 12.2C12.18 11.83 12.24 11.46 12.38 11.11C12.51 10.76 12.72 10.45 12.98 10.18C13.24 9.92 13.56 9.71 13.91 9.58C14.26 9.45 14.63 9.39 15 9.4C15.37 9.38 15.74 9.44 16.09 9.58C16.44 9.71 16.75 9.92 17.02 10.18C17.28 10.44 17.49 10.76 17.62 11.11C17.75 11.46 17.81 11.83 17.8 12.2C17.82 12.57 17.76 12.94 17.62 13.29C17.49 13.64 17.28 13.95 17.02 14.22C16.76 14.48 16.44 14.69 16.09 14.82C15.74 14.95 15.37 15.01 15 15Z" fill="rgba(255,255,255,0.8)"/></svg>
+                Referral
+              </a>
+              <a class="hip-utility-link" href="#">
+                <!-- DS icon: world -->
+                <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4774 9.39677H18.5036C18.5036 9.37 18.5046 9.34551 18.5055 9.32267C18.5072 9.2774 18.5088 9.23854 18.502 9.20109C18.4339 8.80897 18.3689 8.41616 18.3039 8.02334C18.1509 7.0989 17.9979 6.17407 17.804 5.25843C17.5129 3.88316 17.0825 2.54546 16.3845 1.31109C16.0848 0.781955 15.7382 0.290396 15.1771 0H14.8258C14.3633 0.244214 14.0174 0.614449 13.7741 1.06374C13.4783 1.61087 13.1841 2.16505 12.9571 2.74271C12.2912 4.43969 11.9328 6.21651 11.6621 8.01211C11.6149 8.32576 11.5747 8.64015 11.5342 8.95703L11.5341 8.95768L11.5341 8.95814C11.5155 9.10339 11.4968 9.24952 11.4774 9.39599V9.39677Z" fill="rgba(255,255,255,0.8)"/><path d="M9.48336 11.1893C9.4678 11.1885 9.44866 11.1871 9.42706 11.1855C9.38023 11.1819 9.32184 11.1775 9.26348 11.1775C8.72416 11.1775 8.18484 11.1776 7.64552 11.1778C5.35373 11.1782 3.06204 11.1787 0.770859 11.1705C0.526714 11.1697 0.461766 11.266 0.414033 11.4726C0.103375 12.8119 -0.0413903 14.166 0.0102556 15.5389C0.0517288 16.6418 0.199624 17.7306 0.492284 18.7998H9.48336V11.1893Z" fill="rgba(255,255,255,0.8)"/><path d="M29.2301 11.1705C29.4742 11.1689 29.5392 11.2652 29.5869 11.4726H29.5877C29.8976 12.8119 30.0431 14.166 29.9907 15.539C29.9484 16.6418 29.8013 17.7306 29.5087 18.7998H20.5176V11.1893C20.5294 11.1885 20.5433 11.1875 20.5588 11.1863C20.6078 11.1825 20.6726 11.1775 20.7375 11.1775C21.445 11.1773 22.1527 11.1774 22.8603 11.1775C24.9834 11.1778 27.1067 11.1781 29.2301 11.1705Z" fill="rgba(255,255,255,0.8)"/><path d="M11.3144 18.8092H18.6903C18.8672 16.2512 18.8727 13.7284 18.688 11.1963H11.3112C11.1328 13.7457 11.1281 16.2755 11.3144 18.8092Z" fill="rgba(255,255,255,0.8)"/><path d="M24.765 26.3829C22.7665 28.1026 20.4714 29.2125 17.8327 29.7331C19.3931 26.862 19.8907 23.7608 20.2984 20.6079H28.9155C27.989 22.8865 26.6055 24.7995 24.765 26.3829Z" fill="rgba(255,255,255,0.8)"/><path d="M28.9192 9.40059C27.9137 6.93262 26.3854 4.90219 24.336 3.26157C22.4322 1.73758 20.281 0.74742 17.8341 0.26995C19.3968 3.14964 19.8929 6.25555 20.2998 9.40059H28.9192Z" fill="rgba(255,255,255,0.8)"/><path d="M4.36489 4.42881C6.52463 2.26454 9.10458 0.881439 12.1634 0.268555C10.6078 3.1412 10.1078 6.24163 9.70007 9.40389H1.08538C1.84129 7.50184 2.93994 5.85652 4.36489 4.42881Z" fill="rgba(255,255,255,0.8)"/><path d="M1.0784 20.5954C2.0855 23.0594 3.60201 25.0789 5.63341 26.7117C7.54431 28.2482 9.70561 29.247 12.1666 29.7299C10.6016 26.8526 10.1086 23.7396 9.69935 20.5954H1.0784Z" fill="rgba(255,255,255,0.8)"/><path d="M11.4997 20.5985H18.5298V20.5993C18.5023 20.7964 18.4763 20.9918 18.4504 21.1857C18.3941 21.6087 18.3387 22.025 18.27 22.4387C17.9797 24.1913 17.6213 25.9313 16.9147 27.5696C16.6354 28.2169 16.2824 28.8478 15.8669 29.4168C15.291 30.2058 14.7409 30.1823 14.118 29.4207C13.4145 28.5597 13.0194 27.539 12.679 26.4996C12.067 24.6296 11.7313 22.7009 11.4935 20.7527C11.4892 20.722 11.4922 20.6898 11.4955 20.6535C11.497 20.6362 11.4987 20.618 11.4997 20.5985Z" fill="rgba(255,255,255,0.8)"/></svg>
+                Portal
+              </a>
+              <a class="hip-utility-link" href="#">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.91904 4H2.53173C1.68928 4 1 4.67039 1 5.48976V10.5102C1 11.3296 1.68928 12 2.53173 12H8.91904C9.76149 12 10.4508 11.3296 10.4508 10.5102V5.48976C10.4508 4.65549 9.76149 4 8.91904 4Z" fill="rgba(255,255,255,0.85)"/><path d="M13.8665 4.81937C13.7746 4.83426 13.6827 4.87896 13.6061 4.92365L11.2166 6.26443V9.72067L13.6214 11.0615C14.0656 11.3147 14.6171 11.1657 14.8775 10.7337C14.954 10.5996 15 10.4507 15 10.2868V5.68343C15 5.13222 14.4639 4.68529 13.8665 4.81937Z" fill="rgba(255,255,255,0.85)"/></svg>
+                Virtual Consult
+              </a>
+            </div>
+          </div>
+
+          <!-- Main nav -->
+          <div class="hip-main-nav">
+            <a class="hip-logo" href="#">HIP<span>.</span></a>
+            <nav class="hip-nav-links">
+              <a class="hip-nav-link" href="#">Our Practice <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+              <a class="hip-nav-link" href="#">Services <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+              <a class="hip-nav-link" href="#">Patient Resources <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+              <a class="hip-nav-link" href="#">Contact Us <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+            </nav>
+            <a class="hip-nav-cta" href="#">Free Consult</a>
+          </div>
+
+          <!-- Hero content -->
+          <div class="hip-hero-content">
+            <p class="hip-hero-eyebrow">Orthodontic Excellence</p>
+            <h1 class="hip-hero-h1">Live Life <em>Smiling</em></h1>
+            <div class="hip-hero-actions">
+              <button class="hip-hero-btn primary">
+                Free Consult
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <button class="hip-hero-btn secondary">
+                What Sets Us Apart
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Utility bar icons from <a href="icons.html" style="color:#3196a9;font-weight:600;">icon library</a>. CTA pill: <code>#f97316</code> (cta-500). Nav text: Figtree 700 15px / 1.5 / 0.4px. Hero H1: Figtree 600, clamp(44px–80px), line-height 1.1. Social dots: primary-500 (#3196a9). Gradient overlay: navy #0e1f35 at 70%. Hero image: pull from Google Drive → <strong>Hero Section</strong> folder.
+      </div>
+    </div>
+
+
+    <!-- ══ 01B HERO BANNER — Pill Nav · Full-bleed · Centered ══ -->
+    <div class="sec-card" id="hero2">
+      <div class="sec-label-strip">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="sec-num">01B</span>
+          <span class="sec-name">HERO BANNER</span>
+          <span class="sec-tag">Pill Nav · Full-bleed · Centered text</span>
+        </div>
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render" style="padding:0;">
+
+        <style>
+        /* ── 01B scoped — Ward-style adapted to HIP DS ── */
+        .w2-header {
+          position:relative; width:100%; height:100vh; min-height:600px; overflow:hidden; background:#fff;
+        }
+        /* NAV overlays everything */
+        .w2-nav {
+          position:absolute; top:0; left:0; right:0; z-index:10;
+        }
+        /* Topbar */
+        .w2-topbar {
+          height:40px; padding:0 48px;
+          background:#0e1f35;
+          display:flex; align-items:center; justify-content:space-between;
+        }
+        .w2-socials { display:flex; align-items:center; gap:10px; }
+        .w2-social-dot {
+          width:26px; height:26px; border-radius:50%;
+          background:#3196a9; display:flex; align-items:center; justify-content:center;
+        }
+        .w2-social-dot svg { width:13px; height:13px; fill:#fff; }
+        .w2-soc-div { width:2px; height:10px; border-radius:6px; background:rgba(255,255,255,.2); }
+        .w2-util-links { display:flex; align-items:center; gap:28px; }
+        .w2-util-link {
+          display:inline-flex; align-items:center; gap:7px;
+          color:#fff; font-family:'Inter',sans-serif;
+          font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+          white-space:nowrap; opacity:.9;
+        }
+        .w2-util-link.accent { color:#f97316; }
+        .w2-util-link svg { width:13px; height:13px; opacity:.85; }
+
+        /* Pill mainbar — floats over hero */
+        .w2-mainbar-wrap { padding-left:48px; }
+        .w2-mainbar {
+          height:100px; padding:16px 32px 16px 24px;
+          background:#fff;
+          border-radius:100px 0 0 100px;
+          display:flex; align-items:center;
+          box-shadow:0 6px 30px rgba(14,31,53,.15);
+        }
+        .w2-brand {
+          flex:0 0 auto;
+          font-family:'Figtree',sans-serif; font-size:28px; font-weight:800;
+          color:#0e1f35; letter-spacing:-.5px; margin-right:48px;
+        }
+        .w2-brand span { color:#f97316; }
+        .w2-navlinks {
+          flex:1; display:flex; align-items:center; justify-content:flex-end; gap:36px;
+        }
+        .w2-navlink {
+          font-family:'Figtree',sans-serif; font-size:15px; font-weight:700;
+          color:#0e1f35; letter-spacing:.3px; text-transform:uppercase;
+          white-space:nowrap; display:flex; align-items:center; gap:4px;
+        }
+        .w2-navlink svg { width:12px; height:12px; opacity:.45; }
+        .w2-consult {
+          display:inline-flex; align-items:center; justify-content:center;
+          height:44px; padding:0 24px; border-radius:100px;
+          background:#f97316; color:#fff;
+          font-family:'Figtree',sans-serif; font-size:14px; font-weight:800;
+          letter-spacing:.4px; text-transform:uppercase; white-space:nowrap;
+          margin-left:36px; flex-shrink:0;
+        }
+
+        /* Hero — full-bleed, starts at top:40px (below topbar) */
+        .w2-hero {
+          position:absolute; top:40px; right:0; bottom:0; left:0;
+          background:linear-gradient(135deg,#0e1f35 0%,#1a3a5c 40%,#24506e 70%,#2d6885 100%);
+          background-size:cover; background-position:center;
+        }
+        /* White strip on right edge — Ward signature detail */
+        .w2-hero::after {
+          content:''; position:absolute; inset:0 0 0 auto;
+          width:48px; background:#fff;
+        }
+        /* Pattern overlay */
+        .w2-hero-pattern {
+          position:absolute; inset:0;
+          background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          pointer-events:none; z-index:1;
+        }
+        /* Hero content — centered at ~45% from top of hero, left-aligned */
+        .w2-hero-content {
+          position:absolute; z-index:4;
+          top:42%; left:48px; right:80px;
+          display:flex; flex-direction:column; align-items:center; gap:32px;
+        }
+        .w2-h1 {
+          margin:0; color:#fff;
+          font-family:'Figtree',sans-serif;
+          font-size:clamp(52px,5.5vw,80px);
+          font-weight:800; line-height:1.1;
+          text-align:center; text-transform:uppercase; white-space:nowrap;
+          letter-spacing:-.5px;
+        }
+        .w2-h1 em { color:#f97316; font-style:normal; }
+        .w2-hero-btns { display:flex; align-items:center; justify-content:center; gap:20px; }
+        /* Button: circular icon on left + text */
+        .w2-btn {
+          height:56px; padding:8px 24px 8px 8px;
+          display:inline-flex; align-items:center; gap:14px;
+          border-radius:100px;
+          font-family:'Figtree',sans-serif; font-size:14px; font-weight:800;
+          letter-spacing:.8px; text-transform:uppercase; white-space:nowrap;
+        }
+        .w2-btn-icon {
+          flex:0 0 40px; width:40px; height:40px;
+          border-radius:50%; display:grid; place-items:center;
+        }
+        .w2-btn-icon svg { width:20px; height:20px; }
+        .w2-btn.primary { background:#f97316; color:#fff; }
+        .w2-btn.primary .w2-btn-icon { background:#0e1f35; }
+        .w2-btn.secondary { background:#3196a9; color:#fff; }
+        .w2-btn.secondary .w2-btn-icon { background:#fff; }
+        .w2-btn.secondary .w2-btn-icon svg { color:#3196a9; }
+        </style>
+
+        <div class="w2-header">
+
+          <!-- Navigation (absolutely over hero) -->
+          <nav class="w2-nav">
+            <!-- Topbar -->
+            <div class="w2-topbar">
+              <div class="w2-socials">
+                <a class="w2-social-dot" href="#" aria-label="Facebook">
+                  <svg viewBox="0 0 16 16"><path d="M15 8.0426C15 11.5639 12.4315 14.4888 9.07258 15V10.0872H10.7097L11.0202 8.0426H9.07258V6.73631C9.07258 6.16836 9.35484 5.6288 10.2298 5.6288H11.1048V3.89655C11.1048 3.89655 10.3145 3.75456 9.52419 3.75456C7.94355 3.75456 6.89919 4.74848 6.89919 6.50913V8.0426H5.12097V10.0872H6.89919V15C3.54032 14.4888 1 11.5639 1 8.0426C1 4.15213 4.13306 1 8 1C11.8669 1 15 4.15213 15 8.0426Z" fill="#fff"/></svg>
+                </a>
+                <span class="w2-soc-div"></span>
+                <a class="w2-social-dot" href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 16 16"><path d="M8 6.34375C8.90625 6.34375 9.65625 7.09375 9.65625 8C9.65625 8.9375 8.90625 9.6875 8 9.6875C7.0625 9.6875 6.3125 8.9375 6.3125 8C6.3125 7.09375 7.0625 6.34375 8 6.34375ZM11.875 5.0625C12.1562 5.71875 12.0938 7.28125 12.0938 8C12.0938 8.75 12.1562 10.3125 11.875 10.9688C11.7188 11.4062 11.375 11.75 10.9375 11.9062C10.2812 12.1875 8.71875 12.125 8 12.125C7.25 12.125 5.6875 12.1875 5.03125 11.9062C4.59375 11.75 4.25 11.4062 4.09375 10.9688C3.84375 10.3125 3.875 8.75 3.875 8C3.875 7.28125 3.84375 5.71875 4.09375 5.0625C4.25 4.625 4.59375 4.28125 5.03125 4.125C5.6875 3.84375 7.25 3.90625 8 3.90625C8.71875 3.90625 10.2812 3.84375 10.9375 4.125C11.375 4.28125 11.7188 4.625 11.875 5.0625ZM8 10.5625C9.40625 10.5938 10.5625 9.4375 10.5625 8.03125V8C10.5625 6.59375 9.40625 5.4375 8 5.4375C6.5625 5.4375 5.4375 6.59375 5.4375 8C5.4375 9.4375 6.5625 10.5625 8 10.5625ZM10.6562 5.9375C10.9688 5.9375 11.25 5.6875 11.25 5.34375C11.25 5 10.9688 4.75 10.6562 4.75C10.3125 4.75 10.0625 5 10.0625 5.34375C10.0625 5.6875 10.3125 5.9375 10.6562 5.9375ZM13.5 1C14.3125 1 15 1.6875 15 2.5V13.5C15 14.3438 14.3125 15 13.5 15H2.5C1.65625 15 1 14.3438 1 13.5V2.5C1 1.6875 1.65625 1 2.5 1H13.5ZM12.9375 10.0625C13 9.25 13 6.78125 12.9375 5.96875C12.9062 5.15625 12.7188 4.4375 12.1562 3.875C11.5625 3.28125 10.8438 3.09375 10.0625 3.0625C9.21875 3 6.75 3 5.9375 3.0625C5.125 3.09375 4.40625 3.28125 3.84375 3.84375C3.25 4.4375 3.0625 5.15625 3.03125 5.9375C2.96875 6.78125 2.96875 9.25 3.03125 10.0625C3.0625 10.875 3.25 11.5938 3.84375 12.1562C4.40625 12.75 5.125 12.9375 5.9375 12.9688C6.75 13.0312 9.21875 13.0312 10.0625 12.9688C10.8438 12.9375 11.5625 12.75 12.1562 12.1562C12.7188 11.5938 12.9062 10.875 12.9375 10.0625Z" fill="#fff"/></svg>
+                </a>
+              </div>
+              <div class="w2-util-links">
+                <a class="w2-util-link accent" href="#">
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M11.0625 1C11.7734 1 12.375 1.60156 12.375 2.3125V13.6875C12.375 14.4258 11.7734 15 11.0625 15H4.9375C4.19922 15 3.625 14.4258 3.625 13.6875V2.3125C3.625 1.60156 4.19922 1 4.9375 1H11.0625ZM8 14.125C8.46484 14.125 8.875 13.7422 8.875 13.25C8.875 12.7852 8.46484 12.375 8 12.375C7.50781 12.375 7.125 12.7852 7.125 13.25C7.125 13.7422 7.50781 14.125 8 14.125ZM11.0625 11.1719V2.64062C11.0625 2.47656 10.8984 2.3125 10.7344 2.3125H5.26562C5.07422 2.3125 4.9375 2.47656 4.9375 2.64062V11.1719C4.9375 11.3633 5.07422 11.5 5.26562 11.5H10.7344C10.8984 11.5 11.0625 11.3633 11.0625 11.1719Z" fill="rgba(255,255,255,0.9)"/></svg>
+                  Call / Text
+                </a>
+                <a class="w2-util-link" href="#">
+                  <svg width="13" height="13" viewBox="0 0 30 30" fill="none"><path d="M15 0C6.71504 0 0 6.7157 0 15C0 23.2843 6.71504 30 15 30C23.285 30 30 23.2836 30 15C30 6.71635 23.2843 0 15 0ZM15.908 21.6818V23.4181C15.908 23.689 15.6972 23.8862 15.4256 23.8862H14.2682C13.9967 23.8862 13.778 23.689 13.778 23.4181V21.8345C12.7127 21.7862 11.6382 21.559 10.8249 21.2496C10.3843 21.0825 10.1388 20.6106 10.2557 20.1536L10.4443 19.4186C10.5102 19.1608 10.6826 18.9453 10.9182 18.8246C11.1539 18.7019 11.4307 18.6895 11.6781 18.7841C12.4529 19.0837 13.3681 19.3018 14.3453 19.3018C15.5894 19.3018 16.4413 18.8213 16.4413 17.9479C16.4413 17.1182 15.7429 16.5941 14.1266 16.0477C11.7903 15.2618 10.1904 14.1703 10.1904 12.0521C10.1904 10.131 11.5501 8.6244 13.8746 8.1655V6.58188C13.8746 6.31098 14.1064 6.06815 14.3779 6.06815H15.5353C15.8068 6.06815 16.0059 6.31098 16.0059 6.58188V8.0121C17.0223 8.05583 17.756 8.20662 18.3696 8.40637C18.8337 8.55781 19.1079 9.04413 18.9858 9.51804L18.82 10.176C18.7554 10.4267 18.5896 10.6395 18.3624 10.7622C18.1353 10.8849 17.867 10.9071 17.6215 10.8229C17.0641 10.6317 16.3369 10.458 15.4152 10.458C13.996 10.458 13.5371 11.0697 13.5371 11.6813C13.5371 12.402 14.3015 12.8602 16.1574 13.5593C18.7554 14.4765 19.7992 15.6776 19.7992 17.6418C19.7985 19.5851 18.4257 21.2457 15.908 21.6818Z" fill="rgba(255,255,255,0.9)"/></svg>
+                  Payment Calculator
+                </a>
+                <a class="w2-util-link" href="#">
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 8C6.05859 8 4.5 6.44141 4.5 4.5C4.5 2.58594 6.05859 1 8 1C9.91406 1 11.5 2.58594 11.5 4.5C11.5 6.44141 9.91406 8 8 8ZM10.4336 8.875C12.457 8.875 14.125 10.543 14.125 12.5664V13.6875C14.125 14.4258 13.5234 15 12.8125 15H3.1875C2.44922 15 1.875 14.4258 1.875 13.6875V12.5664C1.875 10.543 3.51562 8.875 5.53906 8.875H6.00391C6.60547 9.17578 7.28906 9.3125 8 9.3125C8.71094 9.3125 9.36719 9.17578 9.96875 8.875H10.4336Z" fill="rgba(255,255,255,0.9)"/></svg>
+                  Patient Forms
+                </a>
+                <a class="w2-util-link" href="#">
+                  <svg width="13" height="13" viewBox="0 0 30 30" fill="none"><path d="M11.4774 9.39677H18.5036C18.502 9.20109 18.4339 8.80897 18.3039 8.02334C18.1509 7.0989 17.9979 6.17407 17.804 5.25843C17.5129 3.88316 17.0825 2.54546 16.3845 1.31109C16.0848 0.781955 15.7382 0.290396 15.1771 0H14.8258C14.3633 0.244214 14.0174 0.614449 13.7741 1.06374C13.4783 1.61087 13.1841 2.16505 12.9571 2.74271C12.2912 4.43969 11.9328 6.21651 11.6621 8.01211C11.6149 8.32576 11.5342 8.95814 11.4774 9.39677ZM1.0784 20.5954C2.0855 23.0594 3.60201 25.0789 5.63341 26.7117C7.54431 28.2482 9.70561 29.247 12.1666 29.7299C10.6016 26.8526 10.1086 23.7396 9.69935 20.5954H1.0784ZM11.4997 20.5985H18.5298C18.5023 20.7964 18.4763 20.9918 18.4504 21.1857C18.3387 22.025 18.27 22.4387C17.9797 24.1913 17.6213 25.9313 16.9147 27.5696C16.6354 28.2169 16.2824 28.8478 15.8669 29.4168C15.291 30.2058 14.7409 30.1823 14.118 29.4207C13.4145 28.5597 13.0194 27.539 12.679 26.4996C12.067 24.6296 11.7313 22.7009 11.4935 20.7527C11.4997 20.5985 11.4997 20.5985 11.4997 20.5985Z" fill="rgba(255,255,255,0.9)"/></svg>
+                  Español
+                </a>
+              </div>
+            </div>
+
+            <!-- Pill mainbar — floats over hero -->
+            <div class="w2-mainbar-wrap">
+              <div class="w2-mainbar">
+                <div class="w2-brand">HIP<span>.</span></div>
+                <nav class="w2-navlinks">
+                  <a class="w2-navlink" href="#">Our Practice <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+                  <a class="w2-navlink" href="#">Services <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+                  <a class="w2-navlink" href="#">Patient Resources <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+                  <a class="w2-navlink" href="#">Contact Us <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+                  <a class="w2-consult" href="#">Free Consult</a>
+                </nav>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Hero: full-bleed, sits under nav -->
+          <div class="w2-hero">
+            <div class="w2-hero-pattern"></div>
+            <div class="w2-hero-content">
+              <h1 class="w2-h1">Live Life <em>Smiling</em></h1>
+              <div class="w2-hero-btns">
+                <a class="w2-btn primary" href="#">
+                  <span class="w2-btn-icon">
+                    <svg fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </span>
+                  Request Free Consult
+                </a>
+                <a class="w2-btn secondary" href="#">
+                  <span class="w2-btn-icon">
+                    <svg fill="none" stroke="#3196a9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </span>
+                  What Sets Us Apart
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /w2-header -->
+
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Topbar: navy <code>#0e1f35</code>. Pill mainbar: white, <code>border-radius:100px 0 0 100px</code>, shadow, padding-left offset. Hero: full-bleed, <code>position:absolute top:40px</code> under nav. White strip right edge (Ward signature). Buttons: circular icon container + text. CTA orange <code>#f97316</code>, secondary teal <code>#3196a9</code>. Fonts: Figtree 800.
+      </div>
+    </div>
+
+    <!-- ══ 02 STEP SECTION ══ -->
+    <div class="sec-card" id="steps">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">02</span>
+          <span class="sec-name">Step Section — Simple &amp; Affordable</span>
+        </div>
+        <span class="sec-tag">Dark bg · 2-col + 3 numbered cards</span>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-steps">
+          <div class="hip-steps-top">
+            <div class="hip-steps-text">
+              <p class="hip-steps-eyebrow">Simple &amp; Affordable</p>
+              <h2 class="hip-steps-h2">Upgrade Your Smile</h2>
+              <p class="hip-steps-body">Getting started is easier than you think. One free consult, flexible monthly payments, and a team that walks you through every step.</p>
+              <button class="hip-steps-cta">
+                Request Free Consult
+                <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+            <div class="hip-steps-img"><span>Step Section Image</span></div>
+          </div>
+          <div class="hip-steps-cards">
+            <div class="hip-step-card">
+              <div class="hip-step-num">1</div>
+              <div class="hip-step-title">Request Free Consult</div>
+              <p class="hip-step-body">Book online or call us — your first visit is completely free, no strings attached.</p>
+            </div>
+            <div class="hip-step-card">
+              <div class="hip-step-num">2</div>
+              <div class="hip-step-title">Select Low Monthly Payment</div>
+              <p class="hip-step-body">Choose a plan that fits your budget. Payments start at $99/month with 0% financing.</p>
+            </div>
+            <div class="hip-step-card">
+              <div class="hip-step-num">3</div>
+              <div class="hip-step-title">Sit Back, Relax &amp; Get Started</div>
+              <p class="hip-step-body">Your journey begins the same day. We handle everything — you just show up and smile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Section bg: base-black #030712. Eyebrow: Inter 700 11px / 2px tracking / uppercase / cta-500. H2: Figtree 800, clamp(28–48px). Step numeral: Figtree 800 72px / cta-500 at 18% opacity. Card bg: white 4%. Image: Google Drive → <strong>Step Section</strong> folder.
+      </div>
+    </div>
+
+
+    <!-- ══ 03 OUR PRACTICE ══ -->
+    <div class="sec-card" id="practice">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">03</span>
+          <span class="sec-name">Our Practice — Video</span>
+        </div>
+        <span class="sec-tag">Light teal bg · 2-col · Rotating play badge</span>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-practice">
+          <div class="hip-practice-video">
+            <div class="hip-play-badge">
+              <!-- Rotating text ring (SVG) -->
+              <svg class="hip-play-ring" viewBox="0 0 100 100">
+                <path id="circPath" fill="none" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                <text font-family="Figtree,sans-serif" font-size="8.5" font-weight="700" letter-spacing="3" fill="rgba(249,115,22,0.7)" text-transform="uppercase">
+                  <textPath href="#circPath">PRACTICE NAME • PRACTICE NAME •</textPath>
+                </text>
+              </svg>
+              <div class="hip-play-btn">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="hip-practice-text">
+            <p class="hip-practice-eyebrow">Our Practice</p>
+            <h2 class="hip-practice-h2">What Sets Us Apart</h2>
+            <p class="hip-practice-body">We combine cutting-edge technology with a warm, family-friendly environment. Our board-certified orthodontists have helped thousands of patients achieve the smile they've always wanted — affordably, comfortably, and close to home.</p>
+            <button class="hip-practice-cta">
+              Learn More
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Section bg: primary-50 #f0fafb. Play ring: SVG textPath, cta-500 at 70%. Play button: cta-500 with 35% orange glow. Button border: primary-500. H2: Figtree 800, clamp(26–40px). Video image: Google Drive → <strong>What Sets Us Apart Section</strong> folder.
+      </div>
+    </div>
+
+
+    <!-- ══ 04 HOW WE HELP ══ -->
+    <div class="sec-card" id="how-we-help">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">04</span>
+          <span class="sec-name">How We Help — Treatments</span>
+        </div>
+        <span class="sec-tag">White bg · Centered heading · Zig-zag rows</span>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-how">
+          <div class="hip-how-header">
+            <p class="hip-how-eyebrow">How We Help</p>
+            <h2 class="hip-how-h2">Explore Our Treatments</h2>
+            <p class="hip-how-intro">From traditional braces to clear aligners, we offer every proven path to a confident smile — tailored to your age, lifestyle, and goals.</p>
+          </div>
+          <!-- Row 1 -->
+          <div class="hip-how-row">
+            <div class="hip-how-text">
+              <span class="hip-how-tag">Braces</span>
+              <h3 class="hip-how-title">Metal &amp; Ceramic Braces</h3>
+              <p class="hip-how-body">The most reliable path to a perfect smile. Our modern braces are smaller, more comfortable, and faster than ever before.</p>
+              <span class="hip-how-link">Learn More <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="hip-how-img"><span>Treatment Image</span></div>
+          </div>
+          <!-- Row 2 (reversed) -->
+          <div class="hip-how-row reverse">
+            <div class="hip-how-text">
+              <span class="hip-how-tag">Clear Aligners</span>
+              <h3 class="hip-how-title">Invisalign / Clear Aligners</h3>
+              <p class="hip-how-body">Nearly invisible, removable, and comfortable. Straighten your teeth without anyone noticing — eat anything, brush normally.</p>
+              <span class="hip-how-link">Learn More <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="hip-how-img warm"><span>Treatment Image</span></div>
+          </div>
+          <!-- Row 3 -->
+          <div class="hip-how-row">
+            <div class="hip-how-text">
+              <span class="hip-how-tag">Damon System</span>
+              <h3 class="hip-how-title">Damon System Braces</h3>
+              <p class="hip-how-body">Self-ligating brackets that use a slide mechanism — fewer appointments, less discomfort, and outstanding results.</p>
+              <span class="hip-how-link">Learn More <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="hip-how-img deep"><span>Treatment Image</span></div>
+          </div>
+          <!-- Row 4 (reversed) -->
+          <div class="hip-how-row reverse">
+            <div class="hip-how-text">
+              <span class="hip-how-tag">Smile For Life</span>
+              <h3 class="hip-how-title">Retainers &amp; Whitening</h3>
+              <p class="hip-how-body">Keep your smile for life. Our retainer program and professional whitening ensure your results last — and get brighter.</p>
+              <span class="hip-how-link">Learn More <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+            <div class="hip-how-img soft"><span>Treatment Image</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Eyebrow: cta-500. Treatment tag pill: primary-50 bg / primary-200 border / primary-500 text. H3: Figtree 800 22px. Arrow link: primary-500. Images: Google Drive → <strong>How we help Section</strong> folder (1 image per treatment, match image to treatment).
+      </div>
+    </div>
+
+
+    <!-- ══ 05 CTA SECTION ══ -->
+    <div class="sec-card" id="cta">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">05</span>
+          <span class="sec-name">CTA Section — Get Started</span>
+        </div>
+        <span class="sec-tag">Orange-tinted bg · Image left · 1 CTA only</span>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-cta">
+          <div class="hip-cta-img"><span>CTA Section Image</span></div>
+          <div class="hip-cta-text">
+            <p class="hip-cta-eyebrow">Request Appointment</p>
+            <h2 class="hip-cta-h2">Get Started On Your New Smile Today</h2>
+            <p class="hip-cta-body">One free consultation is all it takes. Our team will walk you through every option, every payment plan, and every next step — at no cost to you.</p>
+            <button class="hip-cta-btn">
+              Request Free Consult
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Section bg: cta-50 → cta-100 gradient. CTA button: cta-500 / Figtree 800 / shadow rgba(249,115,22,.35). One CTA only — no competing links. Image: Google Drive → <strong>CTA Section</strong> folder.
+      </div>
+    </div>
+
+
+    <!-- ══ 06 HIGHLIGHTS GRID ══ -->
+    <div class="sec-card" id="highlights">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">06</span>
+          <span class="sec-name">Highlights — Trust Badges Grid</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="sec-tag">Optional</span>
+          <span class="sec-tag">Gray bg · 4-col × 2 rows · Icon + text</span>
+        </div>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-highlights">
+          <div class="hip-highlights-header">
+            <p class="hip-highlights-eyebrow">Why Choose Us</p>
+            <h2 class="hip-highlights-h2">Everything You Need, All in One Place</h2>
+          </div>
+          <div class="hip-highlights-grid">
+            <!-- Card 1 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">Local</p>
+                <p class="hip-hi-sub">Owned &amp; Operated</p>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">13 Locations</p>
+                <p class="hip-hi-sub">For Your Convenience</p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">For Life</p>
+                <p class="hip-hi-sub">Treatment, Whitening &amp; Retainer Scans</p>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">0% Financing</p>
+                <p class="hip-hi-sub">Payments As Low As $99/Month</p>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">Flexible Hours</p>
+                <p class="hip-hi-sub">Available Evenings &amp; Weekends</p>
+              </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">20,000+ People</p>
+                <p class="hip-hi-sub">Helped Since 1978</p>
+              </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">Same-Day</p>
+                <p class="hip-hi-sub">Consults &amp; Braces</p>
+              </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="hip-hi-card">
+              <div class="hip-hi-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+              </div>
+              <div class="hip-hi-copy">
+                <p class="hip-hi-title">24-Hour</p>
+                <p class="hip-hi-sub">Call Doctors for Emergencies</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Section bg: gray-100 #f5f5f5. Card bg: white / border gray-200. Icon bg: primary-50. Icon color: primary-500 (teal). Title: Figtree 800 14px. Sub: Inter 400 12px / gray-500. Desktop 4-col, tablet 2-col, mobile 1–2 col. Icons from <a href="icons.html" style="color:#3196a9;font-weight:600;">icon library</a> — check first.
+      </div>
+    </div>
+
+
+    <!-- ══ 07 REVIEWS ══ -->
+    <div class="sec-card" id="reviews">
+      <div class="sec-label-strip">
+        <div class="flex items-center gap-3">
+          <span class="sec-num">07</span>
+          <span class="sec-name">5-Star Care — Reviews</span>
+        </div>
+        <span class="sec-tag">Dark bg · 2-col top · Card slider bottom</span>
+      
+        <button class="sec-fullpage-btn" onclick="openFullPage(this)" title="Open full-page preview">
+          <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          Full Page
+        </button>
+      </div>
+      <div class="sec-render">
+        <div class="hip-reviews">
+          <div class="hip-reviews-top">
+            <div class="hip-reviews-text">
+              <p class="hip-reviews-eyebrow">Our Reviews</p>
+              <h2 class="hip-reviews-h2">Experience 5-Star Care</h2>
+              <p class="hip-reviews-body">Don't take our word for it. Thousands of patients across our locations have shared their transformations — and we're proud of every single one.</p>
+            </div>
+            <div class="hip-reviews-img"><span>Reviews Section Image</span></div>
+          </div>
+          <div class="hip-review-cards">
+            <div class="hip-review-card">
+              <div class="hip-review-header">
+                <div class="hip-google-g">
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                </div>
+                <div class="hip-stars">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <p class="hip-review-text">"Best orthodontist experience I've ever had. The team was incredibly kind and my results came faster than expected. Absolutely recommend!"</p>
+              <div class="hip-review-footer">
+                <span class="hip-reviewer">Sarah M.</span>
+                <span class="hip-read-more">Read More</span>
+              </div>
+            </div>
+            <div class="hip-review-card">
+              <div class="hip-review-header">
+                <div class="hip-google-g">
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                </div>
+                <div class="hip-stars">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+              </div>
+              <p class="hip-review-text">"The free consult was genuinely no-pressure. They explained everything clearly and the payment plan made it so easy. My daughter loves her new smile!"</p>
+              <div class="hip-review-footer">
+                <span class="hip-reviewer">John T.</span>
+                <span class="hip-read-more">Read More</span>
+              </div>
+            </div>
+          </div>
+          <div class="hip-reviews-controls">
+            <div class="hip-slider-arrows">
+              <div class="hip-arrow"><svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+              <div class="hip-arrow"><svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            </div>
+            <div class="hip-more-reviews">
+              More Reviews
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-note">
+        <strong>DS tokens:</strong> Section bg: base-black #030712. Review card bg: white 5% / border white 10%. Google G: real Google colors (SVG). Stars: fill cta-500. Reviewer name: Inter 700 / white 45% / uppercase. Slider arrows: white 20% border. More Reviews link: primary-500. Image: Google Drive → <strong>Testimonial Section</strong> folder.
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Highlight active sidebar link on scroll
+  const links = document.querySelectorAll('.side-link');
+  const sections = [...links].map(l => document.querySelector(l.getAttribute('href')));
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    sections.forEach(s => { if (s && window.scrollY + 120 >= s.offsetTop) current = s; });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current?.id));
+  }, { passive: true });
+
+function openFullPage(btn) {
+  const card = btn.closest('.sec-card');
+  const render = card.querySelector('.sec-render');
+  if (!render) return;
+
+  const num = card.querySelector('.sec-num')?.textContent || '';
+  const name = card.querySelector('.sec-name')?.textContent || '';
+
+  // Collect ALL <style> tags from the page <head> (captures .hip-* classes, DS tokens, etc.)
+  const headStyles = Array.from(document.querySelectorAll('head style'))
+    .map(s => s.outerHTML).join('\n');
+
+  const bodyHTML = render.innerHTML;
+
+  const fullHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIP — ${num} ${name}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"><\/script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { header: ['Figtree','sans-serif'], body: ['Inter','sans-serif'] },
+      colors: {
+        primary: { DEFAULT:'#3196a9',50:'#f0fafb',200:'#b7e4ea',500:'#3196a9' },
+        cta: { DEFAULT:'#f97316',500:'#f97316' },
+        base: { black:'#030712', white:'#ffffff' },
+      },
+    },
+  },
+};
+<\/script>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; } body { margin: 0; background: #fff; }</style>
+${headStyles}
+</head>
+<body>${bodyHTML}</body>
+</html>`;
+
+  const win = window.open('', '_blank');
+  win.document.open();
+  win.document.write(fullHTML);
+  win.document.close();
+}
+
+</script>
+
+</body>
+</html>

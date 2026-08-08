@@ -1,0 +1,51 @@
+/* OLV button — ported verbatim from buttons.html (.olv-button) */
+.olvButton {
+  display: inline-block;
+  padding: 13.5px 32px;
+  color: #fff;
+  background-color: #1b6988;
+  border: 2px solid #1b6988;
+  font-family: "Figtree", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  letter-spacing: 1.25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s ease-in, color .2s ease-in;
+}
+.olvButtonContent {
+  display: flex;
+  align-items: center;
+}
+.olvButtonIcon {
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  order: 2;
+  transform: rotate(-45deg);
+  transition: transform .3s ease-in, color .3s ease-in;
+}
+.olvButtonIcon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.olvButton:hover,
+.olvButton:focus-visible {
+  color: #1b6988;
+  background-color: transparent;
+}
+.olvButton:hover .olvButtonIcon,
+.olvButton:focus-visible .olvButtonIcon {
+  transform: rotate(0deg);
+}
