@@ -12,7 +12,8 @@ import {
   ArchiveBlogCard,
 } from "@/components/ui/cards";
 import { LocationPin, LocationList, LocationPopup, FaqAccordion, Pagination, Tabs } from "@/components/ui/misc";
-import { TextContainer, TEXT_CONTAINER_CATEGORY } from "@/components/ui/sections";
+import { TEXT_CONTAINER_CATEGORY } from "@/components/ui/sections";
+import TextContainerShowcase from "@/components/ui/docs/TextContainerShowcase";
 
 export default function Home() {
   return (
@@ -144,21 +145,7 @@ export default function Home() {
         <p className="font-body text-[13px] text-gray-500 mt-0 mb-8">
           Design Category: <b className="text-base-black">{TEXT_CONTAINER_CATEGORY}</b>
         </p>
-        <TextContainer
-          preHeader="Simple & Affordable"
-          header="Upgrade Your Smile"
-          paragraphs={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum.",
-          ]}
-          bullets={[
-            "Highlight Bullet Point",
-            "Highlight Bullet Point",
-            "Highlight Bullet Point",
-            "Highlight Bullet Point",
-            "Highlight Bullet Point",
-          ]}
-        />
+        <TextContainerShowcase />
       </section>
 
       {/* ===== FAQ / Accordion ===== */}

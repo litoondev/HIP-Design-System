@@ -26,6 +26,8 @@ export interface TextContainerProps {
   bullets?: string[];
   /** Rendered after the bullets/paragraphs. Defaults to the Request Free Consult button. */
   buttons?: ReactNode;
+  /** Left (default) or center alignment of the whole copy block. */
+  align?: "left" | "center";
   className?: string;
 }
 
@@ -55,10 +57,16 @@ export default function TextContainer({
   paragraphs = [],
   bullets = [],
   buttons,
+  align = "left",
   className,
 }: TextContainerProps) {
+  const centered = align === "center";
   return (
-    <div className={`w-full max-w-[280px] md:max-w-[688px]${className ? ` ${className}` : ""}`}>
+    <div
+      className={`w-full max-w-[280px] md:max-w-[688px]${centered ? " mx-auto text-center" : ""}${
+        className ? ` ${className}` : ""
+      }`}
+    >
       {preHeader && (
         <p className="font-header font-bold uppercase text-cta text-[12px] leading-[18px] tracking-[3px] md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px] m-0 mb-1 md:mb-1.5 lg:mb-2">
           {preHeader}
@@ -89,7 +97,7 @@ export default function TextContainer({
               key={i}
               className={`flex items-center gap-3 border-b border-gray-200 pb-4 md:pb-5 lg:pb-5 ${
                 i > 0 ? "pt-4 md:pt-5 lg:pt-5" : ""
-              } last:border-b-0 last:pb-0`}
+              } last:border-b-0 last:pb-0${centered ? " justify-center" : ""}`}
             >
               <BulletGlyph />
               <span className="font-body font-bold text-textcolor-body text-[16px] leading-[22px] tracking-[0.5px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px]">
@@ -100,7 +108,11 @@ export default function TextContainer({
         </ul>
       )}
 
-      <div className="flex flex-wrap items-center gap-5 md:gap-5 lg:gap-[30px] mt-6 md:mt-[30px] lg:mt-10">
+      <div
+        className={`flex flex-wrap items-center gap-5 md:gap-5 lg:gap-[30px] mt-6 md:mt-[30px] lg:mt-10${
+          centered ? " justify-center" : ""
+        }`}
+      >
         {buttons ?? <RequestFreeConsultButton />}
       </div>
     </div>
