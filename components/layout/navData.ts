@@ -30,6 +30,7 @@ export const navLinks: NavLink[] = [
   { label: "Mega Menu", href: "/#mega-menu", group: "Components" },
   { label: "Cards", href: "/#cards", group: "Components" },
   { label: "Location", href: "/#location", group: "Components" },
+  { label: "Text Container", href: "/#text-container", group: "Components" },
   { label: "FAQ / Accordion", href: "/#faq", group: "Components" },
   { label: "Pagination", href: "/#pagination", group: "Components" },
   { label: "Tabs", href: "/#tabs", group: "Components" },
