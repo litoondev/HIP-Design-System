@@ -1,7 +1,38 @@
+# deps
+/node_modules
+/.pnp
+.pnp.js
 
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
+*.pem
 
-# Standalone HTML style guide — the source these were ported from.
-# Kept on disk as the design reference, untracked so the repo ships only the Next.js app.
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Standalone HTML style guide — the source the app was ported from.
+# Kept on disk as the design reference, untracked so the repo ships only the app.
 design-system/*.html
 design-system/styles.css
