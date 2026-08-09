@@ -1,40 +1,42 @@
-interface Ramp {
-  label: string;
-  prefix: string; // tailwind class prefix, e.g. "bg-primary"
-  darkTextSteps: number[]; // steps (50,100,...) that use dark (#111827) text instead of white
-}
+import { palette, STEPS, textOn, type BrandColor } from "@/lib/colors";
 
-const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
-
-const ramps: Ramp[] = [
-  { label: "Gray", prefix: "bg-gray", darkTextSteps: [50, 100, 200, 300] },
-  { label: "Primary", prefix: "bg-primary", darkTextSteps: [50, 100, 200, 300] },
-  { label: "Secondary", prefix: "bg-secondary", darkTextSteps: [50, 100, 200, 300, 400] },
-  { label: "Tertiary", prefix: "bg-tertiary", darkTextSteps: [50, 100, 200, 300] },
-  { label: "Accent", prefix: "bg-accent", darkTextSteps: [50, 100, 200, 300, 400, 500] },
-  { label: "CTA", prefix: "bg-cta", darkTextSteps: [50, 100, 200, 300, 400] },
+const ramps: { label: string; name: BrandColor }[] = [
+  { label: "Gray", name: "gray" },
+  { label: "Primary", name: "primary" },
+  { label: "Secondary", name: "secondary" },
+  { label: "Tertiary", name: "tertiary" },
+  { label: "Accent", name: "accent" },
+  { label: "CTA", name: "cta" },
 ];
 
-/** 50–950 accessibility ramps for every brand color — ported 1:1 from design-system/index.html (#accessibility) */
+/**
+ * 50–950 accessibility ramps for every brand color.
+ * Swatches render straight from the generated palette in lib/colors.ts, so
+ * changing a base color there updates this page automatically. Label color
+ * (dark ink vs white) is chosen by actual contrast per shade.
+ */
 export default function ColorAccessibilityRamps() {
   return (
     <>
       {ramps.map((ramp) => (
         <div
-          key={ramp.label}
+          key={ramp.name}
           className="grid grid-cols-[220px_repeat(11,1fr)] gap-[6px] items-center mb-[6px]"
         >
           <div className="font-header font-bold text-[14px]">{ramp.label}</div>
-          {STEPS.map((step) => (
-            <div
-              key={step}
-              className={`h-14 rounded flex flex-col items-center justify-center font-body text-[10px] font-bold ${
-                ramp.darkTextSteps.includes(step) ? "text-[#111827]" : "text-white"
-              } ${ramp.prefix}-${step}`}
-            >
-              <span>{step}</span>
-            </div>
-          ))}
+          {STEPS.map((step) => {
+            const hex = palette[ramp.name][step];
+            return (
+              <div
+                key={step}
+                title={hex}
+                className="h-14 rounded flex flex-col items-center justify-center font-body text-[10px] font-bold"
+                style={{ backgroundColor: hex, color: textOn(hex) }}
+              >
+                <span>{step}</span>
+              </div>
+            );
+          })}
         </div>
       ))}
 

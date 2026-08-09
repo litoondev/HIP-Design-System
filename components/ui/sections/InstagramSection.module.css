@@ -13,9 +13,9 @@
 
 .hipIgHeading { display:flex; flex-direction:column; gap:8px; }
 
-.hipIgEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hipIgEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
 
-.hipIgH2 { margin:0; font-size:clamp(24px,3vw,38px); font-weight:800; line-height:1.2; color:#030712; }
+.hipIgH2 { margin:0; font-size:clamp(24px,3vw,38px); font-weight:800; line-height:1.2; color:#000000; }
 
 .hipIgAccount { display:flex; align-items:center; gap:10px; }
 
@@ -33,7 +33,7 @@
 .hipIgFollow {
   display:inline-flex; align-items:center; gap:7px;
   padding:9px 20px; border-radius:100px;
-  background:#3196a9; border:0; cursor:pointer;
+  background:#320270; border:0; cursor:pointer;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:800; color:#fff;
   box-shadow:0 4px 14px rgba(49,150,169,.3);
 }

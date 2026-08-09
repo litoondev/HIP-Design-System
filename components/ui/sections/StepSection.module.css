@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
    font stacks now resolve through next/font's CSS variables. */
 .hipSteps {
-  background: #030712;
+  background: #000000;
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   color:#fff;
   padding: 64px 48px;
@@ -16,7 +16,7 @@
 
 .hipStepsEyebrow {
   font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase; color:#f97316;
+  letter-spacing:2px; text-transform:uppercase; color:#320270;
 }
 
 .hipStepsH2 {
@@ -41,7 +41,7 @@
 
 .hipStepsImg {
   border-radius:10px; height:220px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -57,7 +57,7 @@
 
 .hipStepNum {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:72px; font-weight:800;
-  line-height:1; color:rgba(249,115,22,.18); letter-spacing:-2px;
+  line-height:1; color:rgba(50,2,112,.18); letter-spacing:-2px;
 }
 
 .hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:#fff; line-height:1.3; }

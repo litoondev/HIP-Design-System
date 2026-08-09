@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
    font stacks now resolve through next/font's CSS variables. */
 .hipReviews {
-  background:#030712;
+  background:#000000;
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding:64px 48px;
 }
@@ -13,7 +13,7 @@
 
 .hipReviewsText { display:flex; flex-direction:column; gap:12px; }
 
-.hipReviewsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hipReviewsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
 
 .hipReviewsH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#fff; }
 
@@ -21,7 +21,7 @@
 
 .hipReviewsImg {
   border-radius:10px; height:200px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -46,7 +46,7 @@
 
 .hipStars { display:flex; gap:2px; }
 
-.hipStars svg { width:14px; height:14px; fill:#f97316; }
+.hipStars svg { width:14px; height:14px; fill:#320270; }
 
 .hipReviewText { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.75); font-style:italic; }
 
@@ -54,7 +54,7 @@
 
 .hipReviewer { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
 
-.hipReadMore { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:600; color:#3196a9; cursor:pointer; }
+.hipReadMore { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:600; color:#320270; cursor:pointer; }
 
 .hipReviewsControls { display:flex; align-items:center; justify-content:space-between; }
 
@@ -70,7 +70,7 @@
 
 .hipMoreReviews {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:700;
-  color:#3196a9; letter-spacing:.5px; cursor:pointer;
+  color:#320270; letter-spacing:.5px; cursor:pointer;
   display:flex; align-items:center; gap:6px;
 }
 

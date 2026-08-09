@@ -62,7 +62,7 @@
   }
 
 .gibsonBtnJs:hover,
-.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: #030712; outline: none; }
+.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: #000000; outline: none; }
 
 .gibsonBtnJs:hover::before,
 .gibsonBtnJs:focus-visible::before { transform: scaleX(1); }

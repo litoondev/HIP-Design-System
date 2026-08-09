@@ -13,7 +13,7 @@
 
 .hipLocImg {
   border-radius:12px; height:240px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -21,9 +21,9 @@
 
 .hipLocText { display:flex; flex-direction:column; gap:14px; }
 
-.hipLocEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hipLocEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
 
-.hipLocH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#030712; }
+.hipLocH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#000000; }
 
 .hipLocBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:#525252; max-width:400px; }
 
@@ -41,18 +41,18 @@
 
 .hipLocItem { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:#525252; }
 
-.hipLocItem strong { font-weight:700; color:#030712; }
+.hipLocItem strong { font-weight:700; color:#000000; }
 
 .hipLocPhone {
   display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:#f97316;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:#320270;
 }
 
 .hipLocPhone svg { width:16px; height:16px; }
 
 .hipLocMore {
   display:inline-flex; align-items:center; gap:7px;
-  font-size:13px; font-weight:700; color:#3196a9; cursor:pointer;
+  font-size:13px; font-weight:700; color:#320270; cursor:pointer;
 }
 
 .hipLocMore svg { width:15px; height:15px; }
@@ -73,7 +73,7 @@
 .hipLocPin {
   position:absolute; width:26px; height:26px; border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);
-  background:#f97316; box-shadow:0 3px 10px rgba(249,115,22,.4);
+  background:#320270; box-shadow:0 3px 10px rgba(50,2,112,.4);
 }
 
 .hipLocPin::after {

@@ -76,7 +76,7 @@ export default function TypographySection() {
         fontSize="42 / 36 / 28px"
         lineHeight="56 / 36 / 36px"
         letterSpacing="0px"
-        color="#3196A9"
+        color="#320270"
       >
         Header 3
       </TypeSample>
@@ -88,7 +88,7 @@ export default function TypographySection() {
         fontSize="32 / 28 / 24px"
         lineHeight="46 / 40 / 34px"
         letterSpacing="0px"
-        color="#06B6D4"
+        color="#1fc3df"
       >
         Header 4
       </TypeSample>
@@ -111,7 +111,7 @@ export default function TypographySection() {
         fontSize="24 / 22 / 20px"
         lineHeight="34 / 30 / 28px"
         letterSpacing="0px"
-        color="#F97316"
+        color="#320270"
       >
         HEADER 5
       </TypeSample>
