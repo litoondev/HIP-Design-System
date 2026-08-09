@@ -1,0 +1,77 @@
+/* Reviews — CSS ported verbatim from design-system/sections.html.
+   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
+   font stacks now resolve through next/font's CSS variables. */
+.hipReviews {
+  background:#030712;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding:64px 48px;
+}
+
+.hipReviewsTop {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:36px;
+}
+
+.hipReviewsText { display:flex; flex-direction:column; gap:12px; }
+
+.hipReviewsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+
+.hipReviewsH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#fff; }
+
+.hipReviewsBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.6); }
+
+.hipReviewsImg {
+  border-radius:10px; height:200px;
+  background:linear-gradient(135deg,#1a2d3f 0%,#3196a9 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+
+.hipReviewsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+
+.hipReviewCards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+
+.hipReviewCard {
+  padding:22px; border-radius:12px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  display:flex; flex-direction:column; gap:10px;
+}
+
+.hipReviewHeader { display:flex; align-items:center; gap:10px; }
+
+.hipGoogleG {
+  width:26px; height:26px; border-radius:5px; background:#fff;
+  display:grid; place-items:center;
+}
+
+.hipGoogleG svg { width:16px; height:16px; }
+
+.hipStars { display:flex; gap:2px; }
+
+.hipStars svg { width:14px; height:14px; fill:#f97316; }
+
+.hipReviewText { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.75); font-style:italic; }
+
+.hipReviewFooter { display:flex; align-items:center; justify-content:space-between; }
+
+.hipReviewer { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+
+.hipReadMore { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:600; color:#3196a9; cursor:pointer; }
+
+.hipReviewsControls { display:flex; align-items:center; justify-content:space-between; }
+
+.hipSliderArrows { display:flex; gap:8px; }
+
+.hipArrow {
+  width:36px; height:36px; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.6);
+  display:grid; place-items:center; cursor:pointer;
+}
+
+.hipArrow svg { width:16px; height:16px; }
+
+.hipMoreReviews {
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:700;
+  color:#3196a9; letter-spacing:.5px; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+}
+
+.hipMoreReviews svg { width:14px; height:14px; }

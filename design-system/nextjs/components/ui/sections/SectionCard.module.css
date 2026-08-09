@@ -1,0 +1,84 @@
+/* SectionCard — CSS ported verbatim from design-system/sections.html.
+   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
+   font stacks now resolve through next/font's CSS variables. */
+.secCard {
+  /* Not in the source: the sidebar submenu jumps to these anchors, and the app's 64px fixed
+     top bar would otherwise cover the card's label strip on arrival. */
+  scroll-margin-top: 88px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #e5e5e5;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin-bottom: 48px;
+}
+
+.secLabelStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.secLabelStrip .secNum {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #030712; color: #fff;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+
+.secLabelStrip .secName {
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; color:#404040;
+}
+
+.secLabelStrip .secTag {
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:600; color:#3196a9;
+  background:#f0fafb; border:1px solid #b7e4ea; border-radius:4px; padding:2px 7px;
+}
+
+.secNote {
+  padding: 10px 18px;
+  background: #f0fafb;
+  border-top: 1px solid #d9f1f4;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:#296475; line-height:1.6;
+}
+
+.secRender { overflow: hidden; }
+
+/* NOT in the source. sections.html markup uses .sec-fullpage-btn on all 8 cards but never
+   defines it, so the button renders as unstyled browser chrome. Styled here to match the
+   label strip: same Inter 11px/600 as .secTag, teal on hover. */
+.secFullpageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  background: #fff;
+  color: #525252;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background-color .15s;
+}
+.secFullpageBtn svg { width: 12px; height: 12px; flex-shrink: 0; }
+.secFullpageBtn:hover {
+  border-color: #3196a9;
+  background: #f0fafb;
+  color: #3196a9;
+}
+.secFullpageBtn:focus-visible {
+  outline: 2px solid #3196a9;
+  outline-offset: 2px;
+}
+
+/* The strip holds a left group, tag group and the button; allow wrapping on narrow columns. */
+.secLabelStrip { flex-wrap: wrap; }

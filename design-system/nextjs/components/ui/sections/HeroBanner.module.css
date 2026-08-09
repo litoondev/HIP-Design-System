@@ -1,0 +1,130 @@
+/* HeroBanner — CSS ported verbatim from design-system/sections.html.
+   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
+   font stacks now resolve through next/font's CSS variables. */
+.hipHero {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+}
+
+.hipHeroBg {
+  position: absolute; inset: 0; z-index: -3;
+  background: linear-gradient(120deg, #1a2d3f 0%, #2c4a3e 40%, #1e3a2f 100%);
+}
+
+.hipHeroShade {
+  position: absolute; inset: 0; z-index: -2;
+  background: linear-gradient(169deg, rgba(3,7,18,.70) 28%, rgba(49,150,169,.25) 100%);
+  pointer-events: none;
+}
+
+.hipUtilityBar {
+  height: 44px;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.hipSocials { display:flex; align-items:center; gap:10px; }
+
+.hipSocialDot {
+  width:26px; height:26px; border-radius:50%;
+  background: #3196a9;
+  display:grid; place-items:center; flex-shrink:0;
+}
+
+.hipSocialDot svg { width:13px; height:13px; fill:#fff; }
+
+.hipUtilityLinks { display:flex; align-items:center; gap:0; }
+
+.hipUtilityLink {
+  display:flex; align-items:center; gap:6px;
+  padding:0 14px; height:44px;
+  font-size:11px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:#fff;
+  border-left:1px solid rgba(255,255,255,.14);
+}
+
+.hipUtilityLink:first-child { border-left:0; }
+
+.hipUtilityLink svg { width:14px; height:14px; opacity:.8; }
+
+.hipUtilityLink.accent { color:#fb923c; }
+
+.hipMainNav {
+  height: 76px;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.hipLogo {
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:22px; font-weight:800;
+  letter-spacing:-0.5px; color:#fff; text-decoration:none; cursor:pointer;
+}
+
+.hipLogo span { color:#f97316; }
+
+.hipNavLinks { display:flex; align-items:center; gap:28px; }
+
+.hipNavLink {
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:700;
+  letter-spacing:.4px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  display:flex; align-items:center; gap:4px;
+  text-decoration:none; cursor:pointer;
+  transition: color .15s;
+}
+
+.hipNavLink:hover { color:#fff; }
+
+.hipNavLink svg { width:13px; height:13px; opacity:.6; }
+
+.hipNavCta {
+  padding:10px 22px; border-radius:100px;
+  background:#f97316; color:#fff;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; display:inline-block;
+  transition: opacity .15s;
+}
+
+.hipNavCta:hover { opacity:.9; }
+
+.hipHeroContent {
+  position: absolute; top: 120px; left: 0; right: 0; bottom: 0; /* starts below utility+nav, never overlaps nav */
+  pointer-events: none; /* lets nav clicks pass through any accidental overlap */
+  display: flex; flex-direction:column; align-items:flex-start; justify-content:center;
+  padding: 0 clamp(40px, 5vw, 80px);
+  gap: 28px;
+}
+
+.hipHeroEyebrow {
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:2.5px; text-transform:uppercase; color:#f97316;
+}
+
+.hipHeroH1 {
+  margin:0; padding:0;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:clamp(44px,5.5vw,80px);
+  font-weight:600; line-height:1.1; color:#fff; text-transform:capitalize;
+}
+
+.hipHeroH1 em { font-style:normal; color:#f97316; }
+
+.hipHeroActions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; pointer-events:auto; }
+
+.hipHeroBtn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 20px 14px 26px; border-radius:100px;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+  border:0; cursor:pointer; white-space:nowrap;
+}
+
+.hipHeroBtn svg { width:22px; height:22px; flex-shrink:0; }
+
+.hipHeroBtn.primary { background:#f97316; color:#fff; }
+
+.hipHeroBtn.secondary { background:#fff; color:#3196a9; }

@@ -1,0 +1,70 @@
+/* ApptButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.apptButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: max-content;
+    max-width: 100%;
+    padding: 6px 6px 6px 30px;
+    border: 2px solid #ed008c;
+    border-radius: 999px;
+    background: #ed008c;
+    color: #ffffff;
+    font-family: var(--font-figtree), "Figtree", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+.apptButtonIcon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #ed008c;
+    transition: border-color 300ms ease, background-color 300ms ease;
+  }
+
+.apptButtonIcon svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+.apptButton:hover,
+.apptButton:focus-visible {
+    background: #ffffff;
+    color: #ed008c;
+    outline: none;
+  }
+
+.apptButton:hover .apptButtonIcon,
+.apptButton:focus-visible .apptButtonIcon {
+    border-color: #ed008c;
+    background: #ffffff;
+  }
+
+@media (max-width: 768px) {
+  .apptButton { font-size: 18px; letter-spacing: 0.5px; padding: 5px 5px 5px 26px; }
+  .apptButtonIcon { width: 40px; height: 40px; flex-basis: 40px; }
+  .apptButtonIcon svg { width: 20px; height: 20px; }
+}
+
+@media (max-width: 520px) {
+  .apptButton { font-size: 16px; letter-spacing: 0px; padding: 4px 4px 4px 22px; }
+  .apptButtonIcon { width: 36px; height: 36px; flex-basis: 36px; }
+  .apptButtonIcon svg { width: 18px; height: 18px; }
+}

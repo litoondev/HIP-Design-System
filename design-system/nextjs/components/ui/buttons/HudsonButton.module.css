@@ -1,0 +1,99 @@
+/* HudsonButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.hudsonBtn {
+    --teal: #237875;
+    position: relative;
+    display: inline-flex;
+    width: min(307px, 100%);
+    height: 60px;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid var(--teal);
+    background: transparent;
+    color: #101010;
+    text-decoration: none;
+    transition: width 420ms cubic-bezier(.65, 0, .35, 1), color 220ms ease 100ms;
+  }
+
+.hudsonBtn::before {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: 40px;
+    background: var(--teal);
+    content: "";
+    transition: width 420ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.hudsonBtnWrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+
+.hudsonBtnText {
+    position: absolute;
+    left: 24px;
+    white-space: nowrap;
+    font-family: var(--font-figtree), "Figtree", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+
+.hudsonBtnIcon {
+    position: absolute;
+    right: 18px;
+    display: grid;
+    width: 20px;
+    height: 20px;
+    place-items: center;
+  }
+
+.hudsonBtnIcon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+    transition: transform 420ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.hudsonBtn:hover,
+.hudsonBtn:focus-visible {
+    width: min(291px, 100%);
+    color: #fff;
+    outline: none;
+  }
+
+.hudsonBtn:hover::before,
+.hudsonBtn:focus-visible::before { width: calc(100% - 16px); }
+
+.hudsonBtn:hover .hudsonBtnIcon svg,
+.hudsonBtn:focus-visible .hudsonBtnIcon svg { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hudsonBtn,
+  .hudsonBtn::before,
+  .hudsonBtnIcon svg { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .hudsonBtn { width: min(280px, 100%); }
+  .hudsonBtn:hover,
+  .hudsonBtn:focus-visible { width: min(264px, 100%); }
+  .hudsonBtnText { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
+}
+
+@media (max-width: 520px) {
+  .hudsonBtn { width: min(240px, 100%); height: 52px; }
+  .hudsonBtn:hover,
+  .hudsonBtn:focus-visible { width: min(224px, 100%); }
+  .hudsonBtnText { font-size: 16px; line-height: 24px; letter-spacing: 0px; }
+}

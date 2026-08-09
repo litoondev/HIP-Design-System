@@ -18,6 +18,9 @@ const config: Config = {
           lightgray: "#e7e7e7",
           gray: "#737373",
         },
+        /* Dark bar / footer ground. Declared as a token in homepage.html's Tailwind config,
+           where the markup applied it as an inline hex; promoted to a real utility here. */
+        navy: "#0e1f35",
         textcolor: {
           preheader: "#f97316",
           h2: "#030712",

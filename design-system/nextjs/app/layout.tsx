@@ -4,16 +4,19 @@ import "./globals.css";
 import TopBar from "@/components/layout/TopBar";
 import Sidebar from "@/components/layout/Sidebar";
 
+// 600 is required by the section designs (hero H1 is Figtree 600; 8 Inter 600 rules) and by
+// Tailwind's font-semibold utilities used across the shell. Without it the browser synthesises
+// a fake semibold, which reads visibly heavier and wider than the real cut.
 const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
+  weight: ["400", "600", "700", "800"],
   variable: "--font-figtree",
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });

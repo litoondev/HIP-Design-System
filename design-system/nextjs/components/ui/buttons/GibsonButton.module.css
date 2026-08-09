@@ -1,0 +1,99 @@
+/* GibsonButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.gibsonBtn {
+    --gibson-blue: #1a628a;
+    --gibson-light: #3ca5d5;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    width: min(337px, 100%);
+    height: 60px;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid var(--gibson-blue);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--gibson-blue);
+    text-decoration: none;
+    transition: color 300ms ease, border-color 300ms ease;
+  }
+
+.gibsonBtn::before {
+    position: absolute;
+    z-index: 0;
+    inset: -1px;
+    border-radius: inherit;
+    background: var(--gibson-light);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 350ms ease;
+  }
+
+.gibsonBtnIcon {
+    position: absolute;
+    z-index: 1;
+    right: 8px;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+.gibsonBtnIcon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+.gibsonBtnText {
+    position: absolute;
+    z-index: 1;
+    left: 24px;
+    right: 54px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: var(--font-figtree), "Figtree", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+
+.gibsonBtn:hover,
+.gibsonBtn:focus-visible { border-color: var(--gibson-light); color: #030712; outline: none; }
+
+.gibsonBtn:hover::before,
+.gibsonBtn:focus-visible::before { transform: scaleX(1); }
+
+.gibsonBtn:hover .gibsonBtnIcon svg,
+.gibsonBtn:focus-visible .gibsonBtnIcon svg { animation: gibson-arrow-through 0.5s ease-in-out both; }
+
+@keyframes gibson-arrow-through {
+    0%   { opacity: 1; transform: translateX(0); }
+    42%  { opacity: 0; transform: translateX(18px); }
+    43%  { opacity: 0; transform: translateX(-18px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .gibsonBtn,
+  .gibsonBtn::before { transition-duration: 0.01ms; }
+  .gibsonBtn:hover .gibsonBtnIcon svg,
+  .gibsonBtn:focus-visible .gibsonBtnIcon svg { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .gibsonBtn { height: 54px; }
+  .gibsonBtnText { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
+}
+
+@media (max-width: 520px) {
+  .gibsonBtn { height: 48px; }
+  .gibsonBtnText { font-size: 16px; line-height: 24px; letter-spacing: 0px; }
+}

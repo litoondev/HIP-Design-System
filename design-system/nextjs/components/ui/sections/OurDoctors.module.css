@@ -1,0 +1,73 @@
+/* OurDoctors — NOT in sections.html. Designed to the structure the homepage reference
+   specifies for section 08 (white bg, centered heading, alternating zig-zag rows), using the
+   same type scale and DS tokens as the ported sections. */
+.hipDocs {
+  background: #fff;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding: 64px 48px;
+}
+
+.hipDocsHeader { text-align: center; margin-bottom: 44px; }
+
+.hipDocsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; margin-bottom:8px; }
+
+.hipDocsH2 { margin:0; font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.15; color:#030712; }
+
+.hipDocsIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:#737373; margin-top:10px; max-width:520px; margin-inline:auto; }
+
+.hipDocRow {
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  padding:32px 0; border-bottom:1px solid #f5f5f5;
+}
+
+.hipDocRow:last-of-type { border-bottom:0; }
+
+/* Same rtl flip the ported How We Help rows use to alternate the image side. */
+.hipDocRow.reverse { direction:rtl; }
+
+.hipDocRow.reverse > * { direction:ltr; }
+
+.hipDocPhoto {
+  border-radius:12px; height:260px;
+  background:linear-gradient(135deg,#f0fafb 0%,#4db2c3 100%);
+  display:flex; align-items:center; justify-content:center;
+}
+
+.hipDocPhoto.warm { background:linear-gradient(135deg,#fff7ed 0%,#fdba74 100%); }
+
+.hipDocPhoto span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
+
+.hipDocText { display:flex; flex-direction:column; gap:12px; }
+
+.hipDocCred {
+  display:inline-flex; align-items:center;
+  padding:3px 10px; border-radius:100px;
+  background:#f0fafb; border:1px solid #b7e4ea;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#3196a9;
+  align-self:flex-start;
+}
+
+.hipDocName { margin:0; font-size:26px; font-weight:800; line-height:1.2; color:#030712; }
+
+.hipDocBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; line-height:1.7; color:#525252; }
+
+.hipDocLink {
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:13px; font-weight:700; color:#3196a9; cursor:pointer;
+}
+
+.hipDocLink svg { width:15px; height:15px; }
+
+.hipDocRepeat {
+  text-align:center; margin-top:28px;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:.5px; color:#a1a1a1;
+}
+
+/* Not a source concern — the ported sections carry no breakpoints, but a 2-col zig-zag
+   collapses badly in the style-guide column, so these designs stack instead. */
+@media (max-width: 860px) {
+  .hipDocs { padding:48px 24px; }
+  .hipDocRow { grid-template-columns:1fr; gap:20px; }
+  .hipDocRow.reverse { direction:ltr; }
+  .hipDocPhoto { height:200px; }
+}

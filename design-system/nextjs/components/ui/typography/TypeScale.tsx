@@ -53,7 +53,7 @@ export interface TypeSampleProps extends TypeSpecRowProps {
 /** A single labeled type-scale row: the live text sample + its spec metadata underneath */
 export function TypeSample({ sampleClassName, children, extra, ...spec }: TypeSampleProps) {
   return (
-    <div className="mb-[18px]">
+    <div className="mb-[22px]">
       {extra ? (
         <div className="flex items-baseline gap-3">
           <div className={sampleClassName}>{children}</div>

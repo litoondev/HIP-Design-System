@@ -1,0 +1,42 @@
+/* Wireframe tokens — ported from design-system/homepage.html's <style> block.
+   NOTE: the source declares `font-family: 'Inter', sans-serif`, which only resolves there
+   because homepage.html loads Inter from the Google Fonts CDN under that literal name.
+   This app self-hosts Inter via next/font under a hashed family, so the stack must go
+   through var(--font-inter) — the literal name is kept only as a fallback. */
+.wfLabel {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.wfBlock {
+  border: 1.5px dashed currentColor;
+  border-radius: 6px;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.optionalTag {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #fef9c3;
+  color: #a16207;
+  border: 1px solid #fde047;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
