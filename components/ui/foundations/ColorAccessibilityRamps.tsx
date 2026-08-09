@@ -1,4 +1,12 @@
-import { palette, STEPS, textOn, type BrandColor } from "@/lib/colors";
+import {
+  palette,
+  STEPS,
+  inkVarOn,
+  colorVarName,
+  baseSteps,
+  endpointColors,
+  type BrandColor,
+} from "@/lib/colors";
 
 const ramps: { label: string; name: BrandColor }[] = [
   { label: "Gray", name: "gray" },
@@ -8,6 +16,23 @@ const ramps: { label: string; name: BrandColor }[] = [
   { label: "Accent", name: "accent" },
   { label: "CTA", name: "cta" },
 ];
+
+/* The two extremes. They get a single full-width bar rather than 11 steps because there is
+   no ramp to show — a generated ramp from either endpoint would just restate the Gray row. */
+const endpoints: { label: string; hex: string; varName: string; bordered: boolean }[] = [
+  { label: "Black", hex: endpointColors.black, varName: "--color-black", bordered: false },
+  { label: "White", hex: endpointColors.white, varName: "--color-white", bordered: true },
+];
+
+/* scroll-mt clears the fixed 64px TopBar when a row is jumped to via #ramp-<name> —
+   the Text Color table links straight to the ramp a token resolves to. */
+const ROW_CLASS =
+  "grid grid-cols-[220px_repeat(11,1fr)] gap-[6px] items-center mb-[6px] scroll-mt-24";
+
+/** Anchor id for a ramp row, so other tables can deep-link to the color they use. */
+export function rampAnchorId(name: string): string {
+  return `ramp-${name}`;
+}
 
 /**
  * 50–950 accessibility ramps for every brand color.
@@ -19,24 +44,52 @@ export default function ColorAccessibilityRamps() {
   return (
     <>
       {ramps.map((ramp) => (
-        <div
-          key={ramp.name}
-          className="grid grid-cols-[220px_repeat(11,1fr)] gap-[6px] items-center mb-[6px]"
-        >
+        <div key={ramp.name} id={rampAnchorId(ramp.name)} className={ROW_CLASS}>
           <div className="font-header font-bold text-[14px]">{ramp.label}</div>
           {STEPS.map((step) => {
             const hex = palette[ramp.name][step];
+            /* Show the CSS variable rather than the hex — it is what you reference in code,
+               and it survives a base-color change in lib/colors.ts (the hex does not).
+               The variable is published on :root by app/layout.tsx. */
+            const token = colorVarName(ramp.name, step);
+            /* This step holds the supplied base color, and its variable links back to the
+               base token instead of duplicating the hex. Marked so the scale shows where
+               the brand color actually sits — which is detected, not assumed to be 500. */
+            const isBase = step === baseSteps[ramp.name];
+            const baseToken = colorVarName(ramp.name);
             return (
               <div
                 key={step}
-                title={hex}
-                className="h-14 rounded flex flex-col items-center justify-center font-body text-[10px] font-bold"
-                style={{ backgroundColor: hex, color: textOn(hex) }}
+                title={isBase ? `${token} → {${baseToken}}` : token}
+                className={`h-14 rounded flex flex-col items-center justify-center font-body text-[10px] font-bold ${
+                  isBase ? "ring-2 ring-offset-2 ring-base-black" : ""
+                }`}
+                /* Paint through the variable, not the hex — the swatch and the label it
+                   advertises are then provably the same thing. */
+                style={{ backgroundColor: `var(${token})`, color: `var(${inkVarOn(hex)})` }}
               >
-                <span>{step}</span>
+                <span>{isBase ? `${step} · Base` : step}</span>
               </div>
             );
           })}
+        </div>
+      ))}
+
+      {endpoints.map((endpoint) => (
+        <div key={endpoint.label} className={ROW_CLASS}>
+          <div className="font-header font-bold text-[14px]">{endpoint.label}</div>
+          <div
+            title={endpoint.hex.toUpperCase()}
+            className={`col-span-11 h-14 rounded flex items-center justify-center font-body text-[10px] font-bold ${
+              endpoint.bordered ? "border border-gray-200" : ""
+            }`}
+            style={{
+              backgroundColor: `var(${endpoint.varName})`,
+              color: `var(${inkVarOn(endpoint.hex)})`,
+            }}
+          >
+            <span>{endpoint.varName}</span>
+          </div>
         </div>
       ))}
 

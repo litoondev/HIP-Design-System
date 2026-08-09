@@ -1,20 +1,31 @@
+import { baseColors, baseNeutrals, colorVarName, inkVarOn } from "@/lib/colors";
+
 interface Swatch {
-  hex: string;
   name: string;
-  bgClassName: string;
-  textClassName: string;
+  /** Marketing name from the Figma Style Guide. */
+  title: string;
+  hex: string;
+  /** Token this swatch paints with — `--color-primary-base` for a category, `--color-base-*`
+   *  for a neutral. Neutrals carry no ramp, so they have no -base form. */
+  varName: string;
 }
 
-const swatches: (Swatch & { title: string })[] = [
-  { hex: "#320270", name: "Primary", title: "Royal Amethyst", bgClassName: "bg-primary", textClassName: "text-white" },
-  { hex: "#1FC3DF", name: "Secondary", title: "Aqua Pulse", bgClassName: "bg-secondary", textClassName: "text-[#111827]" },
-  { hex: "#1895A7", name: "Tertiary", title: "Pacific Glass", bgClassName: "bg-tertiary", textClassName: "text-[#111827]" },
-  { hex: "#FFCF18", name: "Accent", title: "Solar Flare", bgClassName: "bg-accent", textClassName: "text-[#111827]" },
-  { hex: "#320270", name: "CTA", title: "Royal Amethyst", bgClassName: "bg-cta", textClassName: "text-white" },
-  { hex: "#FFFFFF", name: "Base White", title: "Pure White", bgClassName: "bg-base-white", textClassName: "text-[#111827]" },
-  { hex: "#CED0D3", name: "Base Light Gray", title: "Lunar Fog", bgClassName: "bg-base-lightgray", textClassName: "text-[#111827]" },
-  { hex: "#717680", name: "Base Gray", title: "Slate Horizon", bgClassName: "bg-base-gray", textClassName: "text-white" },
-  { hex: "#000000", name: "Base Black", title: "Pure Black", bgClassName: "bg-base-black", textClassName: "text-white" },
+/**
+ * Values and token names are derived from lib/colors.ts rather than transcribed, so
+ * retargeting a brand color there updates this block instead of leaving it quietly showing
+ * the old value. `hex` is used only for the contrast calculation and the hover title —
+ * nothing paints from it.
+ */
+const swatches: Swatch[] = [
+  { name: "Primary", title: "Royal Amethyst", hex: baseColors.primary, varName: colorVarName("primary") },
+  { name: "Secondary", title: "Aqua Pulse", hex: baseColors.secondary, varName: colorVarName("secondary") },
+  { name: "Tertiary", title: "Pacific Glass", hex: baseColors.tertiary, varName: colorVarName("tertiary") },
+  { name: "Accent", title: "Solar Flare", hex: baseColors.accent, varName: colorVarName("accent") },
+  { name: "CTA", title: "Royal Amethyst", hex: baseColors.cta, varName: colorVarName("cta") },
+  { name: "Base White", title: "Pure White", hex: baseNeutrals.white, varName: "--color-base-white" },
+  { name: "Base Light Gray", title: "Lunar Fog", hex: baseNeutrals.lightgray, varName: "--color-base-lightgray" },
+  { name: "Base Gray", title: "Slate Horizon", hex: baseNeutrals.gray, varName: "--color-base-gray" },
+  { name: "Base Black", title: "Pure Black", hex: baseNeutrals.black, varName: "--color-base-black" },
 ];
 
 /** Base brand color palette — ported 1:1 from design-system/index.html (#colors section) */
@@ -24,12 +35,16 @@ export default function ColorPalette() {
       {swatches.map((s, i) => (
         <div
           key={`${s.name}-${i}`}
+          title={s.hex}
+          /* Both ground and ink are token references — DevTools reads
+             var(--color-primary-base), never a hex or rgb(). Which ink applies is decided
+             by measured contrast, not chosen by hand. */
+          style={{ backgroundColor: `var(${s.varName})`, color: `var(${inkVarOn(s.hex)})` }}
           className={`h-[78px] flex flex-col items-center justify-center font-body text-[11px] leading-[1.4] text-center border ${
             i === 0 ? "" : "border-t-0"
-          } border-[#e0e0e0] ${s.bgClassName} ${s.textClassName}`}
+          } border-[#e0e0e0]`}
         >
-          <span className="font-bold">{s.hex}</span>
-          <span>{s.name}</span>
+          <span className="font-bold">{s.name}</span>
           <span>{s.title}</span>
         </div>
       ))}

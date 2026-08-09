@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree, Inter } from "next/font/google";
+import { colorVarsCss } from "@/lib/colors";
 import "./globals.css";
 import TopBar from "@/components/layout/TopBar";
 import Sidebar from "@/components/layout/Sidebar";
@@ -34,6 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${figtree.variable} ${inter.variable}`}>
       <body className="m-0 bg-white text-base-black font-body">
+        {/* Every color token as a --color-* variable, generated from lib/colors.ts so it
+            stays in step with the Tailwind theme. Static string, no user input. */}
+        <style dangerouslySetInnerHTML={{ __html: colorVarsCss() }} />
         <TopBar />
         <div className="shell flex pt-16 min-h-screen bg-white">
           <Sidebar />

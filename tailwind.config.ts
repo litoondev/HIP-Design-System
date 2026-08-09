@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { palette, baseColors } from "./lib/colors";
+import { palette, baseColors, baseNeutrals, navy, textColorVarRefs } from "./lib/colors";
 
 const config: Config = {
   content: [
@@ -13,26 +13,16 @@ const config: Config = {
         body: ["var(--font-inter)", "Inter", "sans-serif"],
       },
       colors: {
-        base: {
-          white: "#ffffff", // Pure White
-          black: "#000000", // Pure Black
-          lightgray: "#ced0d3", // Lunar Fog
-          gray: "#717680", // Slate Horizon
-        },
-        /* Dark bar / footer ground. Declared as a token in homepage.html's Tailwind config,
-           where the markup applied it as an inline hex; promoted to a real utility here. */
-        navy: "#0e1f35",
-        /* Semantic text tokens follow the brand roles: preheader/h5/link = CTA,
-           h3 = Primary, h4 = Secondary, h2 = Black, body = Gray Main. */
-        textcolor: {
-          preheader: "#320270",
-          h2: "#000000",
-          h3: "#320270",
-          h4: "#1fc3df",
-          h5: "#320270",
-          body: "#717680",
-          link: "#320270",
-        },
+        /* base / navy / textcolor now come from lib/colors.ts, the same source that
+           generates the --color-* CSS variables, so the two can never name different
+           colors. Values are unchanged. */
+        base: { ...baseNeutrals },
+        navy,
+        /* Typography roles compile to var(--color-textcolor-*) rather than a copied hex, so
+           the utility class itself stays connected to the Foundation palette. Retargeting a
+           base color in lib/colors.ts moves every text-textcolor-* usage with it.
+           Trade-off: no opacity modifier (text-textcolor-body/50) — none is used. */
+        textcolor: { ...textColorVarRefs },
         /* 50–950 ramps auto-generated from lib/colors.ts baseColors.
            Change a base color there and every shade regenerates; 500 is
            always the exact base. */

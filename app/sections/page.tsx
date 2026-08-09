@@ -6,6 +6,7 @@ import {
   HeroBanner,
   HeroPillNav,
   HighlightsGrid,
+  TrustBadges,
   StepSection,
   OurPractice,
   OurDoctors,
@@ -120,6 +121,28 @@ export default function SectionsPage() {
         }
       >
         <HighlightsGrid />
+      </SectionCard>
+
+      <SectionCard
+        id="highlights2"
+        num="02B"
+        name="Highlights — Trust Badges Grid"
+        tags={["Cream bg · 4-col × 2 rows · Icon + text"]}
+        note={
+          <>
+            <strong>DS tokens:</strong> Built from the Figma <strong>Highlights</strong> frame.
+            Container ladder 280 / 688 / 1240px — viewport minus the DS container padding (20 / 40 /
+            100px). Section padding: 40 / 60 / 120px. Grid gap: 20 / 30 / 40px. Title:{" "}
+            <strong>H6</strong> (Figtree 700, 16/18/20px, 0.5px tracking) / textcolor-h2. Sub:{" "}
+            <strong>Body2</strong> (Inter 400, 14/16/18px) / textcolor-body. Card: base-white on a
+            1px stone <code>#d2c3af</code> border, square corners, no shadow. Icons: recolored to
+            primary-500, 33px mobile / 48px tablet + desktop — check the <IconLibraryLink /> before
+            adding more. Section ground <code>#f7f4f0</code> and the stone border are the frame&apos;s
+            own pair and have no DS equivalent yet.
+          </>
+        }
+      >
+        <TrustBadges />
       </SectionCard>
 
       <SectionCard
