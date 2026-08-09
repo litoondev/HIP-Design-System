@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 /** Shared by the notes — the source links these back to the icon library. */
 function IconLibraryLink() {
   return (
-    <Link href="/icons" style={{ color: "#3196a9", fontWeight: 600 }}>
+    <Link href="/icons" style={{ color: "#320270", fontWeight: 600 }}>
       icon library
     </Link>
   );
@@ -38,7 +38,7 @@ function NewDesign() {
   return (
     <>
       <strong>New design</strong> — built to the{" "}
-      <Link href="/homepage" style={{ color: "#3196a9", fontWeight: 600 }}>
+      <Link href="/homepage" style={{ color: "#320270", fontWeight: 600 }}>
         homepage structure reference
       </Link>
       , no sections.html source.{" "}
@@ -77,8 +77,8 @@ export default function SectionsPage() {
         note={
           <>
             <strong>DS tokens:</strong> Utility bar icons from <IconLibraryLink />. CTA pill:{" "}
-            <code>#f97316</code> (cta-500). Nav text: Figtree 700 15px / 1.5 / 0.4px. Hero H1:
-            Figtree 600, clamp(44px–80px), line-height 1.1. Social dots: primary-500 (#3196a9).
+            <code>#320270</code> (cta-500). Nav text: Figtree 700 15px / 1.5 / 0.4px. Hero H1:
+            Figtree 600, clamp(44px–80px), line-height 1.1. Social dots: primary-500 (#320270).
             Gradient overlay: navy #0e1f35 at 70%. Hero image: pull from Google Drive →{" "}
             <strong>Hero Section</strong> folder.
           </>
@@ -98,7 +98,7 @@ export default function SectionsPage() {
             <code>border-radius:100px 0 0 100px</code>, shadow, padding-left offset. Hero:
             full-bleed, <code>position:absolute top:40px</code> under nav. White strip right edge
             (Ward signature). Buttons: circular icon container + text. CTA orange{" "}
-            <code>#f97316</code>, secondary teal <code>#3196a9</code>. Fonts: Figtree 800.
+            <code>#320270</code>, secondary teal <code>#320270</code>. Fonts: Figtree 800.
           </>
         }
       >
@@ -129,7 +129,7 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col + 3 numbered cards"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black #030712. Eyebrow: Inter 700 11px /
+            <strong>DS tokens:</strong> Section bg: base-black #000000. Eyebrow: Inter 700 11px /
             2px tracking / uppercase / cta-500. H2: Figtree 800, clamp(28–48px). Step numeral:
             Figtree 800 72px / cta-500 at 18% opacity. Card bg: white 4%. Image: Google Drive →{" "}
             <strong>Step Section</strong> folder.
@@ -239,7 +239,7 @@ export default function SectionsPage() {
         note={
           <>
             <strong>DS tokens:</strong> Section bg: cta-50 → cta-100 gradient. CTA button: cta-500 /
-            Figtree 800 / shadow rgba(249,115,22,.35). One CTA only — no competing links. Image:
+            Figtree 800 / shadow rgba(50,2,112,.35). One CTA only — no competing links. Image:
             Google Drive → <strong>CTA Section</strong> folder.
           </>
         }
@@ -254,7 +254,7 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col top · Card slider bottom"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black #030712. Review card bg: white 5% /
+            <strong>DS tokens:</strong> Section bg: base-black #000000. Review card bg: white 5% /
             border white 10%. Google G: real Google colors (SVG). Stars: fill cta-500. Reviewer
             name: Inter 700 / white 45% / uppercase. Slider arrows: white 20% border. More Reviews
             link: primary-500. Image: Google Drive → <strong>Testimonial Section</strong> folder.

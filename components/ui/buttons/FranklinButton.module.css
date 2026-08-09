@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .franklinBtn {
-    --charcoal: #030712;
+    --charcoal: #000000;
     position: relative;
     display: inline-flex;
     width: min(307px, 100%);

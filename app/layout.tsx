@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${figtree.variable} ${inter.variable}`}>
+    <html lang="en" className={`${figtree.variable} ${inter.variable}`}>
       <body className="m-0 bg-white text-base-black font-body">
         <TopBar />
         <div className="shell flex pt-16 min-h-screen bg-white">

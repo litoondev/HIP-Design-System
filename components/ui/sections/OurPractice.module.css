@@ -22,7 +22,7 @@
 
 .hipPlayRing {
   position:absolute; inset:0; border-radius:50%;
-  border:2px solid rgba(249,115,22,.5);
+  border:2px solid rgba(50,2,112,.5);
   animation: hip-spin 8s linear infinite;
 }
 
@@ -31,30 +31,30 @@
 .hipPlayRingText {
   position:absolute; inset:0; border-radius:50%;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:7.5px; font-weight:700; letter-spacing:3.2px;
-  text-transform:uppercase; color:rgba(249,115,22,.7);
+  text-transform:uppercase; color:rgba(50,2,112,.7);
   display:flex; align-items:center; justify-content:center;
 }
 
 .hipPlayBtn {
   width:54px; height:54px; border-radius:50%;
-  background:#f97316; display:grid; place-items:center;
-  box-shadow:0 4px 24px rgba(249,115,22,.4);
+  background:#320270; display:grid; place-items:center;
+  box-shadow:0 4px 24px rgba(50,2,112,.4);
 }
 
 .hipPlayBtn svg { width:20px; height:20px; fill:#fff; margin-left:3px; }
 
 .hipPracticeText { display:flex; flex-direction:column; gap:16px; }
 
-.hipPracticeEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#f97316; }
+.hipPracticeEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
 
-.hipPracticeH2 { margin:0; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.2; color:#030712; }
+.hipPracticeH2 { margin:0; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.2; color:#000000; }
 
 .hipPracticeBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:#525252; }
 
 .hipPracticeCta {
   display:inline-flex; align-items:center; gap:8px;
   padding:13px 22px; border-radius:100px;
-  border:2px solid #3196a9; color:#3196a9;
+  border:2px solid #320270; color:#320270;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
   align-self:flex-start; cursor:pointer;
 }

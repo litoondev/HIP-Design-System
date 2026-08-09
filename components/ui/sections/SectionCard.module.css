@@ -24,7 +24,7 @@
 
 .secLabelStrip .secNum {
   width: 24px; height: 24px; border-radius: 50%;
-  background: #030712; color: #fff;
+  background: #000000; color: #fff;
   font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700;
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
 }
@@ -34,7 +34,7 @@
 }
 
 .secLabelStrip .secTag {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:600; color:#3196a9;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:600; color:#320270;
   background:#f0fafb; border:1px solid #b7e4ea; border-radius:4px; padding:2px 7px;
 }
 
@@ -71,12 +71,12 @@
 }
 .secFullpageBtn svg { width: 12px; height: 12px; flex-shrink: 0; }
 .secFullpageBtn:hover {
-  border-color: #3196a9;
+  border-color: #320270;
   background: #f0fafb;
-  color: #3196a9;
+  color: #320270;
 }
 .secFullpageBtn:focus-visible {
-  outline: 2px solid #3196a9;
+  outline: 2px solid #320270;
   outline-offset: 2px;
 }
 

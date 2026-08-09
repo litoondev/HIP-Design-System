@@ -33,7 +33,7 @@ export default function OurPractice() {
               fontSize="8.5"
               fontWeight="700"
               letterSpacing="3"
-              fill="rgba(249,115,22,0.7)"
+              fill="rgba(50,2,112,0.7)"
             >
               <textPath href="#circPath">PRACTICE NAME • PRACTICE NAME •</textPath>
             </text>
