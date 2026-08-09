@@ -36,3 +36,6 @@ next-env.d.ts
 # Kept on disk as the design reference, untracked so the repo ships only the app.
 design-system/*.html
 design-system/styles.css
+
+# Next build output, wherever it appears (a stale copy was committed before .gitignore existed)
+.next/
