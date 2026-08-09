@@ -61,54 +61,120 @@ const rows: Row[] = [
   },
 ];
 
+/* Text Container — internal rhythm of the standard copy block (pre-header,
+   header, paragraphs, bullets, button), from the Figma "Text Container" spec. */
+const textContainerRows: Row[] = [
+  {
+    rule: "Pre Header gap",
+    ruleNote: "(pre-header → header)",
+    desktop: "8px",
+    tablet: "6px",
+    mobile: "4px",
+  },
+  {
+    rule: "Header gap",
+    ruleNote: "(header → first paragraph)",
+    desktop: "24px",
+    tablet: "20px",
+    mobile: "16px",
+  },
+  {
+    rule: "Paragraph gap",
+    ruleNote: "(paragraph → paragraph)",
+    desktop: "30px",
+    tablet: "20px",
+    mobile: "16px",
+  },
+  {
+    rule: "Bullet Point gap",
+    ruleNote: "(between bullets)",
+    desktop: "20px",
+    tablet: "20px",
+    mobile: "16px",
+  },
+  {
+    rule: "Button gap",
+    ruleNote: "(content → button)",
+    desktop: "40px",
+    tablet: "30px",
+    mobile: "24px",
+  },
+  {
+    rule: "Button-to-button gap",
+    desktop: "30px",
+    tablet: "20px",
+    mobile: "20px",
+  },
+  {
+    rule: "Container width",
+    desktop: "688px",
+    tablet: "688px",
+    mobile: "280px",
+  },
+];
+
+function SpacingTable({ rows }: { rows: Row[] }) {
+  return (
+    <div className="overflow-x-auto mb-6 rounded-lg border border-gray-200">
+      <table className="w-full border-collapse font-body text-[14px]">
+        <thead>
+          <tr className="bg-gray-50">
+            <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+              Spacing rule
+            </th>
+            <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+              Desktop (1440px)
+            </th>
+            <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+              Tablet (768px)
+            </th>
+            <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+              Mobile (320px)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr
+              key={row.rule}
+              className={`${i < rows.length - 1 ? "border-b border-gray-100" : ""} ${
+                i % 2 === 1 ? "bg-gray-50" : ""
+              }`}
+            >
+              <td className="px-4 py-3 text-base-black font-semibold">
+                {row.rule}
+                {row.ruleNote && <span className="text-gray-400 font-normal"> {row.ruleNote}</span>}
+              </td>
+              <td className="px-4 py-3 text-gray-700">
+                {row.desktop} {row.desktopNote && <span className="text-gray-400">{row.desktopNote}</span>}
+              </td>
+              <td className="px-4 py-3 text-gray-700">
+                {row.tablet} {row.tabletNote && <span className="text-gray-400">{row.tabletNote}</span>}
+              </td>
+              <td className="px-4 py-3 text-gray-700">
+                {row.mobile} {row.mobileNote && <span className="text-gray-400">{row.mobileNote}</span>}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 /** Responsive Spacing & Layout Rules table — ported 1:1 from design-system/index.html (#responsive-rules) */
 export default function ResponsiveSpacingTable() {
   return (
     <>
-      <div className="overflow-x-auto mb-6 rounded-lg border border-gray-200">
-        <table className="w-full border-collapse font-body text-[14px]">
-          <thead>
-            <tr className="bg-gray-50">
-              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
-                Spacing rule
-              </th>
-              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
-                Desktop (1440px)
-              </th>
-              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
-                Tablet (768px)
-              </th>
-              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
-                Mobile (320px)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row, i) => (
-              <tr
-                key={row.rule}
-                className={`${i < rows.length - 1 ? "border-b border-gray-100" : ""} ${
-                  i % 2 === 1 ? "bg-gray-50" : ""
-                }`}
-              >
-                <td className="px-4 py-3 text-base-black font-semibold">
-                  {row.rule}
-                  {row.ruleNote && <span className="text-gray-400 font-normal"> {row.ruleNote}</span>}
-                </td>
-                <td className="px-4 py-3 text-gray-700">
-                  {row.desktop} {row.desktopNote && <span className="text-gray-400">{row.desktopNote}</span>}
-                </td>
-                <td className="px-4 py-3 text-gray-700">
-                  {row.tablet} {row.tabletNote && <span className="text-gray-400">{row.tabletNote}</span>}
-                </td>
-                <td className="px-4 py-3 text-gray-700">
-                  {row.mobile} {row.mobileNote && <span className="text-gray-400">{row.mobileNote}</span>}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <SpacingTable rows={rows} />
+
+      <h3 className="font-header font-bold text-[18px] text-base-black mt-10 mb-1">Text Container</h3>
+      <p className="font-body text-[14px] text-gray-600 mt-0 mb-4 max-w-[640px]">
+        Internal rhythm of the standard copy block — pre-header, header, paragraphs, bullet points,
+        and button — measured from the Figma <b className="text-base-black">Text Container</b> spec.
+        Every text column in a section follows these gaps and widths.
+      </p>
+      <SpacingTable rows={textContainerRows} />
 
       <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 font-body text-[13px] text-gray-700 leading-[1.6]">
         <h4 className="font-header font-bold mt-0 text-base-black">How these were measured</h4>
