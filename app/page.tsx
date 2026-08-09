@@ -12,6 +12,8 @@ import {
   ArchiveBlogCard,
 } from "@/components/ui/cards";
 import { LocationPin, LocationList, LocationPopup, FaqAccordion, Pagination, Tabs } from "@/components/ui/misc";
+import { TEXT_CONTAINER_CATEGORY } from "@/components/ui/sections";
+import TextContainerShowcase from "@/components/ui/docs/TextContainerShowcase";
 
 export default function Home() {
   return (
@@ -129,6 +131,21 @@ export default function Home() {
           <LocationList />
           <LocationPopup />
         </div>
+      </section>
+
+      {/* ===== Text Container ===== */}
+      <section id="text-container" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
+        <div className="font-body text-[12px] font-bold tracking-[0.5px] uppercase text-cta mb-2">Components</div>
+        <h1 className="font-header font-extrabold text-[26px] leading-[1.2] md:text-[30px] lg:text-[34px] text-base-black mt-0 mb-3">Text Container</h1>
+        <p className="font-body text-[16px] leading-[1.6] text-gray-600 max-w-[640px] mt-0 mb-2">
+          The standard copy block — pre-header, header (H2 by default), paragraphs, bullet points, and
+          button — with the spacing rhythm and type tokens from the Figma Text Container spec
+          (see <a href="/#responsive-rules" className="text-textcolor-link">Responsive Spacing &amp; Layout</a>).
+        </p>
+        <p className="font-body text-[13px] text-gray-500 mt-0 mb-8">
+          Design Category: <b className="text-base-black">{TEXT_CONTAINER_CATEGORY}</b>
+        </p>
+        <TextContainerShowcase />
       </section>
 
       {/* ===== FAQ / Accordion ===== */}

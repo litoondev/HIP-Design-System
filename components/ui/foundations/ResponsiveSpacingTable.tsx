@@ -61,6 +61,17 @@ const rows: Row[] = [
   },
 ];
 
+/* Text Container — which text-style token each copy-block element uses.
+   The header defaults to H2 (most sections); it may step up/down when the
+   section's hierarchy calls for it. */
+const textContainerType: { element: string; token: string; note?: string }[] = [
+  { element: "Pre Header", token: "PreHeader" },
+  { element: "Header", token: "H2", note: "default — may change per section, but H2 is the site standard" },
+  { element: "Paragraph", token: "Body 1" },
+  { element: "Bullet Point", token: "Strong 1" },
+  { element: "Button", token: "Button" },
+];
+
 /* Text Container — internal rhythm of the standard copy block (pre-header,
    header, paragraphs, bullets, button), from the Figma "Text Container" spec. */
 const textContainerRows: Row[] = [
@@ -175,6 +186,42 @@ export default function ResponsiveSpacingTable() {
         Every text column in a section follows these gaps and widths.
       </p>
       <SpacingTable rows={textContainerRows} />
+
+      <h4 className="font-header font-bold text-[15px] text-base-black mt-8 mb-1">Text Container — type styles</h4>
+      <p className="font-body text-[14px] text-gray-600 mt-0 mb-4 max-w-[640px]">
+        Each element of the copy block maps to a semantic text style from the type scale — never an
+        arbitrary size.
+      </p>
+      <div className="overflow-x-auto mb-6 rounded-lg border border-gray-200">
+        <table className="w-full border-collapse font-body text-[14px]">
+          <thead>
+            <tr className="bg-gray-50">
+              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+                Element
+              </th>
+              <th className="text-left px-4 py-3 font-header font-bold text-[13px] uppercase tracking-[0.5px] text-gray-500 border-b border-gray-200">
+                Text style token
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {textContainerType.map((row, i) => (
+              <tr
+                key={row.element}
+                className={`${i < textContainerType.length - 1 ? "border-b border-gray-100" : ""} ${
+                  i % 2 === 1 ? "bg-gray-50" : ""
+                }`}
+              >
+                <td className="px-4 py-3 text-base-black font-semibold">{row.element}</td>
+                <td className="px-4 py-3 text-gray-700">
+                  {row.token}
+                  {row.note && <span className="text-gray-400"> — {row.note}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-6 font-body text-[13px] text-gray-700 leading-[1.6]">
         <h4 className="font-header font-bold mt-0 text-base-black">How these were measured</h4>
