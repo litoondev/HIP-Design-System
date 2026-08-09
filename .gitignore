@@ -1,2 +1,7 @@
 
 .DS_Store
+
+# Standalone HTML style guide — the source these were ported from.
+# Kept on disk as the design reference, untracked so the repo ships only the Next.js app.
+design-system/*.html
+design-system/styles.css
