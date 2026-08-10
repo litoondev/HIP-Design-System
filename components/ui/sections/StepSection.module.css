@@ -1,53 +1,57 @@
-/* StepSection — CSS ported verbatim from design-system/sections.html.
-   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
-   font stacks now resolve through next/font's CSS variables. */
+/* StepSection — CSS ported from design-system/sections.html.
+   Class names camelCased for CSS Modules. Colors, spacing, and type now flow
+   through the DS tokens (global color variables + responsive layout/button
+   tokens in app/globals.css); font stacks resolve through next/font's CSS variables. */
 .hipSteps {
-  background: #000000;
+  background: var(--color-base-black);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
-  color:#fff;
-  padding: 64px 48px;
+  color:var(--color-base-white);
+  padding: var(--section-padding-y) var(--container-padding-x);
 }
 
 .hipStepsTop {
-  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:48px;
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center; margin-bottom:var(--grid-gap);
 }
 
-.hipStepsText { display:flex; flex-direction:column; gap:14px; }
+.hipStepsText { display:flex; flex-direction:column; align-items:flex-start; }
 
 .hipStepsEyebrow {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase; color:#320270;
+  margin:0 0 var(--eyebrow-gap);
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase; color:var(--color-cta-500);
 }
 
 .hipStepsH2 {
-  margin:0; font-family: var(--font-figtree), 'Figtree', sans-serif;
-  font-size:clamp(28px,3.5vw,48px); font-weight:800; line-height:1.1; color:#fff;
+  margin:0 0 var(--heading-gap); font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-base-white);
 }
 
 .hipStepsBody {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.65); max-width:380px;
+  margin:0;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight:400; font-size:20px; line-height:1.5; color:rgba(255,255,255,.65); max-width:380px;
 }
 
 .hipStepsCta {
-  display:inline-flex; align-items:center; gap:10px;
-  padding:13px 22px; border-radius:100px;
-  background:transparent; border:2px solid rgba(255,255,255,.3); color:#fff;
+  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+  margin-top:var(--content-button-gap);
+  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
+  background:transparent; border:2px solid rgba(255,255,255,.3); color:var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
   cursor:pointer; align-self:flex-start;
   transition:border-color .2s, background .2s;
 }
 
-.hipStepsCta svg { width:18px; height:18px; }
+.hipStepsCta svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
 
 .hipStepsImg {
   border-radius:10px; height:220px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
+  background:linear-gradient(135deg,#1a2d3f 0%,var(--color-cta-500) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
 .hipStepsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
 
-.hipStepsCards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.hipStepsCards { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--grid-gap); }
 
 .hipStepCard {
   padding:28px 24px; border-radius:12px;
@@ -57,9 +61,19 @@
 
 .hipStepNum {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:72px; font-weight:800;
-  line-height:1; color:rgba(50,2,112,.18); letter-spacing:-2px;
+  line-height:1; color:color-mix(in srgb, var(--color-cta-500) 18%, transparent); letter-spacing:-2px;
 }
 
-.hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:#fff; line-height:1.3; }
+.hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:var(--color-base-white); line-height:1.3; }
 
 .hipStepBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.55); }
+
+@media (max-width: 768px) {
+  .hipStepsEyebrow { font-size:14px; }
+  .hipStepsBody { font-size:18px; }
+}
+
+@media (max-width: 520px) {
+  .hipStepsEyebrow { font-size:12px; }
+  .hipStepsBody { font-size:16px; }
+}
