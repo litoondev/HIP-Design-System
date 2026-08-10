@@ -1,10 +1,16 @@
 import type { ReactNode } from "react";
 import styles from "./wireframe.module.css";
+import { Typography } from "@/components/ui/typography/Typography";
 
 /**
  * Shared wireframe primitives for the Homepage structure reference.
  * Ported from design-system/homepage.html — the repeated section chrome is factored out here
  * so each section below reads as content rather than wrapper markup.
+ *
+ * These wireframes are scale models: the text inside a frame stands in for the real section's
+ * type rather than being that type. It still comes from the design system — the small copy maps
+ * to `tooltip`, captions to `caption`, wireframe headings to `overline` + `h6` — so nothing here
+ * restates a font size, and the diagrams keep their reduced proportions.
  */
 
 /** Tone drives the numbered badge, title colour, frame border and caption bar. */
@@ -22,11 +28,11 @@ const TONES: Record<
     captionText: "text-gray-500",
   },
   optional: {
-    num: "bg-yellow-400 text-yellow-900",
-    title: "text-yellow-800",
-    frame: "border-yellow-200",
-    caption: "bg-yellow-50 border-yellow-200",
-    captionText: "text-yellow-800",
+    num: "bg-accent-200 text-accent-800",
+    title: "text-accent-700",
+    frame: "border-accent-100",
+    caption: "bg-accent-50 border-accent-100",
+    captionText: "text-accent-700",
   },
   primary: {
     num: "bg-primary-600 text-white",
@@ -100,11 +106,14 @@ export function SectionHeader({
   const t = TONES[tone];
   return (
     <div className="flex items-center gap-3 mb-3 flex-wrap">
-      <span
-        className={`w-7 h-7 rounded-full ${t.num} text-[11px] font-bold font-body flex items-center justify-center flex-shrink-0`}
+      <Typography
+        variant="tooltip"
+        as="span"
+        weight="bold"
+        className={`w-7 h-7 rounded-full ${t.num} flex items-center justify-center flex-shrink-0`}
       >
         {number}
-      </span>
+      </Typography>
       <span className={`${styles.sectionBadge} ${t.title}`}>{title}</span>
       {optional && <span className={styles.optionalTag}>Optional</span>}
       {meta && <WfLabel className="text-gray-400">{meta}</WfLabel>}
@@ -151,7 +160,9 @@ export function Section({
         {children}
         {caption && (
           <div className={`${t.caption} border-t px-6 py-2`}>
-            <span className={`font-body text-[11px] ${t.captionText}`}>{caption}</span>
+            <Typography variant="tooltip" as="span" className={t.captionText}>
+              {caption}
+            </Typography>
           </div>
         )}
       </div>
@@ -177,7 +188,9 @@ export function MobileNote({ children }: { children: ReactNode }) {
           d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z"
         />
       </svg>
-      <span className="font-body text-[11px] text-gray-500">{children}</span>
+      <Typography variant="tooltip" as="span" className="text-gray-500">
+        {children}
+      </Typography>
     </div>
   );
 }
@@ -248,11 +261,18 @@ export function WfHeading({
 }) {
   return (
     <div className={`text-center pb-2 border-b ${borderClassName} ${className ?? ""}`}>
-      <p className="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">
+      <Typography variant="overline" as="p" className="text-cta-500">
         {preheader}
-      </p>
-      <p className="font-header font-extrabold text-xl text-base-black mt-1">{title}</p>
-      {intro && <p className="font-body text-[11px] text-gray-500 mt-1">{intro}</p>}
+      </Typography>
+      {/* Wireframe stand-in for a section heading — h6 metrics, the frame's own 800 weight. */}
+      <Typography variant="h6" as="p" className="font-extrabold text-base-black mt-1">
+        {title}
+      </Typography>
+      {intro && (
+        <Typography variant="tooltip" as="p" className="text-gray-500 mt-1">
+          {intro}
+        </Typography>
+      )}
     </div>
   );
 }

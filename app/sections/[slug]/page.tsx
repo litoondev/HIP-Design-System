@@ -23,13 +23,18 @@ export default function SectionSinglePage({ params }: { params: { slug: string }
   const Section = sectionComponents[params.slug];
   if (!Section || !metaBySlug(params.slug)) notFound();
   return (
-    /* Suspense boundary for useSearchParams (the ?cat= category filter) during prerender.
-       The section renders here on the server (its components may use fs) and is passed
-       into the client viewer as children. */
-    <Suspense>
-      <SectionViewer slug={params.slug}>
-        <Section />
-      </SectionViewer>
-    </Suspense>
+    // A light, uniform gutter instead of DocShell's ~1040px reading column — these are live
+    // design previews, not text, so they should use essentially all of the available width
+    // (like the real site would) rather than being capped with a big dead zone next to them.
+    <div className="px-6 [@media(max-width:900px)]:px-4">
+      {/* Suspense boundary for useSearchParams (the ?cat= category filter) during prerender.
+          The section renders here on the server (its components may use fs) and is passed
+          into the client viewer as children. */}
+      <Suspense>
+        <SectionViewer slug={params.slug}>
+          <Section />
+        </SectionViewer>
+      </Suspense>
+    </div>
   );
 }

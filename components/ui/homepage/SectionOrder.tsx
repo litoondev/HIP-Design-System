@@ -1,10 +1,11 @@
 import { WfLabel } from "./Wireframe";
+import { Typography } from "@/components/ui/typography/Typography";
 
 type ChipTone = "core" | "optional" | "primary" | "secondary";
 
 const CHIP_CLASS: Record<ChipTone, string> = {
   core: "bg-gray-100 text-gray-700",
-  optional: "bg-yellow-100 text-yellow-800",
+  optional: "bg-accent-100 text-accent-700",
   primary: "bg-primary-50 text-primary-700",
   secondary: "bg-secondary-50 text-secondary-700",
 };
@@ -40,18 +41,20 @@ export default function SectionOrder() {
       <WfLabel className="text-gray-500 block mb-3">Full section order</WfLabel>
       <div className="flex flex-wrap gap-2">
         {ORDER.map((item) => (
-          <span
+          <Typography
             key={item.label}
-            className={`font-body text-xs rounded px-2 py-1 ${CHIP_CLASS[item.tone]}`}
+            variant="tooltip"
+            as="span"
+            className={`rounded px-2 py-1 ${CHIP_CLASS[item.tone]}`}
           >
             {item.label}
-          </span>
+          </Typography>
         ))}
       </div>
-      <p className="font-body text-[11px] text-gray-400 mt-3">
+      <Typography variant="tooltip" as="p" className="text-gray-400 mt-3">
         † Optional — add only when content exists or explicitly requested. &nbsp;★ Reference only —
         not a rendered page section.
-      </p>
+      </Typography>
     </div>
   );
 }

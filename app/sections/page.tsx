@@ -53,7 +53,10 @@ function NewDesign() {
  */
 export default function SectionsPage() {
   return (
-    <>
+    // A light, uniform gutter instead of DocShell's ~1040px reading column — the cards below
+    // hold live design previews, not text, so they render at essentially the full available
+    // width (like the real site would) rather than being capped with a dead zone beside them.
+    <div className="px-6 [@media(max-width:900px)]:px-4">
       <div className="mb-10">
         <p className="mb-1 font-body text-[11px] font-bold uppercase tracking-widest text-cta">
           Creative Reference
@@ -327,6 +330,6 @@ export default function SectionsPage() {
       >
         <FooterSection />
       </SectionCard>
-    </>
+    </div>
   );
 }

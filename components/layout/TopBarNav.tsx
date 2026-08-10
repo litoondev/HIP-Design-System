@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { typographyClass } from "@/components/ui/typography/Typography";
 
 /** Same six links, in the same order, as the header in design-system/index.html. */
 const LINKS = [
@@ -30,9 +31,12 @@ export default function TopBarNav() {
           key={link.href}
           href={link.href}
           aria-current={i === currentIndex ? "page" : undefined}
-          className={`font-body text-[14px] font-semibold no-underline hover:text-primary ${
-            i === currentIndex ? "text-primary" : "text-gray-700"
-          }`}
+          className={typographyClass(
+            "label",
+            `font-semibold no-underline hover:text-primary ${
+              i === currentIndex ? "text-primary" : "text-gray-700"
+            }`
+          )}
         >
           {link.label}
         </Link>

@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface EventCardProps {
   date?: string;
   title?: string;
@@ -14,16 +16,28 @@ export default function EventCard({
 }: EventCardProps) {
   return (
     <div className="bg-white border border-gray-200 w-[1240px] max-w-full p-[60px] flex gap-[60px] items-start">
-      <div className="w-[205px] h-[205px] bg-gray-200 flex items-center justify-center text-gray-500 font-body text-[12px] shrink-0">
+      <Typography
+        as="div"
+        variant="tooltip"
+        className="w-[205px] h-[205px] bg-gray-200 flex items-center justify-center text-gray-500 shrink-0"
+      >
         Photo
-      </div>
+      </Typography>
       <div className="flex-1 flex flex-col gap-6">
         <div className="flex flex-col gap-1">
-          <span className="font-body font-bold text-[20px] leading-[30px] tracking-[0.5px] text-cta">{date}</span>
-          <h3 className="font-header font-bold text-[42px] leading-[56px] text-textcolor-h3 m-0 capitalize">{title}</h3>
-          <span className="font-body font-bold text-[18px] leading-[27px] tracking-[0.5px] text-primary">{byline}</span>
+          <Typography variant="strong1" as="span" className="text-cta">
+            {date}
+          </Typography>
+          <Typography variant="header3" as="h3" className="text-textcolor-h3 m-0 capitalize">
+            {title}
+          </Typography>
+          <Typography variant="strong2" as="span" className="text-primary">
+            {byline}
+          </Typography>
         </div>
-        <p className="font-body text-[20px] leading-[30px] text-textcolor-body m-0">{body}</p>
+        <Typography variant="body1" className="m-0">
+          {body}
+        </Typography>
       </div>
     </div>
   );

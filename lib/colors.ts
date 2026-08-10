@@ -10,11 +10,11 @@
  */
 
 export const baseColors = {
-  primary: "#3196a9", // Harbor Teal
-  secondary: "#06b6d4", // Cyan Pulse
-  tertiary: "#8d8dc7", // Periwinkle Dusk
-  accent: "#eab308", // Golden Amber
-  cta: "#f97316", // Ember Orange (deliberate — high-contrast against the teal family)
+  primary: "#016FAB", // Ocean Blue
+  secondary: "#00B4D8", // Sky Cyan
+  tertiary: "#BA7D50", // Clay Tan
+  accent: "#485154", // Slate Ash
+  cta: "#EABA6B", // Golden Sand
   gray: "#737373", // Gray Main
 } as const;
 

@@ -1,8 +1,23 @@
 import styles from "./HeroBanner.module.css";
 import { sectionImage } from "./sectionImages";
+import { typographyClass } from "@/components/ui/typography/Typography";
+import { typographyFontFamilyClass } from "@/lib/design-system/typography";
 
-const WHITE_85 = "rgba(255,255,255,0.85)";
-const WHITE_80 = "rgba(255,255,255,0.8)";
+/* Utility-bar link type comes from the Overline typography token — the same "overline"
+   variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
+   every breakpoint) — instead of a one-off font-size/weight/letter-spacing baked into this
+   component's CSS Module. Any future Hero Banner reaches for the same variant name and stays
+   in step automatically if Overline's definition ever changes. */
+const utilityLinkClass = typographyClass("overline", styles.hipUtilityLink);
+const utilityLinkAccentClass = typographyClass("overline", `${styles.hipUtilityLink} ${styles.accent}`);
+
+/* Main-nav links keep their own bold/uppercase look (that's a deliberate Hero Banner design
+   choice, not part of Menu Item's style) but must pull their *font family* from the Menu Item
+   typography token rather than hardcoding one — never write "Figtree"/"Inter" here directly. */
+const navLinkClass = `${styles.hipNavLink} ${typographyFontFamilyClass("menuItem")}`;
+
+const WHITE_85 = "color-mix(in srgb, var(--color-base-white) 85%, transparent)";
+const WHITE_80 = "color-mix(in srgb, var(--color-base-white) 80%, transparent)";
 
 /** Chevron used by every main-nav link. */
 function NavChevron() {
@@ -81,7 +96,7 @@ export default function HeroBanner() {
         </div>
 
         <div className={styles.hipUtilityLinks}>
-          <a className={`${styles.hipUtilityLink} ${styles.accent}`} href="#">
+          <a className={utilityLinkAccentClass} href="#">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M11.0625 1C11.7734 1 12.375 1.60156 12.375 2.3125V13.6875C12.375 14.4258 11.7734 15 11.0625 15H4.9375C4.19922 15 3.625 14.4258 3.625 13.6875V2.3125C3.625 1.60156 4.19922 1 4.9375 1H11.0625ZM8 14.125C8.46484 14.125 8.875 13.7422 8.875 13.25C8.875 12.7852 8.46484 12.375 8 12.375C7.50781 12.375 7.125 12.7852 7.125 13.25C7.125 13.7422 7.50781 14.125 8 14.125ZM11.0625 11.1719V2.64062C11.0625 2.47656 10.8984 2.3125 10.7344 2.3125H5.26562C5.07422 2.3125 4.9375 2.47656 4.9375 2.64062V11.1719C4.9375 11.3633 5.07422 11.5 5.26562 11.5H10.7344C10.8984 11.5 11.0625 11.3633 11.0625 11.1719Z"
@@ -92,7 +107,7 @@ export default function HeroBanner() {
           </a>
 
           {/* DS icon: dollar-symbol */}
-          <a className={styles.hipUtilityLink} href="#">
+          <a className={utilityLinkClass} href="#">
             <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M15 0C6.71504 0 0 6.7157 0 15C0 23.2843 6.71504 30 15 30C23.285 30 30 23.2836 30 15C30 6.71635 23.2843 0 15 0ZM15.908 21.6818V23.4181C15.908 23.689 15.6972 23.8862 15.4256 23.8862H14.2682C13.9967 23.8862 13.778 23.689 13.778 23.4181V21.8345C12.7127 21.7862 11.6382 21.559 10.8249 21.2496C10.3843 21.0825 10.1388 20.6106 10.2557 20.1536L10.4443 19.4186C10.5102 19.1608 10.6826 18.9453 10.9182 18.8246C11.1539 18.7019 11.4307 18.6895 11.6781 18.7841C12.4529 19.0837 13.3681 19.3018 14.3453 19.3018C15.5894 19.3018 16.4413 18.8213 16.4413 17.9479C16.4413 17.1182 15.7429 16.5941 14.1266 16.0477C11.7903 15.2618 10.1904 14.1703 10.1904 12.0521C10.1904 10.131 11.5501 8.6244 13.8746 8.1655V6.58188C13.8746 6.31098 14.1064 6.06815 14.3779 6.06815H15.5353C15.8068 6.06815 16.0059 6.31098 16.0059 6.58188V8.0121C17.0223 8.05583 17.756 8.20662 18.3696 8.40637C18.8337 8.55781 19.1079 9.04413 18.9858 9.51804L18.82 10.176C18.7554 10.4267 18.5896 10.6395 18.3624 10.7622C18.1353 10.8849 17.867 10.9071 17.6215 10.8229C17.0641 10.6317 16.3369 10.458 15.4152 10.458C13.996 10.458 13.5371 11.0697 13.5371 11.6813C13.5371 12.402 14.3015 12.8602 16.1574 13.5593C18.7554 14.4765 19.7992 15.6776 19.7992 17.6418C19.7985 19.5851 18.4257 21.2457 15.908 21.6818Z"
@@ -103,7 +118,7 @@ export default function HeroBanner() {
           </a>
 
           {/* DS icon: user */}
-          <a className={styles.hipUtilityLink} href="#">
+          <a className={utilityLinkClass} href="#">
             <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M15 1C11.3 1.05 7.77 2.54 5.15 5.15C2.54 7.77 1.05 11.3 1 15C1.02 17.15 1.53 19.28 2.5 21.2C3.47 23.12 4.87 24.8 6.6 26.09L6.74 26.2C9.11 28.02 12.01 29 15 29C17.99 29 20.89 28.02 23.26 26.2L23.4 26.09C25.12 24.8 26.53 23.12 27.5 21.2C28.47 19.28 28.99 17.16 29 15C28.95 11.3 27.46 7.77 24.85 5.15C22.23 2.54 18.7 1.05 15 1ZM9.5 24.7C9.7 23.76 10.22 22.93 10.97 22.33C11.72 21.73 12.65 21.4 13.6 21.4H16.4C17.36 21.4 18.29 21.73 19.03 22.33C19.78 22.93 20.29 23.77 20.5 24.7C18.83 25.68 16.93 26.2 15 26.2C13.07 26.2 11.17 25.68 9.5 24.7ZM22.86 22.89C22.33 21.62 21.43 20.53 20.28 19.77C19.13 19.01 17.78 18.6 16.4 18.6H13.6C12.22 18.6 10.87 19.01 9.72 19.77C8.57 20.53 7.68 21.62 7.14 22.89C6.09 21.86 5.26 20.63 4.68 19.28C4.11 17.93 3.8 16.47 3.79 15C3.83 12.04 5.02 9.21 7.11 7.12C9.2 5.03 12.03 3.84 14.99 3.8C17.95 3.84 20.78 5.03 22.87 7.12C24.96 9.21 26.15 12.04 26.19 15C26.18 16.47 25.88 17.93 25.3 19.28C24.73 20.63 23.89 21.86 22.84 22.89H22.86ZM15 6.6C14.26 6.58 13.52 6.72 12.84 6.99C12.15 7.27 11.53 7.68 11.01 8.2C10.49 8.72 10.07 9.35 9.8 10.03C9.52 10.72 9.39 11.45 9.41 12.19C9.39 12.93 9.53 13.67 9.8 14.35C10.08 15.04 10.49 15.66 11.01 16.18C11.53 16.7 12.16 17.12 12.84 17.39C13.53 17.67 14.26 17.8 15 17.78C15.74 17.8 16.48 17.66 17.16 17.39C17.85 17.11 18.47 16.7 18.99 16.18C19.51 15.66 19.93 15.03 20.2 14.35C20.48 13.66 20.61 12.93 20.59 12.19C20.61 11.45 20.47 10.71 20.2 10.03C19.92 9.34 19.51 8.72 18.99 8.2C18.47 7.68 17.84 7.26 17.16 6.99C16.47 6.71 15.74 6.58 15 6.6ZM15 15C14.63 15.02 14.26 14.96 13.91 14.82C13.56 14.69 13.25 14.48 12.98 14.22C12.72 13.96 12.51 13.64 12.38 13.29C12.25 12.94 12.19 12.57 12.2 12.2C12.18 11.83 12.24 11.46 12.38 11.11C12.51 10.76 12.72 10.45 12.98 10.18C13.24 9.92 13.56 9.71 13.91 9.58C14.26 9.45 14.63 9.39 15 9.4C15.37 9.38 15.74 9.44 16.09 9.58C16.44 9.71 16.75 9.92 17.02 10.18C17.28 10.44 17.49 10.76 17.62 11.11C17.75 11.46 17.81 11.83 17.8 12.2C17.82 12.57 17.76 12.94 17.62 13.29C17.49 13.64 17.28 13.95 17.02 14.22C16.76 14.48 16.44 14.69 16.09 14.82C15.74 14.95 15.37 15.01 15 15Z"
@@ -114,7 +129,7 @@ export default function HeroBanner() {
           </a>
 
           {/* DS icon: world */}
-          <a className={styles.hipUtilityLink} href="#">
+          <a className={utilityLinkClass} href="#">
             <svg width="14" height="14" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M11.4774 9.39677H18.5036C18.5036 9.37 18.5046 9.34551 18.5055 9.32267C18.5072 9.2774 18.5088 9.23854 18.502 9.20109C18.4339 8.80897 18.3689 8.41616 18.3039 8.02334C18.1509 7.0989 17.9979 6.17407 17.804 5.25843C17.5129 3.88316 17.0825 2.54546 16.3845 1.31109C16.0848 0.781955 15.7382 0.290396 15.1771 0H14.8258C14.3633 0.244214 14.0174 0.614449 13.7741 1.06374C13.4783 1.61087 13.1841 2.16505 12.9571 2.74271C12.2912 4.43969 11.9328 6.21651 11.6621 8.01211C11.6149 8.32576 11.5747 8.64015 11.5342 8.95703L11.5341 8.95768L11.5341 8.95814C11.5155 9.10339 11.4968 9.24952 11.4774 9.39599V9.39677Z"
@@ -156,7 +171,7 @@ export default function HeroBanner() {
             Portal
           </a>
 
-          <a className={styles.hipUtilityLink} href="#">
+          <a className={utilityLinkClass} href="#">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M8.91904 4H2.53173C1.68928 4 1 4.67039 1 5.48976V10.5102C1 11.3296 1.68928 12 2.53173 12H8.91904C9.76149 12 10.4508 11.3296 10.4508 10.5102V5.48976C10.4508 4.65549 9.76149 4 8.91904 4Z"
@@ -179,7 +194,7 @@ export default function HeroBanner() {
         </a>
         <nav className={styles.hipNavLinks}>
           {NAV_LINKS.map((label) => (
-            <a key={label} className={styles.hipNavLink} href="#">
+            <a key={label} className={navLinkClass} href="#">
               {label} <NavChevron />
             </a>
           ))}

@@ -1,4 +1,5 @@
 import { IconLibrary } from "@/components/ui/icons";
+import { DocShell } from "@/components/layout";
 
 export const metadata = {
   title: "Icons — HIP Style Guide",
@@ -7,5 +8,9 @@ export const metadata = {
 
 /** Icon library — ported 1:1 from design-system/icons.html */
 export default function IconsPage() {
-  return <IconLibrary />;
+  return (
+    <DocShell>
+      <IconLibrary />
+    </DocShell>
+  );
 }

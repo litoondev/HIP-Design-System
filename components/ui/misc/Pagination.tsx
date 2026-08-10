@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export type PaginationVariant = "primary" | "accent" | "disabled";
 
@@ -26,9 +27,11 @@ export default function Pagination({ totalPages = 5, variant = "primary", defaul
         type="button"
         disabled={disabled}
         onClick={() => setPage((p) => Math.max(1, p - 1))}
-        className={`inline-flex items-center gap-2 px-8 py-[15px] font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase border-none ${prevNextClass}`}
+        className={`inline-flex items-center gap-2 px-8 py-[15px] uppercase border-none ${prevNextClass}`}
       >
-        &#8592; Prev
+        <Typography variant="button" as="span">
+          &#8592; Prev
+        </Typography>
       </button>
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => {
         const isActive = !disabled && n === page;
@@ -38,7 +41,7 @@ export default function Pagination({ totalPages = 5, variant = "primary", defaul
             type="button"
             disabled={disabled}
             onClick={() => setPage(n)}
-            className={`w-[60px] h-[60px] font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase border-none ${
+            className={`w-[60px] h-[60px] uppercase border-none ${
               disabled
                 ? "cursor-not-allowed bg-gray-100 text-gray-400"
                 : isActive
@@ -46,7 +49,9 @@ export default function Pagination({ totalPages = 5, variant = "primary", defaul
                 : "cursor-pointer bg-transparent text-base-black"
             }`}
           >
-            {n}
+            <Typography variant="button" as="span">
+              {n}
+            </Typography>
           </button>
         );
       })}
@@ -54,9 +59,11 @@ export default function Pagination({ totalPages = 5, variant = "primary", defaul
         type="button"
         disabled={disabled}
         onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-        className={`inline-flex items-center gap-2 px-8 py-[15px] font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase border-none ${prevNextClass}`}
+        className={`inline-flex items-center gap-2 px-8 py-[15px] uppercase border-none ${prevNextClass}`}
       >
-        Next &#8594;
+        <Typography variant="button" as="span">
+          Next &#8594;
+        </Typography>
       </button>
     </div>
   );

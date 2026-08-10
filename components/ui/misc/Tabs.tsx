@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export interface TabsProps {
   labels?: string[];
@@ -18,11 +19,13 @@ export default function Tabs({ labels = ["Location 1", "Location 2"], defaultAct
           key={label + i}
           type="button"
           onClick={() => setActive(i)}
-          className={`border-none cursor-pointer px-12 py-6 rounded-full font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase ${
+          className={`border-none cursor-pointer px-12 py-6 rounded-full uppercase ${
             active === i ? "bg-primary text-white" : "bg-transparent text-base-gray"
           }`}
         >
-          {label}
+          <Typography variant="button" as="span">
+            {label}
+          </Typography>
         </button>
       ))}
     </div>

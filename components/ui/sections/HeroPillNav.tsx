@@ -1,5 +1,20 @@
 import styles from "./HeroPillNav.module.css";
 import { sectionImage } from "./sectionImages";
+import { typographyClass } from "@/components/ui/typography/Typography";
+import { typographyFontFamilyClass } from "@/lib/design-system/typography";
+
+/* Utility-bar link type comes from the Overline typography token — the same "overline"
+   variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
+   every breakpoint) — instead of a one-off font-size/weight/letter-spacing baked into this
+   component's CSS Module. Any future Hero Banner reaches for the same variant name and stays
+   in step automatically if Overline's definition ever changes. */
+const utilLinkClass = typographyClass("overline", styles.w2UtilLink);
+const utilLinkAccentClass = typographyClass("overline", `${styles.w2UtilLink} ${styles.accent}`);
+
+/* Main-nav links keep their own bold/uppercase look (a deliberate Hero Banner design choice,
+   not part of Menu Item's style) but must pull their *font family* from the Menu Item
+   typography token rather than hardcoding one — never write "Figtree"/"Inter" here directly. */
+const navLinkClass = `${styles.w2Navlink} ${typographyFontFamilyClass("menuItem")}`;
 
 const WHITE_90 = "rgba(255,255,255,0.9)";
 
@@ -38,7 +53,7 @@ export default function HeroPillNav() {
           </div>
 
           <div className={styles.w2UtilLinks}>
-            <a className={`${styles.w2UtilLink} ${styles.accent}`} href="#">
+            <a className={utilLinkAccentClass} href="#">
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M11.0625 1C11.7734 1 12.375 1.60156 12.375 2.3125V13.6875C12.375 14.4258 11.7734 15 11.0625 15H4.9375C4.19922 15 3.625 14.4258 3.625 13.6875V2.3125C3.625 1.60156 4.19922 1 4.9375 1H11.0625ZM8 14.125C8.46484 14.125 8.875 13.7422 8.875 13.25C8.875 12.7852 8.46484 12.375 8 12.375C7.50781 12.375 7.125 12.7852 7.125 13.25C7.125 13.7422 7.50781 14.125 8 14.125ZM11.0625 11.1719V2.64062C11.0625 2.47656 10.8984 2.3125 10.7344 2.3125H5.26562C5.07422 2.3125 4.9375 2.47656 4.9375 2.64062V11.1719C4.9375 11.3633 5.07422 11.5 5.26562 11.5H10.7344C10.8984 11.5 11.0625 11.3633 11.0625 11.1719Z"
@@ -47,7 +62,7 @@ export default function HeroPillNav() {
               </svg>
               Call / Text
             </a>
-            <a className={styles.w2UtilLink} href="#">
+            <a className={utilLinkClass} href="#">
               <svg width="13" height="13" viewBox="0 0 30 30" fill="none">
                 <path
                   d="M15 0C6.71504 0 0 6.7157 0 15C0 23.2843 6.71504 30 15 30C23.285 30 30 23.2836 30 15C30 6.71635 23.2843 0 15 0ZM15.908 21.6818V23.4181C15.908 23.689 15.6972 23.8862 15.4256 23.8862H14.2682C13.9967 23.8862 13.778 23.689 13.778 23.4181V21.8345C12.7127 21.7862 11.6382 21.559 10.8249 21.2496C10.3843 21.0825 10.1388 20.6106 10.2557 20.1536L10.4443 19.4186C10.5102 19.1608 10.6826 18.9453 10.9182 18.8246C11.1539 18.7019 11.4307 18.6895 11.6781 18.7841C12.4529 19.0837 13.3681 19.3018 14.3453 19.3018C15.5894 19.3018 16.4413 18.8213 16.4413 17.9479C16.4413 17.1182 15.7429 16.5941 14.1266 16.0477C11.7903 15.2618 10.1904 14.1703 10.1904 12.0521C10.1904 10.131 11.5501 8.6244 13.8746 8.1655V6.58188C13.8746 6.31098 14.1064 6.06815 14.3779 6.06815H15.5353C15.8068 6.06815 16.0059 6.31098 16.0059 6.58188V8.0121C17.0223 8.05583 17.756 8.20662 18.3696 8.40637C18.8337 8.55781 19.1079 9.04413 18.9858 9.51804L18.82 10.176C18.7554 10.4267 18.5896 10.6395 18.3624 10.7622C18.1353 10.8849 17.867 10.9071 17.6215 10.8229C17.0641 10.6317 16.3369 10.458 15.4152 10.458C13.996 10.458 13.5371 11.0697 13.5371 11.6813C13.5371 12.402 14.3015 12.8602 16.1574 13.5593C18.7554 14.4765 19.7992 15.6776 19.7992 17.6418C19.7985 19.5851 18.4257 21.2457 15.908 21.6818Z"
@@ -56,7 +71,7 @@ export default function HeroPillNav() {
               </svg>
               Payment Calculator
             </a>
-            <a className={styles.w2UtilLink} href="#">
+            <a className={utilLinkClass} href="#">
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
                 <path
                   d="M8 8C6.05859 8 4.5 6.44141 4.5 4.5C4.5 2.58594 6.05859 1 8 1C9.91406 1 11.5 2.58594 11.5 4.5C11.5 6.44141 9.91406 8 8 8ZM10.4336 8.875C12.457 8.875 14.125 10.543 14.125 12.5664V13.6875C14.125 14.4258 13.5234 15 12.8125 15H3.1875C2.44922 15 1.875 14.4258 1.875 13.6875V12.5664C1.875 10.543 3.51562 8.875 5.53906 8.875H6.00391C6.60547 9.17578 7.28906 9.3125 8 9.3125C8.71094 9.3125 9.36719 9.17578 9.96875 8.875H10.4336Z"
@@ -65,7 +80,7 @@ export default function HeroPillNav() {
               </svg>
               Patient Forms
             </a>
-            <a className={styles.w2UtilLink} href="#">
+            <a className={utilLinkClass} href="#">
               <svg width="13" height="13" viewBox="0 0 30 30" fill="none">
                 <path
                   d="M11.4774 9.39677H18.5036C18.502 9.20109 18.4339 8.80897 18.3039 8.02334C18.1509 7.0989 17.9979 6.17407 17.804 5.25843C17.5129 3.88316 17.0825 2.54546 16.3845 1.31109C16.0848 0.781955 15.7382 0.290396 15.1771 0H14.8258C14.3633 0.244214 14.0174 0.614449 13.7741 1.06374C13.4783 1.61087 13.1841 2.16505 12.9571 2.74271C12.2912 4.43969 11.9328 6.21651 11.6621 8.01211C11.6149 8.32576 11.5342 8.95814 11.4774 9.39677ZM1.0784 20.5954C2.0855 23.0594 3.60201 25.0789 5.63341 26.7117C7.54431 28.2482 9.70561 29.247 12.1666 29.7299C10.6016 26.8526 10.1086 23.7396 9.69935 20.5954H1.0784ZM11.4997 20.5985H18.5298C18.5023 20.7964 18.4763 20.9918 18.4504 21.1857C18.3387 22.025 18.27 22.4387C17.9797 24.1913 17.6213 25.9313 16.9147 27.5696C16.6354 28.2169 16.2824 28.8478 15.8669 29.4168C15.291 30.2058 14.7409 30.1823 14.118 29.4207C13.4145 28.5597 13.0194 27.539 12.679 26.4996C12.067 24.6296 11.7313 22.7009 11.4935 20.7527C11.4997 20.5985 11.4997 20.5985 11.4997 20.5985Z"
@@ -85,7 +100,7 @@ export default function HeroPillNav() {
             </div>
             <nav className={styles.w2Navlinks}>
               {NAV_LINKS.map((label) => (
-                <a key={label} className={styles.w2Navlink} href="#">
+                <a key={label} className={navLinkClass} href="#">
                   {label}{" "}
                   <svg fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <polyline points="6 9 12 15 18 9" />

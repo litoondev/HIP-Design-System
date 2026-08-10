@@ -25,8 +25,14 @@ export default function FullPageButton({ targetId, num, name }: FullPageButtonPr
     const render = document.getElementById(targetId);
     if (!render) return;
 
+    /* `body > style` matters as much as the head rules: app/layout.tsx publishes the whole
+       --color-* set from colorVarsCss() in a body-level <style>, and the section CSS copied
+       below resolves its colors through those variables. Take only the head rules and the
+       popup renders the right shapes with no color at all. */
     const headCss = Array.from(
-      document.querySelectorAll<HTMLElement>('head style, head link[rel="stylesheet"]')
+      document.querySelectorAll<HTMLElement>(
+        'head style, head link[rel="stylesheet"], body > style'
+      )
     )
       .map((node) =>
         node instanceof HTMLLinkElement
@@ -42,7 +48,7 @@ export default function FullPageButton({ targetId, num, name }: FullPageButtonPr
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HIP — ${num} ${name}</title>
 <base href="${window.location.origin}/">
-<style>* { box-sizing: border-box; margin: 0; padding: 0; } body { margin: 0; background: #fff; }</style>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; } body { margin: 0; background: var(--color-white); }</style>
 ${headCss}
 </head>
 <body>${render.innerHTML}</body>

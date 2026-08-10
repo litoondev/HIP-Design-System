@@ -1,3 +1,5 @@
+import { Typography, typographyClass } from "@/components/ui/typography/Typography";
+
 export type InputFieldVariant = "round" | "square" | "circle" | "pill";
 
 export interface InputFieldProps {
@@ -24,14 +26,20 @@ export default function InputField({
 }: InputFieldProps) {
   return (
     <div className={`flex flex-col gap-2 w-[320px]${className ? ` ${className}` : ""}`}>
-      <label className="font-body text-[18px] leading-[28px] text-base-black">{label}</label>
+      <Typography variant="body2" as="label" className="text-base-black">
+        {label}
+      </Typography>
       <div
         className={`flex items-center gap-2 px-3 py-[14px] border border-base-gray ${radiusClassByVariant[variant]} w-full`}
       >
+        {/* <input> has no children to wrap, so the variant is applied as a class instead. */}
         <input
           type="text"
           placeholder={placeholder}
-          className="border-none outline-none flex-1 font-body text-[18px] leading-[28px] text-[rgba(3,7,18,0.35)]"
+          className={typographyClass(
+            "body2",
+            "border-none outline-none flex-1 text-black/35"
+          )}
         />
       </div>
     </div>

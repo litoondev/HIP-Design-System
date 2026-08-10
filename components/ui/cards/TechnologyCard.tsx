@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface TechnologyCardProps {
   heading?: string;
   body?: string;
@@ -10,12 +12,20 @@ export default function TechnologyCard({
 }: TechnologyCardProps) {
   return (
     <div className="bg-white border-2 border-gray-200 w-[600px] max-w-full p-10 flex gap-[30px] items-center">
-      <div className="w-[240px] h-[240px] bg-gray-200 flex items-center justify-center text-gray-500 font-body text-[12px] shrink-0">
+      <Typography
+        as="div"
+        variant="tooltip"
+        className="w-[240px] h-[240px] bg-gray-200 flex items-center justify-center text-gray-500 shrink-0"
+      >
         Photo
-      </div>
+      </Typography>
       <div className="flex-1 flex flex-col gap-6">
-        <div className="font-header font-bold text-[24px] leading-9 tracking-[0.75px] text-base-black uppercase">{heading}</div>
-        <p className="font-body text-[20px] leading-[30px] text-textcolor-body m-0">{body}</p>
+        <Typography variant="subtitle" as="div" className="text-base-black">
+          {heading}
+        </Typography>
+        <Typography variant="body1" className="m-0">
+          {body}
+        </Typography>
       </div>
     </div>
   );

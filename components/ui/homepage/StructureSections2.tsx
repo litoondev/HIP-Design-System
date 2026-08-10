@@ -7,6 +7,7 @@ import {
   WfPlaceholder,
   ZigZagRow,
 } from "./Wireframe";
+import { Typography, typographyClass } from "@/components/ui/typography/Typography";
 
 /**
  * Sections 09–16 — continuation of the rendered homepage structure.
@@ -42,13 +43,13 @@ export function WhoWeHelp() {
             reversed={i % 2 === 1}
             text={
               <WfBlock className="border-primary-300 p-3 flex flex-col gap-1.5">
-                <p className="font-header font-bold text-sm text-base-black">{seg.name}</p>
-                <p className="font-body text-[10px] text-gray-500">
+                <Typography variant="caption" as="p" className="font-bold text-base-black">{seg.name}</Typography>
+                <Typography variant="tooltip" as="p" className="text-gray-500">
                   Benefit-led copy — what this age group worries about, answered.
-                </p>
-                <span className="font-body text-[10px] font-bold text-primary-500 flex items-center gap-1">
+                </Typography>
+                <Typography variant="tooltip" as="span" className="font-bold text-primary-500 flex items-center gap-1">
                   Learn More <ArrowRight />
-                </span>
+                </Typography>
               </WfBlock>
             }
             image={
@@ -95,11 +96,11 @@ export function Treatments() {
               reversed={i % 2 === 1}
               text={
                 <WfBlock className="border-gray-300 p-3 flex flex-col gap-1">
-                  <p className="font-header font-bold text-sm">{name}</p>
-                  <p className="font-body text-[10px] text-gray-500">2–3 lines max.</p>
-                  <span className="font-body text-[10px] font-bold text-primary-500">
+                  <Typography variant="caption" as="p" className="font-bold">{name}</Typography>
+                  <Typography variant="tooltip" as="p" className="text-gray-500">2–3 lines max.</Typography>
+                  <Typography variant="tooltip" as="span" className="font-bold text-primary-500">
                     Learn More →
-                  </span>
+                  </Typography>
                 </WfBlock>
               }
               image={
@@ -131,13 +132,13 @@ export function NewsMedia() {
     >
       <div className="bg-white p-6">
         <div className="text-center mb-4">
-          <p className="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-cta-500">
             NEWS &amp; MEDIA
-          </p>
-          <p className="font-header font-extrabold text-xl text-base-black mt-1">
+          </Typography>
+          <Typography variant="h6" as="p" className="font-extrabold text-base-black mt-1">
             We&rsquo;ve Been Featured In…
-          </p>
-          <p className="font-body text-[11px] text-gray-500 mt-1">Short paragraph — 1–2 lines.</p>
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-gray-500 mt-1">Short paragraph — 1–2 lines.</Typography>
         </div>
         <div className="flex gap-4 justify-center flex-wrap">
           {Array.from({ length: 5 }, (_, i) => (
@@ -172,11 +173,11 @@ export function InstagramSlider() {
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
               </svg>
             </div>
-            <span className="font-body text-xs font-bold text-gray-700">@practicehandle</span>
+            <Typography variant="tooltip" as="span" className="font-bold text-gray-700">@practicehandle</Typography>
           </div>
-          <div className="border border-gray-300 text-gray-600 font-body text-xs px-3 py-1 rounded-full">
+          <Typography variant="tooltip" as="div" className="border border-gray-300 text-textcolor-body px-3 py-1 rounded-full">
             Follow
-          </div>
+          </Typography>
         </div>
         <div className="flex gap-2 overflow-hidden">
           {Array.from({ length: 5 }, (_, i) => (
@@ -203,28 +204,28 @@ export function CtaSection() {
       meta="Orange-tinted bg · 2-col · Image left · Text right"
       caption='Soft orange background visually signals "action time." One CTA only — no competing links.'
     >
-      <div className="bg-orange-50 p-6">
+      <div className="bg-accent-50 p-6">
         <div className="grid grid-cols-2 gap-4 items-center">
           <WfPlaceholder
             label="Section image"
-            className="border-cta-300 bg-orange-100 h-40"
+            className="border-cta-300 bg-accent-100 h-40"
             labelClassName="text-cta-400"
           />
           <div className="flex flex-col gap-2">
-            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">
+            <Typography variant="tooltip" as="p" className="font-bold uppercase text-cta-500">
               REQUEST APPOINTMENT
-            </p>
-            <p className="font-header font-extrabold text-xl text-base-black">
+            </Typography>
+            <Typography variant="h6" as="p" className="font-extrabold text-base-black">
               Get Started On Your New Smile Today
-            </p>
-            <p className="font-body text-[11px] text-gray-600">
+            </Typography>
+            <Typography variant="tooltip" as="p" className="text-textcolor-body">
               Short paragraph. Outcome-focused headline — &ldquo;new smile&rdquo;, not
               service-focused.
-            </p>
-            <div className="bg-cta-500 text-white font-header font-bold text-sm px-6 py-3 rounded-full inline-flex items-center gap-2 self-start mt-1">
+            </Typography>
+            <Typography variant="caption" as="div" className="bg-cta-500 text-white font-bold px-6 py-3 rounded-full inline-flex items-center gap-2 self-start mt-1">
               Request Free Consult
               <ArrowRight className="w-4 h-4" />
-            </div>
+            </Typography>
           </div>
         </div>
       </div>
@@ -238,16 +239,16 @@ function ReviewCard({ name }: { name: string }) {
     <WfBlock className="border-gray-300 bg-gray-50 p-3 flex flex-col gap-1.5">
       <div className="flex items-center gap-2">
         <div className="w-5 h-5 rounded bg-blue-500 flex items-center justify-center">
-          <span className="font-header font-bold text-[8px] text-white">G</span>
+          <Typography variant="tooltip" as="span" className="font-bold text-white">G</Typography>
         </div>
-        <span className="text-cta-500 text-xs">★★★★★</span>
+        <Typography variant="tooltip" as="span" className="text-cta-500">★★★★★</Typography>
       </div>
-      <p className="font-body text-[10px] text-gray-600 italic">
+      <Typography variant="tooltip" as="p" className="text-textcolor-body italic">
         &ldquo;Review excerpt — truncated to 2–3 lines…&rdquo;
-      </p>
+      </Typography>
       <div className="flex items-center justify-between">
-        <span className="font-body text-[10px] font-bold text-gray-500">{name}</span>
-        <span className="font-body text-[10px] text-primary-500 font-bold">Read More</span>
+        <Typography variant="tooltip" as="span" className="font-bold text-gray-500">{name}</Typography>
+        <Typography variant="tooltip" as="span" className="text-primary-500 font-bold">Read More</Typography>
       </div>
     </WfBlock>
   );
@@ -265,15 +266,15 @@ export function Reviews() {
       <div className="bg-white p-6 flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-4 items-center pb-4 border-b border-gray-100">
           <div className="flex flex-col gap-1.5">
-            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">
+            <Typography variant="tooltip" as="p" className="font-bold uppercase text-cta-500">
               OUR REVIEWS
-            </p>
-            <p className="font-header font-extrabold text-xl text-base-black">
+            </Typography>
+            <Typography variant="h6" as="p" className="font-extrabold text-base-black">
               Experience 5-Star Care
-            </p>
-            <p className="font-body text-[11px] text-gray-500">
+            </Typography>
+            <Typography variant="tooltip" as="p" className="text-gray-500">
               Paragraph — 2–3 lines on patient satisfaction.
-            </p>
+            </Typography>
           </div>
           <WfPlaceholder
             label="Section image"
@@ -288,16 +289,16 @@ export function Reviews() {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <WfBlock className="border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500 text-xs">
+              <WfBlock className={typographyClass("tooltip", "border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500")}>
                 ‹
               </WfBlock>
-              <WfBlock className="border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500 text-xs">
+              <WfBlock className={typographyClass("tooltip", "border-gray-300 w-7 h-7 flex items-center justify-center text-gray-500")}>
                 ›
               </WfBlock>
             </div>
-            <div className="border border-primary-400 text-primary-500 font-body font-bold text-[11px] px-3 py-1 rounded-full">
+            <Typography variant="tooltip" as="div" className="border border-primary-400 text-primary-500 font-bold px-3 py-1 rounded-full">
               More Reviews →
-            </div>
+            </Typography>
           </div>
         </div>
       </div>
@@ -323,33 +324,33 @@ export function Locations() {
             labelClassName="text-gray-400"
           />
           <div className="flex flex-col gap-1.5">
-            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-cta-500">
+            <Typography variant="tooltip" as="p" className="font-bold uppercase text-cta-500">
               OUR LOCATIONS
-            </p>
-            <p className="font-header font-extrabold text-xl text-base-black">Come Visit Us</p>
-            <p className="font-body text-[11px] text-gray-500">Short paragraph.</p>
+            </Typography>
+            <Typography variant="h6" as="p" className="font-extrabold text-base-black">Come Visit Us</Typography>
+            <Typography variant="tooltip" as="p" className="text-gray-500">Short paragraph.</Typography>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-3">
             <WfBlock className="border-gray-300 p-3">
               <WfLabel className="text-gray-500 mb-1 block">LOCATIONS</WfLabel>
-              <p className="font-body text-[10px] text-gray-600">
+              <Typography variant="tooltip" as="p" className="text-textcolor-body">
                 Location Name · 123 Main St, City, ST 00000
-              </p>
-              <p className="font-body text-[10px] text-gray-600">
+              </Typography>
+              <Typography variant="tooltip" as="p" className="text-textcolor-body">
                 Location Name · 456 Oak Ave, City, ST 00000
-              </p>
-              <p className="font-body text-[10px] text-primary-500 mt-1">+ 11 more locations →</p>
+              </Typography>
+              <Typography variant="tooltip" as="p" className="text-primary-500 mt-1">+ 11 more locations →</Typography>
             </WfBlock>
             <WfBlock className="border-gray-300 p-3">
               <WfLabel className="text-gray-500 mb-1 block">CONTACT US</WfLabel>
-              <p className="font-body text-[10px] text-gray-600">(XXX) XXX-XXXX · Call / Text</p>
+              <Typography variant="tooltip" as="p" className="text-textcolor-body">(XXX) XXX-XXXX · Call / Text</Typography>
             </WfBlock>
             <WfBlock className="border-gray-300 p-3">
               <WfLabel className="text-gray-500 mb-1 block">CONTACT HOURS</WfLabel>
-              <p className="font-body text-[10px] text-gray-600">Mon–Fri 8am–6pm</p>
-              <p className="font-body text-[10px] text-gray-600">Sat 9am–3pm</p>
+              <Typography variant="tooltip" as="p" className="text-textcolor-body">Mon–Fri 8am–6pm</Typography>
+              <Typography variant="tooltip" as="p" className="text-textcolor-body">Sat 9am–3pm</Typography>
             </WfBlock>
           </div>
           <WfBlock className="border-gray-300 bg-gray-100 h-48 flex flex-col items-center justify-center gap-2">
@@ -395,31 +396,31 @@ export function Footer() {
     >
       <div className="bg-navy p-6 flex flex-col gap-5">
         <div className="flex items-center justify-between pb-4 border-b border-white/10 gap-4 flex-wrap">
-          <WfBlock className="border-primary-400 text-primary-300 px-4 py-2 text-sm font-header font-extrabold">
+          <WfBlock className={typographyClass("caption", "border-primary-400 text-primary-300 px-4 py-2 font-header font-extrabold")}>
             LOGO
           </WfBlock>
-          <div className="bg-cta-500 text-white font-header font-bold text-sm px-5 py-2.5 rounded-full">
+          <Typography variant="caption" as="div" className="bg-cta-500 text-white font-bold px-5 py-2.5 rounded-full">
             Request Free Consult
-          </div>
+          </Typography>
         </div>
         <div className="grid grid-cols-3 gap-6">
           <div>
             <WfLabel className="text-primary-300 mb-2 block">QUICK LINKS</WfLabel>
             <div className="flex flex-col gap-1.5">
               {FOOTER_LINKS.map((l) => (
-                <p key={l} className="font-body text-xs text-white/60">
+                <Typography key={l} variant="tooltip" as="p" className="text-white/60">
                   {l}
-                </p>
+                </Typography>
               ))}
             </div>
           </div>
           <div>
             <WfLabel className="text-primary-300 mb-2 block">CONTACT US</WfLabel>
             <div className="flex flex-col gap-1.5">
-              <p className="font-body text-xs text-white/60">City, ST (per location)</p>
-              <p className="font-body text-xs text-cta-400 font-bold">
+              <Typography variant="tooltip" as="p" className="text-white/60">City, ST (per location)</Typography>
+              <Typography variant="tooltip" as="p" className="text-cta-400 font-bold">
                 (XXX) XXX-XXXX · Call / Text
-              </p>
+              </Typography>
             </div>
           </div>
           <div>
@@ -439,14 +440,14 @@ export function Footer() {
         <div className="pt-4 border-t border-white/10">
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             {FOOTER_LEGAL.map((l) => (
-              <p key={l} className="font-body text-[10px] text-white/40">
+              <Typography key={l} variant="tooltip" as="p" className="text-white/40">
                 {l}
-              </p>
+              </Typography>
             ))}
           </div>
-          <p className="font-body text-[10px] text-white/30 mt-1">
+          <Typography variant="tooltip" as="p" className="text-white/30 mt-1">
             Orthodontic Marketing &amp; Web Design by [Agency]
-          </p>
+          </Typography>
         </div>
       </div>
     </Section>

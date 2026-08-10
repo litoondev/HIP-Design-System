@@ -1,4 +1,5 @@
 import { baseColors, baseNeutrals, colorVarName, inkVarOn } from "@/lib/colors";
+import { Typography } from "@/components/ui/typography/Typography";
 
 interface Swatch {
   name: string;
@@ -33,20 +34,22 @@ export default function ColorPalette() {
   return (
     <div className="flex flex-col gap-0">
       {swatches.map((s, i) => (
-        <div
+        <Typography
+          as="div"
+          variant="tooltip"
           key={`${s.name}-${i}`}
           title={s.hex}
           /* Both ground and ink are token references — DevTools reads
              var(--color-primary-base), never a hex or rgb(). Which ink applies is decided
              by measured contrast, not chosen by hand. */
           style={{ backgroundColor: `var(${s.varName})`, color: `var(${inkVarOn(s.hex)})` }}
-          className={`h-[78px] flex flex-col items-center justify-center font-body text-[11px] leading-[1.4] text-center border ${
+          className={`h-[78px] flex flex-col items-center justify-center text-center border ${
             i === 0 ? "" : "border-t-0"
-          } border-[#e0e0e0]`}
+          } border-gray-200`}
         >
           <span className="font-bold">{s.name}</span>
           <span>{s.title}</span>
-        </div>
+        </Typography>
       ))}
     </div>
   );

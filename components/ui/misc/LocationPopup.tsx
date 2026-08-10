@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface LocationPopupProps {
   name?: string;
   address?: string;
@@ -13,8 +15,9 @@ export default function LocationPopup({
   onClose,
 }: LocationPopupProps) {
   return (
-    <div className="w-[430px] max-w-full bg-white border-2 border-primary rounded-20 shadow-[0_4px_4px_rgba(0,0,0,0.1)] overflow-hidden">
+    <div className="w-[430px] max-w-full bg-white border-2 border-primary rounded-20 shadow-[0_4px_4px_color-mix(in_srgb,var(--color-black)_10%,transparent)] overflow-hidden">
       <div className="relative">
+        {/* Close affordance — a glyph sized to its 44px hit area, not a type style. */}
         <button
           type="button"
           onClick={onClose}
@@ -23,15 +26,25 @@ export default function LocationPopup({
         >
           &times;
         </button>
-        <div className="h-[250px] bg-gray-200 flex items-center justify-center text-gray-500 font-body text-[12px]">Photo</div>
-        <div className="bg-primary text-white text-center py-[10px] px-[10px] font-body text-[20px] leading-[30px]">{name}</div>
+        <Typography
+          as="div"
+          variant="tooltip"
+          className="h-[250px] bg-gray-200 flex items-center justify-center text-gray-500"
+        >
+          Photo
+        </Typography>
+        <Typography as="div" variant="body1" className="bg-primary text-white text-center py-[10px] px-[10px]">
+          {name}
+        </Typography>
       </div>
       <div className="flex flex-col items-center gap-5 px-5 py-[30px]">
-        <div className="flex items-center gap-[10px] font-body text-[20px] leading-[30px] text-base-black">
+        <Typography as="div" variant="body1" className="flex items-center gap-[10px] text-base-black">
           <span className="text-cta text-[10px]">&#9679;</span> {address}
-        </div>
-        <button className="inline-flex items-center justify-center gap-4 px-8 py-[15px] font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase text-white border-none cursor-pointer bg-base-black">
-          {ctaLabel}
+        </Typography>
+        <button className="inline-flex items-center justify-center gap-4 px-8 py-[15px] uppercase text-white border-none cursor-pointer bg-base-black">
+          <Typography variant="button" as="span">
+            {ctaLabel}
+          </Typography>
         </button>
       </div>
     </div>

@@ -117,8 +117,10 @@
   }
 }
 
+/* The page ground and default ink. Both resolve through the aliases published by
+   colorVarsCss() in lib/colors.ts, so retargeting Base White/Base Black moves them. */
 body {
   margin: 0;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

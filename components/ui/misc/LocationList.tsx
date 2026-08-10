@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface LocationListItem {
   name: string;
   address: string;
@@ -17,14 +19,20 @@ const defaultItems: LocationListItem[] = [
 export default function LocationList({ heading = "Locations", items = defaultItems }: LocationListProps) {
   return (
     <div className="flex flex-col gap-4 w-[209px]">
-      <div className="font-header font-bold text-[24px] leading-9 tracking-[0.75px] text-primary uppercase">{heading}</div>
+      {/* Stays a <div>: the component is dropped into pages whose heading level it can't know,
+          and promoting it to an h3 here would skip a level under the section's own h1. */}
+      <Typography variant="subtitle" as="div" className="text-primary">
+        {heading}
+      </Typography>
       <div className="flex flex-col gap-[6px]">
         {items.map((item) => (
           <div key={item.name} className="flex flex-col gap-[6px]">
-            <div className="font-body font-bold text-[20px] leading-[30px] tracking-[0.5px] text-base-black">{item.name}</div>
-            <div className="flex items-center gap-[10px] font-body text-[20px] leading-[30px] text-base-black">
+            <Typography as="div" variant="strong1" className="text-base-black">
+              {item.name}
+            </Typography>
+            <Typography as="div" variant="body1" className="flex items-center gap-[10px] text-base-black">
               <span className="text-cta text-[10px]">&#9679;</span> {item.address}
-            </div>
+            </Typography>
           </div>
         ))}
       </div>
