@@ -335,7 +335,7 @@ export function IconUsage() {
       className="mb-10"
       caption={
         <>
-          All 142 icons must come from{" "}
+          All 150 icons must come from{" "}
           <Link href="/icons" className="font-bold text-secondary-600">
             the system icon library
           </Link>{" "}
@@ -355,7 +355,7 @@ export function IconUsage() {
                 1
               </span>
               <p className="font-body text-[12px] text-base-black">
-                <strong>System icon library (142 icons)</strong> — always check{" "}
+                <strong>System icon library (150 icons)</strong> — always check{" "}
                 <Link href="/icons" className="text-primary-600 font-bold">
                   the icon library
                 </Link>{" "}

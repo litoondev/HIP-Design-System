@@ -1,8 +1,15 @@
 /**
- * HIP icon library data — 142 icons extracted 1:1 from design-system/icons.html.
+ * HIP icon library data — 142 icons extracted 1:1 from design-system/icons.html,
+ * plus the 8 trust badge glyphs from the Figma "Highlights" frame (150 total).
  * Generated from the Figma export; `svg` holds the raw inline SVG markup that the
  * gallery renders and copies to the clipboard.
  */
+import {
+  TRUST_BADGE_GLYPHS,
+  TRUST_BADGE_GLYPH_ORDER,
+  trustBadgeSvgMarkup,
+} from "./trustBadgeGlyphs";
+
 export type IconCategory =
   | "social"
   | "communication"
@@ -53,7 +60,7 @@ export const CAT_ORDER: IconCategory[] = [
   "ds",
 ];
 
-export const icons: IconEntry[] = [
+const baseIcons: IconEntry[] = [
   {
     "name": "User",
     "node": "1:1517",
@@ -1191,6 +1198,26 @@ export const icons: IconEntry[] = [
     "category": "ds"
   }
 ];
+
+/**
+ * Trust badge glyphs from the Figma "Highlights — Trust Badges Grid" frame, used by the
+ * TrustBadges section. Built from the shared path data in trustBadgeGlyphs.ts rather than
+ * pasted in as markup, so the section and the gallery can never drift apart.
+ *
+ * Filed under "ds" alongside `local`, `invisalign` and `same-day` — these are section
+ * icons, not general UI. They are new drawings at 44–48px, not larger copies of those
+ * existing entries.
+ */
+const trustBadgeIcons: IconEntry[] = TRUST_BADGE_GLYPH_ORDER.map((name) => ({
+  name: TRUST_BADGE_GLYPHS[name].label,
+  node: `trust-badge:${name}`,
+  file: `${name}.svg`,
+  svg: trustBadgeSvgMarkup(name),
+  group: "Trust badge set",
+  category: "ds",
+}));
+
+export const icons: IconEntry[] = [...baseIcons, ...trustBadgeIcons];
 
 /** Counts derived from the data, so chip/sidebar badges can never drift from reality. */
 export const catCounts: Record<IconCategory, number> = CAT_ORDER.reduce(

@@ -1,10 +1,10 @@
 /** The "DS Tokens Used" swatches from the sections.html sidebar. The section list that sat
  *  above them now lives in the app sidebar as a submenu under Section Designs. */
 const TOKENS = [
-  { swatch: "#320270", label: "CTA / Primary Royal Amethyst #320270", bordered: false },
-  { swatch: "#1fc3df", label: "Secondary Aqua Pulse #1fc3df", bordered: false },
-  { swatch: "#000000", label: "Base Black #000000", bordered: false },
-  { swatch: "#ffffff", label: "White #ffffff", bordered: true },
+  { swatch: "#320270", label: "CTA / Primary Royal Amethyst --color-cta-base", bordered: false },
+  { swatch: "#1fc3df", label: "Secondary Aqua Pulse --color-secondary-base", bordered: false },
+  { swatch: "#000000", label: "Base Black --color-base-black", bordered: false },
+  { swatch: "#ffffff", label: "White --color-base-white", bordered: true },
 ];
 
 export default function TokenLegend() {

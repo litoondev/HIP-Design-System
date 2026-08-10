@@ -12,6 +12,8 @@ export { default as OurPractice } from "./OurPractice";
 export { default as HowWeHelp } from "./HowWeHelp";
 export { default as CtaSection } from "./CtaSection";
 export { default as HighlightsGrid } from "./HighlightsGrid";
+export { default as TrustBadges, TRUST_BADGES } from "./TrustBadges";
+export type { TrustBadge, TrustBadgesProps } from "./TrustBadges";
 export { default as Reviews } from "./Reviews";
 
 /* Designed here to the homepage structure reference — no sections.html source */
