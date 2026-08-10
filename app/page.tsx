@@ -1,8 +1,15 @@
-import { ColorPalette, ColorAccessibilityRamps, ResponsiveSpacingTable, GlobalRadiusTable } from "@/components/ui/foundations";
+import {
+  ColorPalette,
+  ColorAccessibilityRamps,
+  SpacingPrimitivesTable,
+  ResponsiveSpacingTable,
+  IconSizeTable,
+  GlobalRadiusTable,
+} from "@/components/ui/foundations";
 import { TypographySection } from "@/components/ui/typography";
 import { Typography } from "@/components/ui/typography/Typography";
 import { InputField, Checkbox, Radio, ChooseFile, UploadDropzone } from "@/components/ui/forms";
-import { PrimaryNav, MegaMenu } from "@/components/ui/nav";
+import { TopMenu, PrimaryNav, MegaMenu } from "@/components/ui/nav";
 import {
   ServiceCard,
   TeamCard,
@@ -67,6 +74,23 @@ export default function Home() {
         <ColorAccessibilityRamps />
       </section>
 
+      {/* ===== Spacing — Primitives ===== */}
+      <section id="spacing-primitives" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
+        <Typography variant="preHeader" as="div" className="text-cta mb-2">
+          Foundations
+        </Typography>
+        <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
+          Spacing — Primitives
+        </Typography>
+        <Typography variant="body1" className="max-w-[640px] mt-0 mb-4">
+          The 53 raw spacing values from the Figma <b className="text-base-black">primitives</b> collection —
+          a flat, mode-agnostic scale that does not change per breakpoint. These are the values the
+          responsive rules below are built from; use a semantic rule first and drop down to a primitive
+          only when none applies. Never write an arbitrary spacing value.
+        </Typography>
+        <SpacingPrimitivesTable />
+      </section>
+
       {/* ===== Responsive Spacing & Layout Rules ===== */}
       <section id="responsive-rules" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
         <Typography variant="preHeader" as="div" className="text-cta mb-2">
@@ -82,6 +106,24 @@ export default function Home() {
           rest of the site.
         </Typography>
         <ResponsiveSpacingTable />
+      </section>
+
+      {/* ===== Icon Size ===== */}
+      <section id="icon-sizes" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
+        <Typography variant="preHeader" as="div" className="text-cta mb-2">
+          Foundations
+        </Typography>
+        <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
+          Icon Size
+        </Typography>
+        <Typography variant="body1" className="max-w-[640px] mt-0 mb-4">
+          The icon size scale — twelve tokens from <b className="text-base-black">icon-xs</b> to{" "}
+          <b className="text-base-black">icon-max</b>. Unlike Global Radius below, this is a{" "}
+          <b className="text-base-black">responsive collection</b>: each token carries a different
+          value at Desktop, Tablet and Mobile, so an icon scales with the layout. Always size a glyph
+          with a token — never an arbitrary px value.
+        </Typography>
+        <IconSizeTable />
       </section>
 
       {/* ===== Global Radius ===== */}
@@ -128,6 +170,19 @@ export default function Home() {
             <Radio label="Unselected radio" selected={false} />
             <Radio label="Selected radio" selected={true} />
           </div>
+        </div>
+      </section>
+
+      {/* ===== Top Menu ===== */}
+      <section id="top-menu" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
+        <Typography variant="preHeader" as="div" className="text-cta mb-2">
+          Components
+        </Typography>
+        <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
+          Top Menu
+        </Typography>
+        <div className="flex gap-10 flex-wrap items-end mb-8 w-full">
+          <TopMenu />
         </div>
       </section>
 

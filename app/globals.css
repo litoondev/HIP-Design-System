@@ -12,8 +12,42 @@
   --btn-padding-x: 32px; /* spacing/32 */
   --btn-padding-y: 16px; /* spacing/16 */
   --btn-icon-gap: 16px;  /* spacing/16 */
-  --btn-icon-size: 20px; /* spacing/20 */
+  /* Was a literal 20px/16px pair; it is exactly the icon-md token, so it aliases it
+     instead of restating the ladder. Same rendered sizes at all three breakpoints. */
+  --btn-icon-size: var(--icon-md);
   --radius-full: 999px;  /* fully-rounded pills */
+}
+
+/* Global icon size tokens — the responsive icon scale documented by IconSizeTable
+   (values in lib/design-system/iconSizes.ts). Desktop values here; the Tab/Mobi blocks
+   below step them down. Size every glyph with one of these, never a raw px. */
+:root {
+  --icon-xs: 14px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+  --icon-2xl: 48px;
+  --icon-3xl: 64px;
+  --icon-4xl: 80px;
+  --icon-5xl: 96px;
+  --icon-6xl: 128px;
+  --icon-7xl: 160px;
+  --icon-max: 200px;
+}
+
+/* Top utility-menu tokens — sourced 1:1 from the Figma "Utilities/Menu/*" variables
+   (Master V3, Top_Menu node 15895:53286). The utility bars in the Hero sections consume
+   these instead of hardcoded px, so the menu iconography has one source of truth. */
+:root {
+  --menu-icon-size: 24px;        /* Utilities/Menu/Social_Icon/Icon-Size & Header Top/Icon */
+  --menu-social-padding: 10px;   /* Utilities/Menu/Social_Icon/padding */
+  --menu-social-gap: 10px;       /* social group auto-layout gap */
+  --menu-item-gap: 20px;         /* utility-link group auto-layout gap */
+  --menu-item-icon-pad-x: 10px;  /* Utilities/Menu/Header Top/Icon Left Right */
+  --menu-item-icon-pad-y: 10px;  /* Utilities/Menu/Header Top/Top Buttom */
+  --menu-item-text-gap: 5px;     /* Utilities/Menu/Header Top/Text to Icon */
+  --menu-divider-height: 20px;   /* social divider line height */
 }
 
 /* Global section-layout tokens — from the Responsive Spacing & Layout Rules table
@@ -70,7 +104,19 @@
     --btn-padding-x: 24px; /* spacing/24 */
     --btn-padding-y: 12px; /* spacing/12 */
     --btn-icon-gap: 12px;  /* spacing/12 */
-    /* icon size unchanged at tab (20px) */
+    /* Tablet icon scale — icon-md (and so --btn-icon-size) is unchanged at 20px. */
+    --icon-xs: 12px;
+    --icon-sm: 16px;
+    --icon-md: 20px;
+    --icon-lg: 24px;
+    --icon-xl: 28px;
+    --icon-2xl: 40px;
+    --icon-3xl: 48px;
+    --icon-4xl: 64px;
+    --icon-5xl: 80px;
+    --icon-6xl: 96px;
+    --icon-7xl: 128px;
+    --icon-max: 160px;
     --section-padding-y: 60px;
     --container-padding-x: 40px;
     --grid-gap: 30px;
@@ -87,7 +133,19 @@
     --btn-padding-x: 16px; /* spacing/16 */
     /* padding-y stays 12px at mobile */
     --btn-icon-gap: 8px;   /* spacing/8 */
-    --btn-icon-size: 16px; /* spacing/16 */
+    /* Mobile icon scale — icon-md drops to 16px, carrying --btn-icon-size with it. */
+    --icon-xs: 12px;
+    --icon-sm: 14px;
+    --icon-md: 16px;
+    --icon-lg: 20px;
+    --icon-xl: 24px;
+    --icon-2xl: 32px;
+    --icon-3xl: 40px;
+    --icon-4xl: 48px;
+    --icon-5xl: 64px;
+    --icon-6xl: 80px;
+    --icon-7xl: 96px;
+    --icon-max: 128px;
     --section-padding-y: 40px;
     --container-padding-x: 20px;
     --grid-gap: 20px;
