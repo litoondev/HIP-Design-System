@@ -1,7 +1,10 @@
 import styles from "./TextRollButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface TextRollButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   href?: string;
   className?: string;
 }
@@ -11,23 +14,25 @@ export interface TextRollButtonProps {
  * The duplicate label is the incoming line of the roll and is hidden from assistive tech.
  */
 export default function TextRollButton({
-  label = "Meet Dr. Steven",
+  label,
+  practice,
   href = "#",
   className,
 }: TextRollButtonProps) {
+  const text = label ?? defaultCta(practice, 24);
   return (
     <a
       className={`${styles.doctorButton}${className ? ` ${className}` : ""}`}
       href={href}
-      aria-label={label}
+      aria-label={text}
     >
       <span className={styles.doctorButtonTextWrap}>
-        <span className={styles.doctorButtonText}>{label}</span>
+        <span className={styles.doctorButtonText}>{text}</span>
         <span
           className={`${styles.doctorButtonText} ${styles.doctorButtonTextDup}`}
           aria-hidden="true"
         >
-          {label}
+          {text}
         </span>
       </span>
       <svg className={styles.doctorButtonIcon} viewBox="0 0 25 25" aria-hidden="true">

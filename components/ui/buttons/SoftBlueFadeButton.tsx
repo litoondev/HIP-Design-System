@@ -1,7 +1,10 @@
 import styles from "./SoftBlueFadeButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface SoftBlueFadeButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   onClick?: () => void;
   className?: string;
 }
@@ -12,15 +15,17 @@ export interface SoftBlueFadeButtonProps {
  * Typekit subscription; it is intentionally not reproduced here. The font stack falls back to Arial.
  */
 export default function SoftBlueFadeButton({
-  label = "Free Consult",
+  label,
+  practice,
   onClick,
   className,
 }: SoftBlueFadeButtonProps) {
+  const text = label ?? defaultCta(practice, 20);
   return (
     <button
       type="button"
       className={`${styles.freeConsult}${className ? ` ${className}` : ""}`}
-      aria-label="Free Consult"
+      aria-label={text}
       onClick={onClick}
     >
       <span className={styles.freeConsultContent}>
@@ -32,7 +37,7 @@ export default function SoftBlueFadeButton({
             />
           </svg>
         </span>
-        <span>{label}</span>
+        <span>{text}</span>
       </span>
     </button>
   );

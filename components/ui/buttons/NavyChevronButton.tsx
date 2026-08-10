@@ -1,7 +1,10 @@
 import styles from "./NavyChevronButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface NavyChevronButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   onClick?: () => void;
   className?: string;
 }
@@ -11,17 +14,19 @@ export interface NavyChevronButtonProps {
  * The chevron is drawn entirely from the icon span's ::before/::after borders.
  */
 export default function NavyChevronButton({
-  label = "DISCOVER US",
+  label,
+  practice,
   onClick,
   className,
 }: NavyChevronButtonProps) {
+  const text = label ?? defaultCta(practice, 15);
   return (
     <button
       type="button"
       className={`${styles.navyDiscoverButton}${className ? ` ${className}` : ""}`}
       onClick={onClick}
     >
-      <span>{label}</span>
+      <span>{text}</span>
       <span className={styles.navyDiscoverButtonIcon} aria-hidden="true" />
     </button>
   );

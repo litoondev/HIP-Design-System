@@ -9,10 +9,13 @@ export type DemoAlign = "left" | "center";
 export function ComponentDemo({
   name,
   anchor,
+  alignToggle = true,
   children,
 }: {
   name: string;
   anchor: string;
+  /** Hide the Left/Center toggle for components where alignment is meaningless (e.g. buttons). */
+  alignToggle?: boolean;
   children: (align: DemoAlign) => ReactNode;
 }) {
   const [align, setAlign] = useState<DemoAlign>("left");
@@ -20,23 +23,25 @@ export function ComponentDemo({
     <div id={anchor} className="scroll-mt-24 mb-10">
       <div className="flex items-center justify-between gap-4 mb-3">
         <h3 className="font-header font-bold text-[18px] text-base-black m-0">{name}</h3>
-        <div className="flex rounded-lg border border-gray-200 overflow-hidden font-body text-[13px]">
-          {(["left", "center"] as const).map((value) => (
-            <button
-              key={value}
-              type="button"
-              onClick={() => setAlign(value)}
-              aria-pressed={align === value}
-              className={`px-4 py-1.5 capitalize transition-colors duration-150 ease-out ${
-                align === value
-                  ? "bg-gray-100 text-base-black font-semibold"
-                  : "bg-white text-gray-500 hover:text-base-black"
-              }`}
-            >
-              {value}
-            </button>
-          ))}
-        </div>
+        {alignToggle && (
+          <div className="flex rounded-lg border border-gray-200 overflow-hidden font-body text-[13px]">
+            {(["left", "center"] as const).map((value) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setAlign(value)}
+                aria-pressed={align === value}
+                className={`px-4 py-1.5 capitalize transition-colors duration-150 ease-out ${
+                  align === value
+                    ? "bg-gray-100 text-base-black font-semibold"
+                    : "bg-white text-gray-500 hover:text-base-black"
+                }`}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <div className="rounded-xl border border-gray-200 px-6 py-10 md:px-10 md:py-12 overflow-x-auto">
         {children(align)}
@@ -51,9 +56,12 @@ export function ComponentDemo({
  */
 export function ComponentShowcase({
   demos,
+  alignToggle = true,
 }: {
   /** anchor → demo renderer; anchors must match entries in componentCatalog. */
   demos: Record<string, (align: DemoAlign) => ReactNode>;
+  /** Hide the per-demo Left/Center toggle (e.g. on the buttons page). */
+  alignToggle?: boolean;
 }) {
   const [activeCategory, setActiveCategory] = useState<DesignCategory | null>(null);
 
@@ -111,7 +119,7 @@ export function ComponentShowcase({
       </div>
 
       {visible.map((entry) => (
-        <ComponentDemo key={entry.anchor} name={entry.name} anchor={entry.anchor}>
+        <ComponentDemo key={entry.anchor} name={entry.name} anchor={entry.anchor} alignToggle={alignToggle}>
           {demos[entry.anchor]}
         </ComponentDemo>
       ))}

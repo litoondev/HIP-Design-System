@@ -1,22 +1,27 @@
 import styles from "./BlackSweepButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface BlackSweepButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   href?: string;
   className?: string;
 }
 
 /** Meet Dr. Franklin — charcoal pill that sweeps away, with inverting circle icon (.franklin-btn). */
 export default function BlackSweepButton({
-  label = "Meet Dr. Franklin",
+  label,
+  practice,
   href = "#",
   className,
 }: BlackSweepButtonProps) {
+  const text = label ?? defaultCta(practice, 3);
   return (
     <a
       className={`${styles.franklinBtn}${className ? ` ${className}` : ""}`}
       href={href}
-      aria-label={label}
+      aria-label={text}
     >
       <span className={styles.franklinBtnWrapper}>
         <span className={styles.franklinBtnIcon} aria-hidden="true">
@@ -34,7 +39,7 @@ export default function BlackSweepButton({
             />
           </svg>
         </span>
-        <span className={styles.franklinBtnText}>{label}</span>
+        <span className={styles.franklinBtnText}>{text}</span>
       </span>
     </a>
   );

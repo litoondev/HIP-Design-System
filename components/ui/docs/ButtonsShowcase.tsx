@@ -39,6 +39,7 @@ function row(align: DemoAlign, children: ReactNode) {
 export default function ButtonsShowcase() {
   return (
     <ComponentShowcase
+      alignToggle={false}
       demos={{
         "arrow-loop-button-demo": (align) => row(align, <ArrowLoopButton />),
         "panel-collapse-button-demo": (align) => row(align, <PanelCollapseButton />),

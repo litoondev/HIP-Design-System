@@ -2,9 +2,12 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import styles from "./ArrowLoopJsButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface ArrowLoopJsButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   href?: string;
   className?: string;
 }
@@ -17,7 +20,8 @@ const TIMING: KeyframeAnimationOptions = { duration: 500, easing: "ease-in-out" 
  * design-system/buttons.html; the reduced-motion guard is preserved.
  */
 export default function ArrowLoopJsButton({
-  label = "Request Free Consult",
+  label,
+  practice,
   href = "#",
   className,
 }: ArrowLoopJsButtonProps) {
@@ -47,11 +51,13 @@ export default function ArrowLoopJsButton({
     );
   }, []);
 
+  const text = label ?? defaultCta(practice, 2);
+
   return (
     <a
       className={`${styles.gibsonBtnJs}${className ? ` ${className}` : ""}`}
       href={href}
-      aria-label={label}
+      aria-label={text}
       onPointerEnter={() => shoot("forward")}
       onPointerLeave={() => shoot("reverse")}
       onFocus={() => shoot("forward")}
@@ -73,7 +79,7 @@ export default function ArrowLoopJsButton({
           />
         </svg>
       </span>
-      <span className={styles.gibsonBtnJsText}>{label}</span>
+      <span className={styles.gibsonBtnJsText}>{text}</span>
     </a>
   );
 }

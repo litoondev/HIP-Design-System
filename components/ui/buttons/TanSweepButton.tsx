@@ -1,7 +1,10 @@
 import styles from "./TanSweepButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface TanSweepButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   href?: string;
   className?: string;
 }
@@ -12,15 +15,17 @@ const ARROW_SRC =
 
 /** Discover Us — bordered rect whose fill sweeps in from the icon divider (.discover-us-button). */
 export default function TanSweepButton({
-  label = "Discover us",
+  label,
+  practice,
   href = "#",
   className,
 }: TanSweepButtonProps) {
+  const text = label ?? defaultCta(practice, 21);
   return (
     <a
       className={`${styles.discoverUsButton}${className ? ` ${className}` : ""}`}
       href={href}
-      aria-label="Discover us"
+      aria-label={text}
     >
       <span className={styles.discoverUsButtonFill} aria-hidden="true" />
       <span className={styles.discoverUsButtonDivider} aria-hidden="true" />
@@ -29,7 +34,7 @@ export default function TanSweepButton({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={ARROW_SRC} alt="" />
       </span>
-      <span className={styles.discoverUsButtonLabel}>{label}</span>
+      <span className={styles.discoverUsButtonLabel}>{text}</span>
     </a>
   );
 }

@@ -1,7 +1,10 @@
 import styles from "./LineSwapButton.module.css";
+import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface LineSwapButtonProps {
   label?: string;
+  /** Practice type used for the default CTA label when no label is given. */
+  practice?: PracticeType;
   href?: string;
   className?: string;
 }
@@ -11,17 +14,19 @@ export interface LineSwapButtonProps {
  * swapped for a leading one via clip-path rather than sliding (.line-appt-alt).
  */
 export default function LineSwapButton({
-  label = "Request Appointment",
+  label,
+  practice,
   href = "#",
   className,
 }: LineSwapButtonProps) {
+  const text = label ?? defaultCta(practice, 13);
   return (
     <a
       className={`${styles.lineApptAlt}${className ? ` ${className}` : ""}`}
       href={href}
-      aria-label="Request appointment"
+      aria-label={text}
     >
-      <span className={styles.lineApptAltText}>{label}</span>
+      <span className={styles.lineApptAltText}>{text}</span>
       <span
         className={`${styles.lineApptAltLine} ${styles.lineApptAltLineDefault}`}
         aria-hidden="true"
