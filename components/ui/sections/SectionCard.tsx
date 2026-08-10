@@ -48,6 +48,10 @@ export default function SectionCard({ id, num, name, tags, note, children }: Sec
       </div>
 
       <div className={styles.secRender} id={renderId}>
+        {/* Renders fluidly at whatever width this card actually has — same as the real site.
+            Every section component already carries its own responsive breakpoints (see each
+            .module.css), so letting the container be fluid instead of a fixed 1440px frame is
+            what actually exercises them, instead of forcing a scrollbar or a scaled-down copy. */}
         {children}
       </div>
 

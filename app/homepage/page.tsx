@@ -23,6 +23,7 @@ import {
   MobileSummary,
 } from "@/components/ui/homepage";
 import { Typography } from "@/components/ui/typography/Typography";
+import { DocShell } from "@/components/layout";
 
 export const metadata = {
   title: "Homepage — HIP Style Guide",
@@ -33,7 +34,7 @@ export const metadata = {
 /** Homepage structure reference — ported 1:1 from design-system/homepage.html. */
 export default function HomepageStructurePage() {
   return (
-    <div>
+    <DocShell>
       <div className="mb-8">
         <Typography variant="preHeader" as="p" className="text-cta mb-2">
           Structure Reference
@@ -83,6 +84,6 @@ export default function HomepageStructurePage() {
       <IconUsage />
 
       <MobileSummary />
-    </div>
+    </DocShell>
   );
 }

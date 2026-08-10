@@ -529,6 +529,18 @@ export function getTypographyDefinition(variant: TypographyVariant): TypographyD
   return typographyTokens[variant];
 }
 
+/**
+ * The font-family Tailwind class a variant resolves to — e.g. `typographyFontFamilyClass
+ * ("menuItem")` -> `"font-body"` -> `var(--font-inter)`. For a component that borrows only a
+ * variant's *family* rather than its full style (a Hero Banner's own bold/uppercase nav links
+ * pinned to Menu Item's font family, for instance): apply this instead of the variant's full
+ * class string, and never write the family literally. `typographyTokens` stays the one place
+ * that says which family a variant uses, so retargeting it here moves every consumer.
+ */
+export function typographyFontFamilyClass(variant: TypographyVariant): string {
+  return fontFamilies[typographyTokens[variant].fontFamily];
+}
+
 /* ------------------------------------------------------------------ *
  * 3. Composed class strings
  * ------------------------------------------------------------------ */

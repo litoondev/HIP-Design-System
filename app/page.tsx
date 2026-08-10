@@ -15,6 +15,7 @@ import {
 import { LocationPin, LocationList, LocationPopup, FaqAccordion, Pagination, Tabs } from "@/components/ui/misc";
 import { TEXT_CONTAINER_CATEGORY } from "@/components/ui/sections";
 import TextContainerShowcase from "@/components/ui/docs/TextContainerShowcase";
+import { DocShell } from "@/components/layout";
 
 /**
  * Every section on this page opens with the same three type roles, now expressed as variants:
@@ -23,7 +24,7 @@ import TextContainerShowcase from "@/components/ui/docs/TextContainerShowcase";
 
 export default function Home() {
   return (
-    <>
+    <DocShell>
       {/* ===== Color Palette ===== */}
       <section id="colors" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
         <Typography variant="preHeader" as="div" className="text-cta mb-2">
@@ -265,6 +266,6 @@ export default function Home() {
           <UploadDropzone />
         </div>
       </section>
-    </>
+    </DocShell>
   );
 }

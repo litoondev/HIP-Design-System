@@ -29,10 +29,12 @@
 
 .w2UtilLinks { display:flex; align-items:center; gap:28px; }
 
+/* Type (family/size/weight/letter-spacing/case) comes from typographyClass("overline") in
+   HeroPillNav.tsx — the Overline token from lib/design-system/typography.ts — not from this
+   file. Only non-typographic layout stays here: box shape, spacing, color, opacity. */
 .w2UtilLink {
           display:inline-flex; align-items:center; gap:7px;
-          color:var(--color-base-white); font-family: var(--font-inter), 'Inter', sans-serif;
-          font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+          color:var(--color-base-white);
           white-space:nowrap; opacity:.9;
         }
 
@@ -62,8 +64,11 @@
           flex:1; display:flex; align-items:center; justify-content:flex-end; gap:36px;
         }
 
+/* Font family comes from typographyFontFamilyClass("menuItem") in HeroPillNav.tsx (the Menu
+   Item typography token) — never hardcoded here. Size/weight/case/tracking stay in this file;
+   they're this nav's own look, not part of Menu Item's style. */
 .w2Navlink {
-          font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:700;
+          font-size:15px; font-weight:700;
           color:var(--color-navy); letter-spacing:.3px; text-transform:uppercase;
           white-space:nowrap; display:flex; align-items:center; gap:4px;
         }

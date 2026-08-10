@@ -2,7 +2,7 @@ export type NavGroup = "Foundations" | "Components" | "Pages" | "Assets";
 
 export interface NavChild {
   label: string;
-  /** may carry a hash, e.g. /sections#hero */
+  /** may carry a hash for in-page anchors (e.g. /#colors), or be its own route (e.g. /sections/hero) */
   href: string;
 }
 
@@ -44,24 +44,24 @@ export const navLinks: NavLink[] = [
     // Ordered to match the homepage structure reference, not sections.html's own numbering.
     // 01B shares the 01 anchor, exactly as the source sidebar does.
     children: [
-      { label: "01 · Hero Banner", href: "/sections#hero" },
-      { label: "02 · Highlights Grid", href: "/sections#highlights" },
-      { label: "03 · Step Section", href: "/sections#steps" },
-      { label: "04 · Our Practice", href: "/sections#practice" },
-      { label: "05 · Our Doctors", href: "/sections#doctors" },
-      { label: "06 · Who We Help", href: "/sections#who-we-help" },
-      { label: "07 · How We Help", href: "/sections#how-we-help" },
-      { label: "08 · Instagram Section", href: "/sections#instagram" },
-      { label: "09 · CTA Section", href: "/sections#cta" },
-      { label: "10 · Reviews", href: "/sections#reviews" },
-      { label: "11 · Location Section", href: "/sections#locations" },
-      { label: "12 · Footer Section", href: "/sections#footer" },
+      { label: "01 · Hero Banner", href: "/sections/hero" },
+      { label: "02 · Highlights Grid", href: "/sections/highlights" },
+      { label: "03 · Step Section", href: "/sections/steps" },
+      { label: "04 · Our Practice", href: "/sections/practice" },
+      { label: "05 · Our Doctors", href: "/sections/doctors" },
+      { label: "06 · Who We Help", href: "/sections/who-we-help" },
+      { label: "07 · How We Help", href: "/sections/how-we-help" },
+      { label: "08 · Instagram Section", href: "/sections/instagram" },
+      { label: "09 · CTA Section", href: "/sections/cta" },
+      { label: "10 · Reviews", href: "/sections/reviews" },
+      { label: "11 · Location Section", href: "/sections/locations" },
+      { label: "12 · Footer Section", href: "/sections/footer" },
     ],
   },
   { label: "Icons", href: "/icons", group: "Assets" },
 ];
 
-/** Splits "/sections#hero" into ["/sections", "hero"]; a bare "/#colors" yields ["/", "colors"]. */
+/** Splits "/#colors" into ["/", "colors"]; a hash-less route like "/sections/hero" yields ["/sections/hero", undefined]. */
 export function splitHref(href: string): [path: string, hash: string | undefined] {
   const [path, hash] = href.split("#");
   return [path || "/", hash || undefined];

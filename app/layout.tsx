@@ -41,7 +41,10 @@ export default function RootLayout({
         <TopBar />
         <div className="shell flex pt-16 min-h-screen bg-white">
           <Sidebar />
-          <main className="content ml-60 [@media(max-width:900px)]:ml-0 flex-1 max-w-[1040px] px-14 [@media(max-width:900px)]:px-5 pt-12 [@media(max-width:900px)]:pt-8 pb-[120px] [@media(max-width:900px)]:pb-[100px]">
+          {/* No max-width/horizontal padding here anymore — those moved into DocShell so
+              /sections can render its live previews at full available width instead of
+              being capped to the ~1040px document reading column. */}
+          <main className="content ml-60 [@media(max-width:900px)]:ml-0 flex-1 min-w-0 pt-12 [@media(max-width:900px)]:pt-8 pb-[120px] [@media(max-width:900px)]:pb-[100px]">
             {children}
           </main>
         </div>
