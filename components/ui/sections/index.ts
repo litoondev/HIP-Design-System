@@ -3,6 +3,7 @@ export { default as TokenLegend } from "./TokenLegend";
 export { default as FullPageButton } from "./FullPageButton";
 export { default as SectionImage } from "./SectionImage";
 export { default as TextContainer, TEXT_CONTAINER_CATEGORY } from "./TextContainer";
+export { default as TextContainerV2, TEXT_CONTAINER_V2_CATEGORY, LearnMoreV2Button } from "./TextContainerV2";
 
 /* Ported 1:1 from design-system/sections.html */
 export { default as HeroBanner } from "./HeroBanner";

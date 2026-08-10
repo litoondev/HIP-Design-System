@@ -1,3 +1,7 @@
+/* Host Grotesk is used only by TextContainerV2 (Master V3 brand world) — not a
+   HIP global font. next/font 14.2.5 doesn't know this family, hence the import. */
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

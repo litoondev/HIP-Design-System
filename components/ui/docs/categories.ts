@@ -27,5 +27,5 @@ export interface CatalogEntry {
 /** Registry the chip row and page TOC are built from — add every new component variant here. */
 export const componentCatalog: CatalogEntry[] = [
   { name: "Text Container", category: "Professional / Corporate", anchor: "text-container-demo" },
-  { name: "Text Container — Statement", category: "Clean", anchor: "text-container-statement-demo" },
+  { name: "Text Container V2", category: "Vibrant", anchor: "text-container-v2-demo" },
 ];
