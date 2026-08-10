@@ -1,0 +1,42 @@
+/* ArtemisButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.artemisButton {
+    composes: btn from "./base.module.css";
+    justify-content: center;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    border: 2px solid var(--color-cta-500);
+    border-radius: var(--radius-full);
+    background: var(--color-cta-500);
+    color: var(--color-base-white);
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+.artemisButtonIcon {
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    flex: 0 0 var(--btn-icon-size);
+    margin-right: var(--btn-icon-gap);
+    color: var(--color-base-white);
+    overflow: hidden;
+    transition: width 300ms ease, flex-basis 300ms ease, margin-right 300ms ease, opacity 180ms ease;
+    opacity: 1;
+  }
+
+.artemisButton:hover,
+.artemisButton:focus-visible {
+    background: transparent;
+    color: var(--color-cta-500);
+    outline: none;
+  }
+
+.artemisButton:hover .artemisButtonIcon,
+.artemisButton:focus-visible .artemisButtonIcon {
+    width: 0;
+    flex-basis: 0;
+    margin-right: 0;
+    opacity: 0;
+  }
+

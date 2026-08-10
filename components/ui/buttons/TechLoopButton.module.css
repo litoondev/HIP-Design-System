@@ -1,0 +1,70 @@
+/* GibsonJsButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.gibsonBtnJs {
+    composes: btn from "./base.module.css";
+    --gibson-blue: var(--color-cta-500);
+    --gibson-light: var(--color-cta-300);
+    position: relative;
+    isolation: isolate;
+    flex-direction: row-reverse;
+    gap: var(--btn-icon-gap);
+    height: 60px;
+    padding: 0 8px 0 var(--btn-padding-x);
+    overflow: hidden;
+    border: 2px solid var(--gibson-blue);
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
+    color: var(--gibson-blue);
+    transition: color 300ms ease, border-color 300ms ease;
+  }
+
+.gibsonBtnJs::before {
+    position: absolute;
+    z-index: 0;
+    inset: -1px;
+    border-radius: inherit;
+    background: var(--gibson-light);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 350ms ease;
+  }
+
+.gibsonBtnJsIcon {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+.gibsonBtnJsText {
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+  }
+
+.gibsonBtnJs:hover,
+.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: var(--color-base-black); outline: none; }
+
+.gibsonBtnJs:hover::before,
+.gibsonBtnJs:focus-visible::before { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gibsonBtnJs,
+  .gibsonBtnJs::before { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .gibsonBtnJs { height: 54px; }
+}
+
+@media (max-width: 520px) {
+  .gibsonBtnJs { height: 48px; }
+}

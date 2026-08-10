@@ -1,0 +1,85 @@
+/* ScheduleButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.scheduleBtn {
+    composes: btn from "./base.module.css";
+    --vibrant: var(--color-secondary-500);
+    --vibrant-deep: var(--color-secondary-700);
+    position: relative;
+    isolation: isolate;
+    justify-content: center;
+    padding: 6px 8px 6px var(--btn-padding-x);
+    border: 2px solid var(--vibrant);
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
+    color: var(--color-base-black);
+    overflow: hidden;
+    transition: border-color 300ms ease;
+  }
+
+.scheduleBtn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--vibrant);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 350ms ease;
+  }
+
+.scheduleBtnInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--btn-icon-gap);
+  }
+
+.scheduleBtnText {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+.scheduleBtnIcon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--vibrant);
+    border-radius: 50%;
+    background: var(--color-base-white);
+    color: var(--vibrant);
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+  }
+
+.scheduleBtn:hover,
+.scheduleBtn:focus-visible {
+    border-color: var(--vibrant);
+    outline: none;
+  }
+
+.scheduleBtn:hover::before,
+.scheduleBtn:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+.scheduleBtn:hover .scheduleBtnIcon,
+.scheduleBtn:focus-visible .scheduleBtnIcon {
+    border-color: var(--vibrant-deep);
+    background: var(--vibrant-deep);
+    color: var(--color-base-white);
+  }
+
+@media (max-width: 768px) {
+  .scheduleBtn { padding: 5px 6px 5px var(--btn-padding-x); }
+  .scheduleBtnIcon { width: 40px; height: 40px; flex-basis: 40px; }
+}
+
+@media (max-width: 520px) {
+  .scheduleBtn { padding: 4px 5px 4px var(--btn-padding-x); }
+  .scheduleBtnIcon { width: 36px; height: 36px; flex-basis: 36px; }
+}

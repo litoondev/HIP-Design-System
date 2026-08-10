@@ -1,0 +1,39 @@
+/* PressButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.pressButton {
+    composes: btn from "./base.module.css";
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    justify-content: center;
+    gap: var(--btn-icon-gap);
+    border: 4px solid transparent;
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
+    box-shadow: 0 8px 0 var(--color-accent-200);
+    color: var(--color-base-black);
+    text-transform: uppercase;
+    transition: color 260ms ease, background-color 260ms ease,
+                border-color 260ms ease, box-shadow 260ms ease,
+                transform 260ms ease;
+  }
+
+.pressButtonIcon {
+    flex: 0 0 var(--btn-icon-size);
+    transition: color 260ms ease;
+  }
+
+.pressButton:hover,
+.pressButton:focus-visible {
+    transform: translateY(8px);
+    border-color: var(--color-cta-500);
+    background: transparent;
+    box-shadow: 0 0 0 var(--color-accent-200);
+    color: var(--color-cta-500);
+    outline: none;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .pressButton,
+  .pressButtonIcon { transition-duration: 0.01ms; }
+}
+

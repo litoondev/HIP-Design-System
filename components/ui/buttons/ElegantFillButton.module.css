@@ -1,0 +1,65 @@
+/* BergenButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source.
+
+   NOTE: index.html's copy of this component uses `color: var(--white)` as the base text color,
+   while buttons.html (the dedicated buttons gallery, treated as source of truth) uses
+   `color: var(--dark)`. We follow buttons.html here — the button therefore needs a dark
+   backdrop to read well in its default, non-hover state. */
+.bergenButton {
+    composes: btn from "./base.module.css";
+    --brown: var(--color-accent-700);
+    --dark: var(--color-navy);
+    --white: var(--color-base-white);
+    height: 68px;
+    gap: var(--btn-icon-gap);
+    padding: 0 9px 0 var(--btn-padding-x);
+    border: 2px solid var(--brown);
+    background: transparent;
+    color: var(--dark);
+    font: 700 22px/1 Arial, Helvetica, sans-serif;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    transition: background-color .3s ease, color .3s ease;
+  }
+
+.bergenButtonIcon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: var(--brown);
+    color: var(--white);
+    transition: background-color .3s ease, color .3s ease;
+  }
+
+.bergenButtonArrow {
+    transition: transform .3s ease;
+  }
+
+.bergenButton:hover,
+.bergenButton:focus-visible {
+    background: var(--brown);
+    color: var(--white);
+  }
+
+.bergenButton:hover .bergenButtonIcon,
+.bergenButton:focus-visible .bergenButtonIcon {
+    background: var(--white);
+    color: var(--brown);
+  }
+
+.bergenButton:hover .bergenButtonArrow,
+.bergenButton:focus-visible .bergenButtonArrow {
+    transform: rotate(45deg);
+  }
+
+@media (max-width: 768px) {
+  .bergenButton { height: 61px; padding-right: 8px; font-size: 20px; letter-spacing: 0.5px; }
+  .bergenButtonIcon { width: 41px; height: 41px; }
+}
+
+@media (max-width: 480px) {
+  .bergenButton { height: 54px; padding-right: 7px; font-size: 18px; }
+  .bergenButtonIcon { width: 37px; height: 37px; }
+}

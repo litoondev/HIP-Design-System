@@ -1,17 +1,17 @@
-/* OurPractice — CSS ported verbatim from design-system/sections.html.
-   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
-   font stacks now resolve through next/font's CSS variables. */
+/* OurPractice — CSS ported from design-system/sections.html.
+   Class names camelCased for CSS Modules. Fonts resolve through next/font's CSS variables,
+   and spacing/color/type values now flow through the DS tokens in app/globals.css. */
 .hipPractice {
-  background:var(--color-secondary-50);
+  background: var(--color-primary-50);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
-  padding:64px 48px;
-  display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center;
 }
 
 .hipPracticeVideo {
   position:relative; border-radius:12px; overflow:hidden;
   aspect-ratio:4/3;
-  background:linear-gradient(135deg,var(--color-secondary-800) 0%,var(--color-tertiary-700) 100%);
+  background:linear-gradient(135deg,#1e3a4a 0%,#296475 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -22,7 +22,7 @@
 
 .hipPlayRing {
   position:absolute; inset:0; border-radius:50%;
-  border:2px solid color-mix(in srgb, var(--color-primary-base) 50%, transparent);
+  border:2px solid color-mix(in srgb, var(--color-cta-500) 50%, transparent);
   animation: hip-spin 8s linear infinite;
 }
 
@@ -31,32 +31,44 @@
 .hipPlayRingText {
   position:absolute; inset:0; border-radius:50%;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:7.5px; font-weight:700; letter-spacing:3.2px;
-  text-transform:uppercase; color:color-mix(in srgb, var(--color-primary-base) 70%, transparent);
+  text-transform:uppercase; color:color-mix(in srgb, var(--color-cta-500) 70%, transparent);
   display:flex; align-items:center; justify-content:center;
 }
 
 .hipPlayBtn {
   width:54px; height:54px; border-radius:50%;
-  background:var(--color-primary-base); display:grid; place-items:center;
-  box-shadow:0 4px 24px color-mix(in srgb, var(--color-primary-base) 40%, transparent);
+  background:var(--color-cta-500); display:grid; place-items:center;
+  box-shadow:0 4px 24px color-mix(in srgb, var(--color-cta-500) 40%, transparent);
 }
 
 .hipPlayBtn svg { width:20px; height:20px; fill:var(--color-base-white); margin-left:3px; }
 
-.hipPracticeText { display:flex; flex-direction:column; gap:16px; }
+/* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
+.hipPracticeText { display:flex; flex-direction:column; }
 
-.hipPracticeEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base); }
+.hipPracticeEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); }
 
-.hipPracticeH2 { margin:0; font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.2; color:var(--color-base-black); }
+.hipPracticeH2 { margin:0 0 var(--heading-gap); font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
 
-.hipPracticeBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:var(--color-gray-700); }
+.hipPracticeBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:20px; font-weight:400; line-height:1.5; color:var(--color-textcolor-body); }
 
 .hipPracticeCta {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:13px 22px; border-radius:100px;
-  border:2px solid var(--color-primary-base); color:var(--color-primary-base);
+  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+  margin-top:var(--content-button-gap);
+  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
+  border:2px solid var(--color-cta-500); color:var(--color-cta-500);
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
   align-self:flex-start; cursor:pointer;
 }
 
-.hipPracticeCta svg { width:16px; height:16px; }
+.hipPracticeCta svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
+
+@media (max-width: 768px) {
+  .hipPracticeEyebrow { font-size:14px; }
+  .hipPracticeBody { font-size:18px; }
+}
+
+@media (max-width: 520px) {
+  .hipPracticeEyebrow { font-size:12px; }
+  .hipPracticeBody { font-size:16px; }
+}

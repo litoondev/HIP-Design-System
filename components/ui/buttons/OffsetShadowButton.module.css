@@ -1,0 +1,66 @@
+/* AosgButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.aosgBtnWrap {
+    position: relative;
+    width: max-content;
+    height: 60px;
+  }
+
+.aosgBtnWrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-base-lightgray);
+    transform: translate(10px, 10px);
+    transition: transform 280ms ease;
+  }
+
+.aosgBtn {
+    composes: btn from "./base.module.css";
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    color: var(--color-navy);
+    background: var(--color-accent-500);
+  }
+
+.aosgBtnInner {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--btn-icon-gap);
+    padding: 0 var(--btn-padding-x);
+  }
+
+.aosgBtnText {
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+.aosgBtnIcon {
+    display: block;
+    flex-shrink: 0;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    color: currentColor;
+  }
+
+.aosgBtnWrap:hover::before,
+.aosgBtnWrap:focus-within::before { transform: translate(0, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .aosgBtnWrap::before { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .aosgBtnWrap { height: 54px; }
+  .aosgBtn { height: 54px; }
+}
+
+@media (max-width: 520px) {
+  .aosgBtnWrap { height: 48px; }
+  .aosgBtn { height: 48px; }
+}

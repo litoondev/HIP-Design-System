@@ -1,0 +1,69 @@
+/* BlueLearnMoreButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.blueLearnMore {
+    composes: btn from "./base.module.css";
+    position: relative;
+    overflow: hidden;
+    align-items: stretch;
+    border: 4px solid var(--color-cta-500);
+    background: var(--color-cta-500);
+    color: var(--color-base-white);
+    transition: color 300ms ease;
+  }
+
+.blueLearnMore::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--color-base-white);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 300ms ease;
+  }
+
+.blueLearnMoreText {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    text-transform: uppercase;
+  }
+
+.blueLearnMoreIcon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    flex: 0 0 50px;
+    place-items: center;
+    background: var(--color-base-white);
+    color: var(--color-cta-500);
+  }
+
+.blueLearnMore:hover,
+.blueLearnMore:focus-visible {
+    color: var(--color-cta-500);
+    outline: none;
+  }
+
+.blueLearnMore:hover::before,
+.blueLearnMore:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .blueLearnMore,
+  .blueLearnMore::before { transition: none; }
+}
+
+@media (max-width: 768px) {
+  .blueLearnMoreIcon { flex-basis: 44px; }
+}
+
+@media (max-width: 520px) {
+  .blueLearnMoreIcon { flex-basis: 38px; }
+}

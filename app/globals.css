@@ -6,6 +6,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global button tokens — from the responsive spacing table (Desk 1440 / Tab 768 / Mobi 320).
+   Every button module consumes these instead of hardcoded padding/gap/radius values. */
+:root {
+  --btn-padding-x: 32px; /* spacing/32 */
+  --btn-padding-y: 16px; /* spacing/16 */
+  --btn-icon-gap: 16px;  /* spacing/16 */
+  --btn-icon-size: 20px; /* spacing/20 */
+  --radius-full: 999px;  /* fully-rounded pills */
+}
+
+/* Global section-layout tokens — from the Responsive Spacing & Layout Rules table
+   (Desk 1440 / Tab 768 / Mobi 320). Every rendered section consumes these instead
+   of hardcoded padding/gap values, so the page rhythm has one source of truth. */
+:root {
+  --section-padding-y: 120px;   /* section top/bottom padding */
+  --container-padding-x: 100px; /* container left/right padding */
+  --grid-gap: 40px;             /* inner grid/card gap (row & col) */
+  --eyebrow-gap: 8px;           /* pre-header → header */
+  --heading-gap: 24px;          /* header → first paragraph */
+  --paragraph-gap: 30px;        /* paragraph → paragraph (Text Container) */
+  --content-button-gap: 40px;   /* content → button */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --btn-padding-x: 24px; /* spacing/24 */
+    --btn-padding-y: 12px; /* spacing/12 */
+    --btn-icon-gap: 12px;  /* spacing/12 */
+    /* icon size unchanged at tab (20px) */
+    --section-padding-y: 60px;
+    --container-padding-x: 40px;
+    --grid-gap: 30px;
+    --eyebrow-gap: 6px;
+    --heading-gap: 20px;
+    --paragraph-gap: 20px;
+    --content-button-gap: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --btn-padding-x: 16px; /* spacing/16 */
+    /* padding-y stays 12px at mobile */
+    --btn-icon-gap: 8px;   /* spacing/8 */
+    --btn-icon-size: 16px; /* spacing/16 */
+    --section-padding-y: 40px;
+    --container-padding-x: 20px;
+    --grid-gap: 20px;
+    --eyebrow-gap: 4px;
+    --heading-gap: 16px;
+    --paragraph-gap: 16px;
+    --content-button-gap: 24px;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

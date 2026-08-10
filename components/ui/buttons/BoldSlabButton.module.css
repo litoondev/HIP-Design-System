@@ -1,0 +1,85 @@
+/* HudsonButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.hudsonBtn {
+    composes: btn from "./base.module.css";
+    --teal: var(--color-tertiary-700);
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    border: 2px solid var(--teal);
+    background: transparent;
+    color: var(--color-base-black);
+    transition: color 220ms ease 100ms;
+  }
+
+.hudsonBtn::before {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: 40px;
+    background: var(--teal);
+    content: "";
+    transition: width 420ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.hudsonBtnWrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    align-items: center;
+    gap: var(--btn-icon-gap);
+    padding: 0 18px 0 var(--btn-padding-x);
+    transition: padding 420ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.hudsonBtnText {
+    text-transform: uppercase;
+  }
+
+.hudsonBtnIcon {
+    flex-shrink: 0;
+    display: grid;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    place-items: center;
+    color: var(--color-base-white);
+  }
+
+.hudsonBtnGlyph {
+    transform: rotate(0deg);
+    transition: transform 420ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.hudsonBtn:hover,
+.hudsonBtn:focus-visible {
+    color: var(--color-base-white);
+    outline: none;
+  }
+
+/* The original effect shrank the whole button 16px while the slab expanded;
+   with content-driven width the same visual comes from tightening the padding. */
+.hudsonBtn:hover .hudsonBtnWrapper,
+.hudsonBtn:focus-visible .hudsonBtnWrapper {
+    padding: 0 10px 0 calc(var(--btn-padding-x) - 8px);
+  }
+
+.hudsonBtn:hover::before,
+.hudsonBtn:focus-visible::before { width: calc(100% - 16px); }
+
+.hudsonBtn:hover .hudsonBtnGlyph,
+.hudsonBtn:focus-visible .hudsonBtnGlyph { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hudsonBtn,
+  .hudsonBtn::before,
+  .hudsonBtnWrapper,
+  .hudsonBtnGlyph { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 520px) {
+  .hudsonBtn { height: 52px; }
+}

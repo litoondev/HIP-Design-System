@@ -1,4 +1,5 @@
 export { default as IconLibrary } from "./IconLibrary";
+export { default as Icon } from "./Icon";
 export {
   icons,
   catCounts,

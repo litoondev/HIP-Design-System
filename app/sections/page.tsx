@@ -79,9 +79,9 @@ export default function SectionsPage() {
         note={
           <>
             <strong>DS tokens:</strong> Utility bar icons from <IconLibraryLink />. CTA pill:{" "}
-            <code>#320270</code> (cta-500). Nav text: Figtree 700 15px / 1.5 / 0.4px. Hero H1:
-            Figtree 600, clamp(44px–80px), line-height 1.1. Social dots: primary-500 (#320270).
-            Gradient overlay: navy #0e1f35 at 70%. Hero image: pull from Google Drive →{" "}
+            <code>var(--color-cta-500)</code>. Nav text: Figtree 700 15px / 1.5 / 0.4px. Hero H1:
+            Figtree 600, clamp(44px–80px), line-height 1.1. Social dots: primary-500.
+            Gradient overlay: <code>var(--color-navy)</code> at 70%. Hero image: pull from Google Drive →{" "}
             <strong>Hero Section</strong> folder.
           </>
         }
@@ -99,8 +99,9 @@ export default function SectionsPage() {
             <strong>DS tokens:</strong> Topbar: navy <code>#0e1f35</code>. Pill mainbar: white,{" "}
             <code>border-radius:100px 0 0 100px</code>, shadow, padding-left offset. Hero:
             full-bleed, <code>position:absolute top:40px</code> under nav. White strip right edge
-            (Ward signature). Buttons: circular icon container + text. CTA orange{" "}
-            <code>#320270</code>, secondary teal <code>#320270</code>. Fonts: Figtree 800.
+            (Ward signature). Buttons: circular icon container + text. CTA:{" "}
+            <code>var(--color-cta-500)</code>, secondary: <code>var(--color-primary-500)</code>.
+            Fonts: Figtree 800.
           </>
         }
       >
@@ -170,7 +171,7 @@ export default function SectionsPage() {
         tags={["Light teal bg · 2-col · Rotating play badge"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: primary-50 #f0fafb. Play ring: SVG textPath,
+            <strong>DS tokens:</strong> Section bg: primary-50. Play ring: SVG textPath,
             cta-500 at 70%. Play button: cta-500 with 35% orange glow. Button border: primary-500.
             H2: Figtree 800, clamp(26–40px). Video image: Google Drive →{" "}
             <strong>What Sets Us Apart Section</strong> folder.
@@ -207,7 +208,7 @@ export default function SectionsPage() {
         note={
           <>
             <NewDesign />
-            <strong>DS tokens:</strong> Section bg: primary-50 #f0fafb. Age pill: white bg /
+            <strong>DS tokens:</strong> Section bg: primary-50. Age pill: white bg /
             primary-200 border / primary-500 text. H3: Figtree 800 24px. Row divider: primary-100.
             Photography must clearly match the segment — a teen photo under &ldquo;Kids&rdquo; reads
             as a mistake. Each segment links to its own audience landing page. Images: Google Drive
@@ -263,7 +264,7 @@ export default function SectionsPage() {
         note={
           <>
             <strong>DS tokens:</strong> Section bg: cta-50 → cta-100 gradient. CTA button: cta-500 /
-            Figtree 800 / shadow rgba(50,2,112,.35). One CTA only — no competing links. Image:
+            Figtree 800 / shadow cta-500 at 35%. One CTA only — no competing links. Image:
             Google Drive → <strong>CTA Section</strong> folder.
           </>
         }

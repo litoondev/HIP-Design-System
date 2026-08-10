@@ -33,7 +33,7 @@ export default function OurPractice() {
               fontSize="8.5"
               fontWeight="700"
               letterSpacing="3"
-              fill="color-mix(in srgb, var(--color-primary-base) 70%, transparent)"
+              fill="color-mix(in srgb, var(--color-cta-500) 70%, transparent)"
             >
               <textPath href="#circPath">PRACTICE NAME • PRACTICE NAME •</textPath>
             </text>

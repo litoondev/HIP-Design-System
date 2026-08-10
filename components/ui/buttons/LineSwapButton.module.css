@@ -1,0 +1,90 @@
+/* LineApptAltButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.lineApptAlt {
+    composes: btn from "./base.module.css";
+    --charcoal: var(--color-navy);
+    position: relative;
+    display: block;
+    width: 388px;
+    height: 60px;
+    overflow: hidden;
+    border: 2px solid var(--color-base-white);
+    border-radius: 0;
+    background: var(--charcoal);
+    color: var(--color-base-white);
+    transition: background-color 350ms ease, border-color 350ms ease, color 350ms ease;
+  }
+
+.lineApptAltText {
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    transition: left 350ms ease;
+  }
+
+.lineApptAltLine {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-50%);
+    transition: clip-path 220ms ease;
+  }
+
+.lineApptAltLineDefault {
+    left: 326px;
+    clip-path: inset(0 0 0 0);
+  }
+
+.lineApptAltLineHover {
+    left: 28px;
+    clip-path: inset(0 100% 0 0);
+    transition-delay: 0s;
+  }
+
+.lineApptAlt:hover,
+.lineApptAlt:focus-visible {
+    border-color: var(--charcoal);
+    background: transparent;
+    color: var(--charcoal);
+    outline: none;
+  }
+
+.lineApptAlt:hover .lineApptAltText,
+.lineApptAlt:focus-visible .lineApptAltText { left: 74px; }
+
+.lineApptAlt:hover .lineApptAltLineDefault,
+.lineApptAlt:focus-visible .lineApptAltLineDefault { clip-path: inset(0 0 0 100%); }
+
+.lineApptAlt:hover .lineApptAltLineHover,
+.lineApptAlt:focus-visible .lineApptAltLineHover { clip-path: inset(0 0 0 0); transition-delay: 0.12s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lineApptAlt,
+  .lineApptAltText,
+  .lineApptAltLine { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .lineApptAlt { width: min(94vw, 340px); height: 54px; }
+  .lineApptAltText { left: 22px; }
+  .lineApptAltLineDefault { left: 280px; }
+  .lineApptAlt:hover .lineApptAltText,
+  .lineApptAlt:focus-visible .lineApptAltText { left: 62px; }
+  .lineApptAlt:hover .lineApptAltLineHover,
+  .lineApptAlt:focus-visible .lineApptAltLineHover { left: 22px; }
+}
+
+@media (max-width: 520px) {
+  .lineApptAlt { width: min(92vw, 300px); height: 48px; }
+  .lineApptAltText { left: 18px; }
+  .lineApptAltLineDefault { left: 244px; }
+  .lineApptAlt:hover .lineApptAltText,
+  .lineApptAlt:focus-visible .lineApptAltText { left: 52px; }
+  .lineApptAlt:hover .lineApptAltLineHover,
+  .lineApptAlt:focus-visible .lineApptAltLineHover { left: 18px; }
+}

@@ -1,0 +1,48 @@
+/* OlvButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.olvButton {
+    composes: btn from "./base.module.css";
+    display: inline-block;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    color: var(--color-base-white);
+    background-color: var(--color-tertiary-700);
+    border: 2px solid var(--color-tertiary-700);
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: background-color .2s ease-in, color .2s ease-in;
+  }
+
+.olvButtonContent {
+    display: flex;
+    align-items: center;
+  }
+
+.olvButtonIcon {
+    display: flex;
+    align-items: center;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    margin-left: var(--btn-icon-gap);
+    order: 2;
+    transform: rotate(-45deg);
+    transition: transform .3s ease-in, color .3s ease-in;
+  }
+
+.olvButton:hover,
+.olvButton:focus-visible {
+    color: var(--color-tertiary-700);
+    background-color: transparent;
+  }
+
+.olvButton:hover .olvButtonIcon,
+.olvButton:focus-visible .olvButtonIcon {
+    transform: rotate(0deg);
+  }
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+  .olvButton { font-size: 16px; line-height: 24px; }
+}

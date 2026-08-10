@@ -1,0 +1,61 @@
+/* GoldConsultButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.goldConsultButton {
+    composes: btn from "./base.module.css";
+    --gold: var(--color-accent-500);
+    position: relative;
+    height: 60px;
+    padding: 0 66px 0 var(--btn-padding-x);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-full);
+    background: var(--gold);
+    color: var(--color-base-black);
+    text-transform: uppercase;
+    transition: background-color 300ms ease;
+  }
+
+.goldConsultButtonIcon {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    right: -2px;
+    display: grid;
+    width: 60px;
+    height: 60px;
+    place-items: center;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: var(--color-base-white);
+    color: var(--gold);
+    transform: translateY(-50%);
+    transition: background-color 320ms ease, color 320ms ease;
+  }
+
+
+.goldConsultButton:hover,
+.goldConsultButton:focus-visible {
+    background: var(--color-base-white);
+    outline: none;
+  }
+
+.goldConsultButton:hover .goldConsultButtonIcon,
+.goldConsultButton:focus-visible .goldConsultButtonIcon {
+    background: var(--gold);
+    color: var(--color-base-black);
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .goldConsultButton,
+  .goldConsultButtonIcon { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .goldConsultButton { height: 54px; padding: 0 60px 0 var(--btn-padding-x); }
+  .goldConsultButtonIcon { width: 54px; height: 54px; }
+}
+
+@media (max-width: 520px) {
+  .goldConsultButton { height: 48px; padding: 0 54px 0 var(--btn-padding-x); }
+  .goldConsultButtonIcon { width: 48px; height: 48px; }
+}

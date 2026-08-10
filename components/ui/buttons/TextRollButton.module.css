@@ -1,0 +1,76 @@
+/* DoctorButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.doctorButton {
+    composes: btn from "./base.module.css";
+    --blue: var(--color-cta-500);
+    min-width: 280px;
+    height: 60px;
+    padding: 0 var(--btn-padding-x);
+    justify-content: center;
+    gap: var(--btn-icon-gap);
+    overflow: hidden;
+    border: 4px solid var(--blue);
+    border-radius: var(--radius-full);
+    background: var(--blue);
+    color: var(--color-base-white);
+    transition: background-color 350ms ease, color 350ms ease;
+  }
+
+.doctorButtonTextWrap {
+    position: relative;
+    flex: 1 1 auto;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+.doctorButtonText {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: transform 380ms cubic-bezier(.65, 0, .35, 1);
+  }
+
+.doctorButtonText:first-child { transform: translateY(0); }
+
+.doctorButtonTextDup { transform: translateY(100%); }
+
+.doctorButtonIcon {
+    display: block;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    color: currentColor;
+  }
+
+.doctorButton:hover,
+.doctorButton:focus-visible {
+    background: var(--color-base-white);
+    color: var(--blue);
+    outline: none;
+  }
+
+.doctorButton:hover .doctorButtonText:first-child,
+.doctorButton:focus-visible .doctorButtonText:first-child { transform: translateY(-100%); }
+
+.doctorButton:hover .doctorButtonTextDup,
+.doctorButton:focus-visible .doctorButtonTextDup { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .doctorButton,
+  .doctorButtonText { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .doctorButton { height: 54px; }
+  .doctorButtonTextWrap { height: 28px; }
+}
+
+@media (max-width: 520px) {
+  .doctorButton { height: 48px; }
+  .doctorButtonTextWrap { height: 24px; }
+}

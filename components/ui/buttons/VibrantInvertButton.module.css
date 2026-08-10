@@ -1,0 +1,51 @@
+/* ApptButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.apptButton {
+    composes: btn from "./base.module.css";
+    justify-content: space-between;
+    gap: var(--btn-icon-gap);
+    padding: 6px 6px 6px var(--btn-padding-x);
+    border: 2px solid var(--color-cta-500);
+    border-radius: var(--radius-full);
+    background: var(--color-cta-500);
+    color: var(--color-base-white);
+    text-transform: uppercase;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+.apptButtonIcon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--color-base-white);
+    border-radius: 50%;
+    background: var(--color-base-white);
+    color: var(--color-cta-500);
+    transition: border-color 300ms ease, background-color 300ms ease;
+  }
+
+.apptButton:hover,
+.apptButton:focus-visible {
+    background: var(--color-base-white);
+    color: var(--color-cta-500);
+    outline: none;
+  }
+
+.apptButton:hover .apptButtonIcon,
+.apptButton:focus-visible .apptButtonIcon {
+    border-color: var(--color-cta-500);
+    background: var(--color-base-white);
+  }
+
+@media (max-width: 768px) {
+  .apptButton { padding: 5px 5px 5px var(--btn-padding-x); }
+  .apptButtonIcon { width: 40px; height: 40px; flex-basis: 40px; }
+}
+
+@media (max-width: 520px) {
+  .apptButton { padding: 4px 4px 4px var(--btn-padding-x); }
+  .apptButtonIcon { width: 36px; height: 36px; flex-basis: 36px; }
+}

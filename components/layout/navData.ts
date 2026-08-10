@@ -23,6 +23,7 @@ export const navLinks: NavLink[] = [
   { label: "Typography", href: "/#typography", group: "Foundations" },
   { label: "Color Accessibility", href: "/#accessibility", group: "Foundations" },
   { label: "Responsive Spacing & Layout", href: "/#responsive-rules", group: "Foundations" },
+  { label: "Global Radius", href: "/#radius", group: "Foundations" },
   { label: "Buttons", href: "/buttons", group: "Components" },
   { label: "Input Field", href: "/#inputs", group: "Components" },
   { label: "Checkbox & Radio", href: "/#checkbox-radio", group: "Components" },

@@ -1,41 +1,42 @@
 /* FooterSection — NOT in sections.html. Designed to the structure the homepage reference
-   specifies for section 16 (navy bg, logo + repeat CTA, 3 columns, bottom legal bar). */
+   specifies for section 16 (navy bg, logo + repeat CTA, 3 columns, bottom legal bar).
+   Colors, spacing and the CTA pill now flow through the DS tokens in app/globals.css + lib/colors.ts. */
 .hipFoot {
   background:var(--color-navy);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
-  padding:56px 48px 0;
+  padding: var(--section-padding-y) var(--container-padding-x) 0;
 }
 
 .hipFootTop {
   display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-  padding-bottom:32px; border-bottom:1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+  padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .hipFootLogo { font-size:28px; font-weight:800; color:var(--color-base-white); letter-spacing:-.5px; }
 
-.hipFootLogo span { color:var(--color-primary-base); }
+.hipFootLogo span { color:var(--color-cta-500); }
 
 .hipFootCta {
-  display:inline-flex; align-items:center; gap:9px;
-  padding:14px 28px; border-radius:100px;
-  background:var(--color-primary-base); border:0; cursor:pointer;
+  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
+  background:var(--color-cta-500); border:0; cursor:pointer;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:800; color:var(--color-base-white);
-  box-shadow:0 6px 20px color-mix(in srgb, var(--color-primary-base) 35%, transparent);
+  box-shadow:0 6px 20px color-mix(in srgb, var(--color-cta-500) 35%, transparent);
 }
 
-.hipFootCta svg { width:16px; height:16px; }
+.hipFootCta svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
 
 .hipFootCols {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:var(--grid-gap);
   padding:36px 0;
 }
 
-.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-tertiary-400); margin-bottom:14px; }
+.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-primary-400); margin-bottom:14px; }
 
 .hipFootLinks { display:flex; flex-direction:column; gap:9px; }
 
 .hipFootLink {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; color:color-mix(in srgb, var(--color-base-white) 60%, transparent);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; color:rgba(255,255,255,.6);
   text-decoration:none; cursor:pointer;
 }
 
@@ -43,40 +44,40 @@
 
 .hipFootPhone {
   display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-primary-base);
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-cta-500);
 }
 
 .hipFootPhone svg { width:16px; height:16px; }
 
-.hipFootAddr { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-base-white) 60%, transparent); }
+.hipFootAddr { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.7; color:rgba(255,255,255,.6); }
 
 .hipFootSocials { display:flex; gap:10px; }
 
 .hipFootSocial {
   width:34px; height:34px; border-radius:8px;
-  background:color-mix(in srgb, var(--color-base-white) 8%, transparent); border:1px solid color-mix(in srgb, var(--color-base-white) 12%, transparent);
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
   display:flex; align-items:center; justify-content:center;
-  color:color-mix(in srgb, var(--color-base-white) 75%, transparent); text-decoration:none;
+  color:rgba(255,255,255,.75); text-decoration:none;
 }
 
-.hipFootSocial:hover { background:var(--color-primary-base); border-color:var(--color-primary-base); color:var(--color-base-white); }
+.hipFootSocial:hover { background:var(--color-cta-500); border-color:var(--color-cta-500); color:var(--color-base-white); }
 
 .hipFootSocial svg { width:15px; height:15px; }
 
 .hipFootBar {
   display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  padding:20px 0; border-top:1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+  padding:20px 0; border-top:1px solid rgba(255,255,255,.1);
 }
 
 .hipFootLegal { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 
 .hipFootLegal span,
 .hipFootLegal a {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:color-mix(in srgb, var(--color-base-white) 45%, transparent);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:rgba(255,255,255,.45);
   text-decoration:none;
 }
 
-.hipFootLegal a:hover { color:color-mix(in srgb, var(--color-base-white) 80%, transparent); }
+.hipFootLegal a:hover { color:rgba(255,255,255,.8); }
 
 /* The two floating widgets the homepage reference calls for, shown in place rather than fixed
    so they stay inside the section card. */
@@ -88,13 +89,12 @@
   color:var(--color-base-white); flex-shrink:0;
 }
 
-.hipFootFloat.access { background:var(--color-primary-base); }
+.hipFootFloat.access { background:var(--color-cta-500); }
 
-.hipFootFloat.chat { background:var(--color-primary-base); }
+.hipFootFloat.chat { background:var(--color-cta-500); }
 
 .hipFootFloat svg { width:18px; height:18px; }
 
 @media (max-width: 860px) {
-  .hipFoot { padding:44px 24px 0; }
-  .hipFootCols { grid-template-columns:1fr; gap:28px; }
+  .hipFootCols { grid-template-columns:1fr; }
 }

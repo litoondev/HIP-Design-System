@@ -1,23 +1,23 @@
 /* OurDoctors — NOT in sections.html. Designed to the structure the homepage reference
-   specifies for section 08 (white bg, centered heading, alternating zig-zag rows), using the
-   same type scale and DS tokens as the ported sections. */
+   specifies for section 08 (white bg, centered heading, alternating zig-zag rows).
+   Spacing/color/type values now flow through the DS tokens in app/globals.css. */
 .hipDocs {
   background: var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
-  padding: 64px 48px;
+  padding: var(--section-padding-y) var(--container-padding-x);
 }
 
 .hipDocsHeader { text-align: center; margin-bottom: 44px; }
 
-.hipDocsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base); margin-bottom:8px; }
+.hipDocsEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); margin-bottom:var(--eyebrow-gap); }
 
-.hipDocsH2 { margin:0; font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.15; color:var(--color-base-black); }
+.hipDocsH2 { margin:0; font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
 
-.hipDocsIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:var(--color-gray-base); margin-top:10px; max-width:520px; margin-inline:auto; }
+.hipDocsIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:20px; font-weight:400; line-height:1.5; color:var(--color-textcolor-body); margin-top:var(--heading-gap); max-width:520px; margin-inline:auto; }
 
 .hipDocRow {
-  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-  padding:32px 0; border-bottom:1px solid var(--color-gray-50);
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center;
+  padding:32px 0; border-bottom:1px solid var(--color-gray-100);
 }
 
 .hipDocRow:last-of-type { border-bottom:0; }
@@ -29,31 +29,34 @@
 
 .hipDocPhoto {
   border-radius:12px; height:260px;
-  background:linear-gradient(135deg,var(--color-secondary-50) 0%,var(--color-tertiary-400) 100%);
+  background:linear-gradient(135deg,var(--color-primary-50) 0%,var(--color-primary-400) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipDocPhoto.warm { background:linear-gradient(135deg,var(--color-accent-50) 0%,var(--color-accent-200) 100%); }
+.hipDocPhoto.warm { background:linear-gradient(135deg,var(--color-cta-50) 0%,var(--color-cta-300) 100%); }
 
-.hipDocPhoto span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-black) 25%, transparent); }
+.hipDocPhoto span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
 
-.hipDocText { display:flex; flex-direction:column; gap:12px; }
+/* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
+.hipDocText { display:flex; flex-direction:column; }
 
 .hipDocCred {
   display:inline-flex; align-items:center;
-  padding:3px 10px; border-radius:100px;
-  background:var(--color-secondary-50); border:1px solid var(--color-tertiary-200);
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--color-primary-base);
+  margin-bottom:var(--eyebrow-gap);
+  padding:3px 10px; border-radius:var(--radius-full);
+  background:var(--color-primary-50); border:1px solid var(--color-primary-200);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--color-cta-500);
   align-self:flex-start;
 }
 
-.hipDocName { margin:0; font-size:26px; font-weight:800; line-height:1.2; color:var(--color-base-black); }
+.hipDocName { margin:0 0 var(--heading-gap); font-size:26px; font-weight:800; line-height:1.2; color:var(--color-textcolor-h3); }
 
-.hipDocBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; line-height:1.7; color:var(--color-gray-700); }
+.hipDocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; font-weight:400; line-height:1.7; color:var(--color-textcolor-body); }
 
 .hipDocLink {
-  display:inline-flex; align-items:center; gap:7px;
-  font-size:13px; font-weight:700; color:var(--color-primary-base); cursor:pointer;
+  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+  margin-top:var(--content-button-gap);
+  font-size:13px; font-weight:700; color:var(--color-cta-500); cursor:pointer;
 }
 
 .hipDocLink svg { width:15px; height:15px; }
@@ -64,10 +67,20 @@
 }
 
 /* Not a source concern — the ported sections carry no breakpoints, but a 2-col zig-zag
-   collapses badly in the style-guide column, so these designs stack instead. */
+   collapses badly in the style-guide column, so these designs stack instead.
+   (Padding/gap values now come from the responsive DS tokens.) */
 @media (max-width: 860px) {
-  .hipDocs { padding:48px 24px; }
-  .hipDocRow { grid-template-columns:1fr; gap:20px; }
+  .hipDocRow { grid-template-columns:1fr; }
   .hipDocRow.reverse { direction:ltr; }
   .hipDocPhoto { height:200px; }
+}
+
+@media (max-width: 768px) {
+  .hipDocsEyebrow { font-size:14px; }
+  .hipDocsIntro { font-size:18px; }
+}
+
+@media (max-width: 520px) {
+  .hipDocsEyebrow { font-size:12px; }
+  .hipDocsIntro { font-size:16px; }
 }

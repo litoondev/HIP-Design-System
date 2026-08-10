@@ -1,0 +1,75 @@
+/* LearnMoreButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.learnMore {
+    composes: btn from "./base.module.css";
+    --lm-green: var(--color-tertiary-500);
+    --lm-white: var(--color-base-white);
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: auto 60px;
+    overflow: hidden;
+    border: 4px solid var(--lm-green);
+    border-radius: var(--radius-full);
+    background: var(--lm-green);
+    color: var(--lm-white);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+.learnMore::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 auto;
+    width: 60px;
+    border-radius: 0 var(--radius-full) var(--radius-full) 0;
+    background: var(--lm-white);
+    transition: width 500ms cubic-bezier(.76, 0, .24, 1),
+                border-radius 500ms cubic-bezier(.76, 0, .24, 1);
+  }
+
+.learnMoreLabel {
+    padding: 15px 15px 15px var(--btn-padding-x);
+    text-transform: uppercase;
+    transition: color 180ms ease 180ms;
+  }
+
+.learnMoreIcon {
+    display: grid;
+    place-items: center;
+    color: var(--lm-green);
+  }
+
+.learnMore:hover::before,
+.learnMore:focus-visible::before {
+    width: 100%;
+    border-radius: var(--radius-full);
+  }
+
+.learnMore:hover,
+.learnMore:focus-visible {
+    color: var(--lm-green);
+  }
+
+.learnMore:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--lm-green), transparent 35%);
+    outline-offset: 5px;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .learnMore::before,
+  .learnMoreLabel { transition-duration: 1ms; }
+}
+
+@media (max-width: 768px) {
+  .learnMore { grid-template-columns: auto 54px; max-width: min(94vw, 400px); }
+  .learnMore::before { width: 54px; }
+  .learnMoreLabel { padding: 13px 13px 13px var(--btn-padding-x); }
+}
+
+@media (max-width: 520px) {
+  .learnMore { grid-template-columns: auto 48px; max-width: 92vw; }
+  .learnMore::before { width: 48px; }
+  .learnMoreLabel { padding: 11px 11px 11px var(--btn-padding-x); }
+}

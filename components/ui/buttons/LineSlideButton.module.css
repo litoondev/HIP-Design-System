@@ -1,0 +1,81 @@
+/* LineApptButton — CSS ported verbatim from design-system/buttons.html.
+   Class names camelCased for CSS Modules; declarations, breakpoints and
+   reduced-motion rules are unchanged from the source. */
+.lineApptBtn {
+    composes: btn from "./base.module.css";
+    --charcoal: var(--color-navy);
+    position: relative;
+    display: block;
+    width: 388px;
+    height: 60px;
+    overflow: hidden;
+    border: 2px solid var(--color-base-white);
+    border-radius: 0;
+    background: var(--charcoal);
+    color: var(--color-base-white);
+    transition: background-color 350ms ease, border-color 350ms ease, color 350ms ease;
+  }
+
+.lineApptBtnText {
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    transition: left 350ms ease;
+  }
+
+.lineApptBtnLine {
+    position: absolute;
+    top: 50%;
+    left: 326px;
+    width: 30px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-50%);
+    transition: left 350ms ease;
+  }
+
+.lineApptBtn:hover,
+.lineApptBtn:focus-visible {
+    border-color: var(--charcoal);
+    background: transparent;
+    color: var(--charcoal);
+    outline: none;
+  }
+
+.lineApptBtn:hover .lineApptBtnText,
+.lineApptBtn:focus-visible .lineApptBtnText {
+    left: 74px;
+  }
+
+.lineApptBtn:hover .lineApptBtnLine,
+.lineApptBtn:focus-visible .lineApptBtnLine {
+    left: 28px;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .lineApptBtn,
+  .lineApptBtnText,
+  .lineApptBtnLine { transition-duration: 0.01ms; }
+}
+
+@media (max-width: 768px) {
+  .lineApptBtn { width: min(94vw, 340px); height: 54px; }
+  .lineApptBtnText { left: 22px; }
+  .lineApptBtnLine { left: 280px; }
+  .lineApptBtn:hover .lineApptBtnText,
+  .lineApptBtn:focus-visible .lineApptBtnText { left: 62px; }
+  .lineApptBtn:hover .lineApptBtnLine,
+  .lineApptBtn:focus-visible .lineApptBtnLine { left: 22px; }
+}
+
+@media (max-width: 520px) {
+  .lineApptBtn { width: min(92vw, 300px); height: 48px; }
+  .lineApptBtnText { left: 18px; }
+  .lineApptBtnLine { left: 244px; }
+  .lineApptBtn:hover .lineApptBtnText,
+  .lineApptBtn:focus-visible .lineApptBtnText { left: 52px; }
+  .lineApptBtn:hover .lineApptBtnLine,
+  .lineApptBtn:focus-visible .lineApptBtnLine { left: 18px; }
+}

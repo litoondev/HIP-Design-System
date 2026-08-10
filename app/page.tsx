@@ -1,4 +1,4 @@
-import { ColorPalette, ColorAccessibilityRamps, ResponsiveSpacingTable } from "@/components/ui/foundations";
+import { ColorPalette, ColorAccessibilityRamps, ResponsiveSpacingTable, GlobalRadiusTable } from "@/components/ui/foundations";
 import { TypographySection } from "@/components/ui/typography";
 import { Typography } from "@/components/ui/typography/Typography";
 import { InputField, Checkbox, Radio, ChooseFile, UploadDropzone } from "@/components/ui/forms";
@@ -81,6 +81,19 @@ export default function Home() {
           rest of the site.
         </Typography>
         <ResponsiveSpacingTable />
+      </section>
+
+      {/* ===== Global Radius ===== */}
+      <section id="radius" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
+        <div className="font-body text-[12px] font-bold tracking-[0.5px] uppercase text-cta mb-2">Foundations</div>
+        <h1 className="font-header font-extrabold text-[26px] leading-[1.2] md:text-[30px] lg:text-[34px] text-base-black mt-0 mb-3">Global Radius</h1>
+        <p className="font-body text-[16px] leading-[1.6] text-gray-600 max-w-[640px] mt-0 mb-4">
+          Corner-radius token scale. Unlike spacing, radius is a <b className="text-base-black">global collection</b> —
+          the same value applies at every breakpoint (Desktop, Tablet, Mobile). Always use a token from this
+          scale; never an arbitrary radius. <code className="text-[13px] bg-gray-50 border border-gray-200 rounded px-1">radius/full</code> (1000px)
+          renders any element fully round — pills, avatars, circular icon buttons.
+        </p>
+        <GlobalRadiusTable />
       </section>
 
       {/* ===== Input Field ===== */}
