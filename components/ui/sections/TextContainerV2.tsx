@@ -79,31 +79,31 @@ export default function TextContainerV2({
   const centered = align === "center";
   return (
     <div
-      className={`flex flex-col gap-[30px] lg:gap-[40px] w-full ${
+      className={`flex flex-col gap-[var(--content-button-gap)] w-full ${
         centered ? "max-w-[870px] mx-auto items-center text-center" : "max-w-[570px] items-start"
       }${className ? ` ${className}` : ""}`}
       style={{ fontFamily: HOST_GROTESK }}
     >
-      <div className={`flex flex-col gap-[16px] lg:gap-[24px] w-full ${centered ? "items-center" : "items-start"}`}>
-        <div className={`flex flex-col gap-[8px] w-full ${centered ? "items-center" : "items-start"}`}>
+      <div className={`flex flex-col gap-[var(--heading-gap)] w-full ${centered ? "items-center" : "items-start"}`}>
+        <div className={`flex flex-col gap-[var(--eyebrow-gap)] w-full ${centered ? "items-center" : "items-start"}`}>
           {preHeader && (
             <div className="flex items-center gap-[16px]">
               {centered && <PreHeaderLine />}
-              <p className="m-0 font-medium uppercase text-[color:var(--color-secondary-base)] text-[12px] lg:text-[16px] leading-[1.5] tracking-[3px] whitespace-nowrap">
+              <p className="m-0 font-medium uppercase text-[color:var(--color-secondary-base)] text-[length:var(--text-preheader-size)] leading-[var(--text-preheader-leading)] tracking-[var(--text-preheader-tracking)] whitespace-nowrap">
                 {preHeader}
               </p>
               <PreHeaderLine />
             </div>
           )}
           <h2
-            className="m-0 font-semibold capitalize text-[color:var(--color-primary-base)] text-[32px] md:text-[42px] lg:text-[56px] leading-[1.2]"
+            className="m-0 font-semibold capitalize text-[color:var(--color-primary-base)] text-[length:var(--text-h2-size)] leading-[var(--text-h2-leading)]"
             style={{ textShadow: "3px 3px 0px var(--color-secondary-200)" }}
           >
             {header}
           </h2>
         </div>
         {paragraph && (
-          <p className="m-0 font-normal text-[color:var(--color-textcolor-body)] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5]">
+          <p className="m-0 font-normal text-[color:var(--color-textcolor-body)] text-[length:var(--text-body1-size)] leading-[var(--text-body1-leading)]">
             {paragraph}
           </p>
         )}

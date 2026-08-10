@@ -16,7 +16,7 @@
 
 .hipHeroBg {
   position: absolute; inset: 0; z-index: -3;
-  background: linear-gradient(120deg, #1a2d3f 0%, #2c4a3e 40%, #1e3a2f 100%);
+  background: linear-gradient(120deg, var(--color-navy) 0%, var(--color-primary-800) 40%, var(--color-primary-900) 100%);
 }
 
 .hipHeroShade {
@@ -104,8 +104,8 @@
 
 .hipHeroEyebrow {
   margin:0 0 var(--eyebrow-gap);
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700;
-  letter-spacing:3px; text-transform:uppercase; color:var(--color-cta-500);
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700;
+  letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-cta-500);
 }
 
 .hipHeroH1 {
@@ -130,11 +130,3 @@
 .hipHeroBtn.primary { background:var(--color-cta-500); color:var(--color-base-white); }
 
 .hipHeroBtn.secondary { background:var(--color-base-white); color:var(--color-cta-500); }
-
-@media (max-width: 768px) {
-  .hipHeroEyebrow { font-size:14px; }
-}
-
-@media (max-width: 520px) {
-  .hipHeroEyebrow { font-size:12px; }
-}

@@ -14,7 +14,7 @@
 
 .hipLocImg {
   border-radius:12px; height:240px;
-  background:linear-gradient(135deg,#1a2d3f 0%,var(--color-cta-500) 100%);
+  background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-cta-500) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -22,11 +22,11 @@
 
 .hipLocText { display:flex; flex-direction:column; }
 
-.hipLocEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); }
+.hipLocEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
 
-.hipLocH2 { margin:0 0 var(--heading-gap); font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
+.hipLocH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
 
-.hipLocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:20px; font-weight:400; line-height:1.5; color:var(--color-textcolor-body); max-width:400px; }
+.hipLocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); max-width:400px; }
 
 .hipLocGrid { display:grid; grid-template-columns:1fr 1.15fr; gap:var(--grid-gap); }
 
@@ -87,18 +87,8 @@
 
 .hipLocPin.three { top:70%; left:32%; }
 
-@media (max-width: 768px) {
-  .hipLocEyebrow { font-size:14px; }
-  .hipLocBody { font-size:18px; }
-}
-
 @media (max-width: 860px) {
   .hipLocTop, .hipLocGrid { grid-template-columns:1fr; }
   .hipLocImg { height:190px; }
   .hipLocMap { min-height:220px; }
-}
-
-@media (max-width: 520px) {
-  .hipLocEyebrow { font-size:12px; }
-  .hipLocBody { font-size:16px; }
 }

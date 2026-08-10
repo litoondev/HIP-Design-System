@@ -17,18 +17,18 @@
 
 .hipStepsEyebrow {
   margin:0 0 var(--eyebrow-gap);
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700;
-  letter-spacing:3px; text-transform:uppercase; color:var(--color-cta-500);
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700;
+  letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-cta-500);
 }
 
 .hipStepsH2 {
   margin:0 0 var(--heading-gap); font-family: var(--font-figtree), 'Figtree', sans-serif;
-  font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-base-white);
+  font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-base-white);
 }
 
 .hipStepsBody {
   margin:0;
-  font-family: var(--font-inter), 'Inter', sans-serif; font-weight:400; font-size:20px; line-height:1.5; color:rgba(255,255,255,.65); max-width:380px;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight:400; font-size:var(--text-body1-size); line-height:var(--text-body1-leading); color:rgba(255,255,255,.65); max-width:380px;
 }
 
 .hipStepsCta {
@@ -45,7 +45,7 @@
 
 .hipStepsImg {
   border-radius:10px; height:220px;
-  background:linear-gradient(135deg,#1a2d3f 0%,var(--color-cta-500) 100%);
+  background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-cta-500) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -67,13 +67,3 @@
 .hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:var(--color-base-white); line-height:1.3; }
 
 .hipStepBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.55); }
-
-@media (max-width: 768px) {
-  .hipStepsEyebrow { font-size:14px; }
-  .hipStepsBody { font-size:18px; }
-}
-
-@media (max-width: 520px) {
-  .hipStepsEyebrow { font-size:12px; }
-  .hipStepsBody { font-size:16px; }
-}

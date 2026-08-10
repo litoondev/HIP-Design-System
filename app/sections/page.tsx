@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 /** Shared by the notes — the source links these back to the icon library. */
 function IconLibraryLink() {
   return (
-    <Link href="/icons" style={{ color: "#320270", fontWeight: 600 }}>
+    <Link href="/icons" className="font-semibold text-cta">
       icon library
     </Link>
   );
@@ -39,7 +39,7 @@ function NewDesign() {
   return (
     <>
       <strong>New design</strong> — built to the{" "}
-      <Link href="/homepage" style={{ color: "#320270", fontWeight: 600 }}>
+      <Link href="/homepage" className="font-semibold text-cta">
         homepage structure reference
       </Link>
       , no sections.html source.{" "}
@@ -114,7 +114,7 @@ export default function SectionsPage() {
         tags={["Optional", "Gray bg · 4-col × 2 rows · Icon + text"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: gray-100 #f5f5f5. Card bg: white / border
+            <strong>DS tokens:</strong> Section bg: gray-100. Card bg: white / border
             gray-200. Icon bg: primary-50. Icon color: primary-500 (teal). Title: Figtree 800 14px.
             Sub: Inter 400 12px / gray-500. Desktop 4-col, tablet 2-col, mobile 1–2 col. Icons from{" "}
             <IconLibraryLink /> — check first.
@@ -136,10 +136,10 @@ export default function SectionsPage() {
             100px). Section padding: 40 / 60 / 120px. Grid gap: 20 / 30 / 40px. Title:{" "}
             <strong>H6</strong> (Figtree 700, 16/18/20px, 0.5px tracking) / textcolor-h2. Sub:{" "}
             <strong>Body2</strong> (Inter 400, 14/16/18px) / textcolor-body. Card: base-white on a
-            1px stone <code>#d2c3af</code> border, square corners, no shadow. Icons: recolored to
+            1px accent-200 border, square corners, no shadow. Icons: recolored to
             primary-500, 33px mobile / 48px tablet + desktop — check the <IconLibraryLink /> before
-            adding more. Section ground <code>#f7f4f0</code> and the stone border are the frame&apos;s
-            own pair and have no DS equivalent yet.
+            adding more. Section ground accent-50 — the frame&apos;s cream/stone pair now resolves
+            through the accent (Golden Amber) ramp.
           </>
         }
       >
@@ -153,7 +153,7 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col + 3 numbered cards"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black #000000. Eyebrow: Inter 700 11px /
+            <strong>DS tokens:</strong> Section bg: base-black. Eyebrow: Inter 700 11px /
             2px tracking / uppercase / cta-500. H2: Figtree 800, clamp(28–48px). Step numeral:
             Figtree 800 72px / cta-500 at 18% opacity. Card bg: white 4%. Image: Google Drive →{" "}
             <strong>Step Section</strong> folder.
@@ -278,7 +278,7 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col top · Card slider bottom"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black #000000. Review card bg: white 5% /
+            <strong>DS tokens:</strong> Section bg: base-black. Review card bg: white 5% /
             border white 10%. Google G: real Google colors (SVG). Stars: fill cta-500. Reviewer
             name: Inter 700 / white 45% / uppercase. Slider arrows: white 20% border. More Reviews
             link: primary-500. Image: Google Drive → <strong>Testimonial Section</strong> folder.

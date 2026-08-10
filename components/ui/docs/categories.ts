@@ -22,15 +22,26 @@ export interface CatalogEntry {
   category: DesignCategory;
   /** Anchor id of the demo on the page. */
   anchor: string;
+  /**
+   * Component family, e.g. "Text Container" or "Hero". Entries sharing a group render as
+   * ONE demo card with variation tabs (V1, V2, …) instead of stacked cards — this is what
+   * keeps a family with 10–20 variations browsable. Omit for standalone components.
+   */
+  group?: string;
+  /** Short tab label inside the group card, e.g. "V1". Defaults to the name minus the group prefix. */
+  tab?: string;
 }
 
 /** Registry the chip row and page TOC are built from — add every new component variant here. */
 export const componentCatalog: CatalogEntry[] = [
-  { name: "Text Container", category: "Professional / Corporate", anchor: "text-container-demo" },
-  { name: "Text Container V2", category: "Vibrant", anchor: "text-container-v2-demo" },
+  { name: "Text Container", category: "Professional / Corporate", anchor: "text-container-demo", group: "Text Container", tab: "V1" },
+  { name: "Text Container V2", category: "Vibrant", anchor: "text-container-v2-demo", group: "Text Container", tab: "V2" },
+  { name: "Text Container V3", category: "Modern", anchor: "text-container-v3-demo", group: "Text Container", tab: "V3" },
+  { name: "Text Container V4", category: "Clean", anchor: "text-container-v4-demo", group: "Text Container", tab: "V4" },
   // Buttons (/buttons)
   { name: "Arrow Loop Button", category: "Modern", anchor: "arrow-loop-button-demo" },
   { name: "Panel Collapse Button", category: "Modern", anchor: "panel-collapse-button-demo" },
+  { name: "Modern Pill Button", category: "Modern", anchor: "modern-pill-button-demo" },
   { name: "Minimal Outline Button", category: "Minimalist", anchor: "minimal-outline-button-demo" },
   { name: "Line Slide Button", category: "Minimalist", anchor: "line-slide-button-demo" },
   { name: "Line Swap Button", category: "Minimalist", anchor: "line-swap-button-demo" },
