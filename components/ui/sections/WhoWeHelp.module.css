@@ -9,11 +9,11 @@
 
 .hipWhoHeader { text-align:center; margin-bottom:40px; }
 
-.hipWhoEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); margin-bottom:var(--eyebrow-gap); }
+.hipWhoEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); margin-bottom:var(--eyebrow-gap); }
 
-.hipWhoH2 { margin:0; font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
+.hipWhoH2 { margin:0; font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
 
-.hipWhoIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:20px; font-weight:400; line-height:1.5; color:var(--color-textcolor-body); margin-top:var(--heading-gap); max-width:520px; margin-inline:auto; }
+.hipWhoIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); margin-top:var(--heading-gap); max-width:520px; margin-inline:auto; }
 
 .hipWhoRow {
   display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center;
@@ -34,7 +34,7 @@
 
 .hipWhoImg.teens { background:linear-gradient(135deg,var(--color-base-white) 0%,var(--color-cta-300) 100%); }
 
-.hipWhoImg.adults { background:linear-gradient(135deg,var(--color-base-white) 0%,#a4a7d5 100%); }
+.hipWhoImg.adults { background:linear-gradient(135deg,var(--color-base-white) 0%,var(--color-tertiary-300) 100%); }
 
 .hipWhoImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
 
@@ -67,14 +67,4 @@
   .hipWhoRow { grid-template-columns:1fr; }
   .hipWhoRow.reverse { direction:ltr; }
   .hipWhoImg { height:180px; }
-}
-
-@media (max-width: 768px) {
-  .hipWhoEyebrow { font-size:14px; }
-  .hipWhoIntro { font-size:18px; }
-}
-
-@media (max-width: 520px) {
-  .hipWhoEyebrow { font-size:12px; }
-  .hipWhoIntro { font-size:16px; }
 }

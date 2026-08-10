@@ -27,6 +27,42 @@
   --heading-gap: 24px;          /* header → first paragraph */
   --paragraph-gap: 30px;        /* paragraph → paragraph (Text Container) */
   --content-button-gap: 40px;   /* content → button */
+  --button-gap: 30px;           /* button → button (Text Container button row) */
+}
+
+/* Global type tokens — from the Responsive Type Scale (Figma "Global Fonts" node
+   7383:49362, transcribed in ResponsiveTypeScaleTable). Desktop ≥1024 / Tablet
+   768–1023 / Mobile <768 — the same breakpoints the live samples use. Components
+   consume these instead of repeating the px ladder per element. */
+:root {
+  --text-preheader-size: 16px; --text-preheader-leading: 24px; --text-preheader-tracking: 3px;
+  --text-h2-size: 56px;        --text-h2-leading: 68px;
+  --text-h6-size: 20px;        --text-h6-leading: 30px;        --text-h6-tracking: 0.5px;
+  --text-body1-size: 20px;     --text-body1-leading: 30px;
+  --text-body2-size: 18px;     --text-body2-leading: 28px;
+  --text-button-size: 20px;    --text-button-leading: 30px;    --text-button-tracking: 1.25px;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --text-preheader-size: 14px; --text-preheader-leading: 20px;
+    --text-h2-size: 42px;        --text-h2-leading: 50px;
+    --text-h6-size: 18px;        --text-h6-leading: 28px;
+    --text-body1-size: 18px;     --text-body1-leading: 28px;
+    --text-body2-size: 16px;     --text-body2-leading: 24px;
+    --text-button-size: 18px;    --text-button-leading: 28px;  --text-button-tracking: 0.5px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-preheader-size: 12px; --text-preheader-leading: 18px;
+    --text-h2-size: 32px;        --text-h2-leading: 40px;
+    --text-h6-size: 16px;        --text-h6-leading: 22px;
+    --text-body1-size: 16px;     --text-body1-leading: 24px;
+    --text-body2-size: 14px;     --text-body2-leading: 20px;
+    --text-button-size: 16px;    --text-button-leading: 24px;  --text-button-tracking: 0px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -42,6 +78,7 @@
     --heading-gap: 20px;
     --paragraph-gap: 20px;
     --content-button-gap: 30px;
+    --button-gap: 20px;
   }
 }
 

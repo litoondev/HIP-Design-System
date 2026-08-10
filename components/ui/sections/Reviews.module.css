@@ -13,15 +13,15 @@
 
 .hipReviewsText { display:flex; flex-direction:column; }
 
-.hipReviewsEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-cta-500); }
+.hipReviewsEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-cta-500); }
 
-.hipReviewsH2 { margin:0 0 var(--heading-gap); font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-base-white); }
+.hipReviewsH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-base-white); }
 
-.hipReviewsBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:20px; font-weight:400; line-height:1.5; color:rgba(255,255,255,.6); }
+.hipReviewsBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:rgba(255,255,255,.6); }
 
 .hipReviewsImg {
   border-radius:10px; height:200px;
-  background:linear-gradient(135deg,#1a2d3f 0%,var(--color-cta-500) 100%);
+  background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-cta-500) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
@@ -75,13 +75,3 @@
 }
 
 .hipMoreReviews svg { width:14px; height:14px; }
-
-@media (max-width: 768px) {
-  .hipReviewsEyebrow { font-size:14px; }
-  .hipReviewsBody { font-size:18px; }
-}
-
-@media (max-width: 520px) {
-  .hipReviewsEyebrow { font-size:12px; }
-  .hipReviewsBody { font-size:16px; }
-}

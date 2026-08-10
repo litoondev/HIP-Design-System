@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import FullPageButton from "./FullPageButton";
 import styles from "./SectionCard.module.css";
 
@@ -24,7 +25,10 @@ export default function SectionCard({ id, num, name, tags, note, children }: Sec
       <div className={styles.secLabelStrip}>
         <div className="flex items-center gap-3">
           <span className={styles.secNum}>{num}</span>
-          <span className={styles.secName}>{name}</span>
+          {/* The card id doubles as the single-page slug — the name links to that page. */}
+          <Link href={`/sections/${id}`} className={`${styles.secName} hover:underline`}>
+            {name}
+          </Link>
         </div>
 
         {/* Source wraps the tags in a flex row only when a card carries more than one. */}

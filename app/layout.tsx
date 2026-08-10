@@ -10,7 +10,8 @@ import Sidebar from "@/components/layout/Sidebar";
 // a fake semibold, which reads visibly heavier and wider than the real cut.
 const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  // 500 is the Text Container V3 pre-header (Figtree Medium per the Figma spec).
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-figtree",
   display: "swap",
 });

@@ -1,0 +1,41 @@
+/* ModernPillButton — primary pill from Figma "Master V3" node 15878:54173 (BTN_Mst).
+   Colors and type come from the global tokens; the right padding is halved so the
+   circle-chevron glyph sits tight against the pill edge, per the design. */
+.pillBtn {
+    composes: btn from "./base.module.css";
+    justify-content: center;
+    gap: var(--btn-icon-gap);
+    padding: var(--btn-padding-y) calc(var(--btn-padding-x) / 2) var(--btn-padding-y) var(--btn-padding-x);
+    border-radius: var(--radius-full);
+    background: var(--color-primary-base);
+    color: var(--color-base-white);
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: background-color 300ms ease;
+  }
+
+.pillBtn:hover,
+.pillBtn:focus-visible {
+    background: var(--color-primary-600);
+    outline: none;
+  }
+
+.pillBtnIcon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+
+.pillBtnIcon svg {
+    display: block;
+    width: 30px;
+    height: 26px;
+  }
+
+@media (max-width: 768px) {
+  .pillBtnIcon svg { width: 26px; height: 22px; }
+}
+
+@media (max-width: 520px) {
+  .pillBtnIcon svg { width: 22px; height: 19px; }
+}

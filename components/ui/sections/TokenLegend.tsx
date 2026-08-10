@@ -1,10 +1,17 @@
+import { baseColors, baseNeutrals, navy } from "@/lib/colors";
+
 /** The "DS Tokens Used" swatches from the sections.html sidebar. The section list that sat
- *  above them now lives in the app sidebar as a submenu under Section Designs. */
+ *  above them now lives in the app sidebar as a submenu under Section Designs.
+ *  Swatches are read from lib/colors.ts — the same source that generates the --color-*
+ *  variables and the Tailwind theme — so this legend can never show a stale palette. */
 const TOKENS = [
-  { swatch: "#320270", label: "CTA / Primary Royal Amethyst --color-cta-base", bordered: false },
-  { swatch: "#1fc3df", label: "Secondary Aqua Pulse --color-secondary-base", bordered: false },
-  { swatch: "#000000", label: "Base Black --color-base-black", bordered: false },
-  { swatch: "#ffffff", label: "White --color-base-white", bordered: true },
+  { swatch: baseColors.primary, label: `Primary Harbor Teal --color-primary-base`, bordered: false },
+  { swatch: baseColors.secondary, label: `Secondary Cyan Pulse --color-secondary-base`, bordered: false },
+  { swatch: baseColors.accent, label: `Accent Golden Amber --color-accent-base`, bordered: false },
+  { swatch: baseColors.cta, label: `CTA Ember Orange --color-cta-base`, bordered: false },
+  { swatch: navy, label: `Navy --color-navy`, bordered: false },
+  { swatch: baseNeutrals.black, label: `Base Black --color-base-black`, bordered: false },
+  { swatch: baseNeutrals.white, label: `White --color-base-white`, bordered: true },
 ];
 
 export default function TokenLegend() {
