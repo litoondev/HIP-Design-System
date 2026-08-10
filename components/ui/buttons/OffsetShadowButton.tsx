@@ -1,4 +1,5 @@
 import styles from "./OffsetShadowButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface OffsetShadowButtonProps {
@@ -27,7 +28,9 @@ export default function OffsetShadowButton({
       <a className={styles.aosgBtn} href={href} aria-label={text}>
         <span className={styles.aosgBtnInner}>
           <span className={styles.aosgBtnText}>{text}</span>
-          <span className={styles.aosgBtnIcon} aria-hidden="true" />
+          <span className={styles.aosgBtnIcon} aria-hidden="true">
+            <Icon name="Arrow Right" size="100%" />
+          </span>
         </span>
       </a>
     </div>

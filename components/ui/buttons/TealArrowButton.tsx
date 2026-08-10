@@ -1,4 +1,5 @@
 import styles from "./TealArrowButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface TealArrowButtonProps {
@@ -26,9 +27,7 @@ export default function TealArrowButton({
       <span className={styles.olvButtonContent}>
         <span>{text}</span>
         <span className={styles.olvButtonIcon} aria-hidden="true">
-          <svg viewBox="0 0 16 16" focusable="false">
-            <path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" />
-          </svg>
+          <Icon name="Arrow Right" size="100%" />
         </span>
       </span>
     </button>

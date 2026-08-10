@@ -1,4 +1,5 @@
 import styles from "./NavyChevronButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface NavyChevronButtonProps {
@@ -10,8 +11,8 @@ export interface NavyChevronButtonProps {
 }
 
 /**
- * Discover Us — navy pill with a double chevron (.navy-discover-button).
- * The chevron is drawn entirely from the icon span's ::before/::after borders.
+ * Discover Us — navy pill with a "Next" icon from the global icon library
+ * (.navy-discover-button).
  */
 export default function NavyChevronButton({
   label,
@@ -27,7 +28,9 @@ export default function NavyChevronButton({
       onClick={onClick}
     >
       <span>{text}</span>
-      <span className={styles.navyDiscoverButtonIcon} aria-hidden="true" />
+      <span className={styles.navyDiscoverButtonIcon} aria-hidden="true">
+        <Icon name="Next" size="100%" />
+      </span>
     </button>
   );
 }

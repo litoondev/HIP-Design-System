@@ -2,18 +2,16 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .franklinBtn {
-    --charcoal: #000000;
+    composes: btn from "./base.module.css";
+    --charcoal: var(--color-base-black);
     position: relative;
-    display: inline-flex;
     width: min(307px, 100%);
     height: 60px;
-    align-items: center;
     overflow: hidden;
     border: 4px solid var(--charcoal);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     background: transparent;
-    color: #fff;
-    text-decoration: none;
+    color: var(--color-base-white);
     isolation: isolate;
   }
 
@@ -40,12 +38,6 @@
 .franklinBtnText {
     position: absolute;
     left: 17px;
-    white-space: nowrap;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 1.25px;
     text-transform: uppercase;
     transition: color 180ms ease 90ms;
   }
@@ -58,21 +50,14 @@
     height: 52px;
     place-items: center;
     border-radius: 50%;
-    background: #fff;
-    transition: background-color 220ms ease;
+    background: var(--color-base-white);
+    color: var(--charcoal);
+    transition: background-color 220ms ease, color 180ms ease;
   }
 
-.franklinBtnIcon svg {
-    display: block;
-    width: 20px;
-    height: 20px;
+.franklinBtnArrow {
     transform: rotate(0deg);
     transition: transform 420ms cubic-bezier(.65, 0, .35, 1);
-  }
-
-.franklinBtnIcon path {
-    fill: var(--charcoal);
-    transition: fill 180ms ease;
   }
 
 .franklinBtn:hover,
@@ -82,29 +67,24 @@
 .franklinBtn:focus-visible::before { transform: scaleX(0); }
 
 .franklinBtn:hover .franklinBtnIcon,
-.franklinBtn:focus-visible .franklinBtnIcon { background: var(--charcoal); }
+.franklinBtn:focus-visible .franklinBtnIcon { background: var(--charcoal); color: var(--color-base-white); }
 
-.franklinBtn:hover .franklinBtnIcon svg,
-.franklinBtn:focus-visible .franklinBtnIcon svg { transform: rotate(45deg); }
-
-.franklinBtn:hover .franklinBtnIcon path,
-.franklinBtn:focus-visible .franklinBtnIcon path { fill: #fff; }
+.franklinBtn:hover .franklinBtnArrow,
+.franklinBtn:focus-visible .franklinBtnArrow { transform: rotate(45deg); }
 
 @media (prefers-reduced-motion: reduce) {
   .franklinBtn::before,
   .franklinBtnText,
   .franklinBtnIcon,
-  .franklinBtnIcon svg { transition-duration: 0.01ms; }
+  .franklinBtnArrow { transition-duration: 0.01ms; }
 }
 
 @media (max-width: 768px) {
   .franklinBtn { height: 54px; }
   .franklinBtnIcon { width: 46px; height: 46px; }
-  .franklinBtnText { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
 }
 
 @media (max-width: 520px) {
   .franklinBtn { height: 48px; }
   .franklinBtnIcon { width: 40px; height: 40px; }
-  .franklinBtnText { font-size: 16px; line-height: 24px; letter-spacing: 0px; }
 }

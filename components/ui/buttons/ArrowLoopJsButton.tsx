@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
+import Icon from "../icons/Icon";
 import styles from "./ArrowLoopJsButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
@@ -25,7 +26,7 @@ export default function ArrowLoopJsButton({
   href = "#",
   className,
 }: ArrowLoopJsButtonProps) {
-  const arrowRef = useRef<SVGSVGElement | null>(null);
+  const arrowRef = useRef<HTMLSpanElement | null>(null);
   const animRef = useRef<Animation | null>(null);
   const reducedRef = useRef(false);
 
@@ -64,20 +65,16 @@ export default function ArrowLoopJsButton({
       onBlur={() => shoot("reverse")}
     >
       <span className={styles.gibsonBtnJsIcon} aria-hidden="true">
-        <svg
+        <span
           ref={arrowRef}
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            display: "block",
+            width: "var(--btn-icon-size)",
+            height: "var(--btn-icon-size)",
+          }}
         >
-          <path
-            d="M3.5 10H16.5M12.5 6L16.5 10L12.5 14"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+          <Icon name="Arrow Right" size="100%" />
+        </span>
       </span>
       <span className={styles.gibsonBtnJsText}>{text}</span>
     </a>

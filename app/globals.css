@@ -6,6 +6,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global button tokens — from the responsive spacing table (Desk 1440 / Tab 768 / Mobi 320).
+   Every button module consumes these instead of hardcoded padding/gap/radius values. */
+:root {
+  --btn-padding-x: 32px; /* spacing/32 */
+  --btn-padding-y: 16px; /* spacing/16 */
+  --btn-icon-gap: 16px;  /* spacing/16 */
+  --btn-icon-size: 20px; /* spacing/20 */
+  --radius-full: 999px;  /* fully-rounded pills */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --btn-padding-x: 24px; /* spacing/24 */
+    --btn-padding-y: 12px; /* spacing/12 */
+    --btn-icon-gap: 12px;  /* spacing/12 */
+    /* icon size unchanged at tab (20px) */
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --btn-padding-x: 16px; /* spacing/16 */
+    /* padding-y stays 12px at mobile */
+    --btn-icon-gap: 8px;   /* spacing/8 */
+    --btn-icon-size: 16px; /* spacing/16 */
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

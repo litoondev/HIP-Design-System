@@ -2,20 +2,18 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .gibsonBtnJs {
-    --gibson-blue: #1a628a;
-    --gibson-light: #3ca5d5;
+    composes: btn from "./base.module.css";
+    --gibson-blue: var(--color-cta-500);
+    --gibson-light: var(--color-cta-300);
     position: relative;
     isolation: isolate;
-    display: inline-flex;
     width: min(337px, 100%);
     height: 60px;
-    align-items: center;
     overflow: hidden;
     border: 2px solid var(--gibson-blue);
-    border-radius: 999px;
-    background: #fff;
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
     color: var(--gibson-blue);
-    text-decoration: none;
     transition: color 300ms ease, border-color 300ms ease;
   }
 
@@ -44,25 +42,17 @@
     overflow: hidden;
   }
 
-.gibsonBtnJsIcon svg { display: block; width: 20px; height: 20px; }
-
 .gibsonBtnJsText {
     position: absolute;
     z-index: 1;
     left: 24px;
     right: 54px;
     text-align: center;
-    white-space: nowrap;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 1.25px;
     text-transform: uppercase;
   }
 
 .gibsonBtnJs:hover,
-.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: #000000; outline: none; }
+.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: var(--color-base-black); outline: none; }
 
 .gibsonBtnJs:hover::before,
 .gibsonBtnJs:focus-visible::before { transform: scaleX(1); }
@@ -74,10 +64,8 @@
 
 @media (max-width: 768px) {
   .gibsonBtnJs { height: 54px; }
-  .gibsonBtnJsText { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
 }
 
 @media (max-width: 520px) {
   .gibsonBtnJs { height: 48px; }
-  .gibsonBtnJsText { font-size: 16px; line-height: 24px; letter-spacing: 0px; }
 }

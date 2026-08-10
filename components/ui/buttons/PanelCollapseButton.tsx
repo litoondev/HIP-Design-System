@@ -1,4 +1,5 @@
 import styles from "./PanelCollapseButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface PanelCollapseButtonProps {
@@ -25,15 +26,7 @@ export default function PanelCollapseButton({
     >
       <span className={styles.hulmeButtonText}>{text}</span>
       <span className={styles.hulmeButtonIcon} aria-hidden="true">
-        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M4.5 2.2L9.3 7L4.5 11.8"
-            stroke="currentColor"
-            strokeWidth="3.1"
-            strokeLinecap="square"
-            strokeLinejoin="miter"
-          />
-        </svg>
+        <Icon name="Arrow Right" size="14px" />
       </span>
     </a>
   );

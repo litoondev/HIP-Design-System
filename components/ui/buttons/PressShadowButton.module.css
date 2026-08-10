@@ -2,59 +2,38 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .pressButton {
-    display: inline-flex;
-    padding: 15px 32px;
+    composes: btn from "./base.module.css";
+    padding: var(--btn-padding-y) var(--btn-padding-x);
     justify-content: center;
-    align-items: center;
-    gap: 16px;
-    max-width: 100%;
+    gap: var(--btn-icon-gap);
     border: 4px solid transparent;
-    border-radius: 999px;
-    background: #fff;
-    box-shadow: 0 8px 0 #f5ee83;
-    color: #1f1f1f;
-    cursor: pointer;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 1.25px;
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
+    box-shadow: 0 8px 0 var(--color-accent-200);
+    color: var(--color-base-black);
     text-transform: uppercase;
-    white-space: nowrap;
     transition: color 260ms ease, background-color 260ms ease,
                 border-color 260ms ease, box-shadow 260ms ease,
                 transform 260ms ease;
   }
 
-.pressButton svg {
-    flex: 0 0 22px;
-    width: 22px;
-    height: 22px;
-    overflow: visible;
+.pressButtonIcon {
+    flex: 0 0 var(--btn-icon-size);
     transition: color 260ms ease;
   }
 
 .pressButton:hover,
 .pressButton:focus-visible {
     transform: translateY(8px);
-    border-color: #e5138b;
+    border-color: var(--color-cta-500);
     background: transparent;
-    box-shadow: 0 0 0 #f5ee83;
-    color: #e5138b;
+    box-shadow: 0 0 0 var(--color-accent-200);
+    color: var(--color-cta-500);
     outline: none;
   }
 
 @media (prefers-reduced-motion: reduce) {
   .pressButton,
-  .pressButton svg { transition-duration: 0.01ms; }
+  .pressButtonIcon { transition-duration: 0.01ms; }
 }
 
-@media (max-width: 768px) {
-  .pressButton { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; padding: 13px 28px; }
-  .pressButton svg { width: 20px; height: 20px; flex-basis: 20px; }
-}
-
-@media (max-width: 520px) {
-  .pressButton { font-size: 16px; line-height: 24px; letter-spacing: 0px; padding: 11px 24px; }
-  .pressButton svg { width: 18px; height: 18px; flex-basis: 18px; }
-}

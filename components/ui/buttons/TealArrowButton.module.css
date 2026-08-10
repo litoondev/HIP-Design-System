@@ -2,21 +2,14 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .olvButton {
+    composes: btn from "./base.module.css";
     display: inline-block;
-    max-width: 100%;
-    padding: 13.5px 32px;
-    color: #fff;
-    background-color: #1b6988;
-    border: 2px solid #1b6988;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    color: var(--color-base-white);
+    background-color: var(--color-tertiary-700);
+    border: 2px solid var(--color-tertiary-700);
     font-weight: 800;
-    line-height: 30px;
-    letter-spacing: 1.25px;
-    text-decoration: none;
     text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
     transition: background-color .2s ease-in, color .2s ease-in;
   }
 
@@ -30,26 +23,15 @@
     align-items: center;
     width: 16px;
     height: 16px;
-    margin-left: 16px;
+    margin-left: var(--btn-icon-gap);
     order: 2;
     transform: rotate(-45deg);
     transition: transform .3s ease-in, color .3s ease-in;
   }
 
-.olvButtonIcon svg {
-    display: block;
-    width: 16px;
-    height: 16px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.25;
-    stroke-linecap: square;
-    stroke-linejoin: miter;
-  }
-
 .olvButton:hover,
 .olvButton:focus-visible {
-    color: #1b6988;
+    color: var(--color-tertiary-700);
     background-color: transparent;
   }
 
@@ -59,13 +41,10 @@
   }
 
 @media (max-width: 768px) {
-  .olvButton { padding: 12px 29px; font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
-  .olvButtonIcon { width: 14px; height: 14px; margin-left: 14px; }
-  .olvButtonIcon svg { width: 14px; height: 14px; }
+  .olvButtonIcon { width: 14px; height: 14px; }
 }
 
 @media (max-width: 480px) {
-  .olvButton { padding: 11px 26px; font-size: 16px; line-height: 24px; letter-spacing: 0px; }
-  .olvButtonIcon { width: 13px; height: 13px; margin-left: 13px; }
-  .olvButtonIcon svg { width: 13px; height: 13px; }
+  .olvButton { font-size: 16px; line-height: 24px; }
+  .olvButtonIcon { width: 13px; height: 13px; }
 }

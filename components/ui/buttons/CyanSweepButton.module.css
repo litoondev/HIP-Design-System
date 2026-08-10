@@ -2,24 +2,19 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .scheduleBtn {
-    --teal: #1a6a84;
-    --cyan: #12b9d8;
-    --deep-teal: #083f57;
+    composes: btn from "./base.module.css";
+    --teal: var(--color-cta-500);
+    --cyan: var(--color-secondary-500);
+    --deep-teal: var(--color-cta-700);
     position: relative;
     isolation: isolate;
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
-    width: max-content;
-    max-width: 100%;
-    padding: 6px 8px 6px 28px;
+    padding: 6px 8px 6px var(--btn-padding-x);
     border: 2px solid var(--teal);
-    border-radius: 999px;
-    background: #fff;
-    color: #050505;
-    text-decoration: none;
+    border-radius: var(--radius-full);
+    background: var(--color-base-white);
+    color: var(--color-base-black);
     overflow: hidden;
-    cursor: pointer;
     transition: border-color 300ms ease;
   }
 
@@ -40,18 +35,12 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 16px;
+    gap: var(--btn-icon-gap);
   }
 
 .scheduleBtnText {
     flex: 1;
-    white-space: nowrap;
     text-align: center;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 1.25px;
     text-transform: uppercase;
   }
 
@@ -63,19 +52,9 @@
     height: 44px;
     border: 2px solid var(--teal);
     border-radius: 50%;
-    background: #fff;
-    transition: background-color 300ms ease, border-color 300ms ease;
-  }
-
-.scheduleBtnIcon svg {
-    display: block;
-    width: 20px;
-    height: 20px;
-  }
-
-.scheduleBtnIcon path {
-    fill: var(--teal);
-    transition: fill 300ms ease;
+    background: var(--color-base-white);
+    color: var(--teal);
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
   }
 
 .scheduleBtn:hover,
@@ -95,21 +74,17 @@
     background: var(--deep-teal);
   }
 
-.scheduleBtn:hover .scheduleBtnIcon path,
-.scheduleBtn:focus-visible .scheduleBtnIcon path {
-    fill: var(--cyan);
+.scheduleBtn:hover .scheduleBtnIcon,
+.scheduleBtn:focus-visible .scheduleBtnIcon {
+    color: var(--cyan);
   }
 
 @media (max-width: 768px) {
-  .scheduleBtn { padding: 5px 6px 5px 24px; }
-  .scheduleBtnText { font-size: 18px; letter-spacing: 0.5px; }
+  .scheduleBtn { padding: 5px 6px 5px var(--btn-padding-x); }
   .scheduleBtnIcon { width: 40px; height: 40px; flex-basis: 40px; }
-  .scheduleBtnIcon svg { width: 18px; height: 18px; }
 }
 
 @media (max-width: 520px) {
-  .scheduleBtn { padding: 4px 5px 4px 20px; }
-  .scheduleBtnText { font-size: 16px; letter-spacing: 0px; }
+  .scheduleBtn { padding: 4px 5px 4px var(--btn-padding-x); }
   .scheduleBtnIcon { width: 36px; height: 36px; flex-basis: 36px; }
-  .scheduleBtnIcon svg { width: 16px; height: 16px; }
 }

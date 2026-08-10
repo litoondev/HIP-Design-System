@@ -2,49 +2,33 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .artemisButton {
-    display: inline-flex;
-    align-items: center;
+    composes: btn from "./base.module.css";
     justify-content: center;
-    max-width: 100%;
-    padding: 15px 27px;
-    border: 2px solid #ed83d1;
-    border-radius: 999px;
-    background: #ed83d1;
-    color: #24232d;
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    border: 2px solid var(--color-cta-500);
+    border-radius: var(--radius-full);
+    background: var(--color-cta-500);
+    color: var(--color-base-white);
     font-weight: 800;
-    line-height: 30px;
-    letter-spacing: 1.25px;
-    text-decoration: none;
     text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
     transition: background-color 300ms ease, color 300ms ease;
   }
 
 .artemisButtonIcon {
-    width: 18px;
-    height: 20px;
-    flex: 0 0 18px;
-    margin-right: 10px;
-    color: #fff;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    flex: 0 0 var(--btn-icon-size);
+    margin-right: var(--btn-icon-gap);
+    color: var(--color-base-white);
     overflow: hidden;
     transition: width 300ms ease, flex-basis 300ms ease, margin-right 300ms ease, opacity 180ms ease;
     opacity: 1;
   }
 
-.artemisButtonIcon svg {
-    display: block;
-    width: 18px;
-    height: 20px;
-    fill: currentColor;
-  }
-
 .artemisButton:hover,
 .artemisButton:focus-visible {
     background: transparent;
-    color: #ed83d1;
+    color: var(--color-cta-500);
     outline: none;
   }
 
@@ -56,10 +40,3 @@
     opacity: 0;
   }
 
-@media (max-width: 768px) {
-  .artemisButton { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; padding: 13px 24px; }
-}
-
-@media (max-width: 520px) {
-  .artemisButton { font-size: 16px; line-height: 24px; letter-spacing: 0px; padding: 11px 20px; }
-}

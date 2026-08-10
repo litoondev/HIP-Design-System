@@ -1,4 +1,5 @@
 import styles from "./GreenOutlineButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface GreenOutlineButtonProps {
@@ -24,9 +25,7 @@ export default function GreenOutlineButton({
       onClick={onClick}
     >
       <span>{text}</span>
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M5 20h27M22 9l11 11-11 11" />
-      </svg>
+      <Icon name="Arrow Right" />
     </button>
   );
 }

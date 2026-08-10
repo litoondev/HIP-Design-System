@@ -7,25 +7,20 @@
    `color: var(--dark)`. We follow buttons.html here — the button therefore needs a dark
    backdrop to read well in its default, non-hover state. */
 .bergenButton {
-    --brown: #aa8b68;
-    --dark: #24262a;
-    --white: #ffffff;
+    composes: btn from "./base.module.css";
+    --brown: var(--color-accent-700);
+    --dark: var(--color-navy);
+    --white: var(--color-base-white);
     width: 440px;
-    max-width: 100%;
     height: 68px;
-    display: inline-flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 9px 0 20px;
+    padding: 0 9px 0 var(--btn-padding-x);
     border: 2px solid var(--brown);
     background: transparent;
     color: var(--dark);
     font: 700 22px/1 Arial, Helvetica, sans-serif;
     letter-spacing: 1.1px;
-    text-decoration: none;
     text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
     transition: background-color .3s ease, color .3s ease;
   }
 
@@ -40,9 +35,6 @@
   }
 
 .bergenButtonArrow {
-    width: 19px;
-    height: 19px;
-    display: block;
     transition: transform .3s ease;
   }
 
@@ -64,13 +56,11 @@
   }
 
 @media (max-width: 768px) {
-  .bergenButton { width: min(92vw, 396px); height: 61px; padding: 0 8px 0 18px; font-size: 20px; letter-spacing: 0.5px; }
+  .bergenButton { width: min(92vw, 396px); height: 61px; padding-right: 8px; font-size: 20px; letter-spacing: 0.5px; }
   .bergenButtonIcon { width: 41px; height: 41px; }
-  .bergenButtonArrow { width: 17px; height: 17px; }
 }
 
 @media (max-width: 480px) {
-  .bergenButton { width: min(92vw, 352px); height: 54px; padding: 0 7px 0 16px; font-size: 18px; letter-spacing: 0px; }
+  .bergenButton { width: min(92vw, 352px); height: 54px; padding-right: 7px; font-size: 18px; }
   .bergenButtonIcon { width: 37px; height: 37px; }
-  .bergenButtonArrow { width: 15px; height: 15px; }
 }

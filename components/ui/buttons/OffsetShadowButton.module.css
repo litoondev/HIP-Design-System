@@ -11,49 +11,41 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: #d9dee5;
+    background: var(--color-base-lightgray);
     transform: translate(10px, 10px);
     transition: transform 280ms ease;
   }
 
 .aosgBtn {
+    composes: btn from "./base.module.css";
     position: relative;
     z-index: 1;
     display: flex;
     width: 100%;
     height: 60px;
-    align-items: center;
     justify-content: center;
-    color: #22386e;
-    background: #fff126;
-    text-decoration: none;
+    color: var(--color-navy);
+    background: var(--color-accent-500);
   }
 
 .aosgBtnInner {
     display: inline-flex;
     align-items: center;
-    gap: 17px;
-    padding: 0 24px;
+    gap: var(--btn-icon-gap);
+    padding: 0 var(--btn-padding-x);
   }
 
 .aosgBtnText {
-    font-family: var(--font-figtree), "Figtree", sans-serif;
-    font-size: 20px;
     font-weight: 800;
-    line-height: 30px;
-    letter-spacing: 1.25px;
     text-transform: uppercase;
-    white-space: nowrap;
   }
 
 .aosgBtnIcon {
     display: block;
     flex-shrink: 0;
-    width: 10px;
-    height: 10px;
-    border-top: 4px solid currentColor;
-    border-right: 4px solid currentColor;
-    transform: rotate(45deg);
+    width: 14px;
+    height: 14px;
+    color: currentColor;
   }
 
 .aosgBtnWrap:hover::before,
@@ -66,11 +58,9 @@
 @media (max-width: 768px) {
   .aosgBtnWrap { height: 54px; }
   .aosgBtn { height: 54px; }
-  .aosgBtnText { font-size: 18px; line-height: 28px; letter-spacing: 0.5px; }
 }
 
 @media (max-width: 520px) {
   .aosgBtnWrap { height: 48px; }
   .aosgBtn { height: 48px; }
-  .aosgBtnText { font-size: 16px; line-height: 24px; letter-spacing: 0px; }
 }

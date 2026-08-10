@@ -1,3 +1,4 @@
+import Icon from "../icons/Icon";
 import styles from "./ArrowLoopButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
@@ -28,15 +29,7 @@ export default function ArrowLoopButton({
       aria-label={text}
     >
       <span className={styles.gibsonBtnIcon} aria-hidden="true">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M3.5 10H16.5M12.5 6L16.5 10L12.5 14"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Icon name="Arrow Right" className={styles.gibsonBtnArrow} />
       </span>
       <span className={styles.gibsonBtnText}>{text}</span>
     </a>

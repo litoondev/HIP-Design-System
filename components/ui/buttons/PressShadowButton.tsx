@@ -1,4 +1,5 @@
 import styles from "./PressShadowButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface PressShadowButtonProps {
@@ -24,16 +25,7 @@ export default function PressShadowButton({
       onClick={onClick}
     >
       <span>{text}</span>
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <path
-          d="M7 24h32M27 12l12 12-12 12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <Icon name="Arrow Right" className={styles.pressButtonIcon} />
     </button>
   );
 }

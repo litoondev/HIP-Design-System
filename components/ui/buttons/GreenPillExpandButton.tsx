@@ -1,4 +1,5 @@
 import styles from "./GreenPillExpandButton.module.css";
+import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
 export interface GreenPillExpandButtonProps {
@@ -25,9 +26,7 @@ export default function GreenPillExpandButton({
     >
       <span className={styles.learnMoreLabel}>{text}</span>
       <span className={styles.learnMoreIcon} aria-hidden="true">
-        <svg viewBox="0 0 48 48">
-          <path d="M7 24h32M27 10l14 14-14 14" />
-        </svg>
+        <Icon name="Arrow Right" />
       </span>
     </a>
   );
