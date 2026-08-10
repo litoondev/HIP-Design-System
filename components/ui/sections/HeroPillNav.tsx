@@ -115,7 +115,7 @@ export default function HeroPillNav() {
               <span className={styles.w2BtnIcon}>
                 <svg
                   fill="none"
-                  stroke="#fff"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -131,7 +131,7 @@ export default function HeroPillNav() {
               <span className={styles.w2BtnIcon}>
                 <svg
                   fill="none"
-                  stroke="#320270"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"

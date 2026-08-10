@@ -1,8 +1,9 @@
-/* HeroPillNav — CSS ported verbatim from design-system/sections.html.
-   Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
-   font stacks now resolve through next/font's CSS variables. */
+/* HeroPillNav — CSS ported from design-system/sections.html.
+   Class names camelCased for CSS Modules. Colors, radii, and gaps now flow
+   through the DS tokens (global color variables + button tokens in
+   app/globals.css); font stacks resolve through next/font's CSS variables. */
 .w2Header {
-          position:relative; width:100%; height:100vh; height:100dvh; min-height:600px; overflow:hidden; background:#fff;
+          position:relative; width:100%; height:100vh; height:100dvh; min-height:600px; overflow:hidden; background:var(--color-base-white);
         }
 
 .w2Nav {
@@ -11,7 +12,7 @@
 
 .w2Topbar {
           height:40px; padding:0 48px;
-          background:#0e1f35;
+          background:var(--color-navy);
           display:flex; align-items:center; justify-content:space-between;
         }
 
@@ -19,10 +20,10 @@
 
 .w2SocialDot {
           width:26px; height:26px; border-radius:50%;
-          background:#320270; display:flex; align-items:center; justify-content:center;
+          background:var(--color-cta-500); display:flex; align-items:center; justify-content:center;
         }
 
-.w2SocialDot svg { width:13px; height:13px; fill:#fff; }
+.w2SocialDot svg { width:13px; height:13px; fill:var(--color-base-white); }
 
 .w2SocDiv { width:2px; height:10px; border-radius:6px; background:rgba(255,255,255,.2); }
 
@@ -30,12 +31,12 @@
 
 .w2UtilLink {
           display:inline-flex; align-items:center; gap:7px;
-          color:#fff; font-family: var(--font-inter), 'Inter', sans-serif;
+          color:var(--color-base-white); font-family: var(--font-inter), 'Inter', sans-serif;
           font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
           white-space:nowrap; opacity:.9;
         }
 
-.w2UtilLink.accent { color:#320270; }
+.w2UtilLink.accent { color:var(--color-cta-500); }
 
 .w2UtilLink svg { width:13px; height:13px; opacity:.85; }
 
@@ -43,19 +44,19 @@
 
 .w2Mainbar {
           height:100px; padding:16px 32px 16px 24px;
-          background:#fff;
-          border-radius:100px 0 0 100px;
+          background:var(--color-base-white);
+          border-radius:var(--radius-full) 0 0 var(--radius-full);
           display:flex; align-items:center;
-          box-shadow:0 6px 30px rgba(14,31,53,.15);
+          box-shadow:0 6px 30px color-mix(in srgb, var(--color-navy) 15%, transparent);
         }
 
 .w2Brand {
           flex:0 0 auto;
           font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:28px; font-weight:800;
-          color:#0e1f35; letter-spacing:-.5px; margin-right:48px;
+          color:var(--color-navy); letter-spacing:-.5px; margin-right:48px;
         }
 
-.w2Brand span { color:#320270; }
+.w2Brand span { color:var(--color-cta-500); }
 
 .w2Navlinks {
           flex:1; display:flex; align-items:center; justify-content:flex-end; gap:36px;
@@ -63,7 +64,7 @@
 
 .w2Navlink {
           font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:700;
-          color:#0e1f35; letter-spacing:.3px; text-transform:uppercase;
+          color:var(--color-navy); letter-spacing:.3px; text-transform:uppercase;
           white-space:nowrap; display:flex; align-items:center; gap:4px;
         }
 
@@ -71,8 +72,8 @@
 
 .w2Consult {
           display:inline-flex; align-items:center; justify-content:center;
-          height:44px; padding:0 24px; border-radius:100px;
-          background:#320270; color:#fff;
+          height:44px; padding:0 24px; border-radius:var(--radius-full);
+          background:var(--color-cta-500); color:var(--color-base-white);
           font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800;
           letter-spacing:.4px; text-transform:uppercase; white-space:nowrap;
           margin-left:36px; flex-shrink:0;
@@ -80,13 +81,13 @@
 
 .w2Hero {
           position:absolute; top:40px; right:0; bottom:0; left:0;
-          background:linear-gradient(135deg,#0e1f35 0%,#1a3a5c 40%,#24506e 70%,#2d6885 100%);
+          background:linear-gradient(135deg,var(--color-navy) 0%,#1a3a5c 40%,#24506e 70%,#2d6885 100%);
           background-size:cover; background-position:center;
         }
 
 .w2Hero::after {
           content:''; position:absolute; inset:0 0 0 auto;
-          width:48px; background:#fff;
+          width:48px; background:var(--color-base-white);
         }
 
 .w2HeroPattern {
@@ -98,11 +99,11 @@
 .w2HeroContent {
           position:absolute; z-index:4;
           top:42%; left:48px; right:80px;
-          display:flex; flex-direction:column; align-items:center; gap:32px;
+          display:flex; flex-direction:column; align-items:center;
         }
 
 .w2H1 {
-          margin:0; color:#fff;
+          margin:0 0 var(--content-button-gap); color:var(--color-base-white);
           font-family: var(--font-figtree), 'Figtree', sans-serif;
           font-size:clamp(52px,5.5vw,80px);
           font-weight:800; line-height:1.1;
@@ -110,14 +111,14 @@
           letter-spacing:-.5px;
         }
 
-.w2H1 em { color:#320270; font-style:normal; }
+.w2H1 em { color:var(--color-cta-500); font-style:normal; }
 
 .w2HeroBtns { display:flex; align-items:center; justify-content:center; gap:20px; }
 
 .w2Btn {
           height:56px; padding:8px 24px 8px 8px;
-          display:inline-flex; align-items:center; gap:14px;
-          border-radius:100px;
+          display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+          border-radius:var(--radius-full);
           font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800;
           letter-spacing:.8px; text-transform:uppercase; white-space:nowrap;
         }
@@ -127,14 +128,14 @@
           border-radius:50%; display:grid; place-items:center;
         }
 
-.w2BtnIcon svg { width:20px; height:20px; }
+.w2BtnIcon svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
 
-.w2Btn.primary { background:#320270; color:#fff; }
+.w2Btn.primary { background:var(--color-cta-500); color:var(--color-base-white); }
 
-.w2Btn.primary .w2BtnIcon { background:#0e1f35; }
+.w2Btn.primary .w2BtnIcon { background:var(--color-navy); color:var(--color-base-white); }
 
-.w2Btn.secondary { background:#320270; color:#fff; }
+.w2Btn.secondary { background:var(--color-cta-500); color:var(--color-base-white); }
 
-.w2Btn.secondary .w2BtnIcon { background:#fff; }
+.w2Btn.secondary .w2BtnIcon { background:var(--color-base-white); }
 
-.w2Btn.secondary .w2BtnIcon svg { color:#320270; }
+.w2Btn.secondary .w2BtnIcon svg { color:var(--color-cta-500); }
