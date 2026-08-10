@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import RequestFreeConsultButton from "../buttons/RequestFreeConsultButton";
+import { Typography } from "@/components/ui/typography/Typography";
 
 /**
  * Text Container — the standard copy block (Figma node 12951:55012).
@@ -68,26 +69,36 @@ export default function TextContainer({
       }`}
     >
       {preHeader && (
-        <p className="font-header font-bold uppercase text-cta text-[12px] leading-[18px] tracking-[3px] md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px] m-0 mb-1 md:mb-1.5 lg:mb-2">
+        <Typography
+          variant="preHeader"
+          as="p"
+          className="text-cta m-0 mb-1 md:mb-1.5 lg:mb-2"
+        >
           {preHeader}
-        </p>
+        </Typography>
       )}
 
-      <HeaderTag className="font-header font-bold text-base-black text-[32px] leading-[40px] md:text-[42px] md:leading-[50px] lg:text-[56px] lg:leading-[68px] m-0 mb-4 md:mb-5 lg:mb-6">
+      {/* Header 2 is the site standard; `headerAs` moves the outline without moving the look. */}
+      <Typography
+        variant="header2"
+        as={HeaderTag}
+        className="text-base-black m-0 mb-4 md:mb-5 lg:mb-6"
+      >
         {header}
-      </HeaderTag>
+      </Typography>
 
       {paragraphs.map((text, i) => (
-        <p
+        <Typography
           key={i}
-          className={`font-body text-textcolor-body text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px] m-0 ${
+          variant="body1"
+          className={`m-0 ${
             i < paragraphs.length - 1 || bullets.length > 0
               ? "mb-4 md:mb-5 lg:mb-[30px]"
               : ""
           }`}
         >
           {text}
-        </p>
+        </Typography>
       ))}
 
       {bullets.length > 0 && (
@@ -100,9 +111,9 @@ export default function TextContainer({
               } last:border-b-0 last:pb-0${centered ? " justify-center" : ""}`}
             >
               <BulletGlyph />
-              <span className="font-body font-bold text-textcolor-body text-[16px] leading-[22px] tracking-[0.5px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px]">
+              <Typography variant="strong1" as="span" className="text-textcolor-body">
                 {text}
-              </span>
+              </Typography>
             </li>
           ))}
         </ul>

@@ -2,8 +2,8 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .gibsonBtnJs {
-    --gibson-blue: #1a628a;
-    --gibson-light: #3ca5d5;
+    --gibson-blue: var(--color-secondary-600);
+    --gibson-light: var(--color-secondary-400);
     position: relative;
     isolation: isolate;
     display: inline-flex;
@@ -13,7 +13,7 @@
     overflow: hidden;
     border: 2px solid var(--gibson-blue);
     border-radius: 999px;
-    background: #fff;
+    background: var(--color-base-white);
     color: var(--gibson-blue);
     text-decoration: none;
     transition: color 300ms ease, border-color 300ms ease;
@@ -62,7 +62,7 @@
   }
 
 .gibsonBtnJs:hover,
-.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: #000000; outline: none; }
+.gibsonBtnJs:focus-visible { border-color: var(--gibson-light); color: var(--color-base-black); outline: none; }
 
 .gibsonBtnJs:hover::before,
 .gibsonBtnJs:focus-visible::before { transform: scaleX(1); }

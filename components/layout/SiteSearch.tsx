@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { navLinks } from "./navData";
+import { Typography, typographyClass } from "@/components/ui/typography/Typography";
 
 /**
  * Site search — reimplements the vanilla-JS search from design-system/index.html & buttons.html
@@ -101,15 +102,24 @@ export default function SiteSearch() {
         }}
         onFocus={() => setShowResults(true)}
         onKeyDown={handleKeyDown}
-        className="w-full pl-[14px] pr-14 py-2 bg-gray-50 border border-gray-200 rounded-lg font-body text-[13px] text-base-black placeholder-gray-500 outline-none transition-colors focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary-100"
+        className={typographyClass(
+          "label",
+          "w-full pl-[14px] pr-14 py-2 bg-gray-50 border border-gray-200 rounded-lg text-base-black placeholder-gray-500 outline-none transition-colors focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary-100"
+        )}
       />
-      <kbd className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 px-[6px] py-[2px] font-body text-[11px] font-semibold text-gray-400 bg-white border border-gray-200 rounded pointer-events-none select-none">
+      <Typography
+        as="kbd"
+        variant="tooltip"
+        className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 px-[6px] py-[2px] font-semibold text-gray-400 bg-white border border-gray-200 rounded pointer-events-none select-none"
+      >
         <span>{isMac ? "⌘" : "Ctrl"}</span>K
-      </kbd>
+      </Typography>
       {open && (
         <div className="absolute left-0 right-0 top-[calc(100%+6px)] max-h-[360px] overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-lg z-[110] py-1">
           {matches.length === 0 ? (
-            <div className="px-4 py-3 font-body text-[13px] text-gray-400">No results for &quot;{query}&quot;</div>
+            <Typography as="div" variant="caption" className="px-4 py-3 text-gray-400">
+              No results for &quot;{query}&quot;
+            </Typography>
           ) : (
             matches.map((item, i) => (
               <a
@@ -121,12 +131,24 @@ export default function SiteSearch() {
                   select(item.href);
                 }}
                 onMouseEnter={() => setActiveIndex(i)}
-                className={`search-result-item flex items-center justify-between gap-3 px-4 py-2 font-body text-[13px] text-base-black no-underline hover:bg-primary-50 hover:text-primary ${
-                  i === activeIndex ? "bg-primary-50 text-primary" : ""
-                }`}
+                className={typographyClass(
+                  "label",
+                  `search-result-item flex items-center justify-between gap-3 px-4 py-2 text-base-black no-underline hover:bg-primary-50 hover:text-primary ${
+                    i === activeIndex ? "bg-primary-50 text-primary" : ""
+                  }`
+                )}
               >
                 <span>{item.label}</span>
-                <span className="text-[11px] text-gray-400 uppercase tracking-[0.5px]">{item.group}</span>
+                {/* Group tag sits a step below the result it labels; the tracking that made it
+                    readable in caps comes from the token, not a one-off value. */}
+                <Typography
+                  variant="tooltip"
+                  as="span"
+                  letterSpacing="sm"
+                  className="text-gray-400 uppercase"
+                >
+                  {item.group}
+                </Typography>
               </a>
             ))
           )}

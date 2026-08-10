@@ -11,7 +11,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: #d9dee5;
+    background: var(--color-gray-200);
     transform: translate(10px, 10px);
     transition: transform 280ms ease;
   }
@@ -24,8 +24,8 @@
     height: 60px;
     align-items: center;
     justify-content: center;
-    color: #22386e;
-    background: #fff126;
+    color: var(--color-primary-800);
+    background: var(--color-accent-200);
     text-decoration: none;
   }
 

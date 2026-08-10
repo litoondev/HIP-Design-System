@@ -1,22 +1,22 @@
 /* WhoWeHelp — NOT in sections.html. Designed to the structure the homepage reference
    specifies for section 09 (light teal bg, centered heading, Kids / Teens / Adults zig-zag). */
 .hipWho {
-  background: #f0fafb;
+  background: var(--color-secondary-50);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding: 64px 48px;
 }
 
 .hipWhoHeader { text-align:center; margin-bottom:40px; }
 
-.hipWhoEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; margin-bottom:8px; }
+.hipWhoEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base); margin-bottom:8px; }
 
-.hipWhoH2 { margin:0; font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.15; color:#000000; }
+.hipWhoH2 { margin:0; font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.15; color:var(--color-base-black); }
 
-.hipWhoIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:#525252; margin-top:10px; max-width:520px; margin-inline:auto; }
+.hipWhoIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:var(--color-gray-700); margin-top:10px; max-width:520px; margin-inline:auto; }
 
 .hipWhoRow {
   display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-  padding:28px 0; border-bottom:1px solid #d9f1f4;
+  padding:28px 0; border-bottom:1px solid var(--color-tertiary-100);
 }
 
 .hipWhoRow:last-child { border-bottom:0; }
@@ -27,33 +27,33 @@
 
 .hipWhoImg {
   border-radius:12px; height:210px;
-  background:linear-gradient(135deg,#ffffff 0%,#85d0db 100%);
+  background:linear-gradient(135deg,var(--color-base-white) 0%,var(--color-tertiary-300) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipWhoImg.teens { background:linear-gradient(135deg,#ffffff 0%,#fdba74 100%); }
+.hipWhoImg.teens { background:linear-gradient(135deg,var(--color-base-white) 0%,var(--color-accent-200) 100%); }
 
-.hipWhoImg.adults { background:linear-gradient(135deg,#ffffff 0%,#a4a7d5 100%); }
+.hipWhoImg.adults { background:linear-gradient(135deg,var(--color-base-white) 0%,var(--color-primary-300) 100%); }
 
-.hipWhoImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
+.hipWhoImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-black) 25%, transparent); }
 
 .hipWhoText { display:flex; flex-direction:column; gap:12px; }
 
 .hipWhoTag {
   display:inline-flex; align-items:center;
   padding:3px 10px; border-radius:100px;
-  background:#fff; border:1px solid #b7e4ea;
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#320270;
+  background:var(--color-base-white); border:1px solid var(--color-tertiary-200);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--color-primary-base);
   align-self:flex-start;
 }
 
-.hipWhoTitle { margin:0; font-size:24px; font-weight:800; line-height:1.2; color:#000000; }
+.hipWhoTitle { margin:0; font-size:24px; font-weight:800; line-height:1.2; color:var(--color-base-black); }
 
-.hipWhoBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; line-height:1.7; color:#525252; }
+.hipWhoBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; line-height:1.7; color:var(--color-gray-700); }
 
 .hipWhoLink {
   display:inline-flex; align-items:center; gap:7px;
-  font-size:13px; font-weight:700; color:#320270; cursor:pointer;
+  font-size:13px; font-weight:700; color:var(--color-primary-base); cursor:pointer;
 }
 
 .hipWhoLink svg { width:15px; height:15px; }

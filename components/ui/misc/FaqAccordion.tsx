@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export interface FaqItem {
   question: string;
@@ -49,20 +50,23 @@ export default function FaqAccordion({ items = defaultItems, defaultOpenIndex = 
             {isOpen ? (
               <>
                 <div className="flex items-center justify-between w-full gap-6 border-b border-white/20 pb-5">
-                  <span className="font-body font-bold text-[20px] leading-[30px] tracking-[0.5px] text-white">
+                  <Typography variant="strong1" as="span" className="text-white">
                     {item.question}
-                  </span>
+                  </Typography>
+                  {/* Toggle glyph — an icon drawn with a character, sized to its 32px disc. */}
                   <span className="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center text-[16px] shrink-0">
                     &#8722;
                   </span>
                 </div>
-                <p className="font-body text-[20px] leading-[30px] text-white m-0 text-left">{item.answer}</p>
+                <Typography variant="body1" className="text-white m-0 text-left">
+                  {item.answer}
+                </Typography>
               </>
             ) : (
               <>
-                <span className="font-body font-bold text-[20px] leading-[30px] tracking-[0.5px] text-primary">
+                <Typography variant="strong1" as="span" className="text-primary">
                   {item.question}
-                </span>
+                </Typography>
                 <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-[16px] shrink-0">
                   +
                 </span>

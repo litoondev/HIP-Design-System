@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface ChooseFileProps {
   fileLabel?: string;
   fileStatus?: string;
@@ -19,12 +21,16 @@ export function ChooseFile({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-4">
-        <span className="bg-gray-100 border border-gray-200 rounded px-4 py-[6px] font-body text-[18px] leading-[28px] text-base-black">
+        <Typography variant="body2" as="span" className="bg-gray-100 border border-gray-200 rounded px-4 py-[6px] text-base-black">
           {fileLabel}
-        </span>
-        <span className="font-body text-[18px] leading-[28px] text-base-black">{fileStatus}</span>
+        </Typography>
+        <Typography variant="body2" as="span" className="text-base-black">
+          {fileStatus}
+        </Typography>
       </div>
-      <div className="font-body text-[12px] leading-[18px] text-base-black">{maxSizeText}</div>
+      <Typography variant="tooltip" as="div" className="text-base-black">
+        {maxSizeText}
+      </Typography>
     </div>
   );
 }
@@ -37,11 +43,18 @@ export function UploadDropzone({
 }: UploadDropzoneProps) {
   return (
     <div className="flex flex-col gap-[10px] w-[676px] max-w-full">
-      <div className="font-body text-[18px] leading-[28px] text-base-black">{title}</div>
+      <Typography variant="body2" as="div" className="text-base-black">
+        {title}
+      </Typography>
       <div className="border border-dashed border-base-gray flex flex-col items-center justify-center gap-[10px] px-[30px] py-5 w-full">
+        {/* Upload arrow — an icon, sized independently of the type scale. */}
         <div className="text-primary text-[24px]">&#8593;</div>
-        <div className="font-body text-[18px] leading-[28px] text-base-black">{instructions}</div>
-        <div className="font-body text-[12px] leading-[18px] text-base-black">{accept}</div>
+        <Typography variant="body2" as="div" className="text-base-black">
+          {instructions}
+        </Typography>
+        <Typography variant="tooltip" as="div" className="text-base-black">
+          {accept}
+        </Typography>
       </div>
     </div>
   );

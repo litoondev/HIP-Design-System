@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 export interface SingleDrCardProps {
   name?: string;
   title?: string;
@@ -14,17 +16,31 @@ export default function SingleDrCard({
 }: SingleDrCardProps) {
   return (
     <div className="bg-white border-2 border-gray-200 w-[1240px] max-w-full p-[60px] flex gap-[60px] items-start">
-      <div className="w-[556px] h-[556px] max-w-full bg-gray-200 flex items-center justify-center text-gray-500 font-body text-[12px] shrink-0">
+      <Typography
+        as="div"
+        variant="tooltip"
+        className="w-[556px] h-[556px] max-w-full bg-gray-200 flex items-center justify-center text-gray-500 shrink-0"
+      >
         Photo
-      </div>
+      </Typography>
       <div className="flex-1 flex flex-col gap-10">
         <div className="flex flex-col gap-1">
-          <h3 className="font-header font-bold text-[42px] leading-[56px] text-textcolor-h3 m-0 capitalize">{name}</h3>
-          <div className="font-header font-bold text-[24px] leading-9 tracking-[0.75px] text-cta uppercase">{title}</div>
+          <Typography variant="header3" as="h3" className="text-textcolor-h3 m-0 capitalize">
+            {name}
+          </Typography>
+          <Typography variant="subtitle" as="div" className="text-cta">
+            {title}
+          </Typography>
         </div>
-        <p className="font-body text-[20px] leading-[30px] text-textcolor-body m-0">{body}</p>
-        <button className="inline-flex items-center justify-center gap-4 px-8 py-[15px] font-body font-bold text-[20px] leading-[30px] tracking-[1.25px] uppercase text-white border-none cursor-pointer bg-base-black w-fit">
-          {ctaLabel} <span className="inline-block w-5 h-5">&#8594;</span>
+        <Typography variant="body1" className="m-0">
+          {body}
+        </Typography>
+        {/* The button element keeps its own layout/colour; only its label is typed. */}
+        <button className="inline-flex items-center justify-center gap-4 px-8 py-[15px] uppercase text-white border-none cursor-pointer bg-base-black w-fit">
+          <Typography variant="button" as="span">
+            {ctaLabel}
+          </Typography>{" "}
+          <span className="inline-block w-5 h-5">&#8594;</span>
         </button>
       </div>
     </div>

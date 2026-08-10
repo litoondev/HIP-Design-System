@@ -2,8 +2,8 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .learnMore {
-    --lm-green: #65a753;
-    --lm-white: #ffffff;
+    --lm-green: var(--color-accent-400);
+    --lm-white: var(--color-base-white);
     position: relative;
     isolation: isolate;
     display: grid;

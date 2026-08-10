@@ -1,8 +1,8 @@
 import styles from "./HeroBanner.module.css";
 import { sectionImage } from "./sectionImages";
 
-const WHITE_85 = "rgba(255,255,255,0.85)";
-const WHITE_80 = "rgba(255,255,255,0.8)";
+const WHITE_85 = "color-mix(in srgb, var(--color-base-white) 85%, transparent)";
+const WHITE_80 = "color-mix(in srgb, var(--color-base-white) 80%, transparent)";
 
 /** Chevron used by every main-nav link. */
 function NavChevron() {

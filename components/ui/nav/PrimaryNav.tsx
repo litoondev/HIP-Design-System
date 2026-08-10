@@ -1,3 +1,5 @@
+import { Typography } from "@/components/ui/typography/Typography";
+
 const utilityLinks = ["Call / Text", "Payment Calculator", "Referral", "Portal", "Virtual Consult"];
 const socialLetters = ["f", "ig", "x", "yt", "tt"];
 const mainLinks = ["Our Practice", "Services", "Patient Resources", "Contact Us"];
@@ -10,35 +12,43 @@ export default function PrimaryNav() {
         <div className="flex items-center gap-[10px]">
           {socialLetters.map((letter, i) => (
             <span key={letter + i} className="flex items-center">
-              <span className="w-6 h-6 flex items-center justify-center text-white text-[12px]">{letter}</span>
+              <Typography
+                as="span"
+                variant="tooltip"
+                className="w-6 h-6 flex items-center justify-center text-white"
+              >
+                {letter}
+              </Typography>
               {i < socialLetters.length - 1 && <span className="w-px h-5 bg-white/15" />}
             </span>
           ))}
         </div>
         <div className="flex items-center gap-5">
           {utilityLinks.map((label) => (
-            <span
-              key={label}
-              className="font-body font-bold text-[14px] leading-[20px] tracking-[1.25px] text-white uppercase"
-            >
+            <Typography key={label} variant="overline" as="span" className="text-white">
               {label}
-            </span>
+            </Typography>
           ))}
         </div>
       </div>
       <div className="flex items-center justify-between px-8 py-5">
+        {/* Wordmark, not type — Figtree 800 at a fixed optical size, no variant applies. */}
         <div className="font-header font-extrabold text-[22px] text-base-black">HIP</div>
         <div className="flex items-center gap-[50px]">
           {mainLinks.map((label) => (
-            <span
+            <Typography
               key={label}
-              className="flex items-center gap-2 font-body text-[18px] leading-[26px] tracking-[0.5px] text-base-black capitalize cursor-pointer"
+              variant="menuItem"
+              as="span"
+              className="flex items-center gap-2 text-base-black capitalize cursor-pointer"
             >
               {label} <span className="text-[10px]">&#9662;</span>
-            </span>
+            </Typography>
           ))}
-          <button className="bg-cta text-white font-body font-bold text-[14px] leading-[20px] tracking-[1.25px] uppercase px-6 py-[9px] border-none cursor-pointer">
-            Free Consult
+          <button className="bg-cta text-white uppercase px-6 py-[9px] border-none cursor-pointer">
+            <Typography variant="overline" as="span">
+              Free Consult
+            </Typography>
           </button>
         </div>
       </div>

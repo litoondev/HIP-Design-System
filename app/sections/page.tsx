@@ -18,6 +18,7 @@ import {
   LocationSection,
   FooterSection,
 } from "@/components/ui/sections";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export const metadata: Metadata = {
   title: "Section Designs — HIP Style Guide",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 /** Shared by the notes — the source links these back to the icon library. */
 function IconLibraryLink() {
   return (
-    <Link href="/icons" style={{ color: "#320270", fontWeight: 600 }}>
+    <Link href="/icons" className="font-semibold text-textcolor-link">
       icon library
     </Link>
   );
@@ -39,7 +40,7 @@ function NewDesign() {
   return (
     <>
       <strong>New design</strong> — built to the{" "}
-      <Link href="/homepage" style={{ color: "#320270", fontWeight: 600 }}>
+      <Link href="/homepage" className="font-semibold text-textcolor-link">
         homepage structure reference
       </Link>
       , no sections.html source.{" "}
@@ -55,17 +56,17 @@ export default function SectionsPage() {
   return (
     <>
       <div className="mb-10">
-        <p className="mb-1 font-body text-[11px] font-bold uppercase tracking-widest text-cta">
+        <Typography variant="preHeader" as="p" className="mb-1 text-cta">
           Creative Reference
-        </p>
-        <h1 className="mb-2 mt-0 font-header text-[32px] font-extrabold leading-tight text-base-black">
+        </Typography>
+        <Typography variant="header4" as="h1" className="mb-2 mt-0 text-base-black">
           Section Designs
-        </h1>
-        <p className="font-body text-[14px] text-gray-500">
+        </Typography>
+        <Typography variant="caption" as="p" className="text-gray-500">
           Full rendered section designs adapted to the HIP design system, in the same order as the
           homepage structure reference. All typography, colors, and icons match DS tokens. Use these
           as creative references when building pages.
-        </p>
+        </Typography>
       </div>
 
       <TokenLegend />

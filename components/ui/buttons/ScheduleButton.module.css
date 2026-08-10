@@ -2,9 +2,9 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .scheduleBtn {
-    --teal: #1a6a84;
-    --cyan: #12b9d8;
-    --deep-teal: #083f57;
+    --teal: var(--color-secondary-600);
+    --cyan: var(--color-secondary-300);
+    --deep-teal: var(--color-secondary-800);
     position: relative;
     isolation: isolate;
     display: inline-flex;
@@ -15,8 +15,8 @@
     padding: 6px 8px 6px 28px;
     border: 2px solid var(--teal);
     border-radius: 999px;
-    background: #fff;
-    color: #050505;
+    background: var(--color-base-white);
+    color: var(--color-gray-950);
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
@@ -63,7 +63,7 @@
     height: 44px;
     border: 2px solid var(--teal);
     border-radius: 50%;
-    background: #fff;
+    background: var(--color-base-white);
     transition: background-color 300ms ease, border-color 300ms ease;
   }
 

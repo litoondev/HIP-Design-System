@@ -1,26 +1,26 @@
 /* FooterSection — NOT in sections.html. Designed to the structure the homepage reference
    specifies for section 16 (navy bg, logo + repeat CTA, 3 columns, bottom legal bar). */
 .hipFoot {
-  background:#0e1f35;
+  background:var(--color-navy);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding:56px 48px 0;
 }
 
 .hipFootTop {
   display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-  padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.1);
+  padding-bottom:32px; border-bottom:1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
 }
 
-.hipFootLogo { font-size:28px; font-weight:800; color:#fff; letter-spacing:-.5px; }
+.hipFootLogo { font-size:28px; font-weight:800; color:var(--color-base-white); letter-spacing:-.5px; }
 
-.hipFootLogo span { color:#320270; }
+.hipFootLogo span { color:var(--color-primary-base); }
 
 .hipFootCta {
   display:inline-flex; align-items:center; gap:9px;
   padding:14px 28px; border-radius:100px;
-  background:#320270; border:0; cursor:pointer;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:800; color:#fff;
-  box-shadow:0 6px 20px rgba(50,2,112,.35);
+  background:var(--color-primary-base); border:0; cursor:pointer;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:800; color:var(--color-base-white);
+  box-shadow:0 6px 20px color-mix(in srgb, var(--color-primary-base) 35%, transparent);
 }
 
 .hipFootCta svg { width:16px; height:16px; }
@@ -30,53 +30,53 @@
   padding:36px 0;
 }
 
-.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#4db2c3; margin-bottom:14px; }
+.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-tertiary-400); margin-bottom:14px; }
 
 .hipFootLinks { display:flex; flex-direction:column; gap:9px; }
 
 .hipFootLink {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; color:rgba(255,255,255,.6);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; color:color-mix(in srgb, var(--color-base-white) 60%, transparent);
   text-decoration:none; cursor:pointer;
 }
 
-.hipFootLink:hover { color:#fff; }
+.hipFootLink:hover { color:var(--color-base-white); }
 
 .hipFootPhone {
   display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:#320270;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-primary-base);
 }
 
 .hipFootPhone svg { width:16px; height:16px; }
 
-.hipFootAddr { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.7; color:rgba(255,255,255,.6); }
+.hipFootAddr { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-base-white) 60%, transparent); }
 
 .hipFootSocials { display:flex; gap:10px; }
 
 .hipFootSocial {
   width:34px; height:34px; border-radius:8px;
-  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+  background:color-mix(in srgb, var(--color-base-white) 8%, transparent); border:1px solid color-mix(in srgb, var(--color-base-white) 12%, transparent);
   display:flex; align-items:center; justify-content:center;
-  color:rgba(255,255,255,.75); text-decoration:none;
+  color:color-mix(in srgb, var(--color-base-white) 75%, transparent); text-decoration:none;
 }
 
-.hipFootSocial:hover { background:#320270; border-color:#320270; color:#fff; }
+.hipFootSocial:hover { background:var(--color-primary-base); border-color:var(--color-primary-base); color:var(--color-base-white); }
 
 .hipFootSocial svg { width:15px; height:15px; }
 
 .hipFootBar {
   display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  padding:20px 0; border-top:1px solid rgba(255,255,255,.1);
+  padding:20px 0; border-top:1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
 }
 
 .hipFootLegal { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 
 .hipFootLegal span,
 .hipFootLegal a {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:rgba(255,255,255,.45);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:color-mix(in srgb, var(--color-base-white) 45%, transparent);
   text-decoration:none;
 }
 
-.hipFootLegal a:hover { color:rgba(255,255,255,.8); }
+.hipFootLegal a:hover { color:color-mix(in srgb, var(--color-base-white) 80%, transparent); }
 
 /* The two floating widgets the homepage reference calls for, shown in place rather than fixed
    so they stay inside the section card. */
@@ -85,12 +85,12 @@
 .hipFootFloat {
   width:38px; height:38px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  color:#fff; flex-shrink:0;
+  color:var(--color-base-white); flex-shrink:0;
 }
 
-.hipFootFloat.access { background:#320270; }
+.hipFootFloat.access { background:var(--color-primary-base); }
 
-.hipFootFloat.chat { background:#320270; }
+.hipFootFloat.chat { background:var(--color-primary-base); }
 
 .hipFootFloat svg { width:18px; height:18px; }
 

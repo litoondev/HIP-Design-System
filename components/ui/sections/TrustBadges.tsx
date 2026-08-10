@@ -1,5 +1,6 @@
 import type { TrustBadgeGlyphName } from "../icons/trustBadgeGlyphs";
 import TrustBadgeIcon from "./TrustBadgeIcons";
+import { Typography } from "@/components/ui/typography/Typography";
 
 /**
  * Highlights — Trust Badges Grid (Figma "Highlights" frame).
@@ -51,7 +52,7 @@ export default function TrustBadges({
   return (
     <section
       aria-label={ariaLabel}
-      className={`bg-[#f7f4f0] px-5 py-10 md:px-10 md:py-[60px] lg:px-[100px] lg:py-[120px]${
+      className={`bg-gray-100 px-5 py-10 md:px-10 md:py-[60px] lg:px-[100px] lg:py-[120px]${
         className ? ` ${className}` : ""
       }`}
     >
@@ -59,7 +60,7 @@ export default function TrustBadges({
         {badges.map(({ title, sub, icon }) => (
           <li
             key={title}
-            className="flex min-h-[81px] flex-row items-center border border-[#d2c3af] bg-base-white pb-[14px] pl-2 pr-[10px] pt-[14px] text-left md:min-h-[201px] md:flex-col md:justify-start md:px-5 md:pb-10 md:pt-[30px] md:text-center lg:min-h-[244px] lg:py-10"
+            className="flex min-h-[81px] flex-row items-center border border-gray-300 bg-base-white pb-[14px] pl-2 pr-[10px] pt-[14px] text-left md:min-h-[201px] md:flex-col md:justify-start md:px-5 md:pb-10 md:pt-[30px] md:text-center lg:min-h-[244px] lg:py-10"
           >
             <div className="flex h-[53px] w-[65px] shrink-0 items-center justify-center pb-[10px] pl-2 pr-[14px] pt-[10px] md:h-20 md:w-20 md:p-4">
               <TrustBadgeIcon
@@ -69,12 +70,14 @@ export default function TrustBadges({
             </div>
 
             <div className="flex min-w-0 flex-col gap-0.5 md:w-full md:gap-0">
-              <p className="m-0 font-header text-[16px] font-bold leading-[22px] tracking-[0.5px] text-textcolor-h2 md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px]">
+              {/* Badges sit in a list with no visible section heading, so the title stays a <p>
+                  rather than injecting an h6 into the document outline. */}
+              <Typography variant="h6" as="p" className="m-0 text-textcolor-h2">
                 {title}
-              </p>
-              <p className="m-0 font-body text-[14px] leading-[20px] text-textcolor-body md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[28px]">
+              </Typography>
+              <Typography variant="body2" className="m-0">
                 {sub}
-              </p>
+              </Typography>
             </div>
           </li>
         ))}

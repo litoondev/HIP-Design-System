@@ -2,9 +2,9 @@
    Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
    font stacks now resolve through next/font's CSS variables. */
 .hipSteps {
-  background: #000000;
+  background: var(--color-base-black);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
-  color:#fff;
+  color:var(--color-base-white);
   padding: 64px 48px;
 }
 
@@ -16,22 +16,22 @@
 
 .hipStepsEyebrow {
   font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase; color:#320270;
+  letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base);
 }
 
 .hipStepsH2 {
   margin:0; font-family: var(--font-figtree), 'Figtree', sans-serif;
-  font-size:clamp(28px,3.5vw,48px); font-weight:800; line-height:1.1; color:#fff;
+  font-size:clamp(28px,3.5vw,48px); font-weight:800; line-height:1.1; color:var(--color-base-white);
 }
 
 .hipStepsBody {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.65); max-width:380px;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:color-mix(in srgb, var(--color-base-white) 65%, transparent); max-width:380px;
 }
 
 .hipStepsCta {
   display:inline-flex; align-items:center; gap:10px;
   padding:13px 22px; border-radius:100px;
-  background:transparent; border:2px solid rgba(255,255,255,.3); color:#fff;
+  background:transparent; border:2px solid color-mix(in srgb, var(--color-base-white) 30%, transparent); color:var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
   cursor:pointer; align-self:flex-start;
   transition:border-color .2s, background .2s;
@@ -41,25 +41,25 @@
 
 .hipStepsImg {
   border-radius:10px; height:220px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
+  background:linear-gradient(135deg,var(--color-gray-900) 0%,var(--color-primary-base) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipStepsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.hipStepsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-white) 40%, transparent); }
 
 .hipStepsCards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 
 .hipStepCard {
   padding:28px 24px; border-radius:12px;
-  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  background:color-mix(in srgb, var(--color-base-white) 4%, transparent); border:1px solid color-mix(in srgb, var(--color-base-white) 8%, transparent);
   display:flex; flex-direction:column; gap:10px;
 }
 
 .hipStepNum {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:72px; font-weight:800;
-  line-height:1; color:rgba(50,2,112,.18); letter-spacing:-2px;
+  line-height:1; color:color-mix(in srgb, var(--color-primary-base) 18%, transparent); letter-spacing:-2px;
 }
 
-.hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:#fff; line-height:1.3; }
+.hipStepTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:700; color:var(--color-base-white); line-height:1.3; }
 
-.hipStepBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.55); }
+.hipStepBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:color-mix(in srgb, var(--color-base-white) 55%, transparent); }

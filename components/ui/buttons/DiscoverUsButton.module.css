@@ -9,9 +9,9 @@
     height: 60px;
     align-items: center;
     overflow: hidden;
-    border: 2px solid #cd925e;
+    border: 2px solid var(--color-accent-400);
     background: transparent;
-    color: #cd925e;
+    color: var(--color-accent-400);
     cursor: pointer;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -24,7 +24,7 @@
     right: 4px;
     bottom: 4px;
     left: 57px;
-    background: #cd925e;
+    background: var(--color-accent-400);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 400ms ease;
@@ -38,7 +38,7 @@
     bottom: 4px;
     left: 57px;
     width: 2px;
-    background: #cd925e;
+    background: var(--color-accent-400);
     pointer-events: none;
   }
 
@@ -63,7 +63,7 @@
     z-index: 2;
     flex: 0 0 auto;
     padding: 0 20px;
-    color: #cd925e;
+    color: var(--color-accent-400);
     font-family: var(--font-figtree), "Figtree", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -81,7 +81,7 @@
 
 .discoverUsButton:hover .discoverUsButtonLabel,
 .discoverUsButton:focus-visible .discoverUsButtonLabel {
-    color: #fff;
+    color: var(--color-base-white);
     outline: none;
   }
 

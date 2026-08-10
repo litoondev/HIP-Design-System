@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules. Only change: the literal 'Figtree'/'Inter'
    font stacks now resolve through next/font's CSS variables. */
 .hipReviews {
-  background:#000000;
+  background:var(--color-base-black);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding:64px 48px;
 }
@@ -13,32 +13,32 @@
 
 .hipReviewsText { display:flex; flex-direction:column; gap:12px; }
 
-.hipReviewsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
+.hipReviewsEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base); }
 
-.hipReviewsH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#fff; }
+.hipReviewsH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:var(--color-base-white); }
 
-.hipReviewsBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:rgba(255,255,255,.6); }
+.hipReviewsBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:color-mix(in srgb, var(--color-base-white) 60%, transparent); }
 
 .hipReviewsImg {
   border-radius:10px; height:200px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
+  background:linear-gradient(135deg,var(--color-gray-900) 0%,var(--color-primary-base) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipReviewsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.hipReviewsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-white) 40%, transparent); }
 
 .hipReviewCards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
 
 .hipReviewCard {
   padding:22px; border-radius:12px;
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  background:color-mix(in srgb, var(--color-base-white) 5%, transparent); border:1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
   display:flex; flex-direction:column; gap:10px;
 }
 
 .hipReviewHeader { display:flex; align-items:center; gap:10px; }
 
 .hipGoogleG {
-  width:26px; height:26px; border-radius:5px; background:#fff;
+  width:26px; height:26px; border-radius:5px; background:var(--color-base-white);
   display:grid; place-items:center;
 }
 
@@ -46,15 +46,15 @@
 
 .hipStars { display:flex; gap:2px; }
 
-.hipStars svg { width:14px; height:14px; fill:#320270; }
+.hipStars svg { width:14px; height:14px; fill:var(--color-primary-base); }
 
-.hipReviewText { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:rgba(255,255,255,.75); font-style:italic; }
+.hipReviewText { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:color-mix(in srgb, var(--color-base-white) 75%, transparent); font-style:italic; }
 
 .hipReviewFooter { display:flex; align-items:center; justify-content:space-between; }
 
-.hipReviewer { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+.hipReviewer { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-white) 45%, transparent); }
 
-.hipReadMore { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:600; color:#320270; cursor:pointer; }
+.hipReadMore { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; font-weight:600; color:var(--color-primary-base); cursor:pointer; }
 
 .hipReviewsControls { display:flex; align-items:center; justify-content:space-between; }
 
@@ -62,7 +62,7 @@
 
 .hipArrow {
   width:36px; height:36px; border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.6);
+  border:1.5px solid color-mix(in srgb, var(--color-base-white) 20%, transparent); color:color-mix(in srgb, var(--color-base-white) 60%, transparent);
   display:grid; place-items:center; cursor:pointer;
 }
 
@@ -70,7 +70,7 @@
 
 .hipMoreReviews {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:700;
-  color:#320270; letter-spacing:.5px; cursor:pointer;
+  color:var(--color-primary-base); letter-spacing:.5px; cursor:pointer;
   display:flex; align-items:center; gap:6px;
 }
 

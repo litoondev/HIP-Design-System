@@ -11,6 +11,7 @@ import {
   type IconCategory,
   type IconEntry,
 } from "./iconData";
+import { Typography, typographyClass } from "@/components/ui/typography/Typography";
 
 type Filter = IconCategory | "all";
 
@@ -51,19 +52,24 @@ export default function IconLibrary() {
 
   return (
     <section id="icons" className="doc-section">
-      <div className="font-body text-[12px] font-bold tracking-[0.5px] uppercase text-cta mb-2">
+      <Typography variant="preHeader" as="div" className="text-cta mb-2">
         Asset Library
-      </div>
-      <h1 className="font-header font-extrabold text-[34px] leading-[1.2] text-base-black mt-0 mb-3">
+      </Typography>
+      <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
         Icon Library
-      </h1>
+      </Typography>
       <div className="flex flex-wrap items-center gap-4 mb-8">
-        <p className="font-body text-[16px] leading-[1.6] text-gray-600 mt-0 mb-0">
+        <Typography variant="body1" className="mt-0 mb-0">
           {totalIcons} icons — click any to copy its SVG. Search or filter by category.
-        </p>
-        <span className="font-body text-[12px] font-bold text-primary-500 bg-primary-50 border border-primary-200 rounded-full px-3 py-0.5">
+        </Typography>
+        <Typography
+          variant="tooltip"
+          as="span"
+          weight="bold"
+          className="text-primary-500 bg-primary-50 border border-primary-200 rounded-full px-3 py-0.5"
+        >
           {filtered.length} icon{filtered.length === 1 ? "" : "s"}
-        </span>
+        </Typography>
       </div>
 
       {/* Search */}
@@ -77,7 +83,10 @@ export default function IconLibrary() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search icons by name…"
-          className="w-full h-11 pl-11 pr-10 text-[14px] border-2 border-gray-200 rounded-xl bg-white font-body outline-none focus:border-primary transition-colors"
+          className={typographyClass(
+            "label",
+            "w-full h-11 pl-11 pr-10 border-2 border-gray-200 rounded-xl bg-white outline-none focus:border-primary transition-colors"
+          )}
         />
         <svg
           aria-hidden="true"
@@ -99,8 +108,21 @@ export default function IconLibrary() {
             aria-label="Clear search"
             className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
           >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-              <path d="M2 2L8 8M8 2L2 8" stroke="#525252" strokeWidth="1.5" strokeLinecap="round" />
+            {/* Single-colour UI glyph — inherits the button's token colour via currentColor. */}
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              aria-hidden="true"
+              className="text-gray-700"
+            >
+              <path
+                d="M2 2L8 8M8 2L2 8"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         )}
@@ -120,9 +142,9 @@ export default function IconLibrary() {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <p className="font-body text-[14px] text-gray-500 text-center py-10">
+        <Typography variant="caption" as="p" className="text-gray-500 text-center py-10">
           No icons match your search.
-        </p>
+        </Typography>
       ) : grouped ? (
         CAT_ORDER.map((c) => {
           const list = filtered.filter((i) => i.category === c);
@@ -130,12 +152,16 @@ export default function IconLibrary() {
           return (
             <div key={c} id={`cat-${c}`} className="mb-10">
               <div className="flex items-center gap-2.5 mb-3.5 pb-2 border-b-[1.5px] border-gray-200">
-                <span className="font-header text-[14px] font-extrabold uppercase tracking-[0.8px] text-base-black">
+                <Typography variant="h6" as="span" className="uppercase text-base-black">
                   {CAT_LABELS[c]}
-                </span>
-                <span className="font-body text-[11px] font-semibold text-gray-500 bg-gray-100 rounded-full px-2 py-0.5">
+                </Typography>
+                <Typography
+                  variant="tooltip"
+                  as="span"
+                  className="font-semibold text-gray-500 bg-gray-100 rounded-full px-2 py-0.5"
+                >
                   {list.length}
-                </span>
+                </Typography>
               </div>
               <IconGrid list={list} copied={copied} onCopy={copyIcon} />
             </div>
@@ -162,11 +188,14 @@ function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`px-3 py-[5px] rounded-full border-[1.5px] font-body text-[12px] font-semibold whitespace-nowrap transition-colors ${
-        active
-          ? "border-primary bg-primary-50 text-primary"
-          : "border-gray-200 bg-white text-gray-600 hover:border-primary hover:text-primary"
-      }`}
+      className={typographyClass(
+        "tooltip",
+        `px-3 py-[5px] rounded-full border-[1.5px] font-semibold whitespace-nowrap transition-colors ${
+          active
+            ? "border-primary bg-primary-50 text-primary"
+            : "border-gray-200 bg-white text-gray-600 hover:border-primary hover:text-primary"
+        }`
+      )}
     >
       {children}
     </button>
@@ -194,8 +223,8 @@ function IconGrid({
             title={`Copy ${icon.name} SVG`}
             className={`relative flex flex-col items-center gap-2 px-2.5 pt-4 pb-3 rounded-[10px] border-[1.5px] bg-white cursor-pointer transition-[border-color,box-shadow] ${
               isCopied
-                ? "border-emerald-500 bg-emerald-50"
-                : "border-gray-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(49,150,169,0.15)]"
+                ? "border-tertiary-500 bg-tertiary-50"
+                : "border-gray-200 hover:border-primary hover:shadow-[0_2px_12px_color-mix(in_srgb,var(--color-tertiary-base)_15%,transparent)]"
             }`}
           >
             <span
@@ -203,14 +232,17 @@ function IconGrid({
               /* Trusted, build-time icon markup from the Figma export — no user input. */
               dangerouslySetInnerHTML={{ __html: icon.svg }}
             />
-            <span className="font-body text-[10px] leading-[1.3] text-gray-600 text-center break-words">
+            <Typography variant="tooltip" as="span" className="text-textcolor-body text-center break-words">
               {icon.name}
-            </span>
+            </Typography>
             <span
               aria-hidden={!isCopied}
-              className={`absolute -bottom-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-white font-body text-[9px] font-bold px-[7px] py-0.5 rounded pointer-events-none whitespace-nowrap transition-opacity ${
-                isCopied ? "opacity-100" : "opacity-0"
-              }`}
+              className={typographyClass(
+                "tooltip",
+                `absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tertiary-500 text-white font-bold px-[7px] py-0.5 rounded pointer-events-none whitespace-nowrap transition-opacity ${
+                  isCopied ? "opacity-100" : "opacity-0"
+                }`
+              )}
             >
               Copied!
             </span>

@@ -7,9 +7,9 @@
    `color: var(--dark)`. We follow buttons.html here — the button therefore needs a dark
    backdrop to read well in its default, non-hover state. */
 .bergenButton {
-    --brown: #aa8b68;
-    --dark: #24262a;
-    --white: #ffffff;
+    --brown: var(--color-gray-500);
+    --dark: var(--color-gray-900);
+    --white: var(--color-base-white);
     width: 440px;
     max-width: 100%;
     height: 68px;

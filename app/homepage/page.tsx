@@ -22,6 +22,7 @@ import {
   IconUsage,
   MobileSummary,
 } from "@/components/ui/homepage";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export const metadata = {
   title: "Homepage — HIP Style Guide",
@@ -34,26 +35,26 @@ export default function HomepageStructurePage() {
   return (
     <div>
       <div className="mb-8">
-        <p className="font-body text-[12px] font-bold tracking-[0.5px] uppercase text-cta mb-2">
+        <Typography variant="preHeader" as="p" className="text-cta mb-2">
           Structure Reference
-        </p>
-        <h1 className="font-header font-extrabold text-[34px] leading-[1.2] text-base-black mt-0 mb-3">
+        </Typography>
+        <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
           Homepage
-        </h1>
+        </Typography>
         <div className="flex items-end justify-between flex-wrap gap-4">
-          <p className="font-body text-[16px] leading-[1.6] text-gray-600 max-w-[640px] mt-0 mb-0">
+          <Typography variant="body1" className="max-w-[640px] mt-0 mb-0">
             Orthodontic practice homepage — based on HIP Master V3 Figma at 1440px.
-          </p>
-          <div className="flex items-center gap-4 text-xs font-body">
+          </Typography>
+          <Typography as="div" variant="tooltip" className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded bg-gray-200 border border-dashed border-gray-400 inline-block" />
               Core section
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded bg-yellow-100 border border-dashed border-yellow-400 inline-block" />
+              <span className="w-3 h-3 rounded bg-accent-100 border border-dashed border-accent-200 inline-block" />
               Optional section
             </span>
-          </div>
+          </Typography>
         </div>
       </div>
 

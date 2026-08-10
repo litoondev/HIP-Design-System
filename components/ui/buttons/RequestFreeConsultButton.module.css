@@ -9,8 +9,8 @@
     overflow: hidden;
     height: 60px;
     padding: 0 26px 0 0;
-    border: 2px solid #ffb800;
-    color: #263a40;
+    border: 2px solid var(--color-accent-200);
+    color: var(--color-secondary-800);
     font-family: var(--font-figtree), "Figtree", sans-serif;
     font-size: 20px;
     font-weight: 800;
@@ -30,7 +30,7 @@
     right: 0;
     width: calc(100% - 56px);
     height: 100%;
-    background: #ffb800;
+    background: var(--color-accent-200);
     content: "";
     pointer-events: none;
     transition: width 0.3s ease-in-out;
@@ -50,7 +50,7 @@
     justify-content: center;
     width: 56px;
     height: 56px;
-    border-right: 2px solid #ffb800;
+    border-right: 2px solid var(--color-accent-200);
   }
 
 .consultButtonIcon svg {

@@ -7,6 +7,7 @@ import {
   endpointColors,
   type BrandColor,
 } from "@/lib/colors";
+import { Typography } from "@/components/ui/typography/Typography";
 
 const ramps: { label: string; name: BrandColor }[] = [
   { label: "Gray", name: "gray" },
@@ -45,7 +46,9 @@ export default function ColorAccessibilityRamps() {
     <>
       {ramps.map((ramp) => (
         <div key={ramp.name} id={rampAnchorId(ramp.name)} className={ROW_CLASS}>
-          <div className="font-header font-bold text-[14px]">{ramp.label}</div>
+          <Typography variant="h6" as="div">
+            {ramp.label}
+          </Typography>
           {STEPS.map((step) => {
             const hex = palette[ramp.name][step];
             /* Show the CSS variable rather than the hex — it is what you reference in code,
@@ -58,10 +61,12 @@ export default function ColorAccessibilityRamps() {
             const isBase = step === baseSteps[ramp.name];
             const baseToken = colorVarName(ramp.name);
             return (
-              <div
+              <Typography
+                as="div"
+                variant="tooltip"
                 key={step}
                 title={isBase ? `${token} → {${baseToken}}` : token}
-                className={`h-14 rounded flex flex-col items-center justify-center font-body text-[10px] font-bold ${
+                className={`h-14 rounded flex flex-col items-center justify-center font-bold ${
                   isBase ? "ring-2 ring-offset-2 ring-base-black" : ""
                 }`}
                 /* Paint through the variable, not the hex — the swatch and the label it
@@ -69,7 +74,7 @@ export default function ColorAccessibilityRamps() {
                 style={{ backgroundColor: `var(${token})`, color: `var(${inkVarOn(hex)})` }}
               >
                 <span>{isBase ? `${step} · Base` : step}</span>
-              </div>
+              </Typography>
             );
           })}
         </div>
@@ -77,10 +82,14 @@ export default function ColorAccessibilityRamps() {
 
       {endpoints.map((endpoint) => (
         <div key={endpoint.label} className={ROW_CLASS}>
-          <div className="font-header font-bold text-[14px]">{endpoint.label}</div>
-          <div
+          <Typography variant="h6" as="div">
+            {endpoint.label}
+          </Typography>
+          <Typography
+            as="div"
+            variant="tooltip"
             title={endpoint.hex.toUpperCase()}
-            className={`col-span-11 h-14 rounded flex items-center justify-center font-body text-[10px] font-bold ${
+            className={`col-span-11 h-14 rounded flex items-center justify-center font-bold ${
               endpoint.bordered ? "border border-gray-200" : ""
             }`}
             style={{
@@ -89,12 +98,18 @@ export default function ColorAccessibilityRamps() {
             }}
           >
             <span>{endpoint.varName}</span>
-          </div>
+          </Typography>
         </div>
       ))}
 
-      <div className="mt-10 bg-gray-50 border border-gray-200 rounded-lg p-6 font-body text-[13px] text-gray-700 leading-[1.6]">
-        <h4 className="font-header font-bold mt-0">Color accessibility — WCAG 2.1 Guidelines</h4>
+      <Typography
+        as="div"
+        variant="caption"
+        className="mt-10 bg-gray-50 border border-gray-200 rounded-lg p-6 text-gray-700"
+      >
+        <Typography variant="h6" as="h4" className="mt-0">
+          Color accessibility — WCAG 2.1 Guidelines
+        </Typography>
         <p>
           Prioritize accessibility in UI color choices. Many ignore standards, making products
           hard for visually impaired users. Google penalizes low-contrast text, so ensure designs
@@ -107,7 +122,7 @@ export default function ColorAccessibilityRamps() {
           Use a 4.5:1 contrast ratio (WCAG AA) for essential UI elements like text and buttons to
           accommodate users with 20/40 vision loss.
         </p>
-      </div>
+      </Typography>
     </>
   );
 }

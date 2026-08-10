@@ -9,10 +9,10 @@
     width: max-content;
     max-width: 100%;
     padding: 6px 6px 6px 30px;
-    border: 2px solid #ed008c;
+    border: 2px solid var(--color-primary-500);
     border-radius: 999px;
-    background: #ed008c;
-    color: #ffffff;
+    background: var(--color-primary-500);
+    color: var(--color-base-white);
     font-family: var(--font-figtree), "Figtree", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -31,10 +31,10 @@
     height: 44px;
     display: grid;
     place-items: center;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--color-base-white);
     border-radius: 50%;
-    background: #ffffff;
-    color: #ed008c;
+    background: var(--color-base-white);
+    color: var(--color-primary-500);
     transition: border-color 300ms ease, background-color 300ms ease;
   }
 
@@ -46,15 +46,15 @@
 
 .apptButton:hover,
 .apptButton:focus-visible {
-    background: #ffffff;
-    color: #ed008c;
+    background: var(--color-base-white);
+    color: var(--color-primary-500);
     outline: none;
   }
 
 .apptButton:hover .apptButtonIcon,
 .apptButton:focus-visible .apptButtonIcon {
-    border-color: #ed008c;
-    background: #ffffff;
+    border-color: var(--color-primary-500);
+    background: var(--color-base-white);
   }
 
 @media (max-width: 768px) {

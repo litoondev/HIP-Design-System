@@ -1,315 +1,167 @@
 import Link from "next/link";
-import { TypeSample } from "./TypeScale";
+import { resolveColorRef, textColors, type TextColorRole } from "@/lib/colors";
+import { TypeSpecRow } from "./TypeScale";
+import FontFamilyTokenTable from "./FontFamilyTokenTable";
 import TextColorTokenTable from "./TextColorTokenTable";
 import ResponsiveTypeScaleTable from "./ResponsiveTypeScaleTable";
+import { Typography } from "./Typography";
+import {
+  fontFamilyName,
+  fontFamilyTokens,
+  fontWeightValues,
+  getTypographyDefinition,
+  letterSpacingPx,
+  typographyVariantNames,
+  type TypographyVariant,
+} from "@/lib/design-system/typography";
 
 /**
- * Full type scale for the "Typography" foundations page — every style ported verbatim from
- * design-system/index.html (#typography section). Each sample carries the source's three
- * breakpoint values: base = mobile (<768px), md: = tablet, lg: = desktop.
+ * Typography foundations page — every variant in the design system, rendered through the
+ * <Typography> component itself.
+ *
+ * Samples are the real component, not a hand-written class list, so what this page shows is
+ * exactly what a consumer gets. The spec metadata under each sample is read out of the same
+ * tokens that produced the sample, so the two can't disagree.
  */
+
+/** Sample copy per variant. The only thing this file holds that isn't derived from tokens. */
+const SAMPLES: Record<TypographyVariant, string> = {
+  mainHeader: "Main Header",
+  header1: "Header 1",
+  header2: "Header 2",
+  h2Inner: "H2 Inner",
+  h2Alt: "H2 Alt",
+  header3: "Header 3",
+  header4: "Header 4",
+  h4Alt: "h4 alt",
+  header5: "Header 5",
+  h6: "H6",
+  postTitle: "Post Title",
+  subtitle: "Subtitle",
+  subtitleAlt: "Subtitle Alt",
+  strong1: "Strong 1",
+  strong2: "Strong 2",
+  menuItem: "Menu Item",
+  menuItemAlt: "Menu Item Alt",
+  preHeader: "Pre-Header",
+  button: "Button",
+  overline: "Over Line",
+  innerpageBody: "Innerpage Body",
+  label: "Label",
+  body1:
+    "This is Body 1 copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.",
+  body2:
+    "This is Body 2 copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.",
+  caption:
+    "This is Caption copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.",
+  tooltip: "This is Tooltip copy.",
+};
+
+/**
+ * Colors Figma pins to a few heading styles. They are applied here as `className` rather than
+ * baked into the variants, which is what keeps type and color independently reusable.
+ */
+const SAMPLE_COLOR: Partial<Record<TypographyVariant, { className: string; role: TextColorRole }>> =
+  {
+    header3: { className: "text-textcolor-h3", role: "h3" },
+    header4: { className: "text-textcolor-h4", role: "h4" },
+    header5: { className: "text-textcolor-h5", role: "h5" },
+  };
+
+/** The hex a role currently resolves to, read from the palette rather than transcribed —
+ *  the spec row can't advertise a color the utility class no longer paints. */
+function sampleHex(role: TextColorRole): string {
+  return resolveColorRef(textColors[role]).toUpperCase();
+}
+
+/** "100 / 56 / 40px" — desktop / tablet / mobile, the order the spec rows have always used. */
+function triple(desktop: number, tablet: number, mobile: number): string {
+  return `${desktop} / ${tablet} / ${mobile}px`;
+}
+
+function VariantSample({ variant }: { variant: TypographyVariant }) {
+  const def = getTypographyDefinition(variant);
+  const color = SAMPLE_COLOR[variant];
+  const ls = {
+    desktop: letterSpacingPx[def.desktop.letterSpacing],
+    tablet: letterSpacingPx[def.tablet.letterSpacing],
+    mobile: letterSpacingPx[def.mobile.letterSpacing],
+  };
+
+  return (
+    <div className="mb-[22px]">
+      <div className="flex items-baseline gap-3 flex-wrap">
+        {/* The sample is the component — no type classes are written by hand on this page. */}
+        <Typography variant={variant} className={color?.className}>
+          {SAMPLES[variant]}
+        </Typography>
+
+        {variant === "button" && (
+          <Link
+            href="/buttons"
+            className="font-body text-[12px] font-semibold text-primary no-underline hover:underline whitespace-nowrap"
+          >
+            View in Buttons →
+          </Link>
+        )}
+      </div>
+
+      <div className="flex gap-4 flex-wrap items-baseline">
+        <TypeSpecRow
+          fontFamily={fontFamilyName(def.fontFamily)}
+          fontWeight={fontWeightValues[def.fontWeight]}
+          fontSize={triple(def.desktop.fontSize, def.tablet.fontSize, def.mobile.fontSize)}
+          lineHeight={triple(def.desktop.lineHeight, def.tablet.lineHeight, def.mobile.lineHeight)}
+          letterSpacing={
+            ls.desktop === ls.tablet && ls.tablet === ls.mobile
+              ? `${ls.desktop}px`
+              : triple(ls.desktop, ls.tablet, ls.mobile)
+          }
+          color={color && sampleHex(color.role)}
+        />
+        <code className="font-body text-[11px] text-gray-400 mt-1">
+          variant=&quot;{variant}&quot;
+          {def.textTransform === "uppercase" ? " · uppercase" : ""}
+        </code>
+      </div>
+    </div>
+  );
+}
+
 export default function TypographySection() {
   return (
     <>
+      <FontFamilyTokenTable />
       <TextColorTokenTable />
       <ResponsiveTypeScaleTable />
 
-      <TypeSample
-        sampleClassName="font-header font-bold text-[40px] leading-[40px] md:text-[56px] md:leading-[68px] lg:text-[100px] lg:leading-[100px] text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="100 / 56 / 40px"
-        lineHeight="100 / 68 / 40px"
-        letterSpacing="0px"
-      >
-        MAIN HEADER
-      </TypeSample>
+      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 mb-8">
+        <p className="font-body text-[13px] leading-[1.6] text-textcolor-body m-0">
+          Every sample below is rendered by{" "}
+          <code className="text-[12px] bg-white border border-gray-200 px-1 py-0.5 rounded">
+            &lt;Typography variant=&quot;…&quot;&gt;
+          </code>
+          . The variant carries font family, weight, size, line-height, letter-spacing and casing
+          at all three breakpoints, so consuming code never restates type values. Use{" "}
+          <code className="text-[12px] bg-white border border-gray-200 px-1 py-0.5 rounded">as</code>{" "}
+          to keep the document outline correct independently of the visual level, and{" "}
+          <code className="text-[12px] bg-white border border-gray-200 px-1 py-0.5 rounded">
+            className
+          </code>{" "}
+          for color.
+        </p>
+      </div>
 
-      <TypeSample
-        sampleClassName="font-header font-bold text-[36px] leading-[44px] md:text-[48px] md:leading-[56px] lg:text-[72px] lg:leading-[72px] text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="72 / 48 / 36px"
-        lineHeight="72 / 56 / 44px"
-        letterSpacing="0px"
-      >
-        Header 1
-      </TypeSample>
+      {typographyVariantNames.map((variant) => (
+        <VariantSample key={variant} variant={variant} />
+      ))}
 
-      <TypeSample
-        sampleClassName="font-header font-bold text-[32px] leading-[40px] md:text-[42px] md:leading-[50px] lg:text-[56px] lg:leading-[68px] text-textcolor-h2"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="56 / 42 / 32px"
-        lineHeight="68 / 50 / 40px"
-        letterSpacing="0px"
-      >
-        Header 2
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[30px] leading-[40px] md:text-[38px] md:leading-[50px] lg:text-[54px] lg:leading-[68px] text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="54 / 38 / 30px"
-        lineHeight="68 / 50 / 40px"
-        letterSpacing="0px"
-      >
-        H2 Inner
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[32px] leading-[40px] md:text-[42px] md:leading-[50px] lg:text-[120px] lg:leading-[140px] text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="120 / 42 / 32px"
-        lineHeight="140 / 50 / 40px"
-        letterSpacing="0px"
-      >
-        H2 Alt
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[28px] leading-[36px] md:text-[36px] md:leading-[36px] lg:text-[42px] lg:leading-[56px] text-textcolor-h3"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="42 / 36 / 28px"
-        lineHeight="56 / 36 / 36px"
-        letterSpacing="0px"
-        color="#320270"
-      >
-        Header 3
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[24px] leading-[34px] md:text-[28px] md:leading-[40px] lg:text-[32px] lg:leading-[46px] text-textcolor-h4"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="32 / 28 / 24px"
-        lineHeight="46 / 40 / 34px"
-        letterSpacing="0px"
-        color="#1fc3df"
-      >
-        Header 4
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[24px] leading-[34px] md:text-[28px] md:leading-[40px] lg:text-[32px] lg:leading-[46px] text-textcolor-h4"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="32 / 28 / 24px"
-        lineHeight="46 / 40 / 34px"
-        letterSpacing="0px"
-      >
-        h4 alt
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-header font-bold text-[20px] leading-[28px] md:text-[22px] md:leading-[30px] lg:text-[24px] lg:leading-[34px] uppercase text-textcolor-h5"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="24 / 22 / 20px"
-        lineHeight="34 / 30 / 28px"
-        letterSpacing="0px"
-        color="#320270"
-      >
-        HEADER 5
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[16px] leading-[22px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px] tracking-[0.5px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="20 / 18 / 16px"
-        lineHeight="30 / 28 / 22px"
-        letterSpacing="0.5px"
-      >
-        H6
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[24px] leading-[34px] md:text-[28px] md:leading-[40px] lg:text-[32px] lg:leading-[44px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="32 / 28 / 24px"
-        lineHeight="44 / 40 / 34px"
-        letterSpacing="0px"
-      >
-        Post Title
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[18px] leading-[28px] md:text-[22px] md:leading-[33px] lg:text-[24px] lg:leading-[36px] tracking-[0.75px] uppercase text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="24 / 22 / 18px"
-        lineHeight="36 / 33 / 28px"
-        letterSpacing="0.75px"
-      >
-        SUBTITLE
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[18px] leading-[28px] md:text-[22px] md:leading-[33px] lg:text-[24px] lg:leading-[36px] tracking-[0.75px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="24 / 22 / 18px"
-        lineHeight="36 / 33 / 28px"
-        letterSpacing="0.75px"
-      >
-        Subtitle Alt
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[16px] leading-[22px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px] tracking-[0.5px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="20 / 18 / 16px"
-        lineHeight="30 / 28 / 22px"
-        letterSpacing="0.5px"
-      >
-        Strong 1
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[14px] leading-[22px] md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[27px] tracking-[0.5px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="18 / 16 / 14px"
-        lineHeight="27 / 24 / 22px"
-        letterSpacing="0.5px"
-      >
-        Strong 2
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[14px] leading-[22px] md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[26px] tracking-[0.5px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="18 / 16 / 14px"
-        lineHeight="26 / 24 / 22px"
-        letterSpacing="0.5px"
-      >
-        Menu Item
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[14px] leading-[22px] md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[26px] tracking-[0.5px] text-base-black"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="18 / 16 / 14px"
-        lineHeight="26 / 24 / 22px"
-        letterSpacing="0.5px"
-      >
-        Menu Item Alt
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[12px] leading-[18px] md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px] tracking-[3px] uppercase text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="16 / 14 / 12px"
-        lineHeight="24 / 20 / 18px"
-        letterSpacing="3px"
-      >
-        Pre-Header
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] md:tracking-[0.5px] lg:text-[20px] lg:leading-[30px] lg:tracking-[1.25px] text-base-black"
-        fontFamily="Figtree"
-        fontWeight={700}
-        fontSize="20 / 18 / 16px"
-        lineHeight="30 / 28 / 24px"
-        letterSpacing="1.25 / 0.5 / 0px"
-      extra={
-        <Link
-          href="/buttons"
-          className="font-body text-[12px] font-semibold text-primary no-underline hover:underline whitespace-nowrap"
-        >
-          View in Buttons →
-        </Link>
-      }
-      >
-        Button
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body font-bold text-[14px] leading-[20px] tracking-[1.25px] uppercase text-base-black"
-        fontFamily="Inter"
-        fontWeight={700}
-        fontSize="14px (all breakpoints)"
-        lineHeight="20px"
-        letterSpacing="1.25px"
-      >
-        Over Line
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[28px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="20 / 18 / 16px"
-        lineHeight="28px"
-        letterSpacing="0px"
-      >
-        Innerpage Body
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] lg:text-[16px] lg:leading-[20px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="16 / 16 / 14px"
-        lineHeight="20 / 20 / 18px"
-        letterSpacing="0px"
-      >
-        Label
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="20 / 18 / 16px"
-        lineHeight="30 / 28 / 24px"
-        letterSpacing="0px"
-      >
-        This is Body 1 copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[14px] leading-[20px] md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[28px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="18 / 16 / 14px"
-        lineHeight="28 / 24 / 20px"
-        letterSpacing="0px"
-      >
-        This is Body 2 copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[14px] leading-[20px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="16 / 16 / 14px"
-        lineHeight="22 / 22 / 20px"
-        letterSpacing="0px"
-      >
-        This is Caption copy. This is a link. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo nec.
-      </TypeSample>
-
-      <TypeSample
-        sampleClassName="font-body text-[10px] leading-[15px] md:text-[12px] md:leading-[18px] lg:text-[12px] lg:leading-[18px] text-textcolor-body"
-        fontFamily="Inter"
-        fontWeight={400}
-        fontSize="12 / 12 / 10px"
-        lineHeight="18 / 18 / 15px"
-        letterSpacing="0px"
-      >
-        This is Tooltip copy.
-      </TypeSample>
+      <p className="font-body text-[12px] text-gray-400 mt-8 mb-0">
+        Font families: {fontFamilyTokens.header.className} ({fontFamilyTokens.header.family}) for
+        Main Header through H6, plus Pre-Header; {fontFamilyTokens.body.className} (
+        {fontFamilyTokens.body.family}) for the remaining body and UI styles — both loaded via
+        next/font/google in app/layout.tsx.
+      </p>
     </>
   );
 }

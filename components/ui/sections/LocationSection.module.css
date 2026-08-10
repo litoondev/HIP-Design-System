@@ -1,31 +1,31 @@
 /* LocationSection — NOT in sections.html. Designed to the structure the homepage reference
    specifies for section 15 (2-col top, then location list + map). */
 .hipLoc {
-  background:#fff;
+  background:var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding:64px 48px;
 }
 
 .hipLocTop {
   display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-  padding-bottom:36px; margin-bottom:36px; border-bottom:1px solid #f5f5f5;
+  padding-bottom:36px; margin-bottom:36px; border-bottom:1px solid var(--color-gray-50);
 }
 
 .hipLocImg {
   border-radius:12px; height:240px;
-  background:linear-gradient(135deg,#1a2d3f 0%,#320270 100%);
+  background:linear-gradient(135deg,var(--color-gray-900) 0%,var(--color-primary-base) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipLocImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.hipLocImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-white) 40%, transparent); }
 
 .hipLocText { display:flex; flex-direction:column; gap:14px; }
 
-.hipLocEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#320270; }
+.hipLocEyebrow { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary-base); }
 
-.hipLocH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:#000000; }
+.hipLocH2 { margin:0; font-size:clamp(26px,3.2vw,42px); font-weight:800; line-height:1.15; color:var(--color-base-black); }
 
-.hipLocBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:#525252; max-width:400px; }
+.hipLocBody { font-family: var(--font-inter), 'Inter', sans-serif; font-size:15px; line-height:1.7; color:var(--color-gray-700); max-width:400px; }
 
 .hipLocGrid { display:grid; grid-template-columns:1fr 1.15fr; gap:24px; }
 
@@ -33,26 +33,26 @@
 
 .hipLocPanel {
   padding:18px 20px; border-radius:12px;
-  background:#fafafa; border:1.5px solid #e5e5e5;
+  background:var(--color-gray-50); border:1.5px solid var(--color-gray-100);
   display:flex; flex-direction:column; gap:8px;
 }
 
-.hipLocPanelLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#a1a1a1; }
+.hipLocPanelLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-gray-400); }
 
-.hipLocItem { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:#525252; }
+.hipLocItem { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:var(--color-gray-700); }
 
-.hipLocItem strong { font-weight:700; color:#000000; }
+.hipLocItem strong { font-weight:700; color:var(--color-base-black); }
 
 .hipLocPhone {
   display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:#320270;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-primary-base);
 }
 
 .hipLocPhone svg { width:16px; height:16px; }
 
 .hipLocMore {
   display:inline-flex; align-items:center; gap:7px;
-  font-size:13px; font-weight:700; color:#320270; cursor:pointer;
+  font-size:13px; font-weight:700; color:var(--color-primary-base); cursor:pointer;
 }
 
 .hipLocMore svg { width:15px; height:15px; }
@@ -60,24 +60,24 @@
 .hipLocMap {
   position:relative; overflow:hidden;
   min-height:300px; border-radius:12px;
-  background:linear-gradient(135deg,#f0fafb 0%,#d9f1f4 100%);
-  border:1.5px solid #b7e4ea;
+  background:linear-gradient(135deg,var(--color-secondary-50) 0%,var(--color-tertiary-100) 100%);
+  border:1.5px solid var(--color-tertiary-200);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
 }
 
-.hipLocMap > svg { width:34px; height:34px; color:#4db2c3; }
+.hipLocMap > svg { width:34px; height:34px; color:var(--color-tertiary-400); }
 
-.hipLocMapLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:#4db2c3; text-align:center; line-height:1.8; }
+.hipLocMapLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--color-tertiary-400); text-align:center; line-height:1.8; }
 
 /* Map pins, positioned as a static illustration of the pop-up card behaviour. */
 .hipLocPin {
   position:absolute; width:26px; height:26px; border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);
-  background:#320270; box-shadow:0 3px 10px rgba(50,2,112,.4);
+  background:var(--color-primary-base); box-shadow:0 3px 10px color-mix(in srgb, var(--color-primary-base) 40%, transparent);
 }
 
 .hipLocPin::after {
-  content:''; position:absolute; inset:8px; border-radius:50%; background:#fff;
+  content:''; position:absolute; inset:8px; border-radius:50%; background:var(--color-base-white);
 }
 
 .hipLocPin.one { top:22%; left:24%; }

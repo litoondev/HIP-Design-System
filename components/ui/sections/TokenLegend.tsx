@@ -1,28 +1,40 @@
+import { Typography } from "@/components/ui/typography/Typography";
+import { colorRefVar } from "@/lib/colors";
+
 /** The "DS Tokens Used" swatches from the sections.html sidebar. The section list that sat
- *  above them now lives in the app sidebar as a submenu under Section Designs. */
+ *  above them now lives in the app sidebar as a submenu under Section Designs.
+ *
+ *  Each row names a token reference rather than a hex, and paints through the variable that
+ *  reference resolves to — so the swatch and the token name it advertises are provably the
+ *  same color, and retargeting a base color in lib/colors.ts moves the swatch with it. */
 const TOKENS = [
-  { swatch: "#320270", label: "CTA / Primary Royal Amethyst --color-cta-base", bordered: false },
-  { swatch: "#1fc3df", label: "Secondary Aqua Pulse --color-secondary-base", bordered: false },
-  { swatch: "#000000", label: "Base Black --color-base-black", bordered: false },
-  { swatch: "#ffffff", label: "White --color-base-white", bordered: true },
+  { ref: "cta", label: "CTA / Primary Royal Amethyst", bordered: false },
+  { ref: "secondary", label: "Secondary Aqua Pulse", bordered: false },
+  { ref: "base-black", label: "Base Black", bordered: false },
+  { ref: "base-white", label: "White", bordered: true },
 ];
 
 export default function TokenLegend() {
   return (
     <div className="mb-10 rounded-xl border border-gray-200 bg-gray-50 px-5 py-4">
-      <p className="mb-3 font-body text-[10px] font-bold uppercase tracking-[1px] text-gray-400">
+      <Typography variant="overline" as="p" className="mb-3 text-gray-400">
         DS Tokens Used
-      </p>
+      </Typography>
       <div className="flex flex-wrap gap-x-6 gap-y-2">
-        {TOKENS.map((token) => (
-          <div key={token.label} className="flex items-center gap-2">
-            <span
-              className={`h-3 w-3 flex-shrink-0 rounded-sm ${token.bordered ? "border border-gray-300" : ""}`}
-              style={{ background: token.swatch }}
-            />
-            <span className="font-body text-[11px] text-gray-600">{token.label}</span>
-          </div>
-        ))}
+        {TOKENS.map((token) => {
+          const cssVar = colorRefVar(token.ref);
+          return (
+            <div key={token.label} className="flex items-center gap-2">
+              <span
+                className={`h-3 w-3 flex-shrink-0 rounded-sm ${token.bordered ? "border border-gray-300" : ""}`}
+                style={{ background: `var(${cssVar})` }}
+              />
+              <Typography variant="tooltip" as="span" className="text-textcolor-body">
+                {token.label} <code>{cssVar}</code>
+              </Typography>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .franklinBtn {
-    --charcoal: #000000;
+    --charcoal: var(--color-base-black);
     position: relative;
     display: inline-flex;
     width: min(307px, 100%);
@@ -12,7 +12,7 @@
     border: 4px solid var(--charcoal);
     border-radius: 999px;
     background: transparent;
-    color: #fff;
+    color: var(--color-base-white);
     text-decoration: none;
     isolation: isolate;
   }
@@ -58,7 +58,7 @@
     height: 52px;
     place-items: center;
     border-radius: 50%;
-    background: #fff;
+    background: var(--color-base-white);
     transition: background-color 220ms ease;
   }
 
@@ -88,7 +88,7 @@
 .franklinBtn:focus-visible .franklinBtnIcon svg { transform: rotate(45deg); }
 
 .franklinBtn:hover .franklinBtnIcon path,
-.franklinBtn:focus-visible .franklinBtnIcon path { fill: #fff; }
+.franklinBtn:focus-visible .franklinBtnIcon path { fill: var(--color-base-white); }
 
 @media (prefers-reduced-motion: reduce) {
   .franklinBtn::before,

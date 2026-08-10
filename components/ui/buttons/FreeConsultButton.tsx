@@ -28,7 +28,7 @@ export default function FreeConsultButton({
           <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="m12.025 8.53-6.223 6.254c-.32.288-.801.288-1.09 0l-.738-.738c-.288-.289-.288-.77 0-1.09l4.94-4.972-4.94-4.94c-.288-.32-.288-.801 0-1.09l.738-.738c.289-.288.77-.288 1.09 0l6.223 6.255a.755.755 0 0 1 0 1.058"
-              fill="#9DCEE1"
+              fill="var(--color-tertiary-300)"
             />
           </svg>
         </span>

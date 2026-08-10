@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import { DESIGN_CATEGORIES, componentCatalog, type DesignCategory } from "./categories";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export type DemoAlign = "left" | "center";
 
@@ -19,8 +20,14 @@ export function ComponentDemo({
   return (
     <div id={anchor} className="scroll-mt-24 mb-10">
       <div className="flex items-center justify-between gap-4 mb-3">
-        <h3 className="font-header font-bold text-[18px] text-base-black m-0">{name}</h3>
-        <div className="flex rounded-lg border border-gray-200 overflow-hidden font-body text-[13px]">
+        <Typography variant="h6" as="h3" className="text-base-black m-0">
+          {name}
+        </Typography>
+        <Typography
+          as="div"
+          variant="label"
+          className="flex rounded-lg border border-gray-200 overflow-hidden"
+        >
           {(["left", "center"] as const).map((value) => (
             <button
               key={value}
@@ -36,7 +43,7 @@ export function ComponentDemo({
               {value}
             </button>
           ))}
-        </div>
+        </Typography>
       </div>
       <div className="rounded-xl border border-gray-200 px-6 py-10 md:px-10 md:py-12 overflow-x-auto">
         {children(align)}
@@ -69,7 +76,7 @@ export function ComponentShowcase({
 
   return (
     <>
-      <div className="flex flex-wrap gap-2 mb-8 font-body text-[13px]">
+      <Typography as="div" variant="label" className="flex flex-wrap gap-2 mb-8">
         <button
           type="button"
           onClick={() => setActiveCategory(null)}
@@ -96,13 +103,17 @@ export function ComponentShowcase({
           >
             {category}
             {(counts.get(category) ?? 0) > 1 && (
-              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded border border-current text-[11px]">
+              <Typography
+                variant="tooltip"
+                as="span"
+                className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded border border-current"
+              >
                 {counts.get(category)}
-              </span>
+              </Typography>
             )}
           </button>
         ))}
-      </div>
+      </Typography>
 
       {visible.map((entry) => (
         <ComponentDemo key={entry.anchor} name={entry.name} anchor={entry.anchor}>

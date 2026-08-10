@@ -9,18 +9,18 @@
   height: 100dvh;
   min-height: 600px;
   overflow: hidden;
-  color: #fff;
+  color: var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
 }
 
 .hipHeroBg {
   position: absolute; inset: 0; z-index: -3;
-  background: linear-gradient(120deg, #1a2d3f 0%, #2c4a3e 40%, #1e3a2f 100%);
+  background: linear-gradient(120deg, var(--color-gray-900) 0%, var(--color-gray-800) 40%, var(--color-secondary-800) 100%);
 }
 
 .hipHeroShade {
   position: absolute; inset: 0; z-index: -2;
-  background: linear-gradient(169deg, rgba(3,7,18,.70) 28%, rgba(49,150,169,.25) 100%);
+  background: linear-gradient(169deg, color-mix(in srgb, var(--color-base-black) 70%, transparent) 28%, color-mix(in srgb, var(--color-tertiary-base) 25%, transparent) 100%);
   pointer-events: none;
 }
 
@@ -28,65 +28,65 @@
   height: 44px;
   padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-base-white) 12%, transparent);
 }
 
 .hipSocials { display:flex; align-items:center; gap:10px; }
 
 .hipSocialDot {
   width:26px; height:26px; border-radius:50%;
-  background: #320270;
+  background: var(--color-primary-base);
   display:grid; place-items:center; flex-shrink:0;
 }
 
-.hipSocialDot svg { width:13px; height:13px; fill:#fff; }
+.hipSocialDot svg { width:13px; height:13px; fill:var(--color-base-white); }
 
 .hipUtilityLinks { display:flex; align-items:center; gap:0; }
 
 .hipUtilityLink {
   display:flex; align-items:center; gap:6px;
   padding:0 14px; height:44px;
-  font-size:11px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:#fff;
-  border-left:1px solid rgba(255,255,255,.14);
+  font-size:11px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:var(--color-base-white);
+  border-left:1px solid color-mix(in srgb, var(--color-base-white) 14%, transparent);
 }
 
 .hipUtilityLink:first-child { border-left:0; }
 
 .hipUtilityLink svg { width:14px; height:14px; opacity:.8; }
 
-.hipUtilityLink.accent { color:#fb923c; }
+.hipUtilityLink.accent { color:var(--color-accent-300); }
 
 .hipMainNav {
   height: 76px;
   padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-base-white) 12%, transparent);
 }
 
 .hipLogo {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:22px; font-weight:800;
-  letter-spacing:-0.5px; color:#fff; text-decoration:none; cursor:pointer;
+  letter-spacing:-0.5px; color:var(--color-base-white); text-decoration:none; cursor:pointer;
 }
 
-.hipLogo span { color:#320270; }
+.hipLogo span { color:var(--color-primary-base); }
 
 .hipNavLinks { display:flex; align-items:center; gap:28px; }
 
 .hipNavLink {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:700;
-  letter-spacing:.4px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  letter-spacing:.4px; text-transform:uppercase; color:color-mix(in srgb, var(--color-base-white) 85%, transparent);
   display:flex; align-items:center; gap:4px;
   text-decoration:none; cursor:pointer;
   transition: color .15s;
 }
 
-.hipNavLink:hover { color:#fff; }
+.hipNavLink:hover { color:var(--color-base-white); }
 
 .hipNavLink svg { width:13px; height:13px; opacity:.6; }
 
 .hipNavCta {
   padding:10px 22px; border-radius:100px;
-  background:#320270; color:#fff;
+  background:var(--color-primary-base); color:var(--color-base-white);
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
   text-decoration:none; cursor:pointer; display:inline-block;
   transition: opacity .15s;
@@ -104,16 +104,16 @@
 
 .hipHeroEyebrow {
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:700;
-  letter-spacing:2.5px; text-transform:uppercase; color:#320270;
+  letter-spacing:2.5px; text-transform:uppercase; color:var(--color-primary-base);
 }
 
 .hipHeroH1 {
   margin:0; padding:0;
   font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:clamp(44px,5.5vw,80px);
-  font-weight:600; line-height:1.1; color:#fff; text-transform:capitalize;
+  font-weight:600; line-height:1.1; color:var(--color-base-white); text-transform:capitalize;
 }
 
-.hipHeroH1 em { font-style:normal; color:#320270; }
+.hipHeroH1 em { font-style:normal; color:var(--color-primary-base); }
 
 .hipHeroActions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; pointer-events:auto; }
 
@@ -126,6 +126,6 @@
 
 .hipHeroBtn svg { width:22px; height:22px; flex-shrink:0; }
 
-.hipHeroBtn.primary { background:#320270; color:#fff; }
+.hipHeroBtn.primary { background:var(--color-primary-base); color:var(--color-base-white); }
 
-.hipHeroBtn.secondary { background:#fff; color:#320270; }
+.hipHeroBtn.secondary { background:var(--color-base-white); color:var(--color-primary-base); }

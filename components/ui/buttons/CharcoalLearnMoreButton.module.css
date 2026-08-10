@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .charcoalLearnMore {
-    --charcoal: #101010;
+    --charcoal: var(--color-gray-950);
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -12,7 +12,7 @@
     border: 2px solid var(--charcoal);
     border-radius: 0;
     background: var(--charcoal);
-    color: #fff;
+    color: var(--color-base-white);
     font-family: var(--font-figtree), "Figtree", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -31,7 +31,7 @@
     height: 50px;
     display: grid;
     place-items: center;
-    background: #fff;
+    background: var(--color-base-white);
     color: var(--charcoal);
     transition: background-color 300ms ease, color 300ms ease;
   }
@@ -55,7 +55,7 @@
 .charcoalLearnMore:hover .charcoalLearnMoreIcon,
 .charcoalLearnMore:focus-visible .charcoalLearnMoreIcon {
     background: var(--charcoal);
-    color: #fff;
+    color: var(--color-base-white);
   }
 
 .charcoalLearnMore:hover .charcoalLearnMoreIcon svg,

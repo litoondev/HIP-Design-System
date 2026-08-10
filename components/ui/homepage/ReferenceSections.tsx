@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Section, WfBlock, WfLabel } from "./Wireframe";
+import { Typography, typographyClass } from "@/components/ui/typography/Typography";
 
 /**
  * Sections 17–20 — reference only, not rendered page sections.
@@ -35,17 +36,20 @@ function FormulaItem({
 }) {
   return (
     <div className="flex items-start gap-2">
-      <span
+      <Typography
+        variant="tooltip"
+        as="span"
+        weight="bold"
         className={`w-5 h-5 rounded-full ${
           cta ? "bg-cta-500" : "bg-primary-500"
-        } text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0 mt-0.5`}
+        } text-white flex items-center justify-center flex-shrink-0 mt-0.5`}
       >
         {op}
-      </span>
-      <p className="font-body text-[12px] text-base-black">
+      </Typography>
+      <Typography variant="tooltip" as="p" className="text-base-black">
         <span className="font-bold">{bold}</span>
         {note && <span className="text-gray-500"> {note}</span>}
-      </p>
+      </Typography>
     </div>
   );
 }
@@ -74,10 +78,10 @@ export function SuccessFormula() {
           </div>
         </div>
         <div className="mt-4 pt-4 border-t border-primary-200 flex items-center gap-3">
-          <span className="font-header font-extrabold text-2xl text-primary-600">=</span>
-          <p className="font-header font-extrabold text-[15px] text-primary-800">
+          <Typography variant="header5" as="span" className="font-extrabold text-primary-600">=</Typography>
+          <Typography variant="caption" as="p" className="font-extrabold text-primary-800">
             High-Converting Orthodontic Homepage
-          </p>
+          </Typography>
         </div>
       </div>
     </Section>
@@ -106,27 +110,30 @@ export function DesignerReminder() {
       <div className="bg-white p-8 flex items-start gap-5">
         <div className="flex-shrink-0 w-1 self-stretch bg-primary-400 rounded-full" />
         <div>
-          <p className="font-header font-extrabold text-[17px] text-base-black leading-relaxed mb-3">
+          <Typography variant="body2" as="p" className="font-extrabold text-base-black mb-3">
             &ldquo;This practice is <span className="text-primary-600">trusted</span>,{" "}
             <span className="text-cta-500">affordable</span>,{" "}
             <span className="text-primary-600">close to me</span>, and starting is easy — the first
             consult is free.&rdquo;
-          </p>
-          <p className="font-body text-[12px] text-gray-500 leading-relaxed">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-gray-500">
             That is what every visitor — usually a parent or an adult considering aligners — must
             feel at every scroll depth. The design must stay{" "}
             <strong>warm, professional, and premium</strong>: clinical credibility softened by real
             smiles. Every section must offer a path to the free consultation.
-          </p>
+          </Typography>
           <div className="mt-4 flex flex-wrap gap-3">
             {REMINDER_TAGS.map((t) => (
               <span
                 key={t.label}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-body text-[11px] font-bold ${
+                className={typographyClass(
+                  "tooltip",
+                  `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-bold ${
                   t.tone === "primary"
                     ? "bg-primary-50 border border-primary-200 text-primary-700"
                     : "bg-cta-50 border border-cta-200 text-cta-700"
-                }`}
+                }`
+                )}
               >
                 {t.label}
               </span>
@@ -186,29 +193,29 @@ export function ImageSourcing() {
     >
       <div className="bg-white p-6 flex flex-col gap-5">
         <div className="bg-secondary-50 border border-secondary-200 rounded-lg px-4 py-3">
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-secondary-700 mb-1">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-secondary-700 mb-1">
             Master Rule
-          </p>
-          <p className="font-body text-[12px] text-base-black">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-base-black">
             All images MUST come from the client image drive. Never use stock photos, AI-generated
             images, or images from outside this drive.
-          </p>
+          </Typography>
           <a
             href={DRIVE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body text-[11px] font-bold text-secondary-600 mt-1 inline-block break-all"
+            className={typographyClass("tooltip", "font-bold text-secondary-600 mt-1 inline-block break-all")}
           >
             drive.google.com/drive/folders/1mwrOevbApaDS0ZOqNYyYGTO3TmAONq3y →
           </a>
         </div>
 
         <div>
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-2">
             Section → Drive Folder Mapping
-          </p>
+          </Typography>
           <div className="border border-gray-200 rounded-lg overflow-x-auto">
-            <table className="w-full font-body text-[11px]">
+            <table className={typographyClass("tooltip", "w-full")}>
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="text-left px-3 py-2 font-bold text-gray-600">Homepage Section</th>
@@ -238,45 +245,45 @@ export function ImageSourcing() {
         </div>
 
         <div>
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-2">
             Image Count Rule
-          </p>
+          </Typography>
           <div className="grid grid-cols-2 gap-3">
             {COUNT_RULES.map(([title, body]) => (
               <WfBlock key={title} className="border-gray-300 p-3 flex flex-col gap-1">
-                <p className="font-body text-[11px] font-bold text-gray-700">{title}</p>
-                <p className="font-body text-[10px] text-gray-500">{body}</p>
+                <Typography variant="tooltip" as="p" className="font-bold text-gray-700">{title}</Typography>
+                <Typography variant="tooltip" as="p" className="text-gray-500">{body}</Typography>
               </WfBlock>
             ))}
           </div>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-3 flex flex-col gap-1.5">
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-1">
             Selection Rules
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Match image to item — a doctor row must use <em>that doctor&rsquo;s</em> photo; never
             substitute.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Never reuse the same image across two sections.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Choose highest-resolution version when duplicates exist.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Prefer crops that fit the section: hero = wide landscape, doctors = portrait-friendly,
             Instagram = square-croppable.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • If a section&rsquo;s folder is empty or missing — keep the design placeholder and{" "}
             <span className="font-bold text-cta-600">flag it</span>. Do not substitute from another
             folder.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Keep a record: filename → section, for client review.
-          </p>
+          </Typography>
         </div>
       </div>
     </Section>
@@ -346,52 +353,52 @@ export function IconUsage() {
     >
       <div className="bg-white p-6 flex flex-col gap-5">
         <div className="bg-secondary-50 border border-secondary-200 rounded-lg px-4 py-3">
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-secondary-700 mb-1">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-secondary-700 mb-1">
             Master Rule — Priority Order
-          </p>
+          </Typography>
           <div className="flex flex-col gap-1 mt-1">
             <div className="flex items-start gap-2">
-              <span className="w-5 h-5 rounded bg-primary-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">
+              <Typography variant="tooltip" as="span" className="w-5 h-5 rounded bg-primary-500 text-white font-bold flex items-center justify-center flex-shrink-0">
                 1
-              </span>
-              <p className="font-body text-[12px] text-base-black">
+              </Typography>
+              <Typography variant="tooltip" as="p" className="text-base-black">
                 <strong>System icon library (150 icons)</strong> — always check{" "}
                 <Link href="/icons" className="text-primary-600 font-bold">
                   the icon library
                 </Link>{" "}
                 FIRST.
-              </p>
+              </Typography>
             </div>
             <div className="flex items-start gap-2">
-              <span className="w-5 h-5 rounded bg-accent-500 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">
+              <Typography variant="tooltip" as="span" className="w-5 h-5 rounded bg-accent-500 text-white font-bold flex items-center justify-center flex-shrink-0">
                 2
-              </span>
-              <p className="font-body text-[12px] text-base-black">
+              </Typography>
+              <Typography variant="tooltip" as="p" className="text-base-black">
                 <strong>Icon not in library?</strong> Ask the user: &ldquo;I need [icon name] for
                 [section].&rdquo;
-              </p>
+              </Typography>
             </div>
             <div className="flex items-start gap-2">
-              <span className="w-5 h-5 rounded bg-gray-400 text-white text-[10px] font-bold font-body flex items-center justify-center flex-shrink-0">
+              <Typography variant="tooltip" as="span" className="w-5 h-5 rounded bg-gray-400 text-white font-bold flex items-center justify-center flex-shrink-0">
                 3
-              </span>
-              <p className="font-body text-[12px] text-base-black">
+              </Typography>
+              <Typography variant="tooltip" as="p" className="text-base-black">
                 <strong>No answer yet?</strong> Place a labeled placeholder and flag it.
-              </p>
+              </Typography>
             </div>
           </div>
-          <p className="font-body text-[10px] text-secondary-600 mt-2">
+          <Typography variant="tooltip" as="p" className="text-secondary-600 mt-2">
             Never pull from Font Awesome, Flaticon, Google Images, etc. Never improvise a custom icon
             when a library icon exists. Never mix icon styles.
-          </p>
+          </Typography>
         </div>
 
         <div>
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-2">
             Where Icons Are Used
-          </p>
+          </Typography>
           <div className="border border-gray-200 rounded-lg overflow-x-auto">
-            <table className="w-full font-body text-[11px]">
+            <table className={typographyClass("tooltip", "w-full")}>
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="text-left px-3 py-2 font-bold text-gray-600">Section</th>
@@ -406,12 +413,12 @@ export function IconUsage() {
                   >
                     <td
                       className={`px-3 py-2 ${
-                        optional ? "text-yellow-800 font-semibold" : "text-gray-700"
+                        optional ? "text-accent-700 font-semibold" : "text-gray-700"
                       }`}
                     >
                       {section}
                     </td>
-                    <td className="px-3 py-2 text-gray-600">{icons}</td>
+                    <td className="px-3 py-2 text-textcolor-body">{icons}</td>
                   </tr>
                 ))}
               </tbody>
@@ -420,44 +427,47 @@ export function IconUsage() {
         </div>
 
         <div>
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-2">
             Missing Icon Workflow
-          </p>
+          </Typography>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
             {MISSING_WORKFLOW.map(([title, body, done], i) => (
               <div
                 key={title}
                 className="bg-gray-50 border border-gray-200 rounded-lg p-3 flex flex-col gap-1"
               >
-                <span
+                <Typography
+                  variant="tooltip"
+                  as="span"
+                  weight="bold"
                   className={`w-5 h-5 rounded-full ${
                     done ? "bg-primary-600" : "bg-gray-700"
-                  } text-white text-[10px] font-bold font-body flex items-center justify-center mb-1`}
+                  } text-white flex items-center justify-center mb-1`}
                 >
                   {i + 1}
-                </span>
-                <p className="font-body text-[11px] font-bold text-gray-700">{title}</p>
-                <p className="font-body text-[10px] text-gray-500">{body}</p>
+                </Typography>
+                <Typography variant="tooltip" as="p" className="font-bold text-gray-700">{title}</Typography>
+                <Typography variant="tooltip" as="p" className="text-gray-500">{body}</Typography>
               </div>
             ))}
           </div>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-3 flex flex-col gap-1.5">
-          <p className="font-body text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-1">
+          <Typography variant="tooltip" as="p" className="font-bold uppercase text-gray-500 mb-1">
             Design Notes
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Highlights grid icons: teal accent color inside soft tinted squares — apply same
             treatment to any new icon added later.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Keep icon sizes consistent per context — utility bar = small, trust-card = large.
-          </p>
-          <p className="font-body text-[11px] text-gray-600">
+          </Typography>
+          <Typography variant="tooltip" as="p" className="text-textcolor-body">
             • Placeholders must be obvious in internal reviews (never ship unnoticed) but neutral
             enough not to break the layout.
-          </p>
+          </Typography>
         </div>
       </div>
     </Section>
@@ -500,18 +510,21 @@ export function MobileSummary() {
       <WfLabel className="text-gray-500 mb-4 block">Mobile structure — summary</WfLabel>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <p className="font-body text-xs font-bold text-gray-700 mb-2">Section order</p>
+          <Typography variant="tooltip" as="p" className="font-bold text-gray-700 mb-2">Section order</Typography>
           <div className="flex flex-col gap-1">
             {MOBILE_ORDER.map((m) => (
               <p
                 key={m.label}
-                className={`font-body text-[11px] ${
+                className={typographyClass(
+                  "tooltip",
+                  `${
                   m.tone === "primary"
                     ? "text-primary-500 font-bold"
                     : m.tone === "optional"
-                      ? "text-yellow-700"
-                      : "text-gray-600"
-                }`}
+                      ? "text-accent-600"
+                      : "text-textcolor-body"
+                }`
+                )}
               >
                 {m.label}
               </p>
@@ -519,12 +532,12 @@ export function MobileSummary() {
           </div>
         </div>
         <div>
-          <p className="font-body text-xs font-bold text-gray-700 mb-2">Mobile rules</p>
+          <Typography variant="tooltip" as="p" className="font-bold text-gray-700 mb-2">Mobile rules</Typography>
           <div className="flex flex-col gap-1.5">
             {MOBILE_RULES.map((r) => (
-              <p key={r} className="font-body text-[11px] text-gray-600">
+              <Typography key={r} variant="tooltip" as="p" className="text-textcolor-body">
                 {r}
-              </p>
+              </Typography>
             ))}
           </div>
         </div>

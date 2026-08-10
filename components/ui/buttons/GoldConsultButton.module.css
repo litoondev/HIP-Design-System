@@ -2,7 +2,7 @@
    Class names camelCased for CSS Modules; declarations, breakpoints and
    reduced-motion rules are unchanged from the source. */
 .goldConsultButton {
-    --gold: #fdbb00;
+    --gold: var(--color-accent-200);
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -13,7 +13,7 @@
     border: 2px solid var(--gold);
     border-radius: 999px;
     background: var(--gold);
-    color: #222;
+    color: var(--color-gray-900);
     font-family: var(--font-figtree), "Figtree", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -36,7 +36,7 @@
     place-items: center;
     border: 2px solid var(--gold);
     border-radius: 50%;
-    background: #fff;
+    background: var(--color-base-white);
     color: var(--gold);
     transform: translateY(-50%);
     transition: background-color 320ms ease, color 320ms ease;
@@ -51,14 +51,14 @@
 
 .goldConsultButton:hover,
 .goldConsultButton:focus-visible {
-    background: #fff;
+    background: var(--color-base-white);
     outline: none;
   }
 
 .goldConsultButton:hover .goldConsultButtonIcon,
 .goldConsultButton:focus-visible .goldConsultButtonIcon {
     background: var(--gold);
-    color: #222;
+    color: var(--color-gray-900);
   }
 
 @media (prefers-reduced-motion: reduce) {

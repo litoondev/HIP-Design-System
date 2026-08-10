@@ -26,6 +26,7 @@ import {
   DiscoverUsButton,
   LearnMoreButton,
 } from "@/components/ui/buttons";
+import { Typography } from "@/components/ui/typography/Typography";
 
 export const metadata = {
   title: "Buttons — HIP Style Guide",
@@ -36,7 +37,9 @@ export const metadata = {
 function Demo({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex flex-col items-center gap-4 py-8 border-b border-gray-100">
-      <span className="font-body text-[12px] text-gray-400">{label}</span>
+      <Typography variant="tooltip" as="span" className="text-gray-400">
+        {label}
+      </Typography>
       {children}
     </div>
   );
@@ -46,12 +49,12 @@ function Demo({ label, children }: { label: string; children: ReactNode }) {
 export default function ButtonsPage() {
   return (
     <section id="buttons" className="doc-section pb-16 border-b border-gray-100 mb-16 last:border-b-0">
-      <div className="font-body text-[12px] font-bold tracking-[0.5px] uppercase text-cta mb-2">
+      <Typography variant="preHeader" as="div" className="text-cta mb-2">
         Components
-      </div>
-      <h1 className="font-header font-extrabold text-[34px] leading-[1.2] text-base-black mt-0 mb-3">
+      </Typography>
+      <Typography variant="header4" as="h1" className="text-base-black mt-0 mb-3">
         Buttons
-      </h1>
+      </Typography>
       <div className="flex flex-col mb-8">
         <Demo label="Request Free Consult">
           <RequestFreeConsultButton />
