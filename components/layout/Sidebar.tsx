@@ -60,8 +60,11 @@ export default function Sidebar() {
             .filter((l) => l.group === group)
             .map((link) => {
               const active = isActive(link.href);
-              // A submenu only unfolds once you're on its page, so the sidebar stays short.
-              const showChildren = Boolean(link.children?.length) && pathname === link.href;
+              // A submenu only unfolds once you're on its page (or one of its
+              // child pages, e.g. /sections/hero), so the sidebar stays short.
+              const showChildren =
+                Boolean(link.children?.length) &&
+                (pathname === link.href || pathname.startsWith(`${link.href}/`));
 
               return (
                 <div key={link.href}>
