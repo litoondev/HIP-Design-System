@@ -1,6 +1,6 @@
-import styles from "./AosgButton.module.css";
+import styles from "./OffsetShadowButton.module.css";
 
-export interface AosgButtonProps {
+export interface OffsetShadowButtonProps {
   label?: string;
   href?: string;
   className?: string;
@@ -12,11 +12,11 @@ export interface AosgButtonProps {
  * component because the shadow is drawn by .aosg-btn-wrap::before; leave room around it
  * in the layout so the 10px offset isn't clipped.
  */
-export default function AosgButton({
+export default function OffsetShadowButton({
   label = "Join AOSG",
   href = "#",
   className,
-}: AosgButtonProps) {
+}: OffsetShadowButtonProps) {
   return (
     <div className={`${styles.aosgBtnWrap}${className ? ` ${className}` : ""}`}>
       <a className={styles.aosgBtn} href={href} aria-label="Join AOSG">

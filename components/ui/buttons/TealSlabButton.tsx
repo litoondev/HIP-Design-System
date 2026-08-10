@@ -1,17 +1,17 @@
-import styles from "./HudsonButton.module.css";
+import styles from "./TealSlabButton.module.css";
 
-export interface HudsonButtonProps {
+export interface TealSlabButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Free Consultation — teal rect whose inner slab expands while the button shrinks (.hudson-btn). */
-export default function HudsonButton({
+export default function TealSlabButton({
   label = "Free Consultation",
   href = "#",
   className,
-}: HudsonButtonProps) {
+}: TealSlabButtonProps) {
   return (
     <a
       className={`${styles.hudsonBtn}${className ? ` ${className}` : ""}`}

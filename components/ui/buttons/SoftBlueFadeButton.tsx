@@ -1,6 +1,6 @@
-import styles from "./FreeConsultButton.module.css";
+import styles from "./SoftBlueFadeButton.module.css";
 
-export interface FreeConsultButtonProps {
+export interface SoftBlueFadeButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
@@ -11,11 +11,11 @@ export interface FreeConsultButtonProps {
  * The source's @font-face for "proxima-nova" points at a Typekit URL that requires an active
  * Typekit subscription; it is intentionally not reproduced here. The font stack falls back to Arial.
  */
-export default function FreeConsultButton({
+export default function SoftBlueFadeButton({
   label = "Free Consult",
   onClick,
   className,
-}: FreeConsultButtonProps) {
+}: SoftBlueFadeButtonProps) {
   return (
     <button
       type="button"

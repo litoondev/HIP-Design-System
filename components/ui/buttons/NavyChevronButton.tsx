@@ -1,6 +1,6 @@
-import styles from "./NavyDiscoverButton.module.css";
+import styles from "./NavyChevronButton.module.css";
 
-export interface NavyDiscoverButtonProps {
+export interface NavyChevronButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
@@ -10,11 +10,11 @@ export interface NavyDiscoverButtonProps {
  * Discover Us — navy pill with a double chevron (.navy-discover-button).
  * The chevron is drawn entirely from the icon span's ::before/::after borders.
  */
-export default function NavyDiscoverButton({
+export default function NavyChevronButton({
   label = "DISCOVER US",
   onClick,
   className,
-}: NavyDiscoverButtonProps) {
+}: NavyChevronButtonProps) {
   return (
     <button
       type="button"

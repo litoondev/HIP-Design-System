@@ -1,17 +1,17 @@
-import styles from "./ScheduleButton.module.css";
+import styles from "./CyanSweepButton.module.css";
 
-export interface ScheduleButtonProps {
+export interface CyanSweepButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Schedule Appointment — teal pill with a cyan sweep and circle icon (.schedule-btn). */
-export default function ScheduleButton({
+export default function CyanSweepButton({
   label = "Schedule Appointment",
   href = "#",
   className,
-}: ScheduleButtonProps) {
+}: CyanSweepButtonProps) {
   return (
     <a
       className={`${styles.scheduleBtn}${className ? ` ${className}` : ""}`}

@@ -1,17 +1,17 @@
-import styles from "./HulmeButton.module.css";
+import styles from "./PanelCollapseButton.module.css";
 
-export interface HulmeButtonProps {
+export interface PanelCollapseButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Request Free Consult — blue rect whose white panel collapses on hover (.hulme-button). */
-export default function HulmeButton({
+export default function PanelCollapseButton({
   label = "Request Free Consult",
   href = "#",
   className,
-}: HulmeButtonProps) {
+}: PanelCollapseButtonProps) {
   return (
     <a
       className={`${styles.hulmeButton}${className ? ` ${className}` : ""}`}

@@ -1,6 +1,6 @@
-import styles from "./GibsonButton.module.css";
+import styles from "./ArrowLoopButton.module.css";
 
-export interface GibsonButtonProps {
+export interface ArrowLoopButtonProps {
   label?: string;
   href?: string;
   className?: string;
@@ -9,13 +9,13 @@ export interface GibsonButtonProps {
 /**
  * Request Free Consult — white pill with blue sweep and a CSS-keyframed
  * arrow-through-circle on hover. Ported 1:1 from buttons.html (.gibson-btn).
- * See GibsonJsButton for the Web Animations API variant.
+ * See ArrowLoopJsButton for the Web Animations API variant.
  */
-export default function GibsonButton({
+export default function ArrowLoopButton({
   label = "Request Free Consult",
   href = "#",
   className,
-}: GibsonButtonProps) {
+}: ArrowLoopButtonProps) {
   return (
     <a
       className={`${styles.gibsonBtn}${className ? ` ${className}` : ""}`}

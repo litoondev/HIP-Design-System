@@ -1,17 +1,17 @@
-import styles from "./GoldConsultButton.module.css";
+import styles from "./GoldOverhangButton.module.css";
 
-export interface GoldConsultButtonProps {
+export interface GoldOverhangButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
 }
 
 /** Request Free Consult — gold pill with a floating circle icon (.gold-consult-button). */
-export default function GoldConsultButton({
+export default function GoldOverhangButton({
   label = "REQUEST FREE CONSULT",
   onClick,
   className,
-}: GoldConsultButtonProps) {
+}: GoldOverhangButtonProps) {
   return (
     <button
       type="button"

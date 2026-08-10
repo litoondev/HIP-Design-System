@@ -1,17 +1,17 @@
-import styles from "./ApptButton.module.css";
+import styles from "./MagentaInvertButton.module.css";
 
-export interface ApptButtonProps {
+export interface MagentaInvertButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Request Appointment — pink pill with a white circle icon (.appt-button). */
-export default function ApptButton({
+export default function MagentaInvertButton({
   label = "REQUEST APPOINTMENT",
   href = "#",
   className,
-}: ApptButtonProps) {
+}: MagentaInvertButtonProps) {
   return (
     <a
       className={`${styles.apptButton}${className ? ` ${className}` : ""}`}

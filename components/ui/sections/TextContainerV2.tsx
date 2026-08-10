@@ -17,6 +17,9 @@
 
 export const TEXT_CONTAINER_V2_CATEGORY = "Vibrant";
 
+import type { ReactNode } from "react";
+import CyanSweepButton from "../buttons/CyanSweepButton";
+
 const HOST_GROTESK = "'Host Grotesk', sans-serif";
 
 export interface TextContainerV2Props {
@@ -24,7 +27,9 @@ export interface TextContainerV2Props {
   header: string;
   paragraph?: string;
   buttonLabel?: string;
-  onButtonClick?: () => void;
+  buttonHref?: string;
+  /** Override the default Cyan Sweep button (e.g. with LearnMoreV2Button). */
+  button?: ReactNode;
   showButton?: boolean;
   align?: "left" | "center";
   className?: string;
@@ -65,7 +70,8 @@ export default function TextContainerV2({
   header,
   paragraph,
   buttonLabel = "Learn More",
-  onButtonClick,
+  buttonHref = "#",
+  button,
   showButton = true,
   align = "left",
   className,
@@ -102,7 +108,7 @@ export default function TextContainerV2({
           </p>
         )}
       </div>
-      {showButton && <LearnMoreV2Button label={buttonLabel} onClick={onButtonClick} />}
+      {showButton && (button ?? <CyanSweepButton label={buttonLabel} href={buttonHref} />)}
     </div>
   );
 }

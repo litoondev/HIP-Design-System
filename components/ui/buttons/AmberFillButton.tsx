@@ -1,17 +1,17 @@
-import styles from "./RequestFreeConsultButton.module.css";
+import styles from "./AmberFillButton.module.css";
 
-export interface RequestFreeConsultButtonProps {
+export interface AmberFillButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
 }
 
 /** Request Free Consult button — ported 1:1 from design-system/buttons.html (.consult-button, node 15810:54779) */
-export default function RequestFreeConsultButton({
+export default function AmberFillButton({
   label = "Request Free Consult",
   onClick,
   className,
-}: RequestFreeConsultButtonProps) {
+}: AmberFillButtonProps) {
   return (
     <button
       type="button"

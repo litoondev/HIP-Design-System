@@ -1,17 +1,17 @@
-import styles from "./FranklinButton.module.css";
+import styles from "./BlackSweepButton.module.css";
 
-export interface FranklinButtonProps {
+export interface BlackSweepButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Meet Dr. Franklin — charcoal pill that sweeps away, with inverting circle icon (.franklin-btn). */
-export default function FranklinButton({
+export default function BlackSweepButton({
   label = "Meet Dr. Franklin",
   href = "#",
   className,
-}: FranklinButtonProps) {
+}: BlackSweepButtonProps) {
   return (
     <a
       className={`${styles.franklinBtn}${className ? ` ${className}` : ""}`}

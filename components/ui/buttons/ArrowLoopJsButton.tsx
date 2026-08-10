@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
-import styles from "./GibsonJsButton.module.css";
+import styles from "./ArrowLoopJsButton.module.css";
 
-export interface GibsonJsButtonProps {
+export interface ArrowLoopJsButtonProps {
   label?: string;
   href?: string;
   className?: string;
@@ -12,15 +12,15 @@ export interface GibsonJsButtonProps {
 const TIMING: KeyframeAnimationOptions = { duration: 500, easing: "ease-in-out" };
 
 /**
- * Gibson v3 — same pill as GibsonButton, but the arrow is driven by the Web Animations API so it
+ * Gibson v3 — same pill as ArrowLoopButton, but the arrow is driven by the Web Animations API so it
  * shoots forward on enter/focus and backward on leave/blur. Ported from the inline <script> in
  * design-system/buttons.html; the reduced-motion guard is preserved.
  */
-export default function GibsonJsButton({
+export default function ArrowLoopJsButton({
   label = "Request Free Consult",
   href = "#",
   className,
-}: GibsonJsButtonProps) {
+}: ArrowLoopJsButtonProps) {
   const arrowRef = useRef<SVGSVGElement | null>(null);
   const animRef = useRef<Animation | null>(null);
   const reducedRef = useRef(false);

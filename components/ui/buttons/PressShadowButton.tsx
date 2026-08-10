@@ -1,17 +1,17 @@
-import styles from "./PressButton.module.css";
+import styles from "./PressShadowButton.module.css";
 
-export interface PressButtonProps {
+export interface PressShadowButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
 }
 
 /** Request Free Consult — white pill with a yellow shadow that presses in on hover (.press-button). */
-export default function PressButton({
+export default function PressShadowButton({
   label = "Request Free Consult",
   onClick,
   className,
-}: PressButtonProps) {
+}: PressShadowButtonProps) {
   return (
     <button
       type="button"

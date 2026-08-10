@@ -57,14 +57,20 @@ export function ComponentShowcase({
 }) {
   const [activeCategory, setActiveCategory] = useState<DesignCategory | null>(null);
 
+  // Only entries this page actually renders — counts and chips reflect the page, not the whole catalog.
+  const pageEntries = useMemo(
+    () => componentCatalog.filter((entry) => demos[entry.anchor]),
+    [demos]
+  );
+
   const counts = useMemo(() => {
     const map = new Map<DesignCategory, number>();
-    componentCatalog.forEach((entry) => map.set(entry.category, (map.get(entry.category) ?? 0) + 1));
+    pageEntries.forEach((entry) => map.set(entry.category, (map.get(entry.category) ?? 0) + 1));
     return map;
-  }, []);
+  }, [pageEntries]);
 
-  const visible = componentCatalog.filter(
-    (entry) => (!activeCategory || entry.category === activeCategory) && demos[entry.anchor]
+  const visible = pageEntries.filter(
+    (entry) => !activeCategory || entry.category === activeCategory
   );
 
   return (

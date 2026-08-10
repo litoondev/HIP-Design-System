@@ -1,17 +1,17 @@
-import styles from "./LineApptButton.module.css";
+import styles from "./LineSlideButton.module.css";
 
-export interface LineApptButtonProps {
+export interface LineSlideButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Request Appointment, charcoal rect with text slide + line sweep — from buttons.html (.line-appt-btn). */
-export default function LineApptButton({
+export default function LineSlideButton({
   label = "Request Appointment",
   href = "#",
   className,
-}: LineApptButtonProps) {
+}: LineSlideButtonProps) {
   return (
     <a
       className={`${styles.lineApptBtn}${className ? ` ${className}` : ""}`}

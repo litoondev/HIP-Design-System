@@ -1,20 +1,20 @@
-import styles from "./LineApptAltButton.module.css";
+import styles from "./LineSwapButton.module.css";
 
-export interface LineApptAltButtonProps {
+export interface LineSwapButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /**
- * Request Appointment (alt) — same charcoal rect as LineApptButton, but the trailing line is
+ * Request Appointment (alt) — same charcoal rect as LineSlideButton, but the trailing line is
  * swapped for a leading one via clip-path rather than sliding (.line-appt-alt).
  */
-export default function LineApptAltButton({
+export default function LineSwapButton({
   label = "Request Appointment",
   href = "#",
   className,
-}: LineApptAltButtonProps) {
+}: LineSwapButtonProps) {
   return (
     <a
       className={`${styles.lineApptAlt}${className ? ` ${className}` : ""}`}

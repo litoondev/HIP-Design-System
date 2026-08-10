@@ -1,6 +1,6 @@
-import styles from "./DoctorButton.module.css";
+import styles from "./TextRollButton.module.css";
 
-export interface DoctorButtonProps {
+export interface TextRollButtonProps {
   label?: string;
   href?: string;
   className?: string;
@@ -10,11 +10,11 @@ export interface DoctorButtonProps {
  * Meet Dr. Steven — blue pill with a vertical text roll on hover (.doctor-button).
  * The duplicate label is the incoming line of the roll and is hidden from assistive tech.
  */
-export default function DoctorButton({
+export default function TextRollButton({
   label = "Meet Dr. Steven",
   href = "#",
   className,
-}: DoctorButtonProps) {
+}: TextRollButtonProps) {
   return (
     <a
       className={`${styles.doctorButton}${className ? ` ${className}` : ""}`}

@@ -1,17 +1,17 @@
-import styles from "./ArtemisButton.module.css";
+import styles from "./PinkIconCollapseButton.module.css";
 
-export interface ArtemisButtonProps {
+export interface PinkIconCollapseButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Artemis Ortho pink pill — ported 1:1 from buttons.html (.artemis-button). */
-export default function ArtemisButton({
+export default function PinkIconCollapseButton({
   label = "REQUEST FREE CONSULT",
   href = "#",
   className,
-}: ArtemisButtonProps) {
+}: PinkIconCollapseButtonProps) {
   return (
     <a
       className={`${styles.artemisButton}${className ? ` ${className}` : ""}`}

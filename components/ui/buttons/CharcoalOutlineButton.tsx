@@ -1,17 +1,17 @@
-import styles from "./CharcoalLearnMoreButton.module.css";
+import styles from "./CharcoalOutlineButton.module.css";
 
-export interface CharcoalLearnMoreButtonProps {
+export interface CharcoalOutlineButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Learn More — charcoal square with a rotating arrow (.charcoal-learn-more). */
-export default function CharcoalLearnMoreButton({
+export default function CharcoalOutlineButton({
   label = "LEARN MORE",
   href = "#",
   className,
-}: CharcoalLearnMoreButtonProps) {
+}: CharcoalOutlineButtonProps) {
   return (
     <a
       className={`${styles.charcoalLearnMore}${className ? ` ${className}` : ""}`}

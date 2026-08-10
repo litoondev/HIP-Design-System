@@ -1,17 +1,17 @@
-import styles from "./LearnMoreButton.module.css";
+import styles from "./GreenPillExpandButton.module.css";
 
-export interface LearnMoreButtonProps {
+export interface GreenPillExpandButtonProps {
   label?: string;
   href?: string;
   className?: string;
 }
 
 /** Learn More pill button — ported 1:1 from design-system/buttons.html (.learn-more) */
-export default function LearnMoreButton({
+export default function GreenPillExpandButton({
   label = "LEARN MORE",
   href = "#",
   className,
-}: LearnMoreButtonProps) {
+}: GreenPillExpandButtonProps) {
   return (
     <a
       className={`${styles.learnMore}${className ? ` ${className}` : ""}`}

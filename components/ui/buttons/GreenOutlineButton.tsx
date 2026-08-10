@@ -1,17 +1,17 @@
-import styles from "./GreenConsultButton.module.css";
+import styles from "./GreenOutlineButton.module.css";
 
-export interface GreenConsultButtonProps {
+export interface GreenOutlineButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
 }
 
 /** Request Free Consult, green rectangular — ported 1:1 from buttons.html (.rfcb-button). */
-export default function GreenConsultButton({
+export default function GreenOutlineButton({
   label = "Request Free Consult",
   onClick,
   className,
-}: GreenConsultButtonProps) {
+}: GreenOutlineButtonProps) {
   return (
     <button
       type="button"

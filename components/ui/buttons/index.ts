@@ -1,25 +1,46 @@
-export { default as RequestFreeConsultButton } from "./RequestFreeConsultButton";
-export { default as OlvButton } from "./OlvButton";
-export { default as FreeConsultButton } from "./FreeConsultButton";
-export { default as BergenButton } from "./BergenButton";
-export { default as GreenConsultButton } from "./GreenConsultButton";
-export { default as ArtemisButton } from "./ArtemisButton";
-export { default as LineApptButton } from "./LineApptButton";
-export { default as AosgButton } from "./AosgButton";
-export { default as FranklinButton } from "./FranklinButton";
-export { default as HudsonButton } from "./HudsonButton";
-export { default as GibsonJsButton } from "./GibsonJsButton";
-export { default as GibsonButton } from "./GibsonButton";
-export { default as HulmeButton } from "./HulmeButton";
-export { default as DoctorButton } from "./DoctorButton";
-export { default as LineApptAltButton } from "./LineApptAltButton";
-export { default as BlueRotateButton } from "./BlueRotateButton";
-export { default as BlueLearnMoreButton } from "./BlueLearnMoreButton";
-export { default as ScheduleButton } from "./ScheduleButton";
-export { default as CharcoalLearnMoreButton } from "./CharcoalLearnMoreButton";
-export { default as GoldConsultButton } from "./GoldConsultButton";
-export { default as NavyDiscoverButton } from "./NavyDiscoverButton";
-export { default as ApptButton } from "./ApptButton";
-export { default as PressButton } from "./PressButton";
-export { default as DiscoverUsButton } from "./DiscoverUsButton";
-export { default as LearnMoreButton } from "./LearnMoreButton";
+// Buttons, grouped by Design Category (see components/ui/docs/categories.ts).
+
+// Modern
+export { default as ArrowLoopButton } from "./ArrowLoopButton";
+export { default as PanelCollapseButton } from "./PanelCollapseButton";
+
+// Minimalist
+export { default as CharcoalOutlineButton } from "./CharcoalOutlineButton";
+export { default as LineSlideButton } from "./LineSlideButton";
+export { default as LineSwapButton } from "./LineSwapButton";
+
+// Elegant
+export { default as BronzeFillButton } from "./BronzeFillButton";
+export { default as TanSweepButton } from "./TanSweepButton";
+
+// Luxury
+export { default as GoldOverhangButton } from "./GoldOverhangButton";
+
+// Fun / Playful
+export { default as OffsetShadowButton } from "./OffsetShadowButton";
+export { default as PinkIconCollapseButton } from "./PinkIconCollapseButton";
+export { default as PressShadowButton } from "./PressShadowButton";
+export { default as TextRollButton } from "./TextRollButton";
+
+// Bold
+export { default as AmberFillButton } from "./AmberFillButton";
+export { default as BlackSweepButton } from "./BlackSweepButton";
+export { default as TealSlabButton } from "./TealSlabButton";
+
+// Clean
+export { default as GreenOutlineButton } from "./GreenOutlineButton";
+export { default as GreenPillExpandButton } from "./GreenPillExpandButton";
+export { default as SoftBlueFadeButton } from "./SoftBlueFadeButton";
+
+// Professional / Corporate
+export { default as BlueSweepButton } from "./BlueSweepButton";
+export { default as BlueSweepRotateButton } from "./BlueSweepRotateButton";
+export { default as NavyChevronButton } from "./NavyChevronButton";
+export { default as TealArrowButton } from "./TealArrowButton";
+
+// Vibrant
+export { default as CyanSweepButton } from "./CyanSweepButton";
+export { default as MagentaInvertButton } from "./MagentaInvertButton";
+
+// Tech / Hi-tech
+export { default as ArrowLoopJsButton } from "./ArrowLoopJsButton";

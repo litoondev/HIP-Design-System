@@ -1,17 +1,17 @@
-import styles from "./OlvButton.module.css";
+import styles from "./TealArrowButton.module.css";
 
-export interface OlvButtonProps {
+export interface TealArrowButtonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
 }
 
 /** OLV / "Discover the difference" button — ported 1:1 from design-system/buttons.html (.olv-button) */
-export default function OlvButton({
+export default function TealArrowButton({
   label = "Discover the difference",
   onClick,
   className,
-}: OlvButtonProps) {
+}: TealArrowButtonProps) {
   return (
     <button
       type="button"
