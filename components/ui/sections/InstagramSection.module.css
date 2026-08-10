@@ -15,9 +15,9 @@
 /* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
 .hipIgHeading { display:flex; flex-direction:column; }
 
-.hipIgEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); }
+.hipIgEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
 
-.hipIgH2 { margin:0 0 var(--heading-gap); font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
+.hipIgH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
 
 .hipIgAccount { display:flex; align-items:center; gap:10px; }
 
@@ -58,7 +58,7 @@
 
 .hipIgTile:nth-child(2) { background:linear-gradient(135deg,var(--color-cta-50) 0%,var(--color-cta-300) 100%); }
 
-.hipIgTile:nth-child(3) { background:linear-gradient(135deg,#f3f4fa 0%,#a4a7d5 100%); }
+.hipIgTile:nth-child(3) { background:linear-gradient(135deg,var(--color-tertiary-50) 0%,var(--color-tertiary-300) 100%); }
 
 .hipIgTile:nth-child(4) { background:linear-gradient(135deg,var(--color-primary-50) 0%,var(--color-primary-400) 100%); }
 
@@ -69,12 +69,4 @@
 /* Padding values now come from the responsive DS tokens; only the tile width changes here. */
 @media (max-width: 860px) {
   .hipIgTile { width:60%; min-width:0; }
-}
-
-@media (max-width: 768px) {
-  .hipIgEyebrow { font-size:14px; }
-}
-
-@media (max-width: 520px) {
-  .hipIgEyebrow { font-size:12px; }
 }

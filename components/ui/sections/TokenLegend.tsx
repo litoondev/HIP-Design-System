@@ -8,8 +8,9 @@ import { colorRefVar } from "@/lib/colors";
  *  reference resolves to — so the swatch and the token name it advertises are provably the
  *  same color, and retargeting a base color in lib/colors.ts moves the swatch with it. */
 const TOKENS = [
-  { ref: "cta", label: "CTA / Primary Royal Amethyst", bordered: false },
-  { ref: "secondary", label: "Secondary Aqua Pulse", bordered: false },
+  { ref: "primary", label: "Primary Ocean Blue", bordered: false },
+  { ref: "secondary", label: "Secondary Sky Cyan", bordered: false },
+  { ref: "cta", label: "CTA Golden Sand", bordered: false },
   { ref: "base-black", label: "Base Black", bordered: false },
   { ref: "base-white", label: "White", bordered: true },
 ];

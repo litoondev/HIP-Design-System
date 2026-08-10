@@ -5,6 +5,7 @@ import { ComponentShowcase, type DemoAlign } from "./ComponentShowcase";
 import {
   ArrowLoopButton,
   PanelCollapseButton,
+  ModernPillButton,
   MinimalOutlineButton,
   LineSlideButton,
   LineSwapButton,
@@ -35,7 +36,7 @@ function row(align: DemoAlign, children: ReactNode) {
   return <div className={`flex ${align === "center" ? "justify-center" : "justify-start"}`}>{children}</div>;
 }
 
-/** All 25 button demos wired into the category-chip showcase shell. */
+/** All 26 button demos wired into the category-chip showcase shell. */
 export default function ButtonsShowcase() {
   return (
     <ComponentShowcase
@@ -43,6 +44,7 @@ export default function ButtonsShowcase() {
       demos={{
         "arrow-loop-button-demo": (align) => row(align, <ArrowLoopButton />),
         "panel-collapse-button-demo": (align) => row(align, <PanelCollapseButton />),
+        "modern-pill-button-demo": (align) => row(align, <ModernPillButton label="Learn More" />),
         "minimal-outline-button-demo": (align) => row(align, <MinimalOutlineButton />),
         "line-slide-button-demo": (align) => row(align, <LineSlideButton />),
         "line-swap-button-demo": (align) => row(align, <LineSwapButton />),

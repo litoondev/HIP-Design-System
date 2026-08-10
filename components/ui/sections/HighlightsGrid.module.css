@@ -10,9 +10,9 @@
 
 .hipHighlightsHeader { text-align:center; margin-bottom:var(--grid-gap); }
 
-.hipHighlightsEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--color-textcolor-preheader); margin:0 0 var(--eyebrow-gap); }
+.hipHighlightsEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); margin:0 0 var(--eyebrow-gap); }
 
-.hipHighlightsH2 { margin:0; font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.2; color:var(--color-textcolor-h2); }
+.hipHighlightsH2 { margin:0; font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
 
 .hipHighlightsGrid {
   display:grid; grid-template-columns:repeat(4,1fr); gap:var(--grid-gap);
@@ -37,11 +37,3 @@
 .hipHiTitle { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; color:var(--color-base-black); line-height:1.3; }
 
 .hipHiSub { font-family: var(--font-inter), 'Inter', sans-serif; font-size:12px; color:var(--color-textcolor-body); line-height:1.4; }
-
-@media (max-width: 768px) {
-  .hipHighlightsEyebrow { font-size:14px; }
-}
-
-@media (max-width: 520px) {
-  .hipHighlightsEyebrow { font-size:12px; }
-}

@@ -2,7 +2,7 @@ export type NavGroup = "Foundations" | "Components" | "Pages" | "Assets";
 
 export interface NavChild {
   label: string;
-  /** may carry a hash for in-page anchors (e.g. /#colors), or be its own route (e.g. /sections/hero) */
+  /** may carry a hash, e.g. /sections#hero */
   href: string;
 }
 
@@ -41,11 +41,13 @@ export const navLinks: NavLink[] = [
     label: "Section Designs",
     href: "/sections",
     group: "Pages",
-    // Ordered to match the homepage structure reference, not sections.html's own numbering.
-    // 01B shares the 01 anchor, exactly as the source sidebar does.
+    // Ordered to match the homepage structure reference; each links to its
+    // standalone viewer page at /sections/<slug>.
     children: [
       { label: "01 · Hero Banner", href: "/sections/hero" },
+      { label: "01B · Hero — Pill Nav", href: "/sections/hero2" },
       { label: "02 · Highlights Grid", href: "/sections/highlights" },
+      { label: "02B · Highlights (Figma)", href: "/sections/highlights2" },
       { label: "03 · Step Section", href: "/sections/steps" },
       { label: "04 · Our Practice", href: "/sections/practice" },
       { label: "05 · Our Doctors", href: "/sections/doctors" },
@@ -61,7 +63,7 @@ export const navLinks: NavLink[] = [
   { label: "Icons", href: "/icons", group: "Assets" },
 ];
 
-/** Splits "/#colors" into ["/", "colors"]; a hash-less route like "/sections/hero" yields ["/sections/hero", undefined]. */
+/** Splits "/sections#hero" into ["/sections", "hero"]; a bare "/#colors" yields ["/", "colors"]. */
 export function splitHref(href: string): [path: string, hash: string | undefined] {
   const [path, hash] = href.split("#");
   return [path || "/", hash || undefined];

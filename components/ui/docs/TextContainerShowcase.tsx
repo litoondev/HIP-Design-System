@@ -3,6 +3,8 @@
 import { ComponentShowcase } from "./ComponentShowcase";
 import TextContainer from "../sections/TextContainer";
 import TextContainerV2 from "../sections/TextContainerV2";
+import TextContainerV3 from "../sections/TextContainerV3";
+import TextContainerV4 from "../sections/TextContainerV4";
 
 /** Text Container demos wired into the category-chip showcase shell. */
 export default function TextContainerShowcase() {
@@ -30,6 +32,23 @@ export default function TextContainerShowcase() {
             preHeader="Pre Header"
             header="Title Here"
             paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim lorem ipsum dolor sit amet, consectetur adipiscing."
+          />
+        ),
+        "text-container-v3-demo": (align) => (
+          <TextContainerV3
+            align={align}
+            preHeader="Pre Header"
+            header="Title Here"
+            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum."
+          />
+        ),
+        "text-container-v4-demo": (align) => (
+          <TextContainerV4
+            align={align}
+            preHeader="Pre Header"
+            header="Title"
+            headerHighlight="Here"
+            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum."
           />
         ),
       }}

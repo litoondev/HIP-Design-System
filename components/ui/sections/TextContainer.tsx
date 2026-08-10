@@ -9,10 +9,10 @@ import BoldFillButton from "../buttons/BoldFillButton";
  * Type tokens:  Pre Header → PreHeader · Header → H2 (site default) ·
  * Paragraph → Body 1 · Bullet Point → Strong 1 · Button → Button.
  *
- * Internal rhythm (Desktop / Tablet / Mobile):
- * pre-header→header 8/6/4 · header→paragraph 24/20/16 · paragraph→paragraph
- * 30/20/16 · bullet→bullet 20/20/16 · content→button 40/30/24 ·
- * button→button 30/20/20 · width 688/688/280.
+ * Internal rhythm and type sizes resolve through the global tokens in
+ * globals.css (--eyebrow-gap, --heading-gap, --paragraph-gap,
+ * --content-button-gap, --button-gap, --text-*), so the responsive ladder has
+ * one source of truth. Width 688/688/280.
  */
 
 export const TEXT_CONTAINER_CATEGORY = "Professional / Corporate";
@@ -68,21 +68,21 @@ export default function TextContainer({
       }`}
     >
       {preHeader && (
-        <p className="font-header font-bold uppercase text-cta text-[12px] leading-[18px] tracking-[3px] md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px] m-0 mb-1 md:mb-1.5 lg:mb-2">
+        <p className="font-header font-bold uppercase text-cta text-[length:var(--text-preheader-size)] leading-[var(--text-preheader-leading)] tracking-[var(--text-preheader-tracking)] m-0 mb-[var(--eyebrow-gap)]">
           {preHeader}
         </p>
       )}
 
-      <HeaderTag className="font-header font-bold text-base-black text-[32px] leading-[40px] md:text-[42px] md:leading-[50px] lg:text-[56px] lg:leading-[68px] m-0 mb-4 md:mb-5 lg:mb-6">
+      <HeaderTag className="font-header font-bold text-base-black text-[length:var(--text-h2-size)] leading-[var(--text-h2-leading)] m-0 mb-[var(--heading-gap)]">
         {header}
       </HeaderTag>
 
       {paragraphs.map((text, i) => (
         <p
           key={i}
-          className={`font-body text-textcolor-body text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px] m-0 ${
+          className={`font-body text-textcolor-body text-[length:var(--text-body1-size)] leading-[var(--text-body1-leading)] m-0 ${
             i < paragraphs.length - 1 || bullets.length > 0
-              ? "mb-4 md:mb-5 lg:mb-[30px]"
+              ? "mb-[var(--paragraph-gap)]"
               : ""
           }`}
         >
@@ -100,7 +100,7 @@ export default function TextContainer({
               } last:border-b-0 last:pb-0${centered ? " justify-center" : ""}`}
             >
               <BulletGlyph />
-              <span className="font-body font-bold text-textcolor-body text-[16px] leading-[22px] tracking-[0.5px] md:text-[18px] md:leading-[28px] lg:text-[20px] lg:leading-[30px]">
+              <span className="font-body font-bold text-textcolor-body text-[length:var(--text-h6-size)] leading-[var(--text-h6-leading)] tracking-[var(--text-h6-tracking)]">
                 {text}
               </span>
             </li>
@@ -109,7 +109,7 @@ export default function TextContainer({
       )}
 
       <div
-        className={`flex flex-wrap items-center gap-5 md:gap-5 lg:gap-[30px] mt-6 md:mt-[30px] lg:mt-10${
+        className={`flex flex-wrap items-center gap-[var(--button-gap)] mt-[var(--content-button-gap)]${
           centered ? " justify-center" : ""
         }`}
       >
