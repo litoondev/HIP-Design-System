@@ -16,31 +16,36 @@
           display:flex; align-items:center; justify-content:space-between;
         }
 
-.w2Socials { display:flex; align-items:center; gap:10px; }
+.w2Socials { display:flex; align-items:center; gap:var(--menu-social-gap); }
 
-.w2SocialDot {
-          width:26px; height:26px; border-radius:50%;
-          background:var(--color-cta-500); display:flex; align-items:center; justify-content:center;
+/* Flat social icon — 24px library glyph in white. No vertical padding here: this bar is
+   40px tall (its own composition), so the icon sits centered rather than reproducing the
+   Figma 44px social box. */
+.w2SocialIcon {
+          display:inline-flex; align-items:center; justify-content:center;
+          color:var(--color-base-white); flex-shrink:0;
         }
 
-.w2SocialDot svg { width:13px; height:13px; fill:var(--color-base-white); }
+.w2SocDiv {
+          width:1px; height:var(--menu-divider-height);
+          background:color-mix(in srgb, var(--color-base-white) 15%, transparent); /* colors/White Alpha/15 */
+          flex-shrink:0;
+        }
 
-.w2SocDiv { width:2px; height:10px; border-radius:6px; background:rgba(255,255,255,.2); }
-
-.w2UtilLinks { display:flex; align-items:center; gap:28px; }
+.w2UtilLinks { display:flex; align-items:center; gap:var(--menu-item-gap); }
 
 /* Type (family/size/weight/letter-spacing/case) comes from typographyClass("overline") in
    HeroPillNav.tsx — the Overline token from lib/design-system/typography.ts — not from this
-   file. Only non-typographic layout stays here: box shape, spacing, color, opacity. */
+   file. Only non-typographic layout stays here: spacing and color. */
 .w2UtilLink {
-          display:inline-flex; align-items:center; gap:7px;
+          display:inline-flex; align-items:center; gap:var(--menu-item-text-gap);
           color:var(--color-base-white);
-          white-space:nowrap; opacity:.9;
+          white-space:nowrap;
         }
 
-.w2UtilLink.accent { color:var(--color-cta-500); }
-
-.w2UtilLink svg { width:13px; height:13px; opacity:.85; }
+.w2UtilLinkIcon {
+          display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;
+        }
 
 .w2MainbarWrap { padding-left:48px; }
 
