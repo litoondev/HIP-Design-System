@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./BlackSweepButton.module.css";
+import styles from "./BoldSweepButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface BlackSweepButtonProps {
+export interface BoldSweepButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface BlackSweepButtonProps {
 }
 
 /** Meet Dr. Franklin — charcoal pill that sweeps away, with inverting circle icon (.franklin-btn). */
-export default function BlackSweepButton({
+export default function BoldSweepButton({
   label,
   practice,
   href = "#",
   className,
-}: BlackSweepButtonProps) {
+}: BoldSweepButtonProps) {
   const text = label ?? defaultCta(practice, 3);
   return (
     <a

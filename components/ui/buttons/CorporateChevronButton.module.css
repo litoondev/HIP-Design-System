@@ -22,8 +22,8 @@
   }
 
 .navyDiscoverButtonIcon {
-    width: 18px;
-    height: 18px;
-    flex: 0 0 18px;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    flex: 0 0 var(--btn-icon-size);
   }
 

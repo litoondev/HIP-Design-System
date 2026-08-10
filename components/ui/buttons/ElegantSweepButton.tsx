@@ -1,8 +1,8 @@
-import styles from "./TanSweepButton.module.css";
+import styles from "./ElegantSweepButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface TanSweepButtonProps {
+export interface ElegantSweepButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface TanSweepButtonProps {
 }
 
 /** Discover Us — bordered rect whose fill sweeps in from the icon divider (.discover-us-button). */
-export default function TanSweepButton({
+export default function ElegantSweepButton({
   label,
   practice,
   href = "#",
   className,
-}: TanSweepButtonProps) {
+}: ElegantSweepButtonProps) {
   const text = label ?? defaultCta(practice, 21);
   return (
     <a

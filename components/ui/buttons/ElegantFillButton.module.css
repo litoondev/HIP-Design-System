@@ -11,9 +11,8 @@
     --brown: var(--color-accent-700);
     --dark: var(--color-navy);
     --white: var(--color-base-white);
-    width: 440px;
     height: 68px;
-    justify-content: space-between;
+    gap: var(--btn-icon-gap);
     padding: 0 9px 0 var(--btn-padding-x);
     border: 2px solid var(--brown);
     background: transparent;
@@ -56,11 +55,11 @@
   }
 
 @media (max-width: 768px) {
-  .bergenButton { width: min(92vw, 396px); height: 61px; padding-right: 8px; font-size: 20px; letter-spacing: 0.5px; }
+  .bergenButton { height: 61px; padding-right: 8px; font-size: 20px; letter-spacing: 0.5px; }
   .bergenButtonIcon { width: 41px; height: 41px; }
 }
 
 @media (max-width: 480px) {
-  .bergenButton { width: min(92vw, 352px); height: 54px; padding-right: 7px; font-size: 18px; }
+  .bergenButton { height: 54px; padding-right: 7px; font-size: 18px; }
   .bergenButtonIcon { width: 37px; height: 37px; }
 }

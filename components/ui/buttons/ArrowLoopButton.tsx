@@ -13,7 +13,7 @@ export interface ArrowLoopButtonProps {
 /**
  * Request Free Consult — white pill with blue sweep and a CSS-keyframed
  * arrow-through-circle on hover. Ported 1:1 from buttons.html (.gibson-btn).
- * See ArrowLoopJsButton for the Web Animations API variant.
+ * See TechLoopButton for the Web Animations API variant.
  */
 export default function ArrowLoopButton({
   label,

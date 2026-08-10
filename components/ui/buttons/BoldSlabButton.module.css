@@ -5,13 +5,12 @@
     composes: btn from "./base.module.css";
     --teal: var(--color-tertiary-700);
     position: relative;
-    width: min(307px, 100%);
     height: 60px;
     overflow: hidden;
     border: 2px solid var(--teal);
     background: transparent;
     color: var(--color-base-black);
-    transition: width 420ms cubic-bezier(.65, 0, .35, 1), color 220ms ease 100ms;
+    transition: color 220ms ease 100ms;
   }
 
 .hudsonBtn::before {
@@ -29,20 +28,20 @@
     position: relative;
     z-index: 1;
     display: flex;
-    width: 100%;
+    flex-direction: row-reverse;
     height: 100%;
     align-items: center;
+    gap: var(--btn-icon-gap);
+    padding: 0 18px 0 var(--btn-padding-x);
+    transition: padding 420ms cubic-bezier(.65, 0, .35, 1);
   }
 
 .hudsonBtnText {
-    position: absolute;
-    left: 24px;
     text-transform: uppercase;
   }
 
 .hudsonBtnIcon {
-    position: absolute;
-    right: 18px;
+    flex-shrink: 0;
     display: grid;
     width: var(--btn-icon-size);
     height: var(--btn-icon-size);
@@ -57,9 +56,15 @@
 
 .hudsonBtn:hover,
 .hudsonBtn:focus-visible {
-    width: min(291px, 100%);
     color: var(--color-base-white);
     outline: none;
+  }
+
+/* The original effect shrank the whole button 16px while the slab expanded;
+   with content-driven width the same visual comes from tightening the padding. */
+.hudsonBtn:hover .hudsonBtnWrapper,
+.hudsonBtn:focus-visible .hudsonBtnWrapper {
+    padding: 0 10px 0 calc(var(--btn-padding-x) - 8px);
   }
 
 .hudsonBtn:hover::before,
@@ -71,17 +76,10 @@
 @media (prefers-reduced-motion: reduce) {
   .hudsonBtn,
   .hudsonBtn::before,
+  .hudsonBtnWrapper,
   .hudsonBtnGlyph { transition-duration: 0.01ms; }
 }
 
-@media (max-width: 768px) {
-  .hudsonBtn { width: min(280px, 100%); }
-  .hudsonBtn:hover,
-  .hudsonBtn:focus-visible { width: min(264px, 100%); }
-}
-
 @media (max-width: 520px) {
-  .hudsonBtn { width: min(240px, 100%); height: 52px; }
-  .hudsonBtn:hover,
-  .hudsonBtn:focus-visible { width: min(224px, 100%); }
+  .hudsonBtn { height: 52px; }
 }

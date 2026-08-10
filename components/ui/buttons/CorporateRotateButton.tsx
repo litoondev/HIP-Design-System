@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./BlueSweepRotateButton.module.css";
+import styles from "./CorporateRotateButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface BlueSweepRotateButtonProps {
+export interface CorporateRotateButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface BlueSweepRotateButtonProps {
 }
 
 /** Learn More — blue rect with right-to-left sweep plus a rotating arrow (.blue-rotate-btn). */
-export default function BlueSweepRotateButton({
+export default function CorporateRotateButton({
   label,
   practice,
   href = "#",
   className,
-}: BlueSweepRotateButtonProps) {
+}: CorporateRotateButtonProps) {
   const text = label ?? defaultCta(practice, 5);
   return (
     <a

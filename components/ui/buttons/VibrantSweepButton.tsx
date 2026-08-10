@@ -1,8 +1,8 @@
-import styles from "./CyanSweepButton.module.css";
+import styles from "./VibrantSweepButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface CyanSweepButtonProps {
+export interface VibrantSweepButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface CyanSweepButtonProps {
 }
 
 /** Schedule Appointment — teal pill with a cyan sweep and circle icon (.schedule-btn). */
-export default function CyanSweepButton({
+export default function VibrantSweepButton({
   label,
   practice,
   href = "#",
   className,
-}: CyanSweepButtonProps) {
+}: VibrantSweepButtonProps) {
   const text = label ?? defaultCta(practice, 8);
   return (
     <a

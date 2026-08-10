@@ -7,8 +7,10 @@
     --gibson-light: var(--color-cta-300);
     position: relative;
     isolation: isolate;
-    width: min(337px, 100%);
+    flex-direction: row-reverse;
+    gap: var(--btn-icon-gap);
     height: 60px;
+    padding: 0 8px 0 var(--btn-padding-x);
     overflow: hidden;
     border: 2px solid var(--gibson-blue);
     border-radius: var(--radius-full);
@@ -30,9 +32,9 @@
   }
 
 .gibsonBtnIcon {
-    position: absolute;
+    position: relative;
     z-index: 1;
-    right: 8px;
+    flex-shrink: 0;
     display: grid;
     width: 34px;
     height: 34px;
@@ -43,11 +45,8 @@
   }
 
 .gibsonBtnText {
-    position: absolute;
+    position: relative;
     z-index: 1;
-    left: 24px;
-    right: 54px;
-    text-align: center;
     text-transform: uppercase;
   }
 

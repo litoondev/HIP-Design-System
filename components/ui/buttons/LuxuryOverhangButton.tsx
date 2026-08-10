@@ -1,8 +1,8 @@
-import styles from "./GoldOverhangButton.module.css";
+import styles from "./LuxuryOverhangButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface GoldOverhangButtonProps {
+export interface LuxuryOverhangButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface GoldOverhangButtonProps {
 }
 
 /** Request Free Consult — gold pill with a floating circle icon (.gold-consult-button). */
-export default function GoldOverhangButton({
+export default function LuxuryOverhangButton({
   label,
   practice,
   onClick,
   className,
-}: GoldOverhangButtonProps) {
+}: LuxuryOverhangButtonProps) {
   const text = label ?? defaultCta(practice, 9);
   return (
     <button
@@ -26,7 +26,7 @@ export default function GoldOverhangButton({
     >
       <span>{text}</span>
       <span className={styles.goldConsultButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" size="var(--glyph-size)" />
+        <Icon name="Arrow Right" size="40%" />
       </span>
     </button>
   );

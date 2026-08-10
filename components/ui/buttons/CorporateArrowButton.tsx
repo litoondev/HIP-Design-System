@@ -1,8 +1,8 @@
-import styles from "./TealArrowButton.module.css";
+import styles from "./CorporateArrowButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface TealArrowButtonProps {
+export interface CorporateArrowButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface TealArrowButtonProps {
 }
 
 /** OLV / "Discover the difference" button — ported 1:1 from design-system/buttons.html (.olv-button) */
-export default function TealArrowButton({
+export default function CorporateArrowButton({
   label,
   practice,
   onClick,
   className,
-}: TealArrowButtonProps) {
+}: CorporateArrowButtonProps) {
   const text = label ?? defaultCta(practice, 22);
   return (
     <button

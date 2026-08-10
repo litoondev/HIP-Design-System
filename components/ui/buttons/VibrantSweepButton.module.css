@@ -3,14 +3,13 @@
    reduced-motion rules are unchanged from the source. */
 .scheduleBtn {
     composes: btn from "./base.module.css";
-    --teal: var(--color-cta-500);
-    --cyan: var(--color-secondary-500);
-    --deep-teal: var(--color-cta-700);
+    --vibrant: var(--color-secondary-500);
+    --vibrant-deep: var(--color-secondary-700);
     position: relative;
     isolation: isolate;
     justify-content: center;
     padding: 6px 8px 6px var(--btn-padding-x);
-    border: 2px solid var(--teal);
+    border: 2px solid var(--vibrant);
     border-radius: var(--radius-full);
     background: var(--color-base-white);
     color: var(--color-base-black);
@@ -24,7 +23,7 @@
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: var(--cyan);
+    background: var(--vibrant);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 350ms ease;
@@ -50,16 +49,16 @@
     flex: 0 0 44px;
     width: 44px;
     height: 44px;
-    border: 2px solid var(--teal);
+    border: 2px solid var(--vibrant);
     border-radius: 50%;
     background: var(--color-base-white);
-    color: var(--teal);
+    color: var(--vibrant);
     transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
   }
 
 .scheduleBtn:hover,
 .scheduleBtn:focus-visible {
-    border-color: var(--cyan);
+    border-color: var(--vibrant);
     outline: none;
   }
 
@@ -70,13 +69,9 @@
 
 .scheduleBtn:hover .scheduleBtnIcon,
 .scheduleBtn:focus-visible .scheduleBtnIcon {
-    border-color: var(--deep-teal);
-    background: var(--deep-teal);
-  }
-
-.scheduleBtn:hover .scheduleBtnIcon,
-.scheduleBtn:focus-visible .scheduleBtnIcon {
-    color: var(--cyan);
+    border-color: var(--vibrant-deep);
+    background: var(--vibrant-deep);
+    color: var(--color-base-white);
   }
 
 @media (max-width: 768px) {

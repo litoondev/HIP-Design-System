@@ -1,8 +1,8 @@
-import styles from "./SoftBlueFadeButton.module.css";
+import styles from "./CleanFadeButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface SoftBlueFadeButtonProps {
+export interface CleanFadeButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -15,12 +15,12 @@ export interface SoftBlueFadeButtonProps {
  * The source's @font-face for "proxima-nova" points at a Typekit URL that requires an active
  * Typekit subscription; it is intentionally not reproduced here. The font stack falls back to Arial.
  */
-export default function SoftBlueFadeButton({
+export default function CleanFadeButton({
   label,
   practice,
   onClick,
   className,
-}: SoftBlueFadeButtonProps) {
+}: CleanFadeButtonProps) {
   const text = label ?? defaultCta(practice, 20);
   return (
     <button
@@ -31,7 +31,7 @@ export default function SoftBlueFadeButton({
     >
       <span className={styles.freeConsultContent}>
         <span className={styles.freeConsultIcon} aria-hidden="true">
-          <Icon name="Arrow Right" size="var(--fc-icon-size)" />
+          <Icon name="Arrow Right" size="44%" />
         </span>
         <span>{text}</span>
       </span>

@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./CharcoalOutlineButton.module.css";
+import styles from "./MinimalOutlineButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface CharcoalOutlineButtonProps {
+export interface MinimalOutlineButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface CharcoalOutlineButtonProps {
 }
 
 /** Learn More — charcoal square with a rotating arrow (.charcoal-learn-more). */
-export default function CharcoalOutlineButton({
+export default function MinimalOutlineButton({
   label,
   practice,
   href = "#",
   className,
-}: CharcoalOutlineButtonProps) {
+}: MinimalOutlineButtonProps) {
   const text = label ?? defaultCta(practice, 7);
   return (
     <a
@@ -28,7 +28,7 @@ export default function CharcoalOutlineButton({
       <span className={styles.charcoalLearnMoreIcon} aria-hidden="true">
         <Icon
           name="Arrow Right"
-          size="var(--charcoal-arrow-size)"
+          size="56%"
           className={styles.charcoalLearnMoreArrow}
         />
       </span>

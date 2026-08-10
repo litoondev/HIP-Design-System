@@ -32,7 +32,6 @@
   }
 
 .freeConsultIcon {
-    --fc-icon-size: 16px;
     display: flex;
     flex: 0 0 36px;
     align-items: center;
@@ -47,11 +46,11 @@
 @media (max-width: 768px) {
   .freeConsult { width: 206px; height: 50px; padding: 9px 9px 9px var(--btn-padding-x); }
   .freeConsultContent { height: 32px; }
-  .freeConsultIcon { --fc-icon-size: 14px; flex: 0 0 32px; width: 32px; height: 32px; }
+  .freeConsultIcon { flex: 0 0 32px; width: 32px; height: 32px; }
 }
 
 @media (max-width: 480px) {
   .freeConsult { width: 184px; height: 45px; padding: 8px 8px 8px var(--btn-padding-x); font-size: 16px; line-height: 24px; }
   .freeConsultContent { height: 29px; }
-  .freeConsultIcon { --fc-icon-size: 13px; flex: 0 0 29px; width: 29px; height: 29px; }
+  .freeConsultIcon { flex: 0 0 29px; width: 29px; height: 29px; }
 }

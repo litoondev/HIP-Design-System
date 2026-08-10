@@ -1,8 +1,8 @@
-import styles from "./TealSlabButton.module.css";
+import styles from "./BoldSlabButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface TealSlabButtonProps {
+export interface BoldSlabButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface TealSlabButtonProps {
 }
 
 /** Free Consultation — teal rect whose inner slab expands while the button shrinks (.hudson-btn). */
-export default function TealSlabButton({
+export default function BoldSlabButton({
   label,
   practice,
   href = "#",
   className,
-}: TealSlabButtonProps) {
+}: BoldSlabButtonProps) {
   const text = label ?? defaultCta(practice, 23);
   return (
     <a

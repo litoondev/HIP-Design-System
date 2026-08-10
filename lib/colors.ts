@@ -10,12 +10,12 @@
  */
 
 export const baseColors = {
-  primary: "#320270", // Royal Amethyst
-  secondary: "#1fc3df", // Aqua Pulse
-  tertiary: "#1895a7", // Pacific Glass
-  accent: "#ffcf18", // Solar Flare
-  cta: "#320270", // Royal Amethyst (CTA = Primary in this project)
-  gray: "#717680", // Slate Horizon
+  primary: "#3196a9", // Harbor Teal
+  secondary: "#06b6d4", // Cyan Pulse
+  tertiary: "#8d8dc7", // Periwinkle Dusk
+  accent: "#eab308", // Golden Amber
+  cta: "#f97316", // Ember Orange (deliberate — high-contrast against the teal family)
+  gray: "#737373", // Gray Main
 } as const;
 
 export type BrandColor = keyof typeof baseColors;
@@ -25,10 +25,10 @@ export type BrandColor = keyof typeof baseColors;
  * Tailwind theme and the generated CSS variables are guaranteed to name the same colors.
  */
 export const baseNeutrals = {
-  white: "#ffffff", // Pure White
-  black: "#000000", // Pure Black
-  lightgray: "#ced0d3", // Lunar Fog
-  gray: "#717680", // Slate Horizon
+  white: "#ffffff", // Base White
+  black: "#030712", // Base Black (near-black with a cool cast, per Figma)
+  lightgray: "#e5e5e5", // Gray 200
+  gray: "#737373", // Gray Main
 } as const;
 
 /** Dark bar / footer ground. */
@@ -84,13 +84,10 @@ export const textColors = {
 export type TextColorRole = keyof typeof textColors;
 
 /**
- * Ramps that are aliases of another ramp rather than their own color. CTA has always been
- * "Primary under a different name" in this project; saying so here makes it structural
- * instead of two hexes that happen to match.
+ * Ramps that are aliases of another ramp rather than their own color. Empty in this
+ * project: CTA (#f97316) is deliberately its own color, not Primary under another name.
  */
-export const rampAliases: Partial<Record<BrandColor, BrandColor>> = {
-  cta: "primary",
-};
+export const rampAliases: Partial<Record<BrandColor, BrandColor>> = {};
 
 export const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 export type Step = (typeof STEPS)[number];

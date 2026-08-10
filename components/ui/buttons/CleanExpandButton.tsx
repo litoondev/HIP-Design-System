@@ -1,8 +1,8 @@
-import styles from "./GreenPillExpandButton.module.css";
+import styles from "./CleanExpandButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface GreenPillExpandButtonProps {
+export interface CleanExpandButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface GreenPillExpandButtonProps {
 }
 
 /** Learn More pill button — ported 1:1 from design-system/buttons.html (.learn-more) */
-export default function GreenPillExpandButton({
+export default function CleanExpandButton({
   label,
   practice,
   href = "#",
   className,
-}: GreenPillExpandButtonProps) {
+}: CleanExpandButtonProps) {
   const text = label ?? defaultCta(practice, 11);
   return (
     <a

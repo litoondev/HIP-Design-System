@@ -43,8 +43,8 @@
 .aosgBtnIcon {
     display: block;
     flex-shrink: 0;
-    width: 14px;
-    height: 14px;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
     color: currentColor;
   }
 

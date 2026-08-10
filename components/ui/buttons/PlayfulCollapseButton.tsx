@@ -1,8 +1,8 @@
-import styles from "./PinkIconCollapseButton.module.css";
+import styles from "./PlayfulCollapseButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface PinkIconCollapseButtonProps {
+export interface PlayfulCollapseButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface PinkIconCollapseButtonProps {
 }
 
 /** Artemis Ortho pink pill — ported 1:1 from buttons.html (.artemis-button). */
-export default function PinkIconCollapseButton({
+export default function PlayfulCollapseButton({
   label,
   practice,
   href = "#",
   className,
-}: PinkIconCollapseButtonProps) {
+}: PlayfulCollapseButtonProps) {
   const text = label ?? defaultCta(practice, 18);
   return (
     <a

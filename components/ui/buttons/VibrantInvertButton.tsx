@@ -1,8 +1,8 @@
-import styles from "./MagentaInvertButton.module.css";
+import styles from "./VibrantInvertButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface MagentaInvertButtonProps {
+export interface VibrantInvertButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface MagentaInvertButtonProps {
 }
 
 /** Request Appointment — pink pill with a white circle icon (.appt-button). */
-export default function MagentaInvertButton({
+export default function VibrantInvertButton({
   label,
   practice,
   href = "#",
   className,
-}: MagentaInvertButtonProps) {
+}: VibrantInvertButtonProps) {
   const text = label ?? defaultCta(practice, 14);
   return (
     <a

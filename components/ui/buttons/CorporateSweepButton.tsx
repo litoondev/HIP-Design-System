@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./BlueSweepButton.module.css";
+import styles from "./CorporateSweepButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface BlueSweepButtonProps {
+export interface CorporateSweepButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface BlueSweepButtonProps {
 }
 
 /** Learn More — blue rect with a right-to-left white sweep (.blue-learn-more). */
-export default function BlueSweepButton({
+export default function CorporateSweepButton({
   label,
   practice,
   href = "#",
   className,
-}: BlueSweepButtonProps) {
+}: CorporateSweepButtonProps) {
   const text = label ?? defaultCta(practice, 4);
   return (
     <a

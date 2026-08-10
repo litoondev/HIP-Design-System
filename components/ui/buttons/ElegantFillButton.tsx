@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./BronzeFillButton.module.css";
+import styles from "./ElegantFillButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface BronzeFillButtonProps {
+export interface ElegantFillButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -14,12 +14,12 @@ export interface BronzeFillButtonProps {
  * Bergen Ortho button — ported 1:1 from design-system/buttons.html (.bergen-button).
  * Needs a dark backdrop to read well in its default (non-hover) state, matching the source markup.
  */
-export default function BronzeFillButton({
+export default function ElegantFillButton({
   label,
   practice,
   onClick,
   className,
-}: BronzeFillButtonProps) {
+}: ElegantFillButtonProps) {
   const text = label ?? defaultCta(practice, 6);
   return (
     <button

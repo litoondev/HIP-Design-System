@@ -18,7 +18,7 @@
 export const TEXT_CONTAINER_V2_CATEGORY = "Vibrant";
 
 import type { ReactNode } from "react";
-import CyanSweepButton from "../buttons/CyanSweepButton";
+import VibrantSweepButton from "../buttons/VibrantSweepButton";
 
 const HOST_GROTESK = "'Host Grotesk', sans-serif";
 
@@ -36,7 +36,7 @@ export interface TextContainerV2Props {
 }
 
 function PreHeaderLine() {
-  return <span aria-hidden="true" className="w-[60px] h-px bg-[#24aae1] shrink-0" />;
+  return <span aria-hidden="true" className="w-[60px] h-px bg-[color:var(--color-secondary-base)] shrink-0" />;
 }
 
 export function LearnMoreV2Button({
@@ -50,15 +50,15 @@ export function LearnMoreV2Button({
     <button
       type="button"
       onClick={onClick}
-      className="group flex items-center gap-[18px] border-2 border-[#2d2d2d] pl-[18px] bg-white"
+      className="group flex items-center gap-[18px] border-2 border-[color:var(--color-base-black)] pl-[18px] bg-white"
       style={{ fontFamily: HOST_GROTESK }}
       aria-label={label}
     >
-      <span className="font-extrabold uppercase text-[#2d2d2d] text-[16px] lg:text-[20px] leading-[1.5] tracking-[1.25px] whitespace-nowrap">
+      <span className="font-extrabold uppercase text-[color:var(--color-base-black)] text-[16px] lg:text-[20px] leading-[1.5] tracking-[1.25px] whitespace-nowrap">
         {label}
       </span>
-      <span className="w-[3px] self-stretch bg-[#2d2d2d] -my-[2px]" aria-hidden="true" />
-      <span className="flex items-center bg-[#2d2d2d] p-[18px] lg:p-[22px] -m-[2px] ml-0 transition-colors duration-150 ease-out group-hover:bg-[#24aae1]">
+      <span className="w-[3px] self-stretch bg-[color:var(--color-base-black)] -my-[2px]" aria-hidden="true" />
+      <span className="flex items-center bg-[color:var(--color-base-black)] p-[18px] lg:p-[22px] -m-[2px] ml-0 transition-colors duration-150 ease-out group-hover:bg-[color:var(--color-secondary-base)]">
         <img src="/icons/learn-more-arrow.svg" alt="" className="w-[18px] h-[18px]" />
       </span>
     </button>
@@ -89,26 +89,26 @@ export default function TextContainerV2({
           {preHeader && (
             <div className="flex items-center gap-[16px]">
               {centered && <PreHeaderLine />}
-              <p className="m-0 font-medium uppercase text-[#24aae1] text-[12px] lg:text-[16px] leading-[1.5] tracking-[3px] whitespace-nowrap">
+              <p className="m-0 font-medium uppercase text-[color:var(--color-secondary-base)] text-[12px] lg:text-[16px] leading-[1.5] tracking-[3px] whitespace-nowrap">
                 {preHeader}
               </p>
               <PreHeaderLine />
             </div>
           )}
           <h2
-            className="m-0 font-semibold capitalize text-[#273993] text-[32px] md:text-[42px] lg:text-[56px] leading-[1.2]"
-            style={{ textShadow: "3px 3px 0px #8fe8fc" }}
+            className="m-0 font-semibold capitalize text-[color:var(--color-primary-base)] text-[32px] md:text-[42px] lg:text-[56px] leading-[1.2]"
+            style={{ textShadow: "3px 3px 0px var(--color-secondary-200)" }}
           >
             {header}
           </h2>
         </div>
         {paragraph && (
-          <p className="m-0 font-normal text-[#58585b] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5]">
+          <p className="m-0 font-normal text-[color:var(--color-textcolor-body)] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5]">
             {paragraph}
           </p>
         )}
       </div>
-      {showButton && (button ?? <CyanSweepButton label={buttonLabel} href={buttonHref} />)}
+      {showButton && (button ?? <VibrantSweepButton label={buttonLabel} href={buttonHref} />)}
     </div>
   );
 }

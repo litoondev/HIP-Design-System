@@ -32,7 +32,6 @@
     transition: background-color 320ms ease, color 320ms ease;
   }
 
-.goldConsultButtonIcon { --glyph-size: 24px; }
 
 .goldConsultButton:hover,
 .goldConsultButton:focus-visible {
@@ -54,11 +53,9 @@
 @media (max-width: 768px) {
   .goldConsultButton { height: 54px; padding: 0 60px 0 var(--btn-padding-x); }
   .goldConsultButtonIcon { width: 54px; height: 54px; }
-  .goldConsultButtonIcon { --glyph-size: 21px; }
 }
 
 @media (max-width: 520px) {
   .goldConsultButton { height: 48px; padding: 0 54px 0 var(--btn-padding-x); }
   .goldConsultButtonIcon { width: 48px; height: 48px; }
-  .goldConsultButtonIcon { --glyph-size: 18px; }
 }

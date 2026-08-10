@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import Icon from "../icons/Icon";
-import styles from "./ArrowLoopJsButton.module.css";
+import styles from "./TechLoopButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface ArrowLoopJsButtonProps {
+export interface TechLoopButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -20,12 +20,12 @@ const TIMING: KeyframeAnimationOptions = { duration: 500, easing: "ease-in-out" 
  * shoots forward on enter/focus and backward on leave/blur. Ported from the inline <script> in
  * design-system/buttons.html; the reduced-motion guard is preserved.
  */
-export default function ArrowLoopJsButton({
+export default function TechLoopButton({
   label,
   practice,
   href = "#",
   className,
-}: ArrowLoopJsButtonProps) {
+}: TechLoopButtonProps) {
   const arrowRef = useRef<HTMLSpanElement | null>(null);
   const animRef = useRef<Animation | null>(null);
   const reducedRef = useRef(false);

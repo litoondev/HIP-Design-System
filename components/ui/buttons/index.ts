@@ -7,42 +7,42 @@ export { default as ArrowLoopButton } from "./ArrowLoopButton";
 export { default as PanelCollapseButton } from "./PanelCollapseButton";
 
 // Minimalist
-export { default as CharcoalOutlineButton } from "./CharcoalOutlineButton";
+export { default as MinimalOutlineButton } from "./MinimalOutlineButton";
 export { default as LineSlideButton } from "./LineSlideButton";
 export { default as LineSwapButton } from "./LineSwapButton";
 
 // Elegant
-export { default as BronzeFillButton } from "./BronzeFillButton";
-export { default as TanSweepButton } from "./TanSweepButton";
+export { default as ElegantFillButton } from "./ElegantFillButton";
+export { default as ElegantSweepButton } from "./ElegantSweepButton";
 
 // Luxury
-export { default as GoldOverhangButton } from "./GoldOverhangButton";
+export { default as LuxuryOverhangButton } from "./LuxuryOverhangButton";
 
 // Fun / Playful
 export { default as OffsetShadowButton } from "./OffsetShadowButton";
-export { default as PinkIconCollapseButton } from "./PinkIconCollapseButton";
+export { default as PlayfulCollapseButton } from "./PlayfulCollapseButton";
 export { default as PressShadowButton } from "./PressShadowButton";
 export { default as TextRollButton } from "./TextRollButton";
 
 // Bold
-export { default as AmberFillButton } from "./AmberFillButton";
-export { default as BlackSweepButton } from "./BlackSweepButton";
-export { default as TealSlabButton } from "./TealSlabButton";
+export { default as BoldFillButton } from "./BoldFillButton";
+export { default as BoldSweepButton } from "./BoldSweepButton";
+export { default as BoldSlabButton } from "./BoldSlabButton";
 
 // Clean
-export { default as GreenOutlineButton } from "./GreenOutlineButton";
-export { default as GreenPillExpandButton } from "./GreenPillExpandButton";
-export { default as SoftBlueFadeButton } from "./SoftBlueFadeButton";
+export { default as CleanOutlineButton } from "./CleanOutlineButton";
+export { default as CleanExpandButton } from "./CleanExpandButton";
+export { default as CleanFadeButton } from "./CleanFadeButton";
 
 // Professional / Corporate
-export { default as BlueSweepButton } from "./BlueSweepButton";
-export { default as BlueSweepRotateButton } from "./BlueSweepRotateButton";
-export { default as NavyChevronButton } from "./NavyChevronButton";
-export { default as TealArrowButton } from "./TealArrowButton";
+export { default as CorporateSweepButton } from "./CorporateSweepButton";
+export { default as CorporateRotateButton } from "./CorporateRotateButton";
+export { default as CorporateChevronButton } from "./CorporateChevronButton";
+export { default as CorporateArrowButton } from "./CorporateArrowButton";
 
 // Vibrant
-export { default as CyanSweepButton } from "./CyanSweepButton";
-export { default as MagentaInvertButton } from "./MagentaInvertButton";
+export { default as VibrantSweepButton } from "./VibrantSweepButton";
+export { default as VibrantInvertButton } from "./VibrantInvertButton";
 
 // Tech / Hi-tech
-export { default as ArrowLoopJsButton } from "./ArrowLoopJsButton";
+export { default as TechLoopButton } from "./TechLoopButton";

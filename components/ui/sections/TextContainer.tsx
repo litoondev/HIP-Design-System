@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import AmberFillButton from "../buttons/AmberFillButton";
+import BoldFillButton from "../buttons/BoldFillButton";
 
 /**
  * Text Container — the standard copy block (Figma node 12951:55012).
@@ -113,7 +113,7 @@ export default function TextContainer({
           centered ? " justify-center" : ""
         }`}
       >
-        {buttons ?? <AmberFillButton />}
+        {buttons ?? <BoldFillButton />}
       </div>
     </div>
   );

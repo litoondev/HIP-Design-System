@@ -1,8 +1,8 @@
-import styles from "./NavyChevronButton.module.css";
+import styles from "./CorporateChevronButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface NavyChevronButtonProps {
+export interface CorporateChevronButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -14,12 +14,12 @@ export interface NavyChevronButtonProps {
  * Discover Us — navy pill with a "Next" icon from the global icon library
  * (.navy-discover-button).
  */
-export default function NavyChevronButton({
+export default function CorporateChevronButton({
   label,
   practice,
   onClick,
   className,
-}: NavyChevronButtonProps) {
+}: CorporateChevronButtonProps) {
   const text = label ?? defaultCta(practice, 15);
   return (
     <button
@@ -29,7 +29,7 @@ export default function NavyChevronButton({
     >
       <span>{text}</span>
       <span className={styles.navyDiscoverButtonIcon} aria-hidden="true">
-        <Icon name="Next" size="100%" />
+        <Icon name="Arrow Right" size="100%" />
       </span>
     </button>
   );

@@ -1,8 +1,8 @@
 import Icon from "../icons/Icon";
-import styles from "./AmberFillButton.module.css";
+import styles from "./BoldFillButton.module.css";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export interface AmberFillButtonProps {
+export interface BoldFillButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
@@ -11,12 +11,12 @@ export interface AmberFillButtonProps {
 }
 
 /** Request Free Consult button — ported 1:1 from design-system/buttons.html (.consult-button, node 15810:54779) */
-export default function AmberFillButton({
+export default function BoldFillButton({
   label,
   practice,
   onClick,
   className,
-}: AmberFillButtonProps) {
+}: BoldFillButtonProps) {
   const text = label ?? defaultCta(practice, 0);
   return (
     <button
