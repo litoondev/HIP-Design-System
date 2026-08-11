@@ -12,9 +12,14 @@
   padding-bottom:var(--grid-gap); border-bottom:1px solid rgba(255,255,255,.1);
 }
 
-.hipFootLogo { font-size:28px; font-weight:800; color:var(--color-base-white); letter-spacing:-.5px; }
-
-.hipFootLogo span { color:var(--color-cta-500); }
+/* The logo is now the hip-logo SVG from the icon library, not type — so the 28px/800/-.5px
+   that used to set the "HIP." text is gone, along with the `span` rule that painted the dot.
+   min-height mirrors the hero navs: at least icon-3xl (64 / 48 / 40), set as a MIN so a taller
+   wordmark can grow the box later. inline-flex is required for min-height to apply to an <a>. */
+.hipFootLogo {
+  display:inline-flex; align-items:center; min-height:var(--icon-3xl);
+  color:var(--color-base-white); text-decoration:none;
+}
 
 /* Retargets the Corporate Arrow button (the section's category) from its tertiary ramp to
    CTA orange — the footer's repeat CTA stays Ember Orange. Doubled class beats the button
@@ -66,18 +71,24 @@
 /* Icons stay pinned to cta in both states, per the comp. */
 .hipFootContactIcon { color:var(--color-cta-base); }
 
-.hipFootSocials { display:flex; gap:10px; }
+.hipFootSocials { display:flex; gap:var(--spacing-10); }
 
+/* Size is content-driven: an icon-lg glyph inside spacing/10 of padding on all four sides —
+   44px at desktop/tablet, 40px at mobile. The old fixed 34px box around a 15px glyph matched
+   neither the icon scale nor the spacing scale, and left these marks visibly smaller than the
+   same four icons in the hero utility bars. */
 .hipFootSocial {
-  width:34px; height:34px; border-radius:8px;
+  padding:var(--spacing-10); border-radius:8px;
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
   display:flex; align-items:center; justify-content:center;
   color:rgba(255,255,255,.75); text-decoration:none;
 }
 
-.hipFootSocial:hover { background:var(--color-cta-500); border-color:var(--color-cta-500); color:var(--color-base-white); }
+.hipFootSocial:hover,
+.hipFootSocial:focus-visible { background:var(--color-cta-500); border-color:var(--color-cta-500); color:var(--color-base-white); }
 
-.hipFootSocial svg { width:15px; height:15px; }
+/* Focus needs to read differently from hover, or tabbing the row gives no signal. */
+.hipFootSocial:focus-visible { outline:2px solid var(--color-base-white); outline-offset:2px; }
 
 .hipFootBar {
   display:flex; align-items:center; justify-content:space-between; gap:var(--heading-gap); flex-wrap:wrap;

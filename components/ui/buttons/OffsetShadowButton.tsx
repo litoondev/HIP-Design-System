@@ -29,7 +29,7 @@ export default function OffsetShadowButton({
         <span className={styles.aosgBtnInner}>
           <span className={styles.aosgBtnText}>{text}</span>
           <span className={styles.aosgBtnIcon} aria-hidden="true">
-            <Icon name="Arrow Right" size="100%" />
+            <Icon name="arrow-right" size="100%" />
           </span>
         </span>
       </a>

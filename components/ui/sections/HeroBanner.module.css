@@ -25,16 +25,18 @@
   pointer-events: none;
 }
 
+/* Height is content-driven, not a fixed 44px. Now that --menu-icon-size aliases icon-lg it
+   steps 24 → 24 → 20px, so the old literal left a 4px dead band at mobile. Padding sets the
+   height instead: icon-lg + spacing/10 top and bottom = 44px desktop & tablet, 40px mobile. */
 .hipUtilityBar {
-  height: 44px;
-  padding: 0 40px;
+  padding: var(--menu-bar-padding-y) 40px;
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .hipSocials { display:flex; align-items:center; gap:var(--menu-social-gap); }
 
-/* Flat social icon (Figma Top_Menu treatment): a 24px library glyph in white with the
+/* Flat social icon (Figma Top_Menu treatment): an icon-lg library glyph in white with the
    Figma social padding — no filled badge. Divider hairlines separate them. */
 .hipSocialIcon {
   display:inline-flex; align-items:center; justify-content:center;
@@ -55,47 +57,54 @@
    file. Only non-typographic layout stays here: spacing and color. */
 .hipUtilityLink {
   display:flex; align-items:center; gap:var(--menu-item-text-gap);
-  height:44px;
   color:var(--color-base-white);
 }
 
-/* Icon wrapper — carries the Figma Header-Top icon padding around the 24px library glyph. */
+/* Icon wrapper — carries the Figma Header-Top icon padding around the icon-lg glyph. */
 .hipUtilityLinkIcon {
   display:inline-flex; align-items:center; justify-content:center;
   padding:var(--menu-item-icon-pad-y) var(--menu-item-icon-pad-x);
   flex-shrink:0;
 }
 
+/* Height is content-driven: the fixed 76px predated the SVG logo, which reserves icon-3xl
+   (64px desktop) and would have left only 6px of breathing room top and bottom. Padding sets
+   the height now — spacing/16 above and below the tallest child. */
 .hipMainNav {
-  height: 76px;
-  padding: 0 40px;
+  padding: var(--nav-bar-padding-y) 40px;
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
+/* The logo reserves at least icon-3xl (64 / 48 / 40) of height. It is set as a MIN, not a
+   fixed height, so dropping a real wordmark image in later can grow the box without touching
+   this rule. inline-flex is required for it to take effect at all — the element is an <a>,
+   and min-height does nothing on an inline box; it also vertically centers the text. */
 .hipLogo {
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:22px; font-weight:800;
-  letter-spacing:-0.5px; color:var(--color-base-white); text-decoration:none; cursor:pointer;
+  display:inline-flex; align-items:center; min-height:var(--icon-3xl);
+  color:var(--color-base-white); text-decoration:none; cursor:pointer;
 }
 
-.hipLogo span { color:var(--color-cta-500); }
+.hipNavLinks { display:flex; align-items:center; gap:var(--spacing-50); }
 
-.hipNavLinks { display:flex; align-items:center; gap:28px; }
-
-/* Font family comes from typographyFontFamilyClass("menuItem") in HeroBanner.tsx (the Menu
-   Item typography token) — never hardcoded here. Size/weight/case/tracking stay in this file;
-   they're this nav's own look, not part of Menu Item's style. */
+/* Type — family, weight, and the responsive size/leading/tracking ladder — comes from
+   typographyClass("menuItem") in HeroBanner.tsx. The former font-size:15px / font-weight:700 /
+   letter-spacing:.4px lived here and shadowed the token; they are gone so Menu Item is the
+   only thing setting this nav's metrics. Uppercase stays: Menu Item declares no
+   text-transform, so casing is this nav's own choice and does not fight the token. */
 .hipNavLink {
-  font-size:15px; font-weight:700;
-  letter-spacing:.4px; text-transform:uppercase; color:rgba(255,255,255,.85);
-  display:flex; align-items:center; gap:4px;
+  text-transform:uppercase; color:rgba(255,255,255,.85);
+  display:flex; align-items:center; gap:var(--menu-item-text-gap);
   text-decoration:none; cursor:pointer;
   transition: color .15s;
 }
 
 .hipNavLink:hover { color:var(--color-base-white); }
 
-.hipNavLink svg { width:13px; height:13px; opacity:.6; }
+/* Caret box. The glyph itself is the "Arrow Down" entry from the global icon library, sized
+   by the icon-sm token in HeroBanner.tsx — the old `.hipNavLink svg { width:13px }` rule was
+   a hardcoded size on a hand-rolled inline chevron and is gone. Only opacity lives here. */
+.hipNavCaret { display:inline-flex; align-items:center; opacity:.6; }
 
 .hipNavCta {
   padding:10px 22px; border-radius:var(--radius-full);
@@ -107,9 +116,26 @@
 
 .hipNavCta:hover { opacity:.9; }
 
+/*
+ * `top` is the combined height of the two bars above, derived from the tokens that draw them
+ * rather than restated. It was a hardcoded 120px, correct back when the bars were 44px + 76px.
+ * Both have since become content-driven — the nav is now icon-3xl + spacing/16 top and bottom
+ * (96px desktop) — so 120px had silently become a 20px overlap onto the nav.
+ *
+ * `pointer-events: none` used to sit here to let nav clicks pass through "any accidental
+ * overlap". That was compensating for exactly the drift above, and it cost more than it
+ * bought: it made the eyebrow and headline unselectable with the cursor and unpickable in
+ * DevTools. With `top` now tracking the real bar height there is no overlap to defend
+ * against, so the text behaves like text again.
+ */
 .hipHeroContent {
-  position: absolute; top: 120px; left: 0; right: 0; bottom: 0; /* starts below utility+nav, never overlaps nav */
-  pointer-events: none; /* lets nav clicks pass through any accidental overlap */
+  position: absolute;
+  top: calc(
+    var(--menu-icon-size) + var(--menu-bar-padding-y) * 2 +  /* utility bar */
+    var(--icon-3xl) + var(--nav-bar-padding-y) * 2 +         /* main nav bar */
+    2px                                                      /* the two 1px bar borders */
+  );
+  left: 0; right: 0; bottom: 0;
   display: flex; flex-direction:column; align-items:flex-start; justify-content:center;
   padding: 0 var(--container-padding-x);
 }
@@ -120,21 +146,31 @@
   letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-cta-500);
 }
 
+/* Type comes from typographyClass("mainHeader") in HeroBanner.tsx. The family, the
+   clamp() size, the weight and the line-height that used to live here shadowed the token and
+   are gone — only color, margin and casing are this hero's own. */
 .hipHeroH1 {
   margin:0 0 var(--content-button-gap); padding:0;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:clamp(44px,5.5vw,80px);
-  font-weight:600; line-height:1.1; color:var(--color-base-white); text-transform:capitalize;
+  color:var(--color-base-white); text-transform:capitalize;
 }
 
 .hipHeroH1 em { font-style:normal; color:var(--color-cta-500); }
 
-.hipHeroActions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; pointer-events:auto; }
+/* `pointer-events:auto` is gone with the `none` on .hipHeroContent that it was undoing —
+   these buttons are clickable by default now, like everything else in the hero. */
+.hipHeroActions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
 
+/* Composes the same `.btn` base every one of the 26 library buttons composes, so this hero
+   CTA sits on the canonical button type ramp (Figtree 700, 20/30/1.25 desktop → 18/28/0.5
+   tablet → 16/24/0 mobile) instead of the fixed 16px / 800 / 1px it declared for itself —
+   which is why it read a size smaller than every button on /buttons. Only the things that are
+   genuinely this hero's own (padding, radius, colors, uppercase) stay here. */
 .hipHeroBtn {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+  composes: btn from "../buttons/base.module.css";
+  gap:var(--btn-icon-gap);
   padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
-  border:0; cursor:pointer; white-space:nowrap;
+  text-transform:uppercase;
+  border:0;
 }
 
 .hipHeroBtn svg { width:var(--btn-icon-size); height:var(--btn-icon-size); flex-shrink:0; }

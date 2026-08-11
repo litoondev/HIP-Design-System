@@ -27,7 +27,7 @@ export default function ElegantSweepButton({
       <span className={styles.discoverUsButtonFill} aria-hidden="true" />
       <span className={styles.discoverUsButtonDivider} aria-hidden="true" />
       <span className={styles.discoverUsButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" />
+        <Icon name="arrow-right" />
       </span>
       <span className={styles.discoverUsButtonLabel}>{text}</span>
     </a>

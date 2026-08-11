@@ -11,7 +11,7 @@
 
 /* ── Top utility bar — secondary ground, black ink (Figma Top_Menu) ── */
 .w3Topbar {
-  padding: 0 64px;
+  padding: var(--menu-bar-padding-y) 64px;
   background: var(--color-secondary-500);
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -34,27 +34,33 @@
   white-space: nowrap;
 }
 
+/* Was a one-off `0 5px`. The Figma Header Top/Icon box is spacing/10 left and right
+   (--menu-item-icon-pad-x); vertical padding stays on .w3UtilLink so the two don't stack. */
 .w3UtilLinkIcon {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 0 5px; flex-shrink: 0;
+  padding: 0 var(--menu-item-icon-pad-x); flex-shrink: 0;
 }
 
 /* ── Main nav — white, square corners (Figma Menu_bar) ── */
 .w3Mainbar {
-  padding: 25px 64px;
+  padding: var(--nav-bar-padding-y) 64px;
   background: var(--color-base-white);
   display: flex; align-items: center; justify-content: space-between;
 }
 
+/* The logo reserves at least icon-3xl (64 / 48 / 40) of height. Set as a MIN, not a fixed
+   height, so a real wordmark image can grow the box later without touching this rule.
+   inline-flex + align-items also vertically centers the text inside that box. */
 .w3Brand {
   flex: 0 0 auto;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size: 28px; font-weight: 800;
-  color: var(--color-base-black); letter-spacing: -.5px;
+  display: inline-flex; align-items: center; min-height: var(--icon-3xl);
+  color: var(--color-base-black); text-decoration: none;
 }
 
-.w3Brand span { color: var(--color-cta-500); }
-
-.w3Navlinks { display: flex; align-items: center; justify-content: flex-end; gap: 30px; }
+.w3Navlinks {
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: var(--spacing-50);
+}
 
 /* Type comes from typographyClass("menuItem") — only layout & color live here. */
 .w3Navlink {
@@ -101,26 +107,35 @@
 }
 
 /* Figma H1 Large: Georgia Regular 100/100. Second line splits secondary / accent. */
+/* Type comes from typographyClass("mainHeader") in HeroSlider.tsx.
+   This file previously set `font-family: Georgia, serif` at weight 400 — a serif voice unique
+   to this variant and backed by no token (Georgia is not loaded by next/font either, so it
+   was relying on a system face). Main Header is on the header family, so that serif is gone.
+   If the serif is a real design requirement it belongs in lib/design-system/typography.ts as
+   a variant, not as a one-off here. Only color, margin and the two-tone accents remain. */
 .w3H1 {
   margin: 0; color: var(--color-base-white);
-  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
-  font-size: clamp(44px, 7vw, 100px); line-height: 1;
-  letter-spacing: 0;
 }
 
 .w3H1 em { color: var(--color-secondary-500); font-style: normal; }
 
-.w3H1 strong { color: var(--color-accent-500); font-weight: 400; }
+/* `font-weight: 400` was dropped here: it existed to match the old Georgia-400 headline, and
+   against Main Header's 700 it would render this one word visibly lighter than the rest of
+   the line. Weight now comes from the token; only the accent color is local. */
+.w3H1 strong { color: var(--color-accent-500); }
 
 /* ── CTA — BTN v2: label track + cta icon block, square corners ── */
+/* Composes the shared `.btn` base from the button library. This one was closest already — it
+   read the --text-button-* vars — but at weight 600 against the library's 700, and via a
+   second source of truth for the same numbers. It now takes size, weight, leading and
+   tracking from `.btn` like every button on /buttons. Square corners, the sliding label track
+   and the cta-700 ground remain this variant's deliberate departures. */
 .w3Cta {
-  display: inline-flex; align-items: center; overflow: hidden;
+  composes: btn from "../buttons/base.module.css";
+  overflow: hidden;
   padding-left: var(--btn-slider-pad); gap: var(--btn-slider-pad);
   background: var(--color-cta-700); color: var(--color-base-white);
-  font-family: var(--font-figtree), 'Figtree', sans-serif;
-  font-size: var(--text-button-size); font-weight: 600;
-  letter-spacing: var(--text-button-tracking); text-transform: uppercase;
-  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 /* The duplicated label sits below the clip window and slides up on hover. */
@@ -154,14 +169,20 @@
   .w3SliderWrap { padding: 0 40px 14px; }
   .w3Slider { padding: 0 40px 70px; }
   .w3UtilLinks { gap: 12px; }
-  .w3Navlinks { gap: 20px; }
+  /* Four uppercase links plus carets do not fit a 50px gap at tablet — steps down to
+     spacing/20 rather than a raw px value. */
+  .w3Navlinks { gap: var(--spacing-20); }
 }
 
 @media (max-width: 767px) {
-  .w3Topbar { padding: 0 20px; }
+  /* Side padding only — a `padding: 0 20px` shorthand here would silently reset the
+     --menu-bar-padding-y the base rule sets, dropping the bar's top/bottom padding at mobile. */
+  .w3Topbar { padding-left: 20px; padding-right: 20px; }
   .w3UtilLink { display: none; }
   .w3UtilLink:first-child { display: inline-flex; }
-  .w3Mainbar { padding: 16px 20px; }
+  /* Side padding only — a `padding: 16px 20px` shorthand here would hardcode the vertical
+     value again and silently detach this bar from --nav-bar-padding-y. */
+  .w3Mainbar { padding-left: 20px; padding-right: 20px; }
   .w3Navlink { display: none; }
   .w3SliderWrap { padding: 0 20px 10px; min-height: 420px; }
   .w3Slider { padding: 0 24px 48px; }

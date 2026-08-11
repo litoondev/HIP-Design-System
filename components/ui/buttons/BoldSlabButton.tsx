@@ -26,7 +26,7 @@ export default function BoldSlabButton({
     >
       <span className={styles.hudsonBtnWrapper}>
         <span className={styles.hudsonBtnIcon} aria-hidden="true">
-          <Icon name="Arrow 45" className={styles.hudsonBtnGlyph} />
+          <Icon name="arrow-up-right" className={styles.hudsonBtnGlyph} />
         </span>
         <span className={styles.hudsonBtnText}>{text}</span>
       </span>

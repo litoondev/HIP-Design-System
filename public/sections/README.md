@@ -35,8 +35,10 @@ falls back to it, so all the sections fill at once.
     how-we-help-braces.jpg      how-we-help-clear-aligners.jpg
     how-we-help-damon-system.jpg  how-we-help-smile-for-life.jpg
 
-    instagram-1.jpg  instagram-2.jpg  instagram-3.jpg
-    instagram-4.jpg  instagram-5.jpg
+    instagram-1.jpg   instagram-2.jpg   instagram-3.jpg
+    instagram-4.jpg   instagram-5.jpg   instagram-6.jpg
+    instagram-7.jpg   instagram-8.jpg   instagram-9.jpg
+    instagram-10.jpg  instagram-11.jpg  instagram-12.jpg
 
 ## Note
 

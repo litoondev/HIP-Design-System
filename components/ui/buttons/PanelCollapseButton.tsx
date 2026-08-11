@@ -26,7 +26,7 @@ export default function PanelCollapseButton({
     >
       <span className={styles.hulmeButtonText}>{text}</span>
       <span className={styles.hulmeButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" size="54%" />
+        <Icon name="arrow-right" size="54%" />
       </span>
     </a>
   );

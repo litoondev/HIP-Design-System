@@ -29,7 +29,7 @@ export default function ElegantFillButton({
     >
       <span>{text}</span>
       <span className={styles.bergenButtonIcon} aria-hidden="true">
-        <Icon name="Arrow 45" className={styles.bergenButtonArrow} />
+        <Icon name="arrow-up-right" className={styles.bergenButtonArrow} />
       </span>
     </button>
   );

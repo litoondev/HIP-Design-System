@@ -26,7 +26,7 @@ export default function LuxuryOverhangButton({
     >
       <span>{text}</span>
       <span className={styles.goldConsultButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" size="40%" />
+        <Icon name="arrow-right" size="40%" />
       </span>
     </button>
   );

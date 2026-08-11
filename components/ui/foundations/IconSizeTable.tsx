@@ -29,7 +29,7 @@ const INLINE_CODE_CLASS = typographyClass(
 function Preview({ token }: { token: string }) {
   return (
     <div className="flex items-center justify-center w-[200px] h-[100px] overflow-hidden text-primary-600">
-      <Icon name="User" size={`var(${iconSizeVar(token)})`} />
+      <Icon name="user-fill" size={`var(${iconSizeVar(token)})`} />
     </div>
   );
 }

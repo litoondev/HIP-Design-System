@@ -26,7 +26,7 @@ export default function VibrantInvertButton({
     >
       <span>{text}</span>
       <span className={styles.apptButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" />
+        <Icon name="arrow-right" />
       </span>
     </a>
   );

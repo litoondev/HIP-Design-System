@@ -3,7 +3,6 @@ import styles from "./HeroPillNav.module.css";
 import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
-import { typographyFontFamilyClass } from "@/lib/design-system/typography";
 
 /* Utility-bar link type comes from the Overline typography token — the same "overline"
    variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
@@ -12,24 +11,31 @@ import { typographyFontFamilyClass } from "@/lib/design-system/typography";
    in step automatically if Overline's definition ever changes. */
 const utilLinkClass = typographyClass("overline", styles.w2UtilLink);
 
-/* Main-nav links keep their own bold/uppercase look (a deliberate Hero Banner design choice,
-   not part of Menu Item's style) but must pull their *font family* from the Menu Item
-   typography token rather than hardcoding one — never write "Figtree"/"Inter" here directly. */
-const navLinkClass = `${styles.w2Navlink} ${typographyFontFamilyClass("menuItem")}`;
+/* Main-nav links use the FULL Menu Item typography variant — family, weight, and the
+   responsive size/leading/tracking ladder — not just its font family. Previously this pulled
+   only the family and restated size/weight/tracking in the module, which meant a change to
+   Menu Item moved the font but left this nav's metrics behind. Only layout, color and case
+   live in the module now. Matches HeroSlider, which already used the whole token. */
+const navLinkClass = typographyClass("menuItem", styles.w2Navlink);
+
+/* The hero headline is the Main Header token (Figtree 700, 40/40 → 56/68 → 100/100),
+   replacing a `clamp(52px,5.5vw,80px)` this file invented for itself. Only color, margin,
+   alignment and casing stay in the module. */
+const heroH1Class = typographyClass("mainHeader", styles.w2H1);
 
 /* Icons resolve through the centralized icon library (components/ui/icons), sized by
    --menu-icon-size. This variant keeps its own utility-link set (Patient Forms / Español)
    — it is not the Figma Top_Menu — but routes every glyph through the same icon system. */
 const SOCIAL_ICONS = [
-  { name: "Facebook Round", label: "Facebook" },
-  { name: "Instagram", label: "Instagram" },
+  { name: "facebook-circle", label: "Facebook" },
+  { name: "instagram", label: "Instagram" },
 ];
 
 const UTIL_LINKS = [
-  { name: "Mobile", label: "Call / Text" },
-  { name: "Calculator", label: "Payment Calculator" },
-  { name: "User", label: "Patient Forms" },
-  { name: "Espanol", label: "Español" },
+  { name: "smartphone", label: "Call / Text" },
+  { name: "calculator", label: "Payment Calculator" },
+  { name: "user-fill", label: "Patient Forms" },
+  { name: "espanol", label: "Español" },
 ];
 
 const NAV_LINKS = ["Our Practice", "Services", "Patient Resources", "Contact Us"];
@@ -74,16 +80,17 @@ export default function HeroPillNav() {
         {/* Pill mainbar — floats over hero */}
         <div className={styles.w2MainbarWrap}>
           <div className={styles.w2Mainbar}>
-            <div className={styles.w2Brand}>
-              HIP<span>.</span>
-            </div>
+            {/* HIP wordmark from the icon library; inherits the pill nav's navy ink. */}
+            <a className={styles.w2Brand} href="#" aria-label="HIP — home">
+              <Icon name="hip-logo" size="var(--icon-3xl)" />
+            </a>
             <nav className={styles.w2Navlinks}>
               {NAV_LINKS.map((label) => (
                 <a key={label} className={navLinkClass} href="#">
-                  {label}{" "}
-                  <svg fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  {label}
+                  <span className={styles.w2NavCaret}>
+                    <Icon name="chevron-down-bold" size="var(--icon-sm)" />
+                  </span>
                 </a>
               ))}
               <a className={styles.w2Consult} href="#">
@@ -101,7 +108,7 @@ export default function HeroPillNav() {
       >
         <div className={styles.w2HeroPattern} />
         <div className={styles.w2HeroContent}>
-          <h1 className={styles.w2H1}>
+          <h1 className={heroH1Class}>
             Live Life <em>Smiling</em>
           </h1>
           <div className={styles.w2HeroBtns}>

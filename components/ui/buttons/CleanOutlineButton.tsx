@@ -25,7 +25,7 @@ export default function CleanOutlineButton({
       onClick={onClick}
     >
       <span>{text}</span>
-      <Icon name="Arrow Right" />
+      <Icon name="arrow-right" />
     </button>
   );
 }

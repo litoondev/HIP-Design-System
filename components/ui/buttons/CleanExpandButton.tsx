@@ -26,7 +26,7 @@ export default function CleanExpandButton({
     >
       <span className={styles.learnMoreLabel}>{text}</span>
       <span className={styles.learnMoreIcon} aria-hidden="true">
-        <Icon name="Arrow Right" />
+        <Icon name="arrow-right" />
       </span>
     </a>
   );

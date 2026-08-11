@@ -1,6 +1,7 @@
 import styles from "./Reviews.module.css";
 import SectionImage from "./SectionImage";
 import TextContainer from "./TextContainer";
+import ReviewsSlider from "./ReviewsSlider";
 import BoldFillButton from "../buttons/BoldFillButton";
 
 const STAR_PATH =
@@ -29,6 +30,11 @@ function GoogleG() {
   );
 }
 
+/**
+ * Placeholder review copy. Two entries filled the old 2-up grid exactly, which is why the
+ * slider arrows had nothing to do; the strip needs more cards than fit on screen before
+ * paging means anything.
+ */
 const REVIEWS = [
   {
     quote:
@@ -39,6 +45,46 @@ const REVIEWS = [
     quote:
       "“The free consult was genuinely no-pressure. They explained everything clearly and the payment plan made it so easy. My daughter loves her new smile!”",
     name: "John T.",
+  },
+  {
+    quote:
+      "“Every visit ran on time and the front desk always knew who we were. That consistency across two years of treatment meant a lot to our family.”",
+    name: "Priya R.",
+  },
+  {
+    quote:
+      "“I was self-conscious about getting braces as an adult. They walked me through Invisalign and I finished ahead of schedule. Worth every appointment.”",
+    name: "Marcus D.",
+  },
+  {
+    quote:
+      "“The team explained each stage before it happened, so there were no surprises — and no surprise costs either. Genuinely refreshing.”",
+    name: "Elena V.",
+  },
+  {
+    quote:
+      "“My son is nervous about dental visits and they were endlessly patient with him. He actually looks forward to his adjustments now.”",
+    name: "Tom H.",
+  },
+  {
+    quote:
+      "“We moved mid-treatment and they took over the transfer without missing a beat. The handover was completely painless.”",
+    name: "Aisha K.",
+  },
+  {
+    quote:
+      "“Booking is easy, the reminders are actually useful, and I have never sat in the waiting room more than five minutes.”",
+    name: "Daniel O.",
+  },
+  {
+    quote:
+      "“The interest-free plan made this possible for us. No pressure, no upselling — just a clear breakdown of what things cost.”",
+    name: "Rachel B.",
+  },
+  {
+    quote:
+      "“Three kids, three sets of braces, same practice. That should tell you everything about how much we trust this team.”",
+    name: "Miguel S.",
   },
 ];
 
@@ -65,16 +111,19 @@ export default function Reviews() {
         />
       </div>
 
-      <div className={styles.hipReviewCards}>
-        {REVIEWS.map((review) => (
+      {/* The strip and its arrows are interactive, so they live in ReviewsSlider (a client
+          component). The cards and the CTA are still rendered here on the server and handed
+          down — SectionImage above reads the filesystem and can't cross that boundary. */}
+      <ReviewsSlider
+        cards={REVIEWS.map((review) => (
           <div key={review.name} className={styles.hipReviewCard}>
             <div className={styles.hipReviewHeader}>
               <div className={styles.hipGoogleG}>
                 <GoogleG />
               </div>
-              <div className={styles.hipStars}>
+              <div className={styles.hipStars} role="img" aria-label="Rated 5 out of 5 stars">
                 {[0, 1, 2, 3, 4].map((i) => (
-                  <svg key={i} viewBox="0 0 24 24">
+                  <svg key={i} viewBox="0 0 24 24" aria-hidden="true">
                     <path d={STAR_PATH} />
                   </svg>
                 ))}
@@ -87,38 +136,9 @@ export default function Reviews() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className={styles.hipReviewsControls}>
-        <div className={styles.hipSliderArrows}>
-          <div className={styles.hipArrow}>
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </div>
-          <div className={styles.hipArrow}>
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </div>
-        </div>
-        {/* Global button (Bold — the section's category) with the dark-ground hover fix. */}
-        <BoldFillButton label="More Reviews" className={styles.hipMoreReviews} />
-      </div>
+        // Global button (Bold — the section's category) with the dark-ground hover fix.
+        action={<BoldFillButton label="More Reviews" className={styles.hipMoreReviews} />}
+      />
     </div>
   );
 }

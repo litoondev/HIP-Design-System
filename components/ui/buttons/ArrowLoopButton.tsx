@@ -29,7 +29,7 @@ export default function ArrowLoopButton({
       aria-label={text}
     >
       <span className={styles.gibsonBtnIcon} aria-hidden="true">
-        <Icon name="Arrow Right" className={styles.gibsonBtnArrow} />
+        <Icon name="arrow-right" className={styles.gibsonBtnArrow} />
       </span>
       <span className={styles.gibsonBtnText}>{text}</span>
     </a>

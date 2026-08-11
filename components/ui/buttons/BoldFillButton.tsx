@@ -27,7 +27,7 @@ export default function BoldFillButton({
     >
       <span className={styles.consultButtonContent}>
         <span className={styles.consultButtonIcon} aria-hidden="true">
-          <Icon name="Arrow 45" className={styles.consultButtonArrow} />
+          <Icon name="arrow-up-right" className={styles.consultButtonArrow} />
         </span>
         <span className={styles.consultButtonText}>{text}</span>
       </span>

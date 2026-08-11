@@ -39,16 +39,30 @@
 
 /* Top utility-menu tokens — sourced 1:1 from the Figma "Utilities/Menu/*" variables
    (Master V3, Top_Menu node 15895:53286). The utility bars in the Hero sections consume
-   these instead of hardcoded px, so the menu iconography has one source of truth. */
+   these instead of hardcoded px, so the menu iconography has one source of truth.
+
+   Every value here is an ALIAS, never a literal — the same pattern --btn-icon-size already
+   uses. Two consequences worth stating:
+
+   1. --menu-icon-size was a frozen 24px, so utility-bar glyphs stayed 24px on a phone while
+      every other icon in the system stepped down. It is exactly the icon-lg token
+      (24 / 24 / 20, and iconSizes.ts names "utility bar and social icons" as that token's
+      job), so it now aliases it and inherits the responsive ladder. Desktop and tablet are
+      unchanged; mobile correctly drops to 20px.
+   2. The padding/gap literals were copies of spacing primitives. Routing them through
+      var(--spacing-N) means retargeting the primitive moves the menu with it, and the
+      Spacing Primitives page can no longer disagree with what ships. */
 :root {
-  --menu-icon-size: 24px;        /* Utilities/Menu/Social_Icon/Icon-Size & Header Top/Icon */
-  --menu-social-padding: 10px;   /* Utilities/Menu/Social_Icon/padding */
-  --menu-social-gap: 10px;       /* social group auto-layout gap */
-  --menu-item-gap: 20px;         /* utility-link group auto-layout gap */
-  --menu-item-icon-pad-x: 10px;  /* Utilities/Menu/Header Top/Icon Left Right */
-  --menu-item-icon-pad-y: 10px;  /* Utilities/Menu/Header Top/Top Buttom */
-  --menu-item-text-gap: 5px;     /* Utilities/Menu/Header Top/Text to Icon */
-  --menu-divider-height: 20px;   /* social divider line height */
+  --menu-icon-size: var(--icon-lg);          /* Utilities/Menu/Social_Icon/Icon-Size & Header Top/Icon */
+  --menu-social-padding: var(--spacing-10);  /* Utilities/Menu/Social_Icon/padding */
+  --menu-social-gap: var(--spacing-10);      /* social group auto-layout gap */
+  --menu-item-gap: var(--spacing-20);        /* utility-link group auto-layout gap */
+  --menu-item-icon-pad-x: var(--spacing-10); /* Utilities/Menu/Header Top/Icon Left Right */
+  --menu-item-icon-pad-y: var(--spacing-10); /* Utilities/Menu/Header Top/Top Buttom */
+  --menu-item-text-gap: var(--spacing-8);    /* menu item text <-> icon gap (utility bar + nav) */
+  --menu-divider-height: var(--spacing-20);  /* social divider line height */
+  --menu-bar-padding-y: var(--spacing-10);   /* utility bar top & bottom padding */
+  --nav-bar-padding-y: var(--spacing-16);    /* main nav bar top & bottom padding */
 }
 
 /* Global section-layout tokens — from the Responsive Spacing & Layout Rules table

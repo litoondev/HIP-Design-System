@@ -10,19 +10,24 @@
           position:absolute; top:0; left:0; right:0; z-index:10;
         }
 
+/* Height is content-driven rather than a fixed 40px. The social/utility glyphs now carry the
+   Figma social padding (spacing/10 on each side) around an icon-lg glyph, which is 44px at
+   desktop/tablet — it would have overflowed a hardcoded 40px bar. Letting padding set the
+   height keeps the bar correct at every breakpoint: 24+10+10 = 44px desktop & tablet,
+   20+10+10 = 40px mobile, which is the height this bar was originally pinned to. */
 .w2Topbar {
-          height:40px; padding:0 48px;
+          padding:var(--menu-bar-padding-y) 48px;
           background:var(--color-navy);
           display:flex; align-items:center; justify-content:space-between;
         }
 
 .w2Socials { display:flex; align-items:center; gap:var(--menu-social-gap); }
 
-/* Flat social icon — 24px library glyph in white. No vertical padding here: this bar is
-   40px tall (its own composition), so the icon sits centered rather than reproducing the
-   Figma 44px social box. */
+/* Flat social icon — an icon-lg library glyph in white inside the Figma social box
+   (Utilities/Menu/Social_Icon/padding = spacing/10 on all four sides). */
 .w2SocialIcon {
           display:inline-flex; align-items:center; justify-content:center;
+          padding:var(--menu-social-padding);
           color:var(--color-base-white); flex-shrink:0;
         }
 
@@ -43,42 +48,55 @@
           white-space:nowrap;
         }
 
+/* Header Top/Icon box — spacing/10 on all four sides around an icon-lg glyph, matching
+   .w2SocialIcon and the same box HeroBanner/HeroSlider use. */
 .w2UtilLinkIcon {
           display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;
+          padding:var(--menu-item-icon-pad-y) var(--menu-item-icon-pad-x);
         }
 
 .w2MainbarWrap { padding-left:48px; }
 
+/* Height is content-driven; the fixed 100px predated the SVG logo. Vertical padding is the
+   shared --nav-bar-padding-y token (the old 16px literal was this value, uncredited); the
+   asymmetric left/right padding is this pill's own shape and stays. */
 .w2Mainbar {
-          height:100px; padding:16px 32px 16px 24px;
+          padding:var(--nav-bar-padding-y) 32px var(--nav-bar-padding-y) 24px;
           background:var(--color-base-white);
           border-radius:var(--radius-full) 0 0 var(--radius-full);
           display:flex; align-items:center;
           box-shadow:0 6px 30px color-mix(in srgb, var(--color-navy) 15%, transparent);
         }
 
+/* The logo reserves at least icon-3xl (64 / 48 / 40) of height. Set as a MIN, not a fixed
+   height, so a real wordmark image can grow the box later without touching this rule.
+   inline-flex + align-items also vertically centers the text inside that box. */
 .w2Brand {
           flex:0 0 auto;
-          font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:28px; font-weight:800;
-          color:var(--color-navy); letter-spacing:-.5px; margin-right:48px;
+          display:inline-flex; align-items:center; min-height:var(--icon-3xl);
+          color:var(--color-navy); margin-right:48px; text-decoration:none;
         }
-
-.w2Brand span { color:var(--color-cta-500); }
 
 .w2Navlinks {
-          flex:1; display:flex; align-items:center; justify-content:flex-end; gap:36px;
+          flex:1; display:flex; align-items:center; justify-content:flex-end;
+          gap:var(--spacing-50);
         }
 
-/* Font family comes from typographyFontFamilyClass("menuItem") in HeroPillNav.tsx (the Menu
-   Item typography token) — never hardcoded here. Size/weight/case/tracking stay in this file;
-   they're this nav's own look, not part of Menu Item's style. */
+/* Type — family, weight, and the responsive size/leading/tracking ladder — comes from
+   typographyClass("menuItem") in HeroPillNav.tsx. The former font-size:15px / font-weight:700 /
+   letter-spacing:.3px lived here and shadowed the token; they are gone so Menu Item is the
+   only thing setting this nav's metrics. Uppercase stays: Menu Item declares no
+   text-transform, so casing is this nav's own choice and does not fight the token. */
 .w2Navlink {
-          font-size:15px; font-weight:700;
-          color:var(--color-navy); letter-spacing:.3px; text-transform:uppercase;
-          white-space:nowrap; display:flex; align-items:center; gap:4px;
+          color:var(--color-navy); text-transform:uppercase;
+          white-space:nowrap; display:flex; align-items:center;
+          gap:var(--menu-item-text-gap);
         }
 
-.w2Navlink svg { width:12px; height:12px; opacity:.45; }
+/* Caret box. The glyph is the "Arrow Down" entry from the global icon library, sized by the
+   icon-sm token in HeroPillNav.tsx — the old `.w2Navlink svg { width:12px }` rule was a
+   hardcoded size on a hand-rolled inline chevron and is gone. Only opacity lives here. */
+.w2NavCaret { display:inline-flex; align-items:center; opacity:.45; }
 
 .w2Consult {
           display:inline-flex; align-items:center; justify-content:center;
@@ -89,8 +107,14 @@
           margin-left:36px; flex-shrink:0;
         }
 
+/* `top` is the utility bar's height, derived from the same tokens that draw it rather than
+   restated. It was a literal 40px matching the topbar's old fixed height; once that bar became
+   content-driven it grew to 44px at desktop/tablet (icon-lg 24 + spacing/10 top and bottom),
+   so the hero was starting 4px too high and showing a sliver under the bar. This tracks it. */
 .w2Hero {
-          position:absolute; top:40px; right:0; bottom:0; left:0;
+          position:absolute;
+          top:calc(var(--menu-icon-size) + var(--menu-bar-padding-y) * 2);
+          right:0; bottom:0; left:0;
           background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-primary-800) 40%,var(--color-primary-700) 70%,var(--color-primary-600) 100%);
           background-size:cover; background-position:center;
         }
@@ -112,25 +136,30 @@
           display:flex; flex-direction:column; align-items:center;
         }
 
+/* Type comes from typographyClass("mainHeader") in HeroPillNav.tsx — family, clamp() size,
+   weight, line-height and letter-spacing all shadowed the token and are gone. `white-space`
+   is deliberately NOT nowrap any more: Main Header reaches 100px at desktop where the old
+   clamp capped at 80px, and a locked single line would have overflowed narrow desktops. */
 .w2H1 {
           margin:0 0 var(--content-button-gap); color:var(--color-base-white);
-          font-family: var(--font-figtree), 'Figtree', sans-serif;
-          font-size:clamp(52px,5.5vw,80px);
-          font-weight:800; line-height:1.1;
-          text-align:center; text-transform:uppercase; white-space:nowrap;
-          letter-spacing:-.5px;
+          text-align:center; text-transform:uppercase;
         }
 
 .w2H1 em { color:var(--color-cta-500); font-style:normal; }
 
 .w2HeroBtns { display:flex; align-items:center; justify-content:center; gap:20px; }
 
+/* Composes the shared `.btn` base from the button library so this CTA uses the canonical
+   button type ramp rather than the fixed 14px / 800 / 0.8px it declared for itself — the
+   smallest of the three heroes' buttons and the furthest from /buttons. The asymmetric
+   padding and the 40px icon puck are this pill's own shape and stay. `height` is dropped:
+   at the library's 20/30 desktop type a locked 56px would clip. */
 .w2Btn {
-          height:56px; padding:8px 24px 8px 8px;
-          display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
+          composes: btn from "../buttons/base.module.css";
+          padding:8px 24px 8px 8px;
+          gap:var(--btn-icon-gap);
           border-radius:var(--radius-full);
-          font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800;
-          letter-spacing:.8px; text-transform:uppercase; white-space:nowrap;
+          text-transform:uppercase;
         }
 
 .w2BtnIcon {

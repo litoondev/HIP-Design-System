@@ -12,22 +12,28 @@ const utilLinkClass = typographyClass("overline", styles.w3UtilLink);
    size/leading/tracking) — only layout & color live in the module. */
 const navLinkClass = typographyClass("menuItem", styles.w3Navlink);
 
+/* The hero headline is the Main Header token (Figtree 700, 40/40 → 56/68 → 100/100).
+   NOTE: this replaces a hand-rolled Georgia serif at clamp(44px,7vw,100px). The two-tone
+   em/strong colour treatment is preserved, but the serif voice is not — Main Header is on the
+   header family. See the module comment if that serif needs to come back. */
+const heroH1Class = typographyClass("mainHeader", styles.w3H1);
+
 /* The square nav CTA uses the Overline variant (14/20 +1.25px, constant across breakpoints). */
 const consultClass = typographyClass("overline", styles.w3Consult);
 
 /* Figma Top_Menu (node 12978:55451): socials left, utility links right. All glyphs
    resolve through the centralized icon library, sized by --menu-icon-size. */
 const SOCIAL_ICONS = [
-  { name: "Facebook Round", label: "Facebook" },
-  { name: "Instagram", label: "Instagram" },
-  { name: "Youtube Play", label: "YouTube" },
+  { name: "facebook-circle", label: "Facebook" },
+  { name: "instagram", label: "Instagram" },
+  { name: "youtube", label: "YouTube" },
 ];
 
 const UTIL_LINKS = [
-  { name: "Mobile", label: "Call / Text (704) 269-8495" },
-  { name: "Calculator", label: "Payment Calculator" },
-  { name: "User", label: "Refer a Patient" },
-  { name: "Espanol", label: "Español" },
+  { name: "smartphone", label: "Call / Text (704) 269-8495" },
+  { name: "calculator", label: "Payment Calculator" },
+  { name: "user-fill", label: "Refer a Patient" },
+  { name: "espanol", label: "Español" },
 ];
 
 const NAV_LINKS = ["Our Practice", "Orthodontics", "Patient Resources", "Contact Us"];
@@ -63,15 +69,16 @@ export default function HeroSlider() {
 
       {/* Main nav — white, square corners, square accent button */}
       <div className={styles.w3Mainbar}>
-        <div className={styles.w3Brand}>
-          HIP<span>.</span>
-        </div>
+        {/* HIP wordmark from the icon library; inherits the white nav bar's black ink. */}
+        <a className={styles.w3Brand} href="#" aria-label="HIP — home">
+          <Icon name="hip-logo" size="var(--icon-3xl)" />
+        </a>
         <nav className={styles.w3Navlinks}>
           {NAV_LINKS.map((label) => (
             <a key={label} className={navLinkClass} href="#">
               {label}
               <span className={styles.w3NavCaret}>
-                <Icon name="Angle Down" size="var(--icon-sm)" />
+                <Icon name="chevron-down-bold" size="var(--icon-sm)" />
               </span>
             </a>
           ))}
@@ -89,7 +96,7 @@ export default function HeroSlider() {
         >
           <div className={styles.w3Overlay} />
           <div className={styles.w3Content}>
-            <h1 className={styles.w3H1}>
+            <h1 className={heroH1Class}>
               Let Our Family
               <br />
               <em>Treat Your</em> <strong>Family</strong>
@@ -103,7 +110,7 @@ export default function HeroSlider() {
                 </span>
               </span>
               <span className={styles.w3CtaIcon}>
-                <Icon name="Arrow Right" size="var(--btn-icon-size)" />
+                <Icon name="arrow-right" size="var(--btn-icon-size)" />
               </span>
             </a>
           </div>

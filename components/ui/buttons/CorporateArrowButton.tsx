@@ -27,7 +27,7 @@ export default function CorporateArrowButton({
       <span className={styles.olvButtonContent}>
         <span>{text}</span>
         <span className={styles.olvButtonIcon} aria-hidden="true">
-          <Icon name="Arrow Right" size="100%" />
+          <Icon name="arrow-right" size="100%" />
         </span>
       </span>
     </button>

@@ -31,7 +31,7 @@ export default function CleanFadeButton({
     >
       <span className={styles.freeConsultContent}>
         <span className={styles.freeConsultIcon} aria-hidden="true">
-          <Icon name="Arrow Right" size="44%" />
+          <Icon name="arrow-right" size="44%" />
         </span>
         <span>{text}</span>
       </span>

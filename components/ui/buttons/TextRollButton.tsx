@@ -37,7 +37,7 @@ export default function TextRollButton({
         </span>
       </span>
       <span className={styles.doctorButtonIcon} aria-hidden="true">
-        <Icon name="Doctor" size="100%" />
+        <Icon name="user-doctor" size="100%" />
       </span>
     </a>
   );

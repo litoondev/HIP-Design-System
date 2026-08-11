@@ -26,12 +26,34 @@
 
 .hipReviewsImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
 
-.hipReviewCards { display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); margin-bottom:var(--heading-gap); }
+/* Was `display:grid; grid-template-columns:1fr 1fr` — a fixed 2-up grid, which is why the
+   slider arrows below had nothing to move. It is a scroll-snapping strip now, still showing
+   two cards at a time so the composition is unchanged, but with the rest of the reviews
+   sitting off to the right. The scrollbar is hidden because the section ships its own arrows;
+   scrolling by wheel, trackpad, touch and keyboard still works. */
+.hipReviewCards {
+  display:flex; gap:var(--grid-gap); margin-bottom:var(--heading-gap);
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;      /* Firefox */
+  -ms-overflow-style:none;   /* legacy Edge / IE */
+}
+
+/* Chrome, Safari, Chromium Edge. */
+.hipReviewCards::-webkit-scrollbar { display:none; }
 
 .hipReviewCard {
+  /* Exactly two per view, gap accounted for — the same width the 1fr 1fr grid produced. */
+  flex:0 0 calc(50% - var(--grid-gap) / 2);
+  scroll-snap-align:start;
   padding:var(--heading-gap); border-radius:12px;
   background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
   display:flex; flex-direction:column; gap:var(--eyebrow-gap);
+}
+
+@media (max-width: 860px) {
+  /* One per view below the section's stacking breakpoint. */
+  .hipReviewCard { flex-basis:100%; }
 }
 
 .hipReviewHeader { display:flex; align-items:center; gap:10px; }
@@ -63,11 +85,27 @@
    circles and the "More Reviews" button read as one control row. */
 .hipArrow {
   width:60px; height:60px; border-radius:50%;
+  background:transparent;
   border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.6);
   display:grid; place-items:center; cursor:pointer;
+  transition:border-color .15s ease-out, color .15s ease-out;
 }
 
-.hipArrow svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
+/* These were non-interactive <div>s with no hover, focus or disabled state — they are real
+   <button>s now, so they need the states a button is expected to have. */
+.hipArrow:hover { border-color:rgba(255,255,255,.6); color:var(--color-base-white); }
+
+.hipArrow:focus-visible {
+  outline:2px solid var(--color-cta-base); outline-offset:2px;
+  color:var(--color-base-white);
+}
+
+/* At either end the matching arrow is disabled and stops reacting, so it doesn't advertise
+   an action that would do nothing. */
+.hipArrow:disabled {
+  opacity:.35; cursor:default;
+  border-color:rgba(255,255,255,.2); color:rgba(255,255,255,.6);
+}
 
 @media (max-width: 768px) {
   .hipArrow { width:54px; height:54px; }

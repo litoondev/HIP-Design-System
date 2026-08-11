@@ -17,12 +17,21 @@
 }
 
 /* Post slider — 310×414 cards on the paragraph-gap ladder (30/20/16), scroll-snap. */
+/* The strip still scrolls — it just doesn't paint a scrollbar. The section ships its own
+   Previous/Next controls below, so the native bar was a second, uglier affordance for the
+   same job, and on Windows it renders as a permanent grey track rather than the overlay
+   bar macOS shows. Scrolling by wheel, trackpad, touch and keyboard is unaffected.
+   The 4px padding-bottom existed only to clear that bar, so it goes too. */
 .hipIgStrip {
   display:flex; gap:var(--paragraph-gap);
   overflow-x:auto; scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
-  padding-bottom:4px;
+  scrollbar-width:none;      /* Firefox */
+  -ms-overflow-style:none;   /* legacy Edge / IE */
 }
+
+/* Chrome, Safari, and Chromium Edge. */
+.hipIgStrip::-webkit-scrollbar { display:none; }
 
 .hipIgTile {
   flex:0 0 310px; aspect-ratio:310/414;
@@ -75,6 +84,19 @@
 
 .hipIgArrow:hover,
 .hipIgArrow:focus-visible { background:var(--color-primary-base); color:var(--color-base-white); }
+
+/* Keyboard focus needs to be distinguishable from hover — grouped with :hover above, the two
+   states looked identical, so tabbing to an arrow gave no visible signal. */
+.hipIgArrow:focus-visible { outline:2px solid var(--color-cta-base); outline-offset:2px; }
+
+/* At either end of the strip the corresponding arrow is disabled — it stops reacting to
+   hover so it doesn't advertise an action that does nothing. */
+.hipIgArrow:disabled {
+  opacity:.35;
+  cursor:default;
+  background:transparent;
+  color:var(--color-primary-base);
+}
 
 @media (max-width: 768px) {
   .hipIgArrow { width:54px; height:54px; }

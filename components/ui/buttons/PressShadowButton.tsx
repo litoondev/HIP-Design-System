@@ -25,7 +25,7 @@ export default function PressShadowButton({
       onClick={onClick}
     >
       <span>{text}</span>
-      <Icon name="Arrow Right" className={styles.pressButtonIcon} />
+      <Icon name="arrow-right" className={styles.pressButtonIcon} />
     </button>
   );
 }

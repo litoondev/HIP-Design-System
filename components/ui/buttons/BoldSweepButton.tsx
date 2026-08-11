@@ -26,7 +26,7 @@ export default function BoldSweepButton({
     >
       <span className={styles.franklinBtnWrapper}>
         <span className={styles.franklinBtnIcon} aria-hidden="true">
-          <Icon name="Arrow 45" className={styles.franklinBtnArrow} />
+          <Icon name="arrow-up-right" className={styles.franklinBtnArrow} />
         </span>
         <span className={styles.franklinBtnText}>{text}</span>
       </span>

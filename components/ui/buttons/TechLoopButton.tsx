@@ -73,7 +73,7 @@ export default function TechLoopButton({
             height: "var(--btn-icon-size)",
           }}
         >
-          <Icon name="Arrow Right" size="100%" />
+          <Icon name="arrow-right" size="100%" />
         </span>
       </span>
       <span className={styles.gibsonBtnJsText}>{text}</span>

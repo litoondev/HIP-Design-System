@@ -29,7 +29,7 @@ export default function CorporateChevronButton({
     >
       <span>{text}</span>
       <span className={styles.navyDiscoverButtonIcon} aria-hidden="true">
-        <Icon name="Arrow Right" size="100%" />
+        <Icon name="arrow-right" size="100%" />
       </span>
     </button>
   );

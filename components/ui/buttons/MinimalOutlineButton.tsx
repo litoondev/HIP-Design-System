@@ -27,7 +27,7 @@ export default function MinimalOutlineButton({
       <span>{text}</span>
       <span className={styles.charcoalLearnMoreIcon} aria-hidden="true">
         <Icon
-          name="Arrow Right"
+          name="arrow-right"
           size="56%"
           className={styles.charcoalLearnMoreArrow}
         />

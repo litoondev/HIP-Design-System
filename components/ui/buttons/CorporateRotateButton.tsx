@@ -26,7 +26,7 @@ export default function CorporateRotateButton({
     >
       <span className={styles.blueRotateBtnText}>{text}</span>
       <span className={styles.blueRotateBtnIcon} aria-hidden="true">
-        <Icon name="Arrow 45" className={styles.blueRotateBtnArrow} />
+        <Icon name="arrow-up-right" className={styles.blueRotateBtnArrow} />
       </span>
     </a>
   );

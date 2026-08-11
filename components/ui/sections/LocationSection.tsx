@@ -58,11 +58,11 @@ export default function LocationSection() {
             <div className={styles.hipLocContactRows}>
               {/* Icons from the global library; call and text are live links with hover. */}
               <a className={styles.hipLocContactRow} href="tel:+10000000000" aria-label="Call us">
-                <Icon name="Mobile" size="20px" />
+                <Icon name="smartphone" size="20px" />
                 (XXX) XXX-XXXX
               </a>
               <a className={styles.hipLocContactRow} href="sms:+10000000000" aria-label="Text us">
-                <Icon name="Chat Circle Border" size="20px" />
+                <Icon name="message-circle" size="20px" />
                 (XXX) XXX-XXXX
               </a>
             </div>

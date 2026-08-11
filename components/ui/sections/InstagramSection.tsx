@@ -1,23 +1,39 @@
 import styles from "./InstagramSection.module.css";
 import SectionImage from "./SectionImage";
 import TextContainer from "./TextContainer";
+import InstagramSlider from "./InstagramSlider";
 import Icon from "../icons/Icon";
 
-/** The post themes the homepage reference calls for. */
+/**
+ * The post themes. The first five are the ones the homepage reference calls for; the rest
+ * extend the same rotation so the strip has something to actually scroll through — with only
+ * five tiles roughly four were visible at desktop and the slider had barely one page of travel.
+ *
+ * `slug` is the image lookup key: sectionImage("instagram", slug) resolves
+ * public/sections/instagram-{slug}.(jpg|png|webp) and falls back to the labelled placeholder
+ * when the file isn't there yet, so adding entries here never breaks the build.
+ */
 const POSTS = [
   { slug: "1", label: "Smile Reveal" },
   { slug: "2", label: "Team Culture" },
   { slug: "3", label: "Care Tip" },
   { slug: "4", label: "Event" },
   { slug: "5", label: "Before / After" },
+  { slug: "6", label: "Patient Story" },
+  { slug: "7", label: "Braces Journey" },
+  { slug: "8", label: "Invisalign" },
+  { slug: "9", label: "Office Tour" },
+  { slug: "10", label: "Community" },
+  { slug: "11", label: "Meet The Team" },
+  { slug: "12", label: "Retainer Care" },
 ];
 
 /** Social platforms in the Figma comp order — all glyphs from the global icon library. */
 const SOCIALS = [
-  { icon: "Facebook Round", label: "Facebook" },
-  { icon: "Instagram", label: "Instagram" },
-  { icon: "X", label: "X" },
-  { icon: "Tiktok", label: "TikTok" },
+  { icon: "facebook-circle", label: "Facebook" },
+  { icon: "instagram", label: "Instagram" },
+  { icon: "x-twitter", label: "X" },
+  { icon: "tiktok", label: "TikTok" },
 ];
 
 /**
@@ -38,8 +54,11 @@ export default function InstagramSection() {
         className={styles.hipIgHead}
       />
 
-      <div className={styles.hipIgStrip}>
-        {POSTS.map((post) => (
+      {/* The strip and its arrows are interactive, so they live in InstagramSlider (a client
+          component). The tiles and the Follow Us block are still rendered here on the server
+          and handed down — SectionImage reads the filesystem and cannot cross that boundary. */}
+      <InstagramSlider
+        tiles={POSTS.map((post) => (
           <SectionImage
             key={post.slug}
             slot="instagram"
@@ -48,32 +67,22 @@ export default function InstagramSection() {
             className={styles.hipIgTile}
           />
         ))}
-      </div>
-
-      <div className={styles.hipIgFooter}>
-        <div className={styles.hipIgFollow}>
-          <p className={styles.hipIgFollowLabel}>Follow Us</p>
-          <div className={styles.hipIgSocials}>
-            {SOCIALS.map((social, i) => (
-              <span key={social.label} className={styles.hipIgSocialPair}>
-                {i > 0 && <span className={styles.hipIgSocialLine} aria-hidden="true" />}
-                <a className={styles.hipIgSocial} href="#" aria-label={social.label}>
-                  <Icon name={social.icon} size="24px" />
-                </a>
-              </span>
-            ))}
+        follow={
+          <div className={styles.hipIgFollow}>
+            <p className={styles.hipIgFollowLabel}>Follow Us</p>
+            <div className={styles.hipIgSocials}>
+              {SOCIALS.map((social, i) => (
+                <span key={social.label} className={styles.hipIgSocialPair}>
+                  {i > 0 && <span className={styles.hipIgSocialLine} aria-hidden="true" />}
+                  <a className={styles.hipIgSocial} href="#" aria-label={social.label}>
+                    <Icon name={social.icon} size="var(--icon-lg)" />
+                  </a>
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className={styles.hipIgArrows}>
-          <button type="button" className={styles.hipIgArrow} aria-label="Previous posts">
-            <Icon name="Arrow Left" size="20px" />
-          </button>
-          <button type="button" className={styles.hipIgArrow} aria-label="Next posts">
-            <Icon name="Arrow Right" size="20px" />
-          </button>
-        </div>
-      </div>
+        }
+      />
     </div>
   );
 }

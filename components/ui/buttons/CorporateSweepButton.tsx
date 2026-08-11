@@ -26,7 +26,7 @@ export default function CorporateSweepButton({
     >
       <span className={styles.blueLearnMoreText}>{text}</span>
       <span className={styles.blueLearnMoreIcon} aria-hidden="true">
-        <Icon name="Arrow 45" />
+        <Icon name="arrow-up-right" />
       </span>
     </a>
   );
