@@ -43,22 +43,5 @@
 
 .hipPlayBtn svg { width:20px; height:20px; fill:var(--color-base-white); margin-left:3px; }
 
-/* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
-.hipPracticeText { display:flex; flex-direction:column; }
-
-.hipPracticeEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
-
-.hipPracticeH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
-
-.hipPracticeBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); }
-
-.hipPracticeCta {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
-  margin-top:var(--content-button-gap);
-  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  border:2px solid var(--color-cta-500); color:var(--color-cta-500);
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
-  align-self:flex-start; cursor:pointer;
-}
-
-.hipPracticeCta svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
+/* Copy markup/rhythm comes from the shared TextContainer; the Corporate Arrow button
+   keeps its own tertiary ramp (dark on the light teal ground — contrast passes). */

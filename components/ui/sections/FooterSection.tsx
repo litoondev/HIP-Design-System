@@ -1,5 +1,5 @@
 import styles from "./FooterSection.module.css";
-import { ArrowRight } from "./SectionIcons";
+import CorporateArrowButton from "../buttons/CorporateArrowButton";
 
 const QUICK_LINKS = ["Our Practice", "Services", "Patient Resources", "Contact Us"];
 
@@ -53,10 +53,9 @@ export default function FooterSection() {
         <span className={styles.hipFootLogo}>
           HIP<span>.</span>
         </span>
-        <button className={styles.hipFootCta}>
-          Request Free Consult
-          <ArrowRight />
-        </button>
+        {/* Global button (Professional / Corporate — the section's category) retargeted to
+            the CTA ramp: the footer's repeat CTA is last-chance conversion, so it stays orange. */}
+        <CorporateArrowButton label="Request Free Consult" className={styles.hipFootCta} />
       </div>
 
       <div className={styles.hipFootCols}>

@@ -7,6 +7,8 @@ interface FullPageButtonProps {
   targetId: string;
   num: string;
   name: string;
+  /** Replaces the default label-strip styling (e.g. to match a page's tab buttons). */
+  className?: string;
 }
 
 /**
@@ -20,7 +22,7 @@ interface FullPageButtonProps {
  *   - <html>'s className is copied over: next/font defines --font-figtree / --font-inter on
  *     that class, so without it the popup falls back to system sans-serif.
  */
-export default function FullPageButton({ targetId, num, name }: FullPageButtonProps) {
+export default function FullPageButton({ targetId, num, name, className }: FullPageButtonProps) {
   function openFullPage() {
     const render = document.getElementById(targetId);
     if (!render) return;
@@ -64,11 +66,12 @@ ${headCss}
   return (
     <button
       type="button"
-      className={styles.secFullpageBtn}
+      className={className ?? styles.secFullpageBtn}
       onClick={openFullPage}
       title="Open full-page preview"
     >
       <svg
+        className="w-3 h-3 shrink-0"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"

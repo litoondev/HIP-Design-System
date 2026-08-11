@@ -24,8 +24,9 @@ export interface TextContainerProps {
   headerAs?: "h1" | "h2" | "h3";
   paragraphs?: string[];
   bullets?: string[];
-  /** Rendered after the bullets/paragraphs. Defaults to the Request Free Consult button. */
-  buttons?: ReactNode;
+  /** Rendered after the bullets/paragraphs. Defaults to the Request Free Consult button;
+   *  pass null to omit the button row entirely (e.g. section headings). */
+  buttons?: ReactNode | null;
   /** Left (default) or center alignment of the whole copy block. */
   align?: "left" | "center";
   className?: string;
@@ -108,13 +109,15 @@ export default function TextContainer({
         </ul>
       )}
 
-      <div
-        className={`flex flex-wrap items-center gap-[var(--button-gap)] mt-[var(--content-button-gap)]${
-          centered ? " justify-center" : ""
-        }`}
-      >
-        {buttons ?? <BoldFillButton />}
-      </div>
+      {buttons !== null && (
+        <div
+          className={`flex flex-wrap items-center gap-[var(--button-gap)] mt-[var(--content-button-gap)]${
+            centered ? " justify-center" : ""
+          }`}
+        >
+          {buttons ?? <BoldFillButton />}
+        </div>
+      )}
     </div>
   );
 }

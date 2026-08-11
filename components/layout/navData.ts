@@ -45,12 +45,12 @@ export const navLinks: NavLink[] = [
     href: "/sections",
     group: "Pages",
     // Ordered to match the homepage structure reference; each links to its
-    // standalone viewer page at /sections/<slug>.
+    // standalone viewer page at /sections/<slug>. One entry per design FAMILY —
+    // variants (hero2, highlights2, …) are variation tabs on the family's page,
+    // not separate menu items.
     children: [
       { label: "01 · Hero Banner", href: "/sections/hero" },
-      { label: "01B · Hero — Pill Nav", href: "/sections/hero2" },
-      { label: "02 · Highlights Grid", href: "/sections/highlights" },
-      { label: "02B · Highlights (Figma)", href: "/sections/highlights2" },
+      { label: "02 · Highlights", href: "/sections/highlights" },
       { label: "03 · Step Section", href: "/sections/steps" },
       { label: "04 · Our Practice", href: "/sections/practice" },
       { label: "05 · Our Doctors", href: "/sections/doctors" },

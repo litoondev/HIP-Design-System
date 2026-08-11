@@ -1,6 +1,7 @@
 import styles from "./OurDoctors.module.css";
-import { ArrowRight } from "./SectionIcons";
 import SectionImage from "./SectionImage";
+import TextContainer from "./TextContainer";
+import CleanOutlineButton from "../buttons/CleanOutlineButton";
 
 /** Two rows shown; the master design runs four, alternating the image side each time. */
 const DOCTORS = [
@@ -24,13 +25,18 @@ const DOCTORS = [
 export default function OurDoctors() {
   return (
     <div className={styles.hipDocs}>
+      {/* Heading block is the shared Text Container (centered, no button) — one copy-block
+          rhythm and type ramp for every section heading. */}
       <div className={styles.hipDocsHeader}>
-        <p className={styles.hipDocsEyebrow}>Our Orthodontists</p>
-        <h2 className={styles.hipDocsH2}>We Love Serving Smiles</h2>
-        <p className={styles.hipDocsIntro}>
-          Board-certified, locally rooted, and genuinely glad to see you. Meet the people who will
-          be looking after your smile from the first consult to the last retainer check.
-        </p>
+        <TextContainer
+          align="center"
+          preHeader="Our Orthodontists"
+          header="We Love Serving Smiles"
+          paragraphs={[
+            "Board-certified, locally rooted, and genuinely glad to see you. Meet the people who will be looking after your smile from the first consult to the last retainer check.",
+          ]}
+          buttons={null}
+        />
       </div>
 
       {DOCTORS.map((doctor, i) => (
@@ -38,13 +44,18 @@ export default function OurDoctors() {
           key={doctor.slug}
           className={i % 2 === 1 ? `${styles.hipDocRow} ${styles.reverse}` : styles.hipDocRow}
         >
+          {/* Same nested rhythm as the Text Container: [eyebrow —eyebrow-gap— heading]
+              —heading-gap— paragraph, then —content-button-gap— button. */}
           <div className={styles.hipDocText}>
-            <span className={styles.hipDocCred}>{doctor.credential}</span>
-            <h3 className={styles.hipDocName}>{doctor.name}</h3>
-            <p className={styles.hipDocBody}>{doctor.body}</p>
-            <span className={styles.hipDocLink}>
-              Read Full Bio <ArrowRight />
-            </span>
+            <div className={styles.hipDocCopy}>
+              <div className={styles.hipDocHeading}>
+                <span className={styles.hipDocCred}>{doctor.credential}</span>
+                <h3 className={styles.hipDocName}>{doctor.name}</h3>
+              </div>
+              <p className={styles.hipDocBody}>{doctor.body}</p>
+            </div>
+            {/* Global button (Clean — the section's category), labeled "Meet Dr. <last name>". */}
+            <CleanOutlineButton label={`Meet Dr. ${doctor.name.split(" ").pop()}`} />
           </div>
           <SectionImage
             slot="doctor"

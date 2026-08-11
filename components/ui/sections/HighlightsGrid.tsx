@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import styles from "./HighlightsGrid.module.css";
+import TextContainer from "./TextContainer";
 
 /** Every icon in this grid shares the same stroke treatment. */
 function Icon({ children }: { children: ReactNode }) {
@@ -103,9 +104,15 @@ const CARDS: { title: string; sub: string; icon: ReactNode }[] = [
 export default function HighlightsGrid() {
   return (
     <div className={styles.hipHighlights}>
+      {/* Heading block is the shared Text Container (centered, no button) — one copy-block
+          rhythm and type ramp for every section heading. */}
       <div className={styles.hipHighlightsHeader}>
-        <p className={styles.hipHighlightsEyebrow}>Why Choose Us</p>
-        <h2 className={styles.hipHighlightsH2}>Everything You Need, All in One Place</h2>
+        <TextContainer
+          align="center"
+          preHeader="Why Choose Us"
+          header="Everything You Need, All in One Place"
+          buttons={null}
+        />
       </div>
       <div className={styles.hipHighlightsGrid}>
         {CARDS.map((card) => (

@@ -9,7 +9,7 @@
 }
 
 .hipCtaImg {
-  border-radius:14px; height:280px;
+  border-radius:14px; aspect-ratio:3/2; width:100%;
   background:linear-gradient(135deg,var(--color-cta-200) 0%,var(--color-cta-400) 100%);
   display:flex; align-items:center; justify-content:center;
   position:relative; overflow:hidden;
@@ -22,21 +22,11 @@
 
 .hipCtaImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.6); position:relative; }
 
-.hipCtaText { display:flex; flex-direction:column; }
-
-.hipCtaEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
-
-.hipCtaH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
-
-.hipCtaBody { margin:0 0 var(--content-button-gap); font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); max-width:400px; }
-
-.hipCtaBtn {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
-  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  background:var(--color-cta-500); color:var(--color-base-white); border:0;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:16px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
-  align-self:flex-start; cursor:pointer;
+/* Copy markup/rhythm comes from the shared TextContainer. The one local rule retargets
+   the Vibrant Sweep button's ramp to CTA orange — this section's single conversion CTA
+   must stay Ember Orange (doubled class beats the button module's own declaration). */
+.hipCtaBtn.hipCtaBtn {
+  --vibrant: var(--color-cta-500);
+  --vibrant-deep: var(--color-cta-700);
   box-shadow:0 6px 32px color-mix(in srgb, var(--color-cta-500) 35%, transparent);
 }
-
-.hipCtaBtn svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }

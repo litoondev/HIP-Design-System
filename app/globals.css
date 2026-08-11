@@ -62,6 +62,12 @@
   --paragraph-gap: 30px;        /* paragraph → paragraph (Text Container) */
   --content-button-gap: 40px;   /* content → button */
   --button-gap: 30px;           /* button → button (Text Container button row) */
+  /* Contact Hours panel (Figma spacing table): title → hours, hours row → row,
+     and the days ↔ time center gap. */
+  --hours-title-gap: 16px;      /* spacing/16 (Desk & Tab) */
+  --hours-body-gap: 10px;       /* spacing/10 (all breakpoints) */
+  --hours-center-gap: 20px;     /* spacing/20 (Desk & Tab) */
+  --link-icon-gap: 10px;        /* utilities/menu/footer-link/text-to-icon */
 }
 
 /* Global type tokens — from the Responsive Type Scale (Figma "Global Fonts" node
@@ -71,7 +77,10 @@
 :root {
   --text-preheader-size: 16px; --text-preheader-leading: 24px; --text-preheader-tracking: 3px;
   --text-h2-size: 56px;        --text-h2-leading: 68px;
+  --text-h3-size: 42px;        --text-h3-leading: 56px;
+  --text-h5-size: 24px;        --text-h5-leading: 34px;
   --text-h6-size: 20px;        --text-h6-leading: 30px;        --text-h6-tracking: 0.5px;
+  --text-subtitle-size: 24px;  --text-subtitle-leading: 36px;  --text-subtitle-tracking: 0.75px;
   --text-body1-size: 20px;     --text-body1-leading: 30px;
   --text-body2-size: 18px;     --text-body2-leading: 28px;
   --text-button-size: 20px;    --text-button-leading: 30px;    --text-button-tracking: 1.25px;
@@ -81,7 +90,10 @@
   :root {
     --text-preheader-size: 14px; --text-preheader-leading: 20px;
     --text-h2-size: 42px;        --text-h2-leading: 50px;
+    --text-h3-size: 36px;        --text-h3-leading: 36px;
+    --text-h5-size: 22px;        --text-h5-leading: 30px;
     --text-h6-size: 18px;        --text-h6-leading: 28px;
+    --text-subtitle-size: 22px;  --text-subtitle-leading: 33px;
     --text-body1-size: 18px;     --text-body1-leading: 28px;
     --text-body2-size: 16px;     --text-body2-leading: 24px;
     --text-button-size: 18px;    --text-button-leading: 28px;  --text-button-tracking: 0.5px;
@@ -92,7 +104,10 @@
   :root {
     --text-preheader-size: 12px; --text-preheader-leading: 18px;
     --text-h2-size: 32px;        --text-h2-leading: 40px;
+    --text-h3-size: 28px;        --text-h3-leading: 36px;
+    --text-h5-size: 20px;        --text-h5-leading: 28px;
     --text-h6-size: 16px;        --text-h6-leading: 22px;
+    --text-subtitle-size: 18px;  --text-subtitle-leading: 28px;
     --text-body1-size: 16px;     --text-body1-leading: 24px;
     --text-body2-size: 14px;     --text-body2-leading: 20px;
     --text-button-size: 16px;    --text-button-leading: 24px;  --text-button-tracking: 0px;
@@ -153,6 +168,8 @@
     --heading-gap: 16px;
     --paragraph-gap: 16px;
     --content-button-gap: 24px;
+    --hours-title-gap: 10px;
+    --hours-center-gap: 10px;
   }
 }
 

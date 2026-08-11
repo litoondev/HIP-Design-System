@@ -1,6 +1,7 @@
 import styles from "./HowWeHelp.module.css";
-import { ArrowRight } from "./SectionIcons";
 import SectionImage from "./SectionImage";
+import TextContainer from "./TextContainer";
+import CleanOutlineButton from "../buttons/CleanOutlineButton";
 
 /**
  * Rows alternate sides via .reverse; the image tint cycles through the source's modifiers.
@@ -46,13 +47,18 @@ const ROWS = [
 export default function HowWeHelp() {
   return (
     <div className={styles.hipHow}>
+      {/* Heading block is the shared Text Container (centered, no button) — one copy-block
+          rhythm and type ramp for every section heading. */}
       <div className={styles.hipHowHeader}>
-        <p className={styles.hipHowEyebrow}>How We Help</p>
-        <h2 className={styles.hipHowH2}>Explore Our Treatments</h2>
-        <p className={styles.hipHowIntro}>
-          From traditional braces to clear aligners, we offer every proven path to a confident
-          smile — tailored to your age, lifestyle, and goals.
-        </p>
+        <TextContainer
+          align="center"
+          preHeader="How We Help"
+          header="Explore Our Treatments"
+          paragraphs={[
+            "From traditional braces to clear aligners, we offer every proven path to a confident smile — tailored to your age, lifestyle, and goals.",
+          ]}
+          buttons={null}
+        />
       </div>
 
       {ROWS.map((row) => (
@@ -60,13 +66,18 @@ export default function HowWeHelp() {
           key={row.tag}
           className={row.reverse ? `${styles.hipHowRow} ${styles.reverse}` : styles.hipHowRow}
         >
+          {/* Same nested rhythm as the Text Container: [eyebrow —eyebrow-gap— heading]
+              —heading-gap— paragraph, then —content-button-gap— button. */}
           <div className={styles.hipHowText}>
-            <span className={styles.hipHowTag}>{row.tag}</span>
-            <h3 className={styles.hipHowTitle}>{row.title}</h3>
-            <p className={styles.hipHowBody}>{row.body}</p>
-            <span className={styles.hipHowLink}>
-              Learn More <ArrowRight />
-            </span>
+            <div className={styles.hipHowCopy}>
+              <div className={styles.hipHowHeading}>
+                <span className={styles.hipHowTag}>{row.tag}</span>
+                <h3 className={styles.hipHowTitle}>{row.title}</h3>
+              </div>
+              <p className={styles.hipHowBody}>{row.body}</p>
+            </div>
+            {/* Global button (Clean — the section's category), labeled per treatment. */}
+            <CleanOutlineButton label={`Explore ${row.tag}`} />
           </div>
           <SectionImage
             slot="how-we-help"

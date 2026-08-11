@@ -9,54 +9,65 @@
 
 .hipLocTop {
   display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center;
-  padding-bottom:36px; margin-bottom:36px; border-bottom:1px solid var(--color-gray-100);
+  padding-bottom:var(--grid-gap); margin-bottom:var(--grid-gap); border-bottom:1px solid var(--color-gray-100);
 }
 
 .hipLocImg {
-  border-radius:12px; height:240px;
+  border-radius:12px; aspect-ratio:3/2; width:100%;
   background:linear-gradient(135deg,var(--color-navy) 0%,var(--color-cta-500) 100%);
   display:flex; align-items:center; justify-content:center;
 }
 
 .hipLocImg span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); }
 
-.hipLocText { display:flex; flex-direction:column; }
-
-.hipLocEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
-
-.hipLocH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
-
-.hipLocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); max-width:400px; }
+/* Copy markup/rhythm comes from the shared TextContainer. */
 
 .hipLocGrid { display:grid; grid-template-columns:1fr 1.15fr; gap:var(--grid-gap); }
 
-.hipLocPanels { display:flex; flex-direction:column; gap:14px; }
+.hipLocPanels { display:flex; flex-direction:column; gap:var(--heading-gap); }
 
 .hipLocPanel {
-  padding:18px 20px; border-radius:12px;
+  padding:var(--heading-gap); border-radius:12px;
   background:var(--color-gray-50); border:1.5px solid var(--color-gray-200);
-  display:flex; flex-direction:column; gap:8px;
+  display:flex; flex-direction:column; gap:var(--eyebrow-gap);
+  align-items:flex-start;
 }
 
-.hipLocPanelLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-gray-400); }
+/* Panel headings use the global Subtitle style (24/22/18 + 0.75px tracking) — per the
+   Figma "Call / Text" spec: Figtree Bold, uppercase, primary. */
+.hipLocPanelLabel { margin:0; font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-subtitle-size); line-height:var(--text-subtitle-leading); letter-spacing:var(--text-subtitle-tracking); font-weight:700; text-transform:uppercase; color:var(--color-primary-base); }
 
-.hipLocItem { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.6; color:var(--color-textcolor-body); }
+.hipLocItem { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body2-size); line-height:var(--text-body2-leading); color:var(--color-textcolor-body); }
+
+/* Contact Hours rhythm — the global --hours-* tokens from the Figma spacing table. */
+.hipLocHoursPanel { gap:var(--hours-title-gap); }
+
+.hipLocHours { display:flex; flex-direction:column; gap:var(--hours-body-gap); }
+
+.hipLocHoursRow {
+  margin:0; display:flex; gap:var(--hours-center-gap);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body2-size); line-height:var(--text-body2-leading); color:var(--color-textcolor-body);
+}
 
 .hipLocItem strong { font-weight:700; color:var(--color-base-black); }
 
-.hipLocPhone {
-  display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-cta-500);
+/* Figma Call / Text rows: 20px icon + Body1 number in base-black. */
+.hipLocContactRows { display:flex; flex-direction:column; gap:var(--hours-title-gap); }
+
+.hipLocContactRow {
+  margin:0; display:inline-flex; align-items:center; gap:var(--link-icon-gap);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); line-height:var(--text-body1-leading);
+  color:var(--color-textcolor-link);
+  text-decoration:none; cursor:pointer;
+  transition:color .15s ease-out;
 }
 
-.hipLocPhone svg { width:16px; height:16px; }
+/* Hover/focus darkens within the CTA ramp — no underline. Icon follows via currentColor. */
+.hipLocContactRow:hover,
+.hipLocContactRow:focus-visible { color:var(--color-cta-700); }
 
-.hipLocMore {
-  display:inline-flex; align-items:center; gap:7px;
-  font-size:13px; font-weight:700; color:var(--color-cta-500); cursor:pointer;
-}
-
-.hipLocMore svg { width:15px; height:15px; }
+/* The panel CTA is the global Corporate Arrow button; only the list→button rhythm lives here. */
+.hipLocMore { margin-top:var(--eyebrow-gap); }
 
 .hipLocMap {
   position:relative; overflow:hidden;
