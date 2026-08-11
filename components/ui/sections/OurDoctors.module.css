@@ -7,17 +7,12 @@
   padding: var(--section-padding-y) var(--container-padding-x);
 }
 
-.hipDocsHeader { text-align: center; margin-bottom: 44px; }
-
-.hipDocsEyebrow { font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); margin-bottom:var(--eyebrow-gap); }
-
-.hipDocsH2 { margin:0; font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
-
-.hipDocsIntro { font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); font-weight:400; line-height:var(--text-body1-leading); color:var(--color-textcolor-body); margin-top:var(--heading-gap); max-width:520px; margin-inline:auto; }
+/* Heading markup/type comes from the shared TextContainer; only the section rhythm lives here. */
+.hipDocsHeader { margin-bottom: var(--grid-gap); }
 
 .hipDocRow {
   display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:center;
-  padding:32px 0; border-bottom:1px solid var(--color-gray-100);
+  padding:var(--grid-gap) 0; border-bottom:1px solid var(--color-gray-100);
 }
 
 .hipDocRow:last-of-type { border-bottom:0; }
@@ -28,7 +23,7 @@
 .hipDocRow.reverse > * { direction:ltr; }
 
 .hipDocPhoto {
-  border-radius:12px; height:260px;
+  border-radius:12px; aspect-ratio:3/2; width:100%;
   background:linear-gradient(135deg,var(--color-primary-50) 0%,var(--color-primary-400) 100%);
   display:flex; align-items:center; justify-content:center;
 }
@@ -37,32 +32,28 @@
 
 .hipDocPhoto span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
 
-/* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
-.hipDocText { display:flex; flex-direction:column; }
+/* Copy-block rhythm — the same nested gap structure the Text Container uses:
+   text (content-button-gap) > copy (heading-gap) > heading (eyebrow-gap). */
+.hipDocText { display:flex; flex-direction:column; align-items:flex-start; gap:var(--content-button-gap); }
+
+.hipDocCopy { display:flex; flex-direction:column; gap:var(--heading-gap); }
+
+.hipDocHeading { display:flex; flex-direction:column; align-items:flex-start; gap:var(--eyebrow-gap); }
 
 .hipDocCred {
   display:inline-flex; align-items:center;
-  margin-bottom:var(--eyebrow-gap);
   padding:3px 10px; border-radius:var(--radius-full);
   background:var(--color-primary-50); border:1px solid var(--color-primary-200);
   font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--color-cta-500);
   align-self:flex-start;
 }
 
-.hipDocName { margin:0 0 var(--heading-gap); font-size:26px; font-weight:800; line-height:1.2; color:var(--color-textcolor-h3); }
+.hipDocName { margin:0; font-size:var(--text-h3-size); font-weight:800; line-height:var(--text-h3-leading); color:var(--color-textcolor-h3); }
 
-.hipDocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:14px; font-weight:400; line-height:1.7; color:var(--color-textcolor-body); }
-
-.hipDocLink {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
-  margin-top:var(--content-button-gap);
-  font-size:13px; font-weight:700; color:var(--color-cta-500); cursor:pointer;
-}
-
-.hipDocLink svg { width:15px; height:15px; }
+.hipDocBody { margin:0; font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body2-size); font-weight:400; line-height:var(--text-body2-leading); color:var(--color-textcolor-body); }
 
 .hipDocRepeat {
-  text-align:center; margin-top:28px;
+  text-align:center; margin-top:var(--grid-gap);
   font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:.5px; color:var(--color-gray-400);
 }
 
@@ -72,5 +63,5 @@
 @media (max-width: 860px) {
   .hipDocRow { grid-template-columns:1fr; }
   .hipDocRow.reverse { direction:ltr; }
-  .hipDocPhoto { height:200px; }
+  /* Ratio holds when the row stacks — no fixed height needed. */
 }

@@ -1,6 +1,7 @@
 import styles from "./WhoWeHelp.module.css";
-import { ArrowRight } from "./SectionIcons";
 import SectionImage from "./SectionImage";
+import TextContainer from "./TextContainer";
+import PressShadowButton from "../buttons/PressShadowButton";
 
 const SEGMENTS = [
   {
@@ -33,13 +34,18 @@ const SEGMENTS = [
 export default function WhoWeHelp() {
   return (
     <div className={styles.hipWho}>
+      {/* Heading block is the shared Text Container (centered, no button) — one copy-block
+          rhythm and type ramp for every section heading. */}
       <div className={styles.hipWhoHeader}>
-        <p className={styles.hipWhoEyebrow}>Who We Help</p>
-        <h2 className={styles.hipWhoH2}>Orthodontics Is For Everyone</h2>
-        <p className={styles.hipWhoIntro}>
-          Kids, teens and adults each need something different from treatment. Here is what to
-          expect at every stage — and where to go next.
-        </p>
+        <TextContainer
+          align="center"
+          preHeader="Who We Help"
+          header="Orthodontics Is For Everyone"
+          paragraphs={[
+            "Kids, teens and adults each need something different from treatment. Here is what to expect at every stage — and where to go next.",
+          ]}
+          buttons={null}
+        />
       </div>
 
       {SEGMENTS.map((segment, i) => (
@@ -47,13 +53,18 @@ export default function WhoWeHelp() {
           key={segment.slug}
           className={i % 2 === 1 ? `${styles.hipWhoRow} ${styles.reverse}` : styles.hipWhoRow}
         >
+          {/* Same nested rhythm as the Text Container: [eyebrow —eyebrow-gap— heading]
+              —heading-gap— paragraph, then —content-button-gap— button. */}
           <div className={styles.hipWhoText}>
-            <span className={styles.hipWhoTag}>{segment.tag}</span>
-            <h3 className={styles.hipWhoTitle}>{segment.title}</h3>
-            <p className={styles.hipWhoBody}>{segment.body}</p>
-            <span className={styles.hipWhoLink}>
-              Learn More <ArrowRight />
-            </span>
+            <div className={styles.hipWhoCopy}>
+              <div className={styles.hipWhoHeading}>
+                <span className={styles.hipWhoTag}>{segment.tag}</span>
+                <h3 className={styles.hipWhoTitle}>{segment.title}</h3>
+              </div>
+              <p className={styles.hipWhoBody}>{segment.body}</p>
+            </div>
+            {/* Global button (Fun / Playful — the section's category). */}
+            <PressShadowButton label={`${segment.title} Orthodontics`} />
           </div>
           <SectionImage
             slot="who-we-help"

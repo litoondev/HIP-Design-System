@@ -1,6 +1,7 @@
 import styles from "./StepSection.module.css";
-import { ArrowRight } from "./SectionIcons";
 import SectionImage from "./SectionImage";
+import TextContainer from "./TextContainer";
+import BoldFillButton from "../buttons/BoldFillButton";
 
 const STEPS = [
   {
@@ -25,17 +26,17 @@ export default function StepSection() {
   return (
     <div className={styles.hipSteps}>
       <div className={styles.hipStepsTop}>
+        {/* Copy block is the shared Text Container; the wrapper recolors it for the dark
+            ground. Button: Bold Fill (the section's category) — accent on base-black. */}
         <div className={styles.hipStepsText}>
-          <p className={styles.hipStepsEyebrow}>Simple &amp; Affordable</p>
-          <h2 className={styles.hipStepsH2}>Upgrade Your Smile</h2>
-          <p className={styles.hipStepsBody}>
-            Getting started is easier than you think. One free consult, flexible monthly payments,
-            and a team that walks you through every step.
-          </p>
-          <button className={styles.hipStepsCta}>
-            Request Free Consult
-            <ArrowRight />
-          </button>
+          <TextContainer
+            preHeader="Simple & Affordable"
+            header="Upgrade Your Smile"
+            paragraphs={[
+              "Getting started is easier than you think. One free consult, flexible monthly payments, and a team that walks you through every step.",
+            ]}
+            buttons={<BoldFillButton className={styles.hipStepsCta} />}
+          />
         </div>
         <SectionImage slot="step" label="Step Section Image" className={styles.hipStepsImg} />
       </div>

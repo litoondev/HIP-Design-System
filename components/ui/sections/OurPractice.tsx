@@ -1,7 +1,8 @@
 import styles from "./OurPractice.module.css";
-import { ArrowRight } from "./SectionIcons";
 import { sectionImage } from "./sectionImages";
 import imageStyles from "./SectionImage.module.css";
+import TextContainer from "./TextContainer";
+import CorporateArrowButton from "../buttons/CorporateArrowButton";
 
 /** 03 · Our Practice — light teal bg, 2-col, rotating play badge. */
 export default function OurPractice() {
@@ -46,19 +47,16 @@ export default function OurPractice() {
         </div>
       </div>
 
-      <div className={styles.hipPracticeText}>
-        <p className={styles.hipPracticeEyebrow}>Our Practice</p>
-        <h2 className={styles.hipPracticeH2}>What Sets Us Apart</h2>
-        <p className={styles.hipPracticeBody}>
-          We combine cutting-edge technology with a warm, family-friendly environment. Our
-          board-certified orthodontists have helped thousands of patients achieve the smile
-          they&apos;ve always wanted — affordably, comfortably, and close to home.
-        </p>
-        <button className={styles.hipPracticeCta}>
-          Learn More
-          <ArrowRight />
-        </button>
-      </div>
+      {/* Copy block is the shared Text Container; the button is the Corporate Arrow
+          (the section's category). */}
+      <TextContainer
+        preHeader="Our Practice"
+        header="What Sets Us Apart"
+        paragraphs={[
+          "We combine cutting-edge technology with a warm, family-friendly environment. Our board-certified orthodontists have helped thousands of patients achieve the smile they've always wanted — affordably, comfortably, and close to home.",
+        ]}
+        buttons={<CorporateArrowButton label="Learn More" />}
+      />
     </div>
   );
 }

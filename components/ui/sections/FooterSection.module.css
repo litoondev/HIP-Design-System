@@ -8,30 +8,35 @@
 }
 
 .hipFootTop {
-  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-  padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.1);
+  display:flex; align-items:center; justify-content:space-between; gap:var(--heading-gap); flex-wrap:wrap;
+  padding-bottom:var(--grid-gap); border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .hipFootLogo { font-size:28px; font-weight:800; color:var(--color-base-white); letter-spacing:-.5px; }
 
 .hipFootLogo span { color:var(--color-cta-500); }
 
-.hipFootCta {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
-  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  background:var(--color-cta-500); border:0; cursor:pointer;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:15px; font-weight:800; color:var(--color-base-white);
+/* Retargets the Corporate Arrow button (the section's category) from its tertiary ramp to
+   CTA orange — the footer's repeat CTA stays Ember Orange. Doubled class beats the button
+   module's own declarations; the transparent hover shows the navy ground through. */
+.hipFootCta.hipFootCta {
+  background-color:var(--color-cta-500);
+  border-color:var(--color-cta-500);
   box-shadow:0 6px 20px color-mix(in srgb, var(--color-cta-500) 35%, transparent);
 }
 
-.hipFootCta svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
+.hipFootCta.hipFootCta:hover,
+.hipFootCta.hipFootCta:focus-visible {
+  background-color:transparent;
+  color:var(--color-cta-500);
+}
 
 .hipFootCols {
   display:grid; grid-template-columns:repeat(3,1fr); gap:var(--grid-gap);
-  padding:36px 0;
+  padding:var(--grid-gap) 0;
 }
 
-.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-primary-400); margin-bottom:14px; }
+.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-primary-400); margin-bottom:var(--eyebrow-gap); }
 
 .hipFootLinks { display:flex; flex-direction:column; gap:9px; }
 
@@ -65,8 +70,8 @@
 .hipFootSocial svg { width:15px; height:15px; }
 
 .hipFootBar {
-  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  padding:20px 0; border-top:1px solid rgba(255,255,255,.1);
+  display:flex; align-items:center; justify-content:space-between; gap:var(--heading-gap); flex-wrap:wrap;
+  padding:var(--heading-gap) 0; border-top:1px solid rgba(255,255,255,.1);
 }
 
 .hipFootLegal { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }

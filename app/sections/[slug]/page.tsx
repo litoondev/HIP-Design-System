@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import SectionViewer from "@/components/ui/docs/SectionViewer";
 import { sectionComponents } from "@/components/ui/sections/sectionRegistry";
@@ -20,21 +19,24 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 export default function SectionSinglePage({ params }: { params: { slug: string } }) {
-  const Section = sectionComponents[params.slug];
-  if (!Section || !metaBySlug(params.slug)) notFound();
+  const entry = metaBySlug(params.slug);
+  if (!entry || !sectionComponents[params.slug]) notFound();
+
+  // Every variant of this design family, in meta order — the viewer stacks and
+  // filters them by category. Rendered here on the server (components may use fs).
+  const family = sectionMeta.filter((s) => (s.group ?? s.slug) === (entry!.group ?? entry!.slug));
+
   return (
     // A light, uniform gutter instead of DocShell's ~1040px reading column — these are live
     // design previews, not text, so they should use essentially all of the available width
     // (like the real site would) rather than being capped with a big dead zone next to them.
     <div className="px-6 [@media(max-width:900px)]:px-4">
-      {/* Suspense boundary for useSearchParams (the ?cat= category filter) during prerender.
-          The section renders here on the server (its components may use fs) and is passed
-          into the client viewer as children. */}
-      <Suspense>
-        <SectionViewer slug={params.slug}>
-          <Section />
-        </SectionViewer>
-      </Suspense>
+      <SectionViewer slug={params.slug}>
+        {family.map((variant) => {
+          const Section = sectionComponents[variant.slug];
+          return <Section key={variant.slug} />;
+        })}
+      </SectionViewer>
     </div>
   );
 }

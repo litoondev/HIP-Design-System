@@ -117,9 +117,10 @@ export default function SectionsPage() {
         tags={["Optional", "Gray bg · 4-col × 2 rows · Icon + text"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: gray-100. Card bg: white / border
-            gray-200. Icon bg: primary-50. Icon color: primary-500 (teal). Title: Figtree 800 14px.
-            Sub: Inter 400 12px / gray-500. Desktop 4-col, tablet 2-col, mobile 1–2 col. Icons from{" "}
+            <strong>DS tokens:</strong> Section bg: gray-100. Heading block: shared Text Container
+            (centered, no button). Card bg: white / border gray-200. Icon bg: primary-50. Title:
+            H6 (Figtree 700, 20/18/16) / textcolor-h2. Sub: Body2 (Inter, 18/16/14) /
+            textcolor-body. Desktop 4-col on the DS grid gap. Icons from{" "}
             <IconLibraryLink /> — check first.
           </>
         }
@@ -156,9 +157,10 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col + 3 numbered cards"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black. Eyebrow: Inter 700 11px /
-            2px tracking / uppercase / cta-500. H2: Figtree 800, clamp(28–48px). Step numeral:
-            Figtree 800 72px / cta-500 at 18% opacity. Card bg: white 4%. Image: Google Drive →{" "}
+            <strong>DS tokens:</strong> Section bg: base-black. Copy block: shared Text Container
+            recolored for the dark ground (H2 white, body 65% white). CTA: Bold Fill button
+            (accent). Step numeral: Figtree 800 72px / cta-500 at 18% opacity. Card bg: white 4%,
+            title H6, body Body2. Image: 3:2, Google Drive →{" "}
             <strong>Step Section</strong> folder.
           </>
         }
@@ -173,9 +175,9 @@ export default function SectionsPage() {
         tags={["Light teal bg · 2-col · Rotating play badge"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: primary-50. Play ring: SVG textPath,
-            cta-500 at 70%. Play button: cta-500 with 35% orange glow. Button border: primary-500.
-            H2: Figtree 800, clamp(26–40px). Video image: Google Drive →{" "}
+            <strong>DS tokens:</strong> Section bg: primary-50. Copy block: shared Text Container.
+            CTA: Corporate Arrow button (tertiary). Play ring: SVG textPath, cta-500 at 70%. Play
+            button: cta-500 with orange glow. Video image: Google Drive →{" "}
             <strong>What Sets Us Apart Section</strong> folder.
           </>
         }
@@ -191,9 +193,10 @@ export default function SectionsPage() {
         note={
           <>
             <NewDesign />
-            <strong>DS tokens:</strong> Section bg: white. Eyebrow: cta-500. Credential pill:
-            primary-50 bg / primary-200 border / primary-500 text. Name: Figtree 800 26px. Bio:
-            Inter 14px / 1.7 / gray-600. Link: primary-500. Photos: Google Drive →{" "}
+            <strong>DS tokens:</strong> Section bg: white. Heading block: shared Text Container
+            (centered, no button). Credential pill: primary-50 bg / primary-200 border / cta text.
+            Name: H3 (Figtree 800, 42/36/28). Bio: Body2 (Inter, 18/16/14) / textcolor-body.
+            CTA: Clean Outline button, &ldquo;Meet Dr. &lt;last name&gt;&rdquo;. Photos: Google Drive →{" "}
             <strong>Doctor Section</strong> folder — professional but warm, doctors smiling and
             in-office. Keep bios to two sentences; full bios live on profile pages.
           </>
@@ -210,8 +213,10 @@ export default function SectionsPage() {
         note={
           <>
             <NewDesign />
-            <strong>DS tokens:</strong> Section bg: primary-50. Age pill: white bg /
-            primary-200 border / primary-500 text. H3: Figtree 800 24px. Row divider: primary-100.
+            <strong>DS tokens:</strong> Section bg: primary-50. Heading block: shared Text
+            Container (centered, no button). Age pill: white bg / primary-200 border / cta text.
+            Title: H3 (Figtree 800, 42/36/28). Body: Body2 (Inter, 18/16/14). Images: 3:2. CTA:
+            Press Shadow button (Fun / Playful). Row divider: primary-100.
             Photography must clearly match the segment — a teen photo under &ldquo;Kids&rdquo; reads
             as a mistake. Each segment links to its own audience landing page. Images: Google Drive
             → <strong>Services or Who We Help Section</strong> folder.
@@ -228,8 +233,10 @@ export default function SectionsPage() {
         tags={["White bg · Centered heading · Zig-zag rows"]}
         note={
           <>
-            <strong>DS tokens:</strong> Eyebrow: cta-500. Treatment tag pill: primary-50 bg /
-            primary-200 border / primary-500 text. H3: Figtree 800 22px. Arrow link: primary-500.
+            <strong>DS tokens:</strong> Heading block: shared Text Container (centered, no button).
+            Treatment tag pill: primary-50 bg / primary-200 border / cta text. Title: H3 (Figtree
+            800, 42/36/28). Body: Body2 (Inter, 18/16/14). Images: 3:2. CTA: Clean Outline button,
+            &ldquo;Explore &lt;treatment&gt;&rdquo;.
             Images: Google Drive → <strong>How we help Section</strong> folder (1 image per
             treatment, match image to treatment).
           </>
@@ -265,8 +272,9 @@ export default function SectionsPage() {
         tags={["Orange-tinted bg · Image left · 1 CTA only"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: cta-50 → cta-100 gradient. CTA button: cta-500 /
-            Figtree 800 / shadow cta-500 at 35%. One CTA only — no competing links. Image:
+            <strong>DS tokens:</strong> Section bg: cta-50 → cta-100 gradient. Copy block: shared
+            Text Container. CTA: Vibrant Sweep button retargeted to the cta ramp (orange) / shadow
+            cta-500 at 35%. Image: 3:2. One CTA only — no competing links. Image:
             Google Drive → <strong>CTA Section</strong> folder.
           </>
         }
@@ -281,10 +289,11 @@ export default function SectionsPage() {
         tags={["Dark bg · 2-col top · Card slider bottom"]}
         note={
           <>
-            <strong>DS tokens:</strong> Section bg: base-black. Review card bg: white 5% /
-            border white 10%. Google G: real Google colors (SVG). Stars: fill cta-500. Reviewer
-            name: Inter 700 / white 45% / uppercase. Slider arrows: white 20% border. More Reviews
-            link: primary-500. Image: Google Drive → <strong>Testimonial Section</strong> folder.
+            <strong>DS tokens:</strong> Section bg: base-black. Copy block: shared Text Container
+            recolored for the dark ground. Review card bg: white 5% / border white 10%, quote
+            Body2. Stars: fill cta-500. Reviewer name: Inter 700 / white 45% / uppercase. Slider
+            arrows: white 20% border. CTA: Bold Fill button, &ldquo;More Reviews&rdquo;. Image:
+            3:2, Google Drive → <strong>Testimonial Section</strong> folder.
           </>
         }
       >
@@ -299,10 +308,11 @@ export default function SectionsPage() {
         note={
           <>
             <NewDesign />
-            <strong>DS tokens:</strong> Section bg: white. Eyebrow: cta-500. Phone: Figtree 800 17px
-            / cta-500 — phone numbers and addresses must be clickable links in production. Panels:
-            gray-50 bg / gray-200 border. Map: primary-50 → primary-100, primary-200 border, cta-500
-            pins. Real build needs pin pop-up cards (photo, address, &ldquo;Visit This
+            <strong>DS tokens:</strong> Section bg: white. Copy block: shared Text Container.
+            Phone: H6 (Figtree 800) / cta-500 — phone numbers and addresses must be clickable
+            links in production. Panels: gray-50 bg / gray-200 border, headings Subtitle (Figtree
+            700, 24/22/18), items Body2, gaps on the DS tokens. CTA: Corporate Arrow button, &ldquo;View All Locations&rdquo;. Image: 3:2.
+            Map: primary-50 → primary-100, primary-200 border, cta-500 pins. Real build needs pin pop-up cards (photo, address, &ldquo;Visit This
             Location&rdquo;) and per-weekday hours. Image: Google Drive →{" "}
             <strong>Location Section</strong> folder.
           </>
@@ -320,8 +330,9 @@ export default function SectionsPage() {
           <>
             <NewDesign />
             <strong>DS tokens:</strong> Section bg: navy <code>#0e1f35</code>. Column labels:
-            primary-400. Links: white 60%, white on hover. Repeat CTA: cta-500 pill — last-chance
-            conversion, so it stays orange. HIPAA compliance links are required: Privacy Policy,
+            primary-400. Links: white 60%, white on hover. Repeat CTA: Corporate Arrow button
+            retargeted to the cta ramp — last-chance conversion, so it stays orange. Gaps on the
+            DS grid/heading tokens. HIPAA compliance links are required: Privacy Policy,
             Accessibility Statement, Notice of Privacy Practices. The two round widgets are the
             accessibility tool (bottom-left) and chat bubble (bottom-right); they are fixed to the
             viewport in production, shown inline here.
