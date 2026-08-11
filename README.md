@@ -14,7 +14,7 @@ npm run dev
 ```
 
 Open http://localhost:3000. The home page (`/`) contains all Foundations (Color Palette,
-Typography, Color Accessibility, Responsive Spacing & Layout Rules) and most Components
+Typography, Color Accessibility, Spacing Primitives, Responsive Spacing & Layout Rules) and most Components
 (Input Field, Checkbox & Radio, Primary Nav, Mega Menu, Cards, Location, FAQ, Pagination, Tabs,
 Choose File) — mirroring `index.html`, which was itself a single page. `/buttons` holds the
 five button components, mirroring `buttons.html`.

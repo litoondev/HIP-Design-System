@@ -32,33 +32,39 @@
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
-.hipSocials { display:flex; align-items:center; gap:10px; }
+.hipSocials { display:flex; align-items:center; gap:var(--menu-social-gap); }
 
-.hipSocialDot {
-  width:26px; height:26px; border-radius:50%;
-  background: var(--color-cta-500);
-  display:grid; place-items:center; flex-shrink:0;
+/* Flat social icon (Figma Top_Menu treatment): a 24px library glyph in white with the
+   Figma social padding — no filled badge. Divider hairlines separate them. */
+.hipSocialIcon {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:var(--menu-social-padding);
+  color:var(--color-base-white); flex-shrink:0;
 }
 
-.hipSocialDot svg { width:13px; height:13px; fill:var(--color-base-white); }
+.hipSocDiv {
+  width:1px; height:var(--menu-divider-height);
+  background:color-mix(in srgb, var(--color-base-white) 15%, transparent); /* colors/White Alpha/15 */
+  flex-shrink:0;
+}
 
-.hipUtilityLinks { display:flex; align-items:center; gap:0; }
+.hipUtilityLinks { display:flex; align-items:center; gap:var(--menu-item-gap); }
 
 /* Type (family/size/weight/letter-spacing/case) comes from typographyClass("overline") in
    HeroBanner.tsx — the Overline token from lib/design-system/typography.ts — not from this
-   file. Only non-typographic layout stays here: box shape, spacing, color, border. */
+   file. Only non-typographic layout stays here: spacing and color. */
 .hipUtilityLink {
-  display:flex; align-items:center; gap:6px;
-  padding:0 14px; height:44px;
+  display:flex; align-items:center; gap:var(--menu-item-text-gap);
+  height:44px;
   color:var(--color-base-white);
-  border-left:1px solid rgba(255,255,255,.14);
 }
 
-.hipUtilityLink:first-child { border-left:0; }
-
-.hipUtilityLink svg { width:14px; height:14px; opacity:.8; }
-
-.hipUtilityLink.accent { color:var(--color-cta-400); }
+/* Icon wrapper — carries the Figma Header-Top icon padding around the 24px library glyph. */
+.hipUtilityLinkIcon {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:var(--menu-item-icon-pad-y) var(--menu-item-icon-pad-x);
+  flex-shrink:0;
+}
 
 .hipMainNav {
   height: 76px;
