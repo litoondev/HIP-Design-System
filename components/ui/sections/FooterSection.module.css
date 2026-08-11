@@ -36,25 +36,35 @@
   padding:var(--grid-gap) 0;
 }
 
-.hipFootColLabel { font-family: var(--font-inter), 'Inter', sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-primary-400); margin-bottom:var(--eyebrow-gap); }
+/* Column headings use the global Subtitle style (24/22/18 + 0.75px tracking);
+   primary-400 keeps the contrast on the navy ground. */
+.hipFootColLabel { margin:0 0 var(--hours-title-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-subtitle-size); line-height:var(--text-subtitle-leading); letter-spacing:var(--text-subtitle-tracking); font-weight:700; text-transform:uppercase; color:var(--color-primary-400); }
 
 .hipFootLinks { display:flex; flex-direction:column; gap:9px; }
 
 .hipFootLink {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; color:rgba(255,255,255,.6);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); line-height:var(--text-body1-leading); color:rgba(255,255,255,.6);
   text-decoration:none; cursor:pointer;
 }
 
 .hipFootLink:hover { color:var(--color-base-white); }
 
-.hipFootPhone {
-  display:inline-flex; align-items:center; gap:8px;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:17px; font-weight:800; color:var(--color-cta-500);
+/* Figma Contact Us rows (node 12973:53811): Body1 white text beside cta icons,
+   rows and icon↔text both on the 10px footer-link token. */
+.hipFootContact { display:flex; flex-direction:column; gap:var(--link-icon-gap); align-items:flex-start; }
+
+.hipFootContactRow {
+  display:inline-flex; align-items:center; gap:var(--link-icon-gap);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body1-size); line-height:var(--text-body1-leading); color:var(--color-base-white);
+  text-decoration:none; cursor:pointer;
+  transition:color .15s ease-out;
 }
 
-.hipFootPhone svg { width:16px; height:16px; }
+.hipFootContactRow:hover,
+.hipFootContactRow:focus-visible { color:var(--color-cta-400); }
 
-.hipFootAddr { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; line-height:1.7; color:rgba(255,255,255,.6); }
+/* Icons stay pinned to cta in both states, per the comp. */
+.hipFootContactIcon { color:var(--color-cta-base); }
 
 .hipFootSocials { display:flex; gap:10px; }
 
@@ -78,7 +88,7 @@
 
 .hipFootLegal span,
 .hipFootLegal a {
-  font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; color:rgba(255,255,255,.45);
+  font-family: var(--font-inter), 'Inter', sans-serif; font-size:var(--text-body2-size); line-height:var(--text-body2-leading); color:rgba(255,255,255,.45);
   text-decoration:none;
 }
 

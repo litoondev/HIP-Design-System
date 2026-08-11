@@ -1,72 +1,92 @@
-/* InstagramSection — NOT in sections.html. Designed to the structure the homepage reference
-   specifies for section 12 (horizontal scroll, 4–5 square posts visible).
-   Spacing/color/type values now flow through the DS tokens in app/globals.css. */
+/* InstagramSection — rebuilt to the Figma "Instagram Section" node 12975:54038.
+   Every color, type size, and gap resolves through the global DS tokens in
+   app/globals.css + lib/colors.ts (fonts via next/font variables). */
 .hipIg {
-  background:var(--color-base-white);
+  background:var(--color-accent-50);
   font-family: var(--font-figtree), 'Figtree', sans-serif;
   padding: var(--section-padding-y) var(--container-padding-x);
+  display:flex; flex-direction:column; gap:var(--grid-gap);
 }
 
-.hipIgHeader {
-  display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
-  margin-bottom:28px; flex-wrap:wrap;
+/* The Text Container's paragraph carries the @username — H4 Alt (Figtree Bold,
+   32/28/24), lowercase, textcolor-body, per the comp. */
+.hipIgHead h2 + p {
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-weight:700; text-transform:lowercase;
+  font-size:var(--text-h4-size); line-height:var(--text-h4-leading);
 }
 
-/* Explicit copy-block rhythm margins instead of a flex gap so each step gets its token. */
-.hipIgHeading { display:flex; flex-direction:column; }
-
-.hipIgEyebrow { margin:0 0 var(--eyebrow-gap); font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:var(--text-preheader-size); line-height:var(--text-preheader-leading); font-weight:700; letter-spacing:var(--text-preheader-tracking); text-transform:uppercase; color:var(--color-textcolor-preheader); }
-
-.hipIgH2 { margin:0 0 var(--heading-gap); font-size:var(--text-h2-size); font-weight:800; line-height:var(--text-h2-leading); color:var(--color-textcolor-h2); }
-
-.hipIgAccount { display:flex; align-items:center; gap:10px; }
-
-/* Instagram's own brand gradient — the one place a non-DS colour is correct. */
-.hipIgAvatar {
-  width:38px; height:38px; border-radius:50%; flex-shrink:0;
-  background:linear-gradient(45deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);
-  display:flex; align-items:center; justify-content:center;
-}
-
-.hipIgAvatar svg { width:19px; height:19px; color:var(--color-base-white); }
-
-.hipIgHandle { font-family: var(--font-inter), 'Inter', sans-serif; font-size:13px; font-weight:700; color:var(--color-textcolor-body); }
-
-.hipIgFollow {
-  display:inline-flex; align-items:center; gap:var(--btn-icon-gap);
-  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  background:var(--color-cta-500); border:0; cursor:pointer;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:13px; font-weight:800; color:var(--color-base-white);
-  box-shadow:0 4px 14px color-mix(in srgb, var(--color-primary-500) 30%, transparent);
-}
-
-.hipIgFollow svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
-
+/* Post slider — 310×414 cards on the paragraph-gap ladder (30/20/16), scroll-snap. */
 .hipIgStrip {
-  display:flex; gap:12px;
-  overflow-x:auto; padding-bottom:6px;
-  scroll-snap-type:x mandatory;
+  display:flex; gap:var(--paragraph-gap);
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:4px;
 }
 
 .hipIgTile {
-  position:relative; overflow:hidden; flex:0 0 auto;
-  width:calc((100% - 48px) / 5); min-width:150px; aspect-ratio:1/1;
-  border-radius:12px; scroll-snap-align:start;
-  background:linear-gradient(135deg,var(--color-primary-50) 0%,var(--color-primary-300) 100%);
+  flex:0 0 310px; aspect-ratio:310/414;
+  scroll-snap-align:start;
+  background:var(--color-gray-100); border:1px solid var(--color-gray-200);
   display:flex; align-items:center; justify-content:center;
 }
 
-.hipIgTile:nth-child(2) { background:linear-gradient(135deg,var(--color-cta-50) 0%,var(--color-cta-300) 100%); }
+.hipIgTile span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--color-gray-400); }
 
-.hipIgTile:nth-child(3) { background:linear-gradient(135deg,var(--color-tertiary-50) 0%,var(--color-tertiary-300) 100%); }
+/* Footer row — Follow Us + socials left, slider arrows right. */
+.hipIgFooter {
+  display:flex; align-items:center; justify-content:space-between; gap:var(--heading-gap); flex-wrap:wrap;
+}
 
-.hipIgTile:nth-child(4) { background:linear-gradient(135deg,var(--color-primary-50) 0%,var(--color-primary-400) 100%); }
+.hipIgFollow { display:flex; align-items:center; gap:var(--hours-center-gap); flex-wrap:wrap; }
 
-.hipIgTile:nth-child(5) { background:linear-gradient(135deg,var(--color-cta-100) 0%,var(--color-cta-400) 100%); }
+.hipIgFollowLabel {
+  margin:0; font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-size:var(--text-subtitle-size); line-height:var(--text-subtitle-leading); letter-spacing:var(--text-subtitle-tracking);
+  font-weight:700; text-transform:uppercase; color:var(--color-base-black);
+  white-space:nowrap;
+}
 
-.hipIgTile span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,.25); }
+.hipIgSocials { display:flex; align-items:center; gap:var(--link-icon-gap); }
 
-/* Padding values now come from the responsive DS tokens; only the tile width changes here. */
+.hipIgSocialPair { display:flex; align-items:center; gap:var(--link-icon-gap); }
+
+.hipIgSocialLine { width:2px; height:20px; background:var(--color-gray-200); flex-shrink:0; }
+
+.hipIgSocial {
+  display:flex; align-items:center; justify-content:center; padding:10px;
+  color:var(--color-primary-base);
+  transition:color .15s ease-out;
+}
+
+.hipIgSocial:hover,
+.hipIgSocial:focus-visible { color:var(--color-cta-base); }
+
+/* Square slider arrows: 2px primary border, sized to the global button height ladder. */
+.hipIgArrows { display:flex; gap:var(--hours-center-gap); }
+
+.hipIgArrow {
+  width:60px; height:60px;
+  display:grid; place-items:center;
+  background:transparent; border:2px solid var(--color-primary-base); color:var(--color-primary-base);
+  cursor:pointer;
+  transition:background-color .15s ease-out, color .15s ease-out;
+}
+
+.hipIgArrow:hover,
+.hipIgArrow:focus-visible { background:var(--color-primary-base); color:var(--color-base-white); }
+
+@media (max-width: 768px) {
+  .hipIgArrow { width:54px; height:54px; }
+}
+
 @media (max-width: 860px) {
-  .hipIgTile { width:60%; min-width:0; }
+  .hipIgTile { flex-basis:225px; }
+  /* Tab/Mobi comp stacks the footer centered: arrows above Follow Us. */
+  .hipIgFooter { flex-direction:column-reverse; justify-content:center; }
+  .hipIgFollow { flex-direction:column; justify-content:center; }
+}
+
+@media (max-width: 520px) {
+  .hipIgArrow { width:48px; height:48px; }
 }

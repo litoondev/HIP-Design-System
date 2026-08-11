@@ -1,5 +1,6 @@
 import styles from "./FooterSection.module.css";
 import CorporateArrowButton from "../buttons/CorporateArrowButton";
+import Icon from "../icons/Icon";
 
 const QUICK_LINKS = ["Our Practice", "Services", "Patient Resources", "Contact Us"];
 
@@ -30,21 +31,6 @@ const SOCIALS: { name: string; path: string }[] = [
   },
 ];
 
-function PhoneIcon() {
-  return (
-    <svg
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" />
-    </svg>
-  );
-}
-
 /** Footer Section — navy bg, repeat CTA, 3 columns, legal bar with the floating widgets. */
 export default function FooterSection() {
   return (
@@ -72,16 +58,21 @@ export default function FooterSection() {
 
         <div>
           <p className={styles.hipFootColLabel}>Contact Us</p>
-          <div className={styles.hipFootLinks}>
-            <span className={styles.hipFootPhone}>
-              <PhoneIcon />
-              (XXX) XXX-XXXX
-            </span>
-            <p className={styles.hipFootAddr}>
-              City, ST — per location
-              <br />
-              Call or text, Mon–Sat
-            </p>
+          {/* Figma "Item" node 12973:53811: pin + City rows, then Mobile + Call / Text —
+              Body1 white text, global-library icons in cta, 10px gaps, live links. */}
+          <div className={styles.hipFootContact}>
+            <a className={styles.hipFootContactRow} href="#">
+              <Icon name="Place Bold" size="20px" className={styles.hipFootContactIcon} />
+              City, ST
+            </a>
+            <a className={styles.hipFootContactRow} href="#">
+              <Icon name="Place Bold" size="20px" className={styles.hipFootContactIcon} />
+              City, ST
+            </a>
+            <a className={styles.hipFootContactRow} href="tel:+10000000000">
+              <Icon name="Mobile" size="20px" className={styles.hipFootContactIcon} />
+              Call / Text
+            </a>
           </div>
         </div>
 

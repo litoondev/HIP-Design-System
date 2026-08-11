@@ -15,6 +15,7 @@
   /* Was a literal 20px/16px pair; it is exactly the icon-md token, so it aliases it
      instead of restating the ladder. Same rendered sizes at all three breakpoints. */
   --btn-icon-size: var(--icon-md);
+  --btn-slider-pad: 20px; /* button/slider top-buttom & center gap (v2 slider CTA, arrows) */
   --radius-full: 999px;  /* fully-rounded pills */
 }
 
@@ -78,6 +79,7 @@
   --text-preheader-size: 16px; --text-preheader-leading: 24px; --text-preheader-tracking: 3px;
   --text-h2-size: 56px;        --text-h2-leading: 68px;
   --text-h3-size: 42px;        --text-h3-leading: 56px;
+  --text-h4-size: 32px;        --text-h4-leading: 46px;
   --text-h5-size: 24px;        --text-h5-leading: 34px;
   --text-h6-size: 20px;        --text-h6-leading: 30px;        --text-h6-tracking: 0.5px;
   --text-subtitle-size: 24px;  --text-subtitle-leading: 36px;  --text-subtitle-tracking: 0.75px;
@@ -91,6 +93,7 @@
     --text-preheader-size: 14px; --text-preheader-leading: 20px;
     --text-h2-size: 42px;        --text-h2-leading: 50px;
     --text-h3-size: 36px;        --text-h3-leading: 36px;
+    --text-h4-size: 28px;        --text-h4-leading: 40px;
     --text-h5-size: 22px;        --text-h5-leading: 30px;
     --text-h6-size: 18px;        --text-h6-leading: 28px;
     --text-subtitle-size: 22px;  --text-subtitle-leading: 33px;
@@ -105,6 +108,7 @@
     --text-preheader-size: 12px; --text-preheader-leading: 18px;
     --text-h2-size: 32px;        --text-h2-leading: 40px;
     --text-h3-size: 28px;        --text-h3-leading: 36px;
+    --text-h4-size: 24px;        --text-h4-leading: 34px;
     --text-h5-size: 20px;        --text-h5-leading: 28px;
     --text-h6-size: 16px;        --text-h6-leading: 22px;
     --text-subtitle-size: 18px;  --text-subtitle-leading: 28px;
@@ -148,6 +152,7 @@
     --btn-padding-x: 16px; /* spacing/16 */
     /* padding-y stays 12px at mobile */
     --btn-icon-gap: 8px;   /* spacing/8 */
+    --btn-slider-pad: 16px;
     /* Mobile icon scale — icon-md drops to 16px, carrying --btn-icon-size with it. */
     --icon-xs: 12px;
     --icon-sm: 14px;

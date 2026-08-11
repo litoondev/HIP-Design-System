@@ -50,6 +50,16 @@ export const sectionMeta: SectionMeta[] = [
     prompt: `Design an alternative full-bleed hero with a floating pill navigation. ${DS} Topbar in navy; the main nav is a white pill (border-radius 100px 0 0 100px, soft shadow) offset from the left edge. Hero content is centered: Figtree 800 clamp(52–80px) headline over a navy→primary-600/700/800 gradient. Buttons pair a circular icon container with uppercase text; CTA in cta-500, secondary in primary-500.`,
   },
   {
+    slug: "hero3",
+    num: "01C",
+    name: "Hero Banner — Slider",
+    category: "Elegant",
+    tags: ["Cyan topbar · Inset photo · Serif headline"],
+    group: "Hero Banner",
+    tab: "V3",
+    prompt: `Design a slider-style hero (Figma Master V3 node 12978:55076). ${DS} Structure: a secondary (cyan) utility bar with black ink — social icons left (Facebook, Instagram, YouTube), uppercase overline utility links right (Call/Text, Payment Calculator, Refer a Patient, Español); a white square-cornered main nav (logo, capitalized Menu-Item links with chevrons, square accent "Free Consultation" button — no pill radius). Hero: the photo sits inset inside the 64px page gutter, dark 50% multiply overlay, content bottom-left. Headline in Georgia serif clamp(44–100px), line one white, line two split secondary + accent ("Let Our Family / Treat Your Family"). CTA is the v2 button: cta-700 bar with an uppercase label that slides up on hover, plus a cta-500 icon block holding a diagonal arrow that straightens on hover.`,
+  },
+  {
     slug: "highlights",
     num: "02",
     name: "Highlights — Trust Badges Grid",
@@ -115,7 +125,7 @@ export const sectionMeta: SectionMeta[] = [
     name: "Instagram Section",
     category: "Vibrant",
     tags: ["White bg · Horizontal scroll · Square tiles"],
-    prompt: `Design an Instagram feed strip. ${DS} White section; header row with eyebrow + H2 left and the account (avatar ring in Instagram's own brand gradient — the one permitted non-DS color) plus a primary-500 Follow button with a 30% teal shadow (deliberately NOT orange so it never competes with the main CTA). Below: 1:1 tiles on brand-tint gradients, 4–5 visible, horizontal scroll with scroll-snap.`,
+    prompt: `Design an Instagram feed strip. ${DS} Section on accent-50 with the standard Text Container: "We're Social" eyebrow, "Connect With Us" H2, and the @username in H4 Alt (Figtree 700, 32/28/24, lowercase) in textcolor-body. Below: 310×414 post tiles (gray-100 on gray-200 borders) in a scroll-snap slider on the 30/20/16 gap ladder. Footer row: Subtitle "FOLLOW US" with Facebook/Instagram/X/TikTok icons in primary separated by gray-200 lines, and square slider arrows with a 2px primary border (fill primary on hover). Deliberately no orange CTA so it never competes with the main conversion CTA.`,
   },
   {
     slug: "cta",

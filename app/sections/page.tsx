@@ -253,12 +253,13 @@ export default function SectionsPage() {
         note={
           <>
             <NewDesign />
-            <strong>DS tokens:</strong> Section bg: white. Follow button: primary-500 with 30% teal
-            shadow — the one CTA on the page that is deliberately <em>not</em> orange, so it never
-            competes with Request Free Consult. Avatar ring uses Instagram&apos;s own brand gradient,
-            the single non-DS colour here. Tiles: 1:1, 4–5 visible on desktop, scroll-snap. Post
-            themes: smile reveals, team culture, care tips, events, before/after. Images: Google
-            Drive → <strong>Instagram Section</strong> folder.
+            <strong>DS tokens:</strong> Figma node 12975:54038. Section bg: accent-50. Copy block:
+            shared Text Container — eyebrow, H2, @username in H4 Alt (Figtree 700, 32/28/24,
+            lowercase, textcolor-body). Tiles: 310×414, gray-100 on a gray-200 border, scroll-snap.
+            Footer: Subtitle &ldquo;Follow Us&rdquo; + social icons (global library, primary,
+            gray-200 dividers) and square slider arrows (2px primary border). Deliberately no
+            orange CTA so it never competes with Request Free Consult. Images: Google Drive →{" "}
+            <strong>Instagram Section</strong> folder.
           </>
         }
       >

@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import HeroBanner from "./HeroBanner";
 import HeroPillNav from "./HeroPillNav";
+import HeroSlider from "./HeroSlider";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
 import StepSection from "./StepSection";
@@ -22,6 +23,7 @@ import FooterSection from "./FooterSection";
 export const sectionComponents: Record<string, ComponentType> = {
   hero: HeroBanner,
   hero2: HeroPillNav,
+  hero3: HeroSlider,
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
   steps: StepSection,

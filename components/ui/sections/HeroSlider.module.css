@@ -1,0 +1,168 @@
+/* HeroSlider — Figma Master V3 hero (node 12978:55076) adapted to the HIP DS.
+   Colors, spacing and icon sizes flow through the global tokens; type resolves
+   through the typography helpers in HeroSlider.tsx. The Figma headline is Georgia —
+   a system serif kept deliberately for this variation's editorial look (same
+   precedent as TextContainerV2 keeping the Master V3 brand font). */
+.w3Header {
+  position: relative; width: 100%; min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+  background: var(--color-base-white);
+}
+
+/* ── Top utility bar — secondary ground, black ink (Figma Top_Menu) ── */
+.w3Topbar {
+  padding: 0 64px;
+  background: var(--color-secondary-500);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.w3Socials { display: flex; align-items: center; gap: var(--menu-social-gap); }
+
+.w3SocialIcon {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--menu-social-padding);
+  color: var(--color-base-black); flex-shrink: 0;
+}
+
+.w3UtilLinks { display: flex; align-items: center; gap: var(--menu-item-gap); }
+
+/* Type comes from typographyClass("overline") — only layout & color live here. */
+.w3UtilLink {
+  display: inline-flex; align-items: center; gap: var(--menu-item-text-gap);
+  padding: var(--menu-item-icon-pad-y) 0;
+  color: var(--color-base-black);
+  white-space: nowrap;
+}
+
+.w3UtilLinkIcon {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 5px; flex-shrink: 0;
+}
+
+/* ── Main nav — white, square corners (Figma Menu_bar) ── */
+.w3Mainbar {
+  padding: 25px 64px;
+  background: var(--color-base-white);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.w3Brand {
+  flex: 0 0 auto;
+  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size: 28px; font-weight: 800;
+  color: var(--color-base-black); letter-spacing: -.5px;
+}
+
+.w3Brand span { color: var(--color-cta-500); }
+
+.w3Navlinks { display: flex; align-items: center; justify-content: flex-end; gap: 30px; }
+
+/* Type comes from typographyClass("menuItem") — only layout & color live here. */
+.w3Navlink {
+  text-transform: capitalize; color: var(--color-base-black);
+  white-space: nowrap; display: inline-flex; align-items: center;
+  gap: var(--menu-item-text-gap);
+}
+
+.w3NavCaret { display: inline-flex; align-items: center; padding-top: 4px; opacity: .8; }
+
+/* Square (no radius) accent button — deliberate departure from the pill variants.
+   Type comes from typographyClass("overline"); padding from the button tokens. */
+.w3Consult {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  background: var(--color-accent-500); color: var(--color-base-black);
+  white-space: nowrap; flex-shrink: 0;
+}
+
+/* ── Slider hero — photo inset in the page gutter (Figma Slider) ── */
+.w3SliderWrap {
+  flex: 1; display: flex; padding: 0 64px 14px;
+  min-height: 480px;
+}
+
+.w3Slider {
+  position: relative; flex: 1; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 60px 110px;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary-800) 45%, var(--color-secondary-700) 100%);
+  background-size: cover; background-position: center;
+}
+
+.w3Overlay {
+  position: absolute; inset: 0;
+  background: var(--color-base-black); mix-blend-mode: multiply; opacity: .5;
+  pointer-events: none;
+}
+
+.w3Content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--content-button-gap);
+}
+
+/* Figma H1 Large: Georgia Regular 100/100. Second line splits secondary / accent. */
+.w3H1 {
+  margin: 0; color: var(--color-base-white);
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
+  font-size: clamp(44px, 7vw, 100px); line-height: 1;
+  letter-spacing: 0;
+}
+
+.w3H1 em { color: var(--color-secondary-500); font-style: normal; }
+
+.w3H1 strong { color: var(--color-accent-500); font-weight: 400; }
+
+/* ── CTA — BTN v2: label track + cta icon block, square corners ── */
+.w3Cta {
+  display: inline-flex; align-items: center; overflow: hidden;
+  padding-left: var(--btn-slider-pad); gap: var(--btn-slider-pad);
+  background: var(--color-cta-700); color: var(--color-base-white);
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-size: var(--text-button-size); font-weight: 600;
+  letter-spacing: var(--text-button-tracking); text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* The duplicated label sits below the clip window and slides up on hover. */
+.w3CtaLabelClip { overflow: hidden; display: block; line-height: var(--text-button-leading); height: var(--text-button-leading); }
+
+.w3CtaLabels {
+  display: flex; flex-direction: column;
+  transition: transform .3s ease;
+}
+
+.w3Cta:hover .w3CtaLabels { transform: translateY(calc(-1 * var(--text-button-leading))); }
+
+.w3CtaIcon {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--btn-slider-pad); background: var(--color-cta-500);
+  transform: none;
+}
+
+/* Diagonal (up-right) arrow, straightening on hover. */
+.w3CtaIcon :global(svg), .w3CtaIcon { color: var(--color-base-white); }
+
+.w3CtaIcon { transition: transform .3s ease; }
+
+.w3CtaIcon > * { transform: rotate(-45deg); transition: transform .3s ease; }
+
+.w3Cta:hover .w3CtaIcon > * { transform: rotate(0deg); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .w3Topbar, .w3Mainbar { padding-left: 40px; padding-right: 40px; }
+  .w3SliderWrap { padding: 0 40px 14px; }
+  .w3Slider { padding: 0 40px 70px; }
+  .w3UtilLinks { gap: 12px; }
+  .w3Navlinks { gap: 20px; }
+}
+
+@media (max-width: 767px) {
+  .w3Topbar { padding: 0 20px; }
+  .w3UtilLink { display: none; }
+  .w3UtilLink:first-child { display: inline-flex; }
+  .w3Mainbar { padding: 16px 20px; }
+  .w3Navlink { display: none; }
+  .w3SliderWrap { padding: 0 20px 10px; min-height: 420px; }
+  .w3Slider { padding: 0 24px 48px; }
+}
