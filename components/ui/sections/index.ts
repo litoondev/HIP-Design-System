@@ -8,6 +8,8 @@ export { default as TextContainerV2, TEXT_CONTAINER_V2_CATEGORY, LearnMoreV2Butt
 /* Ported 1:1 from design-system/sections.html */
 export { default as HeroBanner } from "./HeroBanner";
 export { default as HeroPillNav } from "./HeroPillNav";
+export { default as HeroSlider } from "./HeroSlider";
+export { default as HeroCenteredNav } from "./HeroCenteredNav";
 export { default as StepSection } from "./StepSection";
 export { default as OurPractice } from "./OurPractice";
 export { default as HowWeHelp } from "./HowWeHelp";

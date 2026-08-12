@@ -1,0 +1,46 @@
+/* NavBarPillButton — nav-menu CTA, pill corners, fill-on-hover (Figma "HIP Master V3"
+   node 15916:55735, row 4). Same body as NavBarButton but fully rounded via --radius-full.
+   Default (both grounds): CTA-gold fill + base-black label. Hover is ground-aware via the
+   .onDark / .onLight modifier so it never matches the surface (see NavBarButton for the ratios):
+   .onDark → cta-50 fill + base-black ink; .onLight → cta-600 fill + base-white ink. Over Line
+   label type comes from typographyClass in the TSX. DS tokens only. */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  padding: var(--spacing-9) var(--spacing-14);
+  border-radius: var(--radius-full);
+  background: var(--color-cta-base);
+  color: var(--color-base-black);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Hover rules are written as .navBtn.onX so they always outrank the base rule (and any
+   single-class override a consumer passes through `className`). */
+
+/* On a DARK nav: flip to the light cta-50 fill with dark ink. */
+.navBtn.onDark:hover,
+.navBtn.onDark:focus-visible {
+  background: var(--color-cta-50);
+  color: var(--color-base-black);
+  outline: none;
+}
+
+/* On a LIGHT nav: flip to the dark cta-600 fill with light ink. */
+.navBtn.onLight:hover,
+.navBtn.onLight:focus-visible {
+  background: var(--color-cta-600);
+  color: var(--color-base-white);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navBtn {
+    transition: none;
+  }
+}

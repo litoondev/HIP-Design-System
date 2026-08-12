@@ -42,7 +42,17 @@
   display:inline-flex; align-items:center; justify-content:center;
   padding:var(--menu-social-padding);
   color:var(--color-base-white); flex-shrink:0;
+  transition: color .15s;
 }
+
+/* Hover/focus ink for every interactive element in the two bars is the cta ramp — the same
+   accent the eyebrow, the headline <em> and the Free Consult pill already use, and the same
+   ramp every button hover in this file moves onto. The glyph is an icon-library SVG normalised
+   to currentColor, so setting color here recolors the icon; no fill rule needed.
+   :focus-visible is paired with :hover throughout so the affordance exists for keyboard users
+   too, matching the hero buttons at the bottom of this file. */
+.hipSocialIcon:hover,
+.hipSocialIcon:focus-visible { color:var(--color-cta-base); }
 
 .hipSocDiv {
   width:1px; height:var(--menu-divider-height);
@@ -58,7 +68,13 @@
 .hipUtilityLink {
   display:flex; align-items:center; gap:var(--menu-item-text-gap);
   color:var(--color-base-white);
+  text-decoration:none; cursor:pointer;
+  transition: color .15s;
 }
+
+/* Icon and label move together — both take the anchor's currentColor. */
+.hipUtilityLink:hover,
+.hipUtilityLink:focus-visible { color:var(--color-cta-base); }
 
 /* Icon wrapper — carries the Figma Header-Top icon padding around the icon-lg glyph. */
 .hipUtilityLinkIcon {
@@ -99,22 +115,28 @@
   transition: color .15s;
 }
 
-.hipNavLink:hover { color:var(--color-base-white); }
+/* Was white-on-85%-white, a change too small to register as feedback at 15px uppercase. Now
+   the same cta accent as the utility bar above, so one hover language runs across all three
+   link groups in the header. */
+.hipNavLink:hover,
+.hipNavLink:focus-visible { color:var(--color-cta-base); }
 
 /* Caret box. The glyph itself is the "Arrow Down" entry from the global icon library, sized
    by the icon-sm token in HeroBanner.tsx — the old `.hipNavLink svg { width:13px }` rule was
    a hardcoded size on a hand-rolled inline chevron and is gone. Only opacity lives here. */
-.hipNavCaret { display:inline-flex; align-items:center; opacity:.6; }
-
-.hipNavCta {
-  padding:10px 22px; border-radius:var(--radius-full);
-  background:var(--color-cta-500); color:var(--color-base-white);
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
-  text-decoration:none; cursor:pointer; display:inline-block;
+.hipNavCaret {
+  display:inline-flex; align-items:center; opacity:.6;
   transition: opacity .15s;
 }
 
-.hipNavCta:hover { opacity:.9; }
+/* The caret is held down at 60% so it reads as secondary to the label; on hover it comes up
+   to full so the whole link — label and caret — brightens as one object rather than the
+   caret staying visibly dimmer than the text it belongs to. */
+.hipNavLink:hover .hipNavCaret,
+.hipNavLink:focus-visible .hipNavCaret { opacity:1; }
+
+/* The nav CTA is the shared NavBarPillButton from the button library (rendered in the TSX),
+   so it carries no styles here. */
 
 /*
  * `top` is the combined height of the two bars above, derived from the tokens that draw them
@@ -176,7 +198,9 @@
 
 .hipHeroBtnCta.hipHeroBtnCta:hover,
 .hipHeroBtnCta.hipHeroBtnCta:focus-visible {
-  background-color:var(--color-cta-600); border-color:var(--color-cta-600);
+  /* Dark hero ground → cta-50 hover fill with dark ink (19.53:1 label, and near-white so it
+     stays far from the dark ground). */
+  background-color:var(--color-cta-50); border-color:var(--color-cta-50);
   color:var(--color-base-black);
 }
 
@@ -187,6 +211,7 @@
 
 .hipHeroBtnAlt.hipHeroBtnAlt:hover,
 .hipHeroBtnAlt.hipHeroBtnAlt:focus-visible {
-  background-color:var(--color-gray-100); border-color:var(--color-gray-100);
+  /* Dark hero ground → the same cta-50 hover fill as the primary CTA. */
+  background-color:var(--color-cta-50); border-color:var(--color-cta-50);
   color:var(--color-base-black);
 }

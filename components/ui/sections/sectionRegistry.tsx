@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import HeroBanner from "./HeroBanner";
 import HeroPillNav from "./HeroPillNav";
 import HeroSlider from "./HeroSlider";
-import HeroCentered from "./HeroCentered";
+import HeroCenteredNav from "./HeroCenteredNav";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
 import StepSection from "./StepSection";
@@ -41,7 +41,7 @@ export const sectionComponents: Record<string, ComponentType> = {
   hero: HeroBanner,
   hero2: HeroPillNav,
   hero3: HeroSlider,
-  hero4: HeroCentered,
+  hero4: HeroCenteredNav,
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
   steps: StepSection,

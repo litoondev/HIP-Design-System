@@ -3,6 +3,8 @@ import styles from "./HeroSlider.module.css";
 import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
+import NavBarButton from "../buttons/NavBarButton";
+import CorporateArrowButton from "../buttons/CorporateArrowButton";
 
 /* Utility-bar links use the Overline typography token (same variant the Typography
    Foundation documents), exactly like the other Hero variants — never a one-off font. */
@@ -17,9 +19,6 @@ const navLinkClass = typographyClass("menuItem", styles.w3Navlink);
    em/strong colour treatment is preserved, but the serif voice is not — Main Header is on the
    header family. See the module comment if that serif needs to come back. */
 const heroH1Class = typographyClass("mainHeader", styles.w3H1);
-
-/* The square nav CTA uses the Overline variant (14/20 +1.25px, constant across breakpoints). */
-const consultClass = typographyClass("overline", styles.w3Consult);
 
 /* Figma Top_Menu (node 12978:55451): socials left, utility links right. All glyphs
    resolve through the centralized icon library, sized by --menu-icon-size. */
@@ -82,9 +81,8 @@ export default function HeroSlider() {
               </span>
             </a>
           ))}
-          <a className={consultClass} href="#">
-            Free Consultation
-          </a>
+          {/* Nav CTA — on the white nav bar (light ground), so hover flips to a dark fill. */}
+          <NavBarButton label="Free Consultation" ground="light" className={styles.w3Consult} />
         </nav>
       </div>
 
@@ -101,18 +99,11 @@ export default function HeroSlider() {
               <br />
               <em>Treat Your</em> <strong>Family</strong>
             </h1>
-            {/* CTA — stacked duplicate label slides up on hover (Figma BTN v2) */}
-            <a className={styles.w3Cta} href="#">
-              <span className={styles.w3CtaLabelClip}>
-                <span className={styles.w3CtaLabels}>
-                  <span>Free Consultation</span>
-                  <span aria-hidden="true">Free Consultation</span>
-                </span>
-              </span>
-              <span className={styles.w3CtaIcon}>
-                <Icon name="arrow-right" size="var(--btn-icon-size)" />
-              </span>
-            </a>
+            {/* Hero CTA — shared CorporateArrowButton from the button library, retargeted to the
+                accessible gold treatment (gold default → gold hover, black ink); the arrow
+                animates on hover. Replaces the old inline slider CTA whose cta-700 fill blended
+                into the dark ground (2.16:1). */}
+            <CorporateArrowButton label="Free Consultation" className={styles.w3HeroBtnCta} />
           </div>
         </div>
       </div>

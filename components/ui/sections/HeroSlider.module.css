@@ -22,7 +22,11 @@
   display: inline-flex; align-items: center; justify-content: center;
   padding: var(--menu-social-padding);
   color: var(--color-base-black); flex-shrink: 0;
+  transition: color .15s;
 }
+
+.w3SocialIcon:hover,
+.w3SocialIcon:focus-visible { color: var(--color-cta-base); }
 
 .w3UtilLinks { display: flex; align-items: center; gap: var(--menu-item-gap); }
 
@@ -32,7 +36,11 @@
   padding: var(--menu-item-icon-pad-y) 0;
   color: var(--color-base-black);
   white-space: nowrap;
+  transition: color .15s;
 }
+
+.w3UtilLink:hover,
+.w3UtilLink:focus-visible { color: var(--color-cta-base); }
 
 /* Was a one-off `0 5px`. The Figma Header Top/Icon box is spacing/10 left and right
    (--menu-item-icon-pad-x); vertical padding stays on .w3UtilLink so the two don't stack. */
@@ -54,7 +62,8 @@
 .w3Brand {
   flex: 0 0 auto;
   display: inline-flex; align-items: center; min-height: var(--icon-3xl);
-  color: var(--color-base-black); text-decoration: none;
+  /* Light (white) nav bar → dark ink from the -600 scale (primary-600, 5.44:1 AA). */
+  color: var(--color-primary-600); text-decoration: none;
 }
 
 .w3Navlinks {
@@ -64,20 +73,27 @@
 
 /* Type comes from typographyClass("menuItem") — only layout & color live here. */
 .w3Navlink {
-  text-transform: capitalize; color: var(--color-base-black);
+  /* Light (white) nav bar → dark ink from the -600 scale (primary-600, 5.44:1 AA). */
+  text-transform: capitalize; color: var(--color-primary-600);
   white-space: nowrap; display: inline-flex; align-items: center;
   gap: var(--menu-item-text-gap);
+  transition: color .15s;
 }
 
-.w3NavCaret { display: inline-flex; align-items: center; padding-top: 4px; opacity: .8; }
+.w3Navlink:hover,
+.w3Navlink:focus-visible { color: var(--color-cta-base); }
+
+.w3NavCaret { display: inline-flex; align-items: center; padding-top: 4px; opacity: .8; transition: opacity .15s; }
+
+.w3Navlink:hover .w3NavCaret,
+.w3Navlink:focus-visible .w3NavCaret { opacity: 1; }
 
 /* Square (no radius) accent button — deliberate departure from the pill variants.
    Type comes from typographyClass("overline"); padding from the button tokens. */
+/* Layout only — the CTA itself is the shared NavBarButton (visual + type live there).
+   This just keeps it from shrinking in the nav row. */
 .w3Consult {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: var(--btn-padding-y) var(--btn-padding-x);
-  background: var(--color-accent-500); color: var(--color-base-black);
-  white-space: nowrap; flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 /* ── Slider hero — photo inset in the page gutter (Figma Slider) ── */
@@ -124,44 +140,22 @@
    the line. Weight now comes from the token; only the accent color is local. */
 .w3H1 strong { color: var(--color-accent-500); }
 
-/* ── CTA — BTN v2: label track + cta icon block, square corners ── */
-/* Composes the shared `.btn` base from the button library. This one was closest already — it
-   read the --text-button-* vars — but at weight 600 against the library's 700, and via a
-   second source of truth for the same numbers. It now takes size, weight, leading and
-   tracking from `.btn` like every button on /buttons. Square corners, the sliding label track
-   and the cta-700 ground remain this variant's deliberate departures. */
-.w3Cta {
-  composes: btn from "../buttons/base.module.css";
-  overflow: hidden;
-  padding-left: var(--btn-slider-pad); gap: var(--btn-slider-pad);
-  background: var(--color-cta-700); color: var(--color-base-white);
-  text-transform: uppercase;
+/* ── Hero CTA — shared CorporateArrowButton, retargeted for the dark slider ground ──
+   Conversion CTA on the cta ramp: gold default → light cta-50 hover (dark-theme rule), black ink.
+   Both states stay distinct from the dark ground (≥6:1) and keep the label AA (11.25 / 8.06);
+   the old inline cta-700 fill blended into the ground at 2.16:1. Doubled class beats the
+   button module. */
+.w3HeroBtnCta.w3HeroBtnCta {
+  background-color: var(--color-cta-base); border-color: var(--color-cta-base);
+  color: var(--color-base-black);
 }
 
-/* The duplicated label sits below the clip window and slides up on hover. */
-.w3CtaLabelClip { overflow: hidden; display: block; line-height: var(--text-button-leading); height: var(--text-button-leading); }
-
-.w3CtaLabels {
-  display: flex; flex-direction: column;
-  transition: transform .3s ease;
+.w3HeroBtnCta.w3HeroBtnCta:hover,
+.w3HeroBtnCta.w3HeroBtnCta:focus-visible {
+  /* Dark hero ground → cta-50 hover fill with dark ink (19.53:1). */
+  background-color: var(--color-cta-50); border-color: var(--color-cta-50);
+  color: var(--color-base-black);
 }
-
-.w3Cta:hover .w3CtaLabels { transform: translateY(calc(-1 * var(--text-button-leading))); }
-
-.w3CtaIcon {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: var(--btn-slider-pad); background: var(--color-cta-500);
-  transform: none;
-}
-
-/* Diagonal (up-right) arrow, straightening on hover. */
-.w3CtaIcon :global(svg), .w3CtaIcon { color: var(--color-base-white); }
-
-.w3CtaIcon { transition: transform .3s ease; }
-
-.w3CtaIcon > * { transform: rotate(-45deg); transition: transform .3s ease; }
-
-.w3Cta:hover .w3CtaIcon > * { transform: rotate(0deg); }
 
 /* ── Responsive ── */
 @media (max-width: 1023px) {

@@ -49,7 +49,7 @@ export default function HowWeHelp2() {
                 <p className={rowCopyClass}>
                   Modern {treatment.title.toLowerCase()} designed around comfort and
                   results — with flexible payments and appointment times that fit your
-                  family's schedule.
+                  family&apos;s schedule.
                 </p>
                 <SquareArrowButton tone="primary" label={`Explore ${treatment.title}`} />
               </div>

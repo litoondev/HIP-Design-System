@@ -29,7 +29,11 @@
           display:inline-flex; align-items:center; justify-content:center;
           padding:var(--menu-social-padding);
           color:var(--color-base-white); flex-shrink:0;
+          transition: color .15s;
         }
+
+.w2SocialIcon:hover,
+.w2SocialIcon:focus-visible { color:var(--color-cta-base); }
 
 .w2SocDiv {
           width:1px; height:var(--menu-divider-height);
@@ -46,7 +50,11 @@
           display:inline-flex; align-items:center; gap:var(--menu-item-text-gap);
           color:var(--color-base-white);
           white-space:nowrap;
+          transition: color .15s;
         }
+
+.w2UtilLink:hover,
+.w2UtilLink:focus-visible { color:var(--color-cta-base); }
 
 /* Header Top/Icon box — spacing/10 on all four sides around an icon-lg glyph, matching
    .w2SocialIcon and the same box HeroBanner/HeroSlider use. */
@@ -74,7 +82,8 @@
 .w2Brand {
           flex:0 0 auto;
           display:inline-flex; align-items:center; min-height:var(--icon-3xl);
-          color:var(--color-navy); margin-right:48px; text-decoration:none;
+          /* Light (white) pill nav → dark ink from the -600 scale (primary-600, 5.44:1 AA). */
+          color:var(--color-primary-600); margin-right:48px; text-decoration:none;
         }
 
 .w2Navlinks {
@@ -88,22 +97,27 @@
    only thing setting this nav's metrics. Uppercase stays: Menu Item declares no
    text-transform, so casing is this nav's own choice and does not fight the token. */
 .w2Navlink {
-          color:var(--color-navy); text-transform:uppercase;
+          /* Light (white) pill nav → dark ink from the -600 scale (primary-600, 5.44:1 AA). */
+          color:var(--color-primary-600); text-transform:uppercase;
           white-space:nowrap; display:flex; align-items:center;
           gap:var(--menu-item-text-gap);
+          transition: color .15s;
         }
+
+.w2Navlink:hover,
+.w2Navlink:focus-visible { color:var(--color-cta-base); }
 
 /* Caret box. The glyph is the "Arrow Down" entry from the global icon library, sized by the
    icon-sm token in HeroPillNav.tsx — the old `.w2Navlink svg { width:12px }` rule was a
    hardcoded size on a hand-rolled inline chevron and is gone. Only opacity lives here. */
-.w2NavCaret { display:inline-flex; align-items:center; opacity:.45; }
+.w2NavCaret { display:inline-flex; align-items:center; opacity:.45; transition: opacity .15s; }
 
+.w2Navlink:hover .w2NavCaret,
+.w2Navlink:focus-visible .w2NavCaret { opacity:1; }
+
+/* Layout only — the CTA itself is the shared NavBarPillButton (visual + type live there).
+   This just positions it within the pill nav: spacing from the last link and no shrink. */
 .w2Consult {
-          display:inline-flex; align-items:center; justify-content:center;
-          height:44px; padding:0 24px; border-radius:var(--radius-full);
-          background:var(--color-cta-500); color:var(--color-base-white);
-          font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:14px; font-weight:800;
-          letter-spacing:.4px; text-transform:uppercase; white-space:nowrap;
           margin-left:36px; flex-shrink:0;
         }
 
@@ -160,4 +174,4 @@
 .w2BtnCta.w2BtnCta { background:var(--color-cta-base); color:var(--color-base-black); }
 
 .w2BtnCta.w2BtnCta:hover,
-.w2BtnCta.w2BtnCta:focus-visible { background:var(--color-cta-600); color:var(--color-base-black); }
+.w2BtnCta.w2BtnCta:focus-visible { background:var(--color-cta-50); color:var(--color-base-black); }

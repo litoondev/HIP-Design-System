@@ -29,6 +29,10 @@ import {
   CorporateRotateButton,
   CorporateChevronButton,
   CorporateArrowButton,
+  NavBarButton,
+  NavBarPillButton,
+  NavBarOutlineButton,
+  NavBarPillOutlineButton,
   VibrantSweepButton,
   VibrantInvertButton,
   TechLoopButton,
@@ -39,7 +43,7 @@ function row(align: DemoAlign, children: ReactNode) {
   return <div className={`flex ${align === "center" ? "justify-center" : "justify-start"}`}>{children}</div>;
 }
 
-/** All 28 button demos wired into the category-chip showcase shell. */
+/** All 31 button demos wired into the category-chip showcase shell. */
 export default function ButtonsShowcase() {
   return (
     <ComponentShowcase
@@ -95,6 +99,10 @@ export default function ButtonsShowcase() {
         "corporate-rotate-button-demo": (align) => row(align, <CorporateRotateButton />),
         "corporate-chevron-button-demo": (align) => row(align, <CorporateChevronButton />),
         "corporate-arrow-button-demo": (align) => row(align, <CorporateArrowButton />),
+        "nav-bar-button-demo": (align) => row(align, <NavBarButton />),
+        "nav-bar-pill-button-demo": (align) => row(align, <NavBarPillButton />),
+        "nav-bar-outline-button-demo": (align) => row(align, <NavBarOutlineButton />),
+        "nav-bar-pill-outline-button-demo": (align) => row(align, <NavBarPillOutlineButton />),
         "vibrant-sweep-button-demo": (align) => row(align, <VibrantSweepButton />),
         "vibrant-invert-button-demo": (align) => row(align, <VibrantInvertButton />),
         "tech-loop-button-demo": (align) => row(align, <TechLoopButton />),

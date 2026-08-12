@@ -62,12 +62,12 @@ export const sectionMeta: SectionMeta[] = [
   {
     slug: "hero4",
     num: "01D",
-    name: "Hero Banner — Centered",
-    category: "Bold",
-    tags: ["Primary band · Inset photo · Stacked headline"],
+    name: "Hero Banner — Centered Nav",
+    category: "Professional / Corporate",
+    tags: ["Navy topbar · Centered logo · Two-tone headline"],
     group: "Hero Banner",
     tab: "V4",
-    prompt: `Design a centered hero (Figma "hip-Image" Template 3, node 1:48380). ${DS} White nav (logo left, capitalized Menu-Item links with chevrons). Hero photo inset 120px from the left over a primary-500 band filling the lower 60%; dark 50% multiply overlay; content centered: a stacked headline whose first word shouts uppercase in tertiary-500 at clamp(48–100px) above two capitalized white lines at clamp(36–72px); below, two square 2px-bordered buttons — cta fill/white border "Request Free Consult" and primary fill/white border "What Sets Us Apart" — the global Square Arrow buttons.`,
+    prompt: `Design a hero with a centered-logo header over a photo (Figma Master V3 node 15914:55342). ${DS} Structure: a solid navy utility bar with a white-alpha/10 hairline (social icons left — Facebook, Instagram, YouTube — and, right, a phone overline "Call / Text" link plus a compact navy "Request Appointment" button outlined in a 2px white border); a transparent main nav sitting over the photo with the HIP logo centered between two Menu-Item link groups (Our Practice / Services · Patient Resources / Contact Us), each link capitalized with a chevron. Hero content is bottom-left over a navy 70% overlay: a Header-1 two-tone headline whose middle line ("Through Compassionate") takes the pale primary-200 accent while the rest stays white, and a bordered CTA — navy fill, 2px white border, uppercase Button-scale label followed by a short white rule. Fallback ground is a navy→primary-800→primary-600 gradient.`,
   },
   {
     slug: "highlights",

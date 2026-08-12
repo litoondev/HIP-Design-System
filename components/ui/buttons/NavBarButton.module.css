@@ -1,0 +1,51 @@
+/* NavBarButton — compact nav-menu CTA from Figma "HIP Master V3" node 15916:55711 (BTN).
+   Unlike the primary buttons this does NOT compose base .btn: its label is the Over Line type
+   (applied via typographyClass in the TSX), not the Button type scale. Padding uses the Figma
+   button/nav-ber tokens (left/right 14, top/bottom 9) via the spacing primitives. Colour is the
+   Default (both grounds): CTA-gold fill + base-black label — 11.25:1 (AAA); white on this light
+   gold would be only 1.79:1. The hover is ground-aware via the .onDark / .onLight modifier
+   (set by the `ground` prop) so the button never matches the surface it sits on:
+
+     .onDark  (dark nav)  → cta-50 fill (light) + base-black ink — 19.53:1 label, 16.1:1 vs nav
+     .onLight (light nav) → cta-600 fill (dark) + base-white ink —  5.10:1 label,  5.1:1 vs nav
+
+   Square corners match the header nav bar. Every value is a DS token; no literal hex. */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  padding: var(--spacing-9) var(--spacing-14);
+  background: var(--color-cta-base);
+  color: var(--color-base-black);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Hover rules are written as .navBtn.onX so they always outrank the base rule (and any
+   single-class override a consumer passes through `className`). */
+
+/* On a DARK nav: flip to the light cta-50 fill with dark ink. */
+.navBtn.onDark:hover,
+.navBtn.onDark:focus-visible {
+  background: var(--color-cta-50);
+  color: var(--color-base-black);
+  outline: none;
+}
+
+/* On a LIGHT nav: flip to the dark cta-600 fill with light ink. */
+.navBtn.onLight:hover,
+.navBtn.onLight:focus-visible {
+  background: var(--color-cta-600);
+  color: var(--color-base-white);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navBtn {
+    transition: none;
+  }
+}

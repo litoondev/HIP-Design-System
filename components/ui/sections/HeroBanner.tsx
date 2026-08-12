@@ -4,6 +4,7 @@ import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
 import CorporateArrowButton from "../buttons/CorporateArrowButton";
+import NavBarPillButton from "../buttons/NavBarPillButton";
 
 /* Utility-bar link type comes from the Overline typography token — the same "overline"
    variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
@@ -117,9 +118,8 @@ export default function HeroBanner() {
             </a>
           ))}
         </nav>
-        <a className={styles.hipNavCta} href="#">
-          Free Consult
-        </a>
+        {/* Nav CTA — shared NavBarButton (pill); dark nav ground, so hover flips to a light fill. */}
+        <NavBarPillButton label="Free Consult" ground="dark" />
       </div>
 
       {/* Hero content */}

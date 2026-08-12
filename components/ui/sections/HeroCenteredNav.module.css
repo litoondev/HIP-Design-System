@@ -1,0 +1,260 @@
+/* HeroCenteredNav (Hero Banner V4) — Figma Master V3 node 15914:55342.
+   Every colour, space, radius and border width flows through a DS token: the global colour
+   variables (lib/colors.ts), the spacing primitives (--spacing-N), and the semantic
+   menu/section/button tokens in app/globals.css. Type comes from typographyClass() in the
+   TSX, never restated here. No literal hex or px anywhere. */
+
+.v4Header {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-base-white);
+  overflow: hidden;
+}
+
+/* ---- Top utility bar : solid navy ---------------------------------------- */
+
+.v4Topbar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-40);
+  padding: var(--menu-bar-padding-y) var(--spacing-64);
+  background: var(--color-navy);
+  /* colors/White Alpha/10 — a translucent white hairline, mixed from the base-white token. */
+  border-bottom: var(--spacing-1) solid
+    color-mix(in srgb, var(--color-base-white) 10%, transparent);
+}
+
+.v4Socials {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-social-gap);
+}
+
+.v4SocialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--menu-social-padding);
+  color: var(--color-base-white);
+  flex-shrink: 0;
+  transition: color .15s;
+}
+
+.v4SocialIcon:hover,
+.v4SocialIcon:focus-visible { color: var(--color-cta-base); }
+
+.v4TopRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-40);
+}
+
+/* Type is the Overline token (set in the TSX); only spacing + colour live here. */
+.v4UtilLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--menu-item-text-gap);
+  color: var(--color-base-white);
+  white-space: nowrap;
+  transition: color .15s;
+}
+
+.v4UtilLink:hover,
+.v4UtilLink:focus-visible { color: var(--color-cta-base); }
+
+.v4UtilLinkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--menu-item-icon-pad-y) var(--menu-item-icon-pad-x);
+}
+
+/* The top utility-bar CTA is the shared NavBarButton from the button library (rendered in the
+   TSX), so it carries no styles here. */
+
+/* ---- Stage : photo + overlay + nav + content ----------------------------- */
+
+.v4Stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.v4Bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  /* Fallback ground when no photo exists — a navy→primary ramp, all tokens. */
+  background-image: linear-gradient(
+    135deg,
+    var(--color-navy) 0%,
+    var(--color-primary-800) 55%,
+    var(--color-primary-600) 100%
+  );
+  z-index: 0;
+}
+
+/* Dark wash so white nav + headline stay legible (Figma: secondary multiply ~70%). */
+.v4Overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-navy);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* ---- Main nav : transparent, centered logo ------------------------------- */
+
+.v4Nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-40);
+  padding: var(--nav-bar-padding-y) var(--container-padding-x);
+}
+
+.v4NavGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-40);
+  flex: 1;
+}
+
+/* Right group pushes its links toward the outer edge, mirroring the left group. */
+.v4NavGroup:last-child {
+  justify-content: flex-end;
+}
+
+/* Type is the Menu Item token (set in the TSX); casing + colour + layout here. */
+.v4NavLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--menu-item-text-gap);
+  color: var(--color-base-white);
+  text-transform: capitalize;
+  white-space: nowrap;
+  transition: color .15s;
+}
+
+.v4NavLink:hover,
+.v4NavLink:focus-visible { color: var(--color-cta-base); }
+
+.v4NavCaret {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.65;
+  transition: opacity .15s;
+}
+
+.v4NavLink:hover .v4NavCaret,
+.v4NavLink:focus-visible .v4NavCaret {
+  opacity: 1;
+}
+
+.v4Brand {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--icon-3xl);
+  color: var(--color-base-white);
+  text-decoration: none;
+}
+
+/* ---- Hero content : bottom-left ------------------------------------------ */
+
+.v4Content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--content-button-gap);
+  padding: var(--section-padding-y) var(--container-padding-x);
+}
+
+/* Type is the Header 1 token (set in the TSX). The middle line takes the pale-blue accent
+   from a light primary step; everything else is white. Casing + width live here. */
+.v4H1 {
+  margin: 0;
+  max-width: var(--spacing-1024);
+  color: var(--color-base-white);
+  text-transform: capitalize;
+}
+
+.v4H1 em {
+  font-style: normal;
+  color: var(--color-primary-200);
+}
+
+/* Global LineSlideButton, retargeted to the CTA ramp — Request Appointment is the conversion
+   action, so it always carries the CTA colour (gold) with black ink rather than the library's
+   navy default. Overriding `--charcoal` moves the button's fill; the border tracks it, and the
+   hover flips to the light cta-50 fill (the library's default hover fades to transparent, which
+   the solid override replaces) — the dark-theme hover rule: near-white on the dark hero ground
+   with a black label at 19.53:1. The doubled class raises specificity above the button module;
+   the text-slide + line-sweep motion is untouched. */
+.v4HeroCta.v4HeroCta {
+  --charcoal: var(--color-cta-base);
+  border-color: var(--color-cta-base);
+  color: var(--color-base-black);
+}
+
+.v4HeroCta.v4HeroCta:hover,
+.v4HeroCta.v4HeroCta:focus-visible {
+  /* Dark hero ground → cta-50 hover fill with dark ink (19.53:1). */
+  background: var(--color-cta-50);
+  border-color: var(--color-cta-50);
+  color: var(--color-base-black);
+}
+
+/* ---- Tablet / mobile ----------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .v4Topbar {
+    padding: var(--menu-bar-padding-y) var(--container-padding-x);
+  }
+
+  /* The centered-logo nav collapses to logo + link groups wrapping; the utility phone label
+     is the first thing to crowd, so the top bar drops its long call/text link. */
+  .v4UtilLink {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .v4Nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-20);
+  }
+
+  .v4NavGroup {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+
+  .v4NavGroup:last-child {
+    justify-content: center;
+  }
+
+  /* Logo leads on mobile, links follow beneath it. */
+  .v4Brand {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+}

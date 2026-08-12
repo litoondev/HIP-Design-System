@@ -4,6 +4,7 @@ import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
 import ModernPillButton from "../buttons/ModernPillButton";
+import NavBarPillButton from "../buttons/NavBarPillButton";
 
 /* Utility-bar link type comes from the Overline typography token — the same "overline"
    variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
@@ -94,9 +95,8 @@ export default function HeroPillNav() {
                   </span>
                 </a>
               ))}
-              <a className={styles.w2Consult} href="#">
-                Free Consult
-              </a>
+              {/* Nav CTA — on the white pill (light ground), so hover flips to a dark fill. */}
+              <NavBarPillButton label="Free Consult" ground="light" className={styles.w2Consult} />
             </nav>
           </div>
         </div>

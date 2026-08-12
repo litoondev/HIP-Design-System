@@ -1,0 +1,49 @@
+/* NavBarOutlineButton — nav-menu CTA, square corners, outline-on-hover (Figma "HIP Master V3"
+   node 15916:55735, row 1). Default is a solid cta-base (gold) fill with a base-black label
+   (11.25:1, AAA). Hover inverts to a transparent fill with a cta-600 border + cta-600 label —
+   cta-600 stays legible on both a light ground (5.10:1) and a dark hero nav (3.25:1 vs navy), so
+   the ink never matches its background the way a navy ink would on the dark heroes. The default
+   carries a same-width border so nothing shifts when it recolours on hover. Over Line label type
+   via typographyClass. DS tokens only. */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  padding: var(--spacing-9) var(--spacing-14);
+  border: var(--spacing-2) solid var(--color-cta-base);
+  background: var(--color-cta-base);
+  color: var(--color-base-black);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+/* Hover is ground-aware and always a SOLID fill — the previous transparent hover read as "no
+   hover" on a light card. Written as .navBtn.onX so it outranks the base rule. */
+
+/* On a DARK nav: flip to the light cta-50 fill with dark ink. */
+.navBtn.onDark:hover,
+.navBtn.onDark:focus-visible {
+  background: var(--color-cta-50);
+  border-color: var(--color-cta-50);
+  color: var(--color-base-black);
+  outline: none;
+}
+
+/* On a LIGHT nav: flip to the dark cta-600 fill with light ink. */
+.navBtn.onLight:hover,
+.navBtn.onLight:focus-visible {
+  background: var(--color-cta-600);
+  border-color: var(--color-cta-600);
+  color: var(--color-base-white);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navBtn {
+    transition: none;
+  }
+}
