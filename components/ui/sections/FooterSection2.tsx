@@ -8,7 +8,12 @@ const colTitleClass = typographyClass("subtitle", styles.hipFooter2ColTitle);
 const linkClass = typographyClass("body1", styles.hipFooter2Link);
 const legalClass = typographyClass("body2", styles.hipFooter2Legal);
 
-const QUICK_LINKS = ["Our Practice", "Services", "Patient Resources", "Contact Us"];
+const QUICK_LINKS = [
+  "Our Practice",
+  "Services",
+  "Patient Resources",
+  "Contact Us",
+];
 
 const CONTACTS = [
   { icon: "map-pin-fill", label: "City, ST" },
@@ -83,10 +88,11 @@ export default function FooterSection2() {
       </div>
 
       <div className={styles.hipFooter2Legal}>
-        <p className={legalClass}>© Copyright 2026 Practice Name</p>
-        <p className={legalClass}>
+        <p className="flex items-center gap-[var(--legal-gap)] flex-wrap">
+          © Copyright 2026 Practice Name
           <a href="#">Sitemap</a> | <a href="#">Privacy Policy</a> |{" "}
-          <a href="#">Accessibility Statement</a> | <a href="#">Notice of Privacy Practices</a>
+          <a href="#">Accessibility Statement</a> |{" "}
+          <a href="#">Notice of Privacy Practices</a>
         </p>
         <p className={legalClass}>
           Orthodontic Marketing &amp; Web Design by <a href="#">HIP</a>

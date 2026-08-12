@@ -8,10 +8,16 @@
   padding: var(--btn-padding-y) var(--btn-padding-x);
   border: 2px solid;
   text-transform: uppercase;
-  transition: filter .25s ease, background .25s ease;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
 }
 
-.sqBtn:hover { filter: brightness(1.08); }
+/* Hover drops the fill — the button reads as stroke-only (border + text keep
+   their variant color over a transparent background). */
+.sqBtn:hover,
+.sqBtn:focus-visible {
+  background: transparent;
+  outline: none;
+}
 
 /* CTA fill, white border/ink (comp hero + footer CTA). */
 .cta {
