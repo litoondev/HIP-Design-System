@@ -21,6 +21,7 @@ import {
   BoldSweepButton,
   BoldSlabButton,
   BoldTabButton,
+  SquareArrowButton,
   CleanOutlineButton,
   CleanExpandButton,
   CleanFadeButton,
@@ -76,6 +77,17 @@ export default function ButtonsShowcase() {
         "bold-sweep-button-demo": (align) => row(align, <BoldSweepButton />),
         "bold-slab-button-demo": (align) => row(align, <BoldSlabButton />),
         "bold-tab-button-demo": (align) => row(align, <BoldTabButton practice="multi-specialty" />),
+        "square-arrow-button-demo": (align) =>
+          row(
+            align,
+            // All four tone pairings from the Template 3 comp on one row.
+            <div className="flex flex-wrap items-center gap-4">
+              <SquareArrowButton tone="cta" label="Request Free Consult" />
+              <SquareArrowButton tone="secondary" label="Learn More" />
+              <SquareArrowButton tone="primary" label="Explore Braces" />
+              <SquareArrowButton tone="neutral" label="What Sets Us Apart" />
+            </div>
+          ),
         "clean-outline-button-demo": (align) => row(align, <CleanOutlineButton />),
         "clean-expand-button-demo": (align) => row(align, <CleanExpandButton />),
         "clean-fade-button-demo": (align) => row(align, <CleanFadeButton />),
