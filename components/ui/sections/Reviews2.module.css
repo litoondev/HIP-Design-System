@@ -1,0 +1,79 @@
+/* Reviews2 — Figma "hip-Image" Template 3 testimonials (node 1:48508) adapted to the
+   HIP DS. Editorial split with a hairline quote column and one framed review card.
+   Type flows through the typography variants and shared TextContainer. */
+.hipReviews2 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; align-items: stretch;
+  gap: var(--grid-gap);
+}
+
+/* Tall portrait photo (comp: 545×722, square corners). */
+.hipReviews2Img {
+  position: relative; width: 40%; min-height: 560px; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* Hairline column with the centered quote glyph (comp quater). */
+.hipReviews2Quote {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--grid-gap); padding: 0 var(--spacing-20);
+  color: var(--color-primary-300);
+}
+
+.hipReviews2QuoteLine { width: 1px; flex: 1; background: color-mix(in srgb, var(--color-base-black) 20%, transparent); }
+
+.hipReviews2Right {
+  flex: 1; display: flex; flex-direction: column;
+  gap: var(--content-button-gap);
+}
+
+/* Framed review card (comp Review_Card: primary-50 / primary-200 / 60px padding). */
+.hipReviews2Card {
+  margin: 0;
+  background: var(--color-primary-50);
+  border: 1px solid var(--color-primary-200);
+  padding: var(--spacing-60);
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--spacing-24);
+}
+
+.hipReviews2Rating { display: flex; align-items: center; gap: var(--spacing-24); }
+
+.hipReviews2Stars { display: inline-flex; gap: var(--spacing-8); color: var(--color-accent-500); }
+
+.hipReviews2Text { margin: 0; color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+.hipReviews2ReadMore { color: var(--color-tertiary-500); }
+
+.hipReviews2Divider { width: 100%; height: 2px; background: var(--color-gray-400); }
+
+.hipReviews2Name { margin: 0; text-transform: uppercase; color: var(--color-base-black); }
+
+/* Footer: square slider arrows + square primary button (comp Frame 12710). */
+.hipReviews2Footer {
+  margin-top: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+}
+
+.hipReviews2Arrows { display: flex; gap: var(--btn-slider-pad); }
+
+.hipReviews2Arrows button {
+  display: grid; place-items: center;
+  padding: var(--btn-slider-pad);
+  background: var(--color-primary-500); color: var(--color-base-white);
+  border: none; cursor: pointer;
+  transition: background .25s ease;
+}
+
+.hipReviews2Arrows button:hover { background: var(--color-primary-600); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipReviews2 { flex-direction: column; }
+  .hipReviews2Img { width: 100%; min-height: 0; aspect-ratio: 4 / 3; }
+  .hipReviews2Quote { display: none; }
+  .hipReviews2Card { padding: var(--spacing-30); }
+  .hipReviews2Footer { flex-wrap: wrap; }
+}

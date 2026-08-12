@@ -1,0 +1,47 @@
+/* OurDoctors2 — Figma "hip-Image" Template 3 doctor section (node 1:48413) adapted to
+   the HIP DS. Gray-50 ground, check-led highlight list, square secondary CTA, and a
+   right photo bleeding to the section edge. Type flows through the typography variants
+   and shared TextContainer. */
+.hipDoctors2 {
+  background: var(--color-gray-50);
+  padding: var(--section-padding-y) 0 var(--section-padding-y) calc(var(--container-padding-x) * 2);
+  display: flex; align-items: stretch; justify-content: space-between;
+  gap: var(--spacing-60);
+}
+
+.hipDoctors2Left {
+  flex: 1; max-width: 515px;
+  display: flex; flex-direction: column; gap: var(--paragraph-gap);
+}
+
+.hipDoctors2List {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-20);
+}
+
+.hipDoctors2ItemHead {
+  display: inline-flex; align-items: center; gap: var(--spacing-12);
+  color: var(--color-base-black);
+}
+
+.hipDoctors2ItemHead :global(svg) { color: var(--color-secondary-500); }
+
+.hipDoctors2List li { display: flex; flex-direction: column; gap: var(--spacing-8); }
+
+.hipDoctors2ItemCopy { margin: 0; color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+/* CTA sits after a larger break (comp: 60px above the button). */
+.hipDoctors2Left > :last-child { margin-top: var(--spacing-30); }
+
+/* Right portrait bleeds to the section's right edge (comp: 525×572, square corners). */
+.hipDoctors2Img {
+  position: relative; width: 40%; min-height: 480px; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipDoctors2 { flex-direction: column; padding: var(--section-padding-y) var(--container-padding-x); }
+  .hipDoctors2Left { max-width: none; }
+  .hipDoctors2Img { width: 100%; min-height: 0; aspect-ratio: 4 / 3; }
+}

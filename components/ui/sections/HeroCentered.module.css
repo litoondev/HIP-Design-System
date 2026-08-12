@@ -1,0 +1,82 @@
+/* HeroCentered — Figma "hip-Image" Template 3 hero (node 1:48380) adapted to the HIP DS.
+   The comp's Sarabun maps onto the global header font; its taupe/pink/orange palette
+   onto the primary/tertiary/cta ramps. Type resolves through the tokens; only layout
+   and color live here. */
+.w4Header {
+  position: relative; width: 100%; min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+  background: var(--color-base-white);
+}
+
+.w4Nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--nav-bar-padding-y) 64px;
+  background: var(--color-base-white);
+}
+
+.w4Brand {
+  display: inline-flex; align-items: center; min-height: var(--icon-3xl);
+  color: var(--color-base-black);
+}
+
+.w4Navlinks { display: flex; align-items: center; gap: var(--spacing-40); }
+
+.w4Navlink {
+  display: inline-flex; align-items: center; gap: var(--menu-item-text-gap);
+  text-transform: capitalize; color: var(--color-base-black); white-space: nowrap;
+}
+
+/* ── Hero: photo inset from the left gutter over a primary band ── */
+.w4HeroWrap { position: relative; flex: 1; display: flex; padding-left: var(--spacing-120); min-height: 560px; }
+
+/* The band behind the photo's lower half (comp: 580px primary strip). */
+.w4Band {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 60%;
+  background: var(--color-primary-500);
+}
+
+.w4Hero {
+  position: relative; flex: 1; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary-700) 100%);
+  background-size: cover; background-position: center;
+}
+
+.w4Overlay {
+  position: absolute; inset: 0;
+  background: var(--color-base-black); mix-blend-mode: multiply; opacity: .5;
+  pointer-events: none;
+}
+
+.w4Content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--spacing-60); text-align: center;
+}
+
+/* Type from typographyClass("mainHeader") — this module keeps only color, casing,
+   and the shouted first word (comp: 100px uppercase pink over 72px capitalize white;
+   both lines collapse onto the Main Header scale, same precedent as Hero V3). */
+.w4H1 { margin: 0; text-transform: capitalize; color: var(--color-base-white); }
+
+.w4H1 em {
+  display: block;
+  font-style: normal; text-transform: uppercase;
+  color: var(--color-tertiary-500);
+}
+
+.w4Btns { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--button-gap); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .w4Nav { padding-left: 40px; padding-right: 40px; }
+  .w4Navlinks { gap: var(--spacing-20); }
+  .w4HeroWrap { padding-left: 40px; }
+}
+
+@media (max-width: 767px) {
+  .w4Nav { padding-left: 20px; padding-right: 20px; }
+  .w4Navlink { display: none; }
+  .w4HeroWrap { padding-left: 0; min-height: 480px; }
+}

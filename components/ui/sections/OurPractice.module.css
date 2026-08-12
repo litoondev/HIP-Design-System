@@ -28,13 +28,6 @@
 
 @keyframes hip-spin { to { transform:rotate(360deg); } }
 
-.hipPlayRingText {
-  position:absolute; inset:0; border-radius:50%;
-  font-family: var(--font-figtree), 'Figtree', sans-serif; font-size:7.5px; font-weight:700; letter-spacing:3.2px;
-  text-transform:uppercase; color:color-mix(in srgb, var(--color-cta-500) 70%, transparent);
-  display:flex; align-items:center; justify-content:center;
-}
-
 .hipPlayBtn {
   width:54px; height:54px; border-radius:50%;
   background:var(--color-cta-500); display:grid; place-items:center;

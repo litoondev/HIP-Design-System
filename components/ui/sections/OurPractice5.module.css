@@ -1,0 +1,47 @@
+/* OurPractice5 — Figma "hip-Image" Template 3 practice section (node 36:22665) adapted
+   to the HIP DS. Editorial split on primary-50 with a primary-500 credibility logo
+   band. Type flows through the shared TextContainer; spacing through the tokens. */
+.hipPractice5 { background: var(--color-base-white); }
+
+.hipPractice5Main {
+  background: var(--color-primary-50);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: calc(var(--grid-gap) * 2);
+}
+
+.hipPractice5Left {
+  display: flex; flex-direction: column; gap: calc(var(--grid-gap) * 2);
+  max-width: 525px;
+}
+
+/* The copy column is indented to the right of the heading (comp: items-end offset). */
+.hipPractice5Offset { align-self: flex-end; max-width: 400px; }
+
+/* Tall square-cornered photo (comp: 639×664). */
+.hipPractice5Img {
+  position: relative; width: 48%; aspect-ratio: 639 / 664; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Logo band — white marks on the primary ground (comp Template 3 strip) ── */
+.hipPractice5Logos {
+  background: var(--color-primary-500);
+  padding: var(--spacing-60) var(--container-padding-x);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: calc(var(--grid-gap) * 1.5);
+}
+
+.hipPractice5Logos img {
+  height: var(--icon-3xl); width: auto; max-width: 240px;
+  object-fit: contain; opacity: .9;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipPractice5Main { flex-direction: column; align-items: stretch; }
+  .hipPractice5Left { max-width: none; }
+  .hipPractice5Offset { align-self: flex-start; max-width: none; }
+  .hipPractice5Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipPractice5Logos { padding: var(--spacing-40) var(--container-padding-x); gap: var(--grid-gap); }
+}

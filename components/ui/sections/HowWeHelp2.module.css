@@ -1,0 +1,37 @@
+/* HowWeHelp2 — Figma "hip-Image" Template 3 treatments section (node 1:48493) adapted
+   to the HIP DS. Full-bleed alternating half-photo/half-panel rows with square-corner
+   primary CTAs. Type flows through the typography variants and shared TextContainer. */
+.hipHow2 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) 0;
+  display: flex; flex-direction: column;
+  gap: var(--spacing-60);
+}
+
+.hipHow2Head { padding: 0 var(--container-padding-x); }
+
+.hipHow2Rows { display: flex; flex-direction: column; }
+
+/* Each row: half photo, half panel, no gap, 550px tall (comp Card 0N). */
+.hipHow2Row { display: grid; grid-template-columns: 1fr 1fr; min-height: 550px; }
+
+.hipHow2Img { position: relative; overflow: hidden; background: var(--color-gray-100); }
+
+.hipHow2Panel { display: flex; align-items: center; justify-content: center; padding: var(--spacing-80); }
+
+.hipHow2PanelInner {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--heading-gap); max-width: 460px;
+}
+
+/* Treatment title in the primary hue (comp: taupe H3). */
+.hipHow2Title { margin: 0; text-transform: capitalize; color: var(--color-primary-500); }
+
+.hipHow2Copy { margin: 0 0 var(--spacing-16); color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipHow2Row { grid-template-columns: 1fr; min-height: 0; }
+  .hipHow2Img { aspect-ratio: 4 / 3; order: 0; }
+  .hipHow2Panel { order: 1; padding: var(--spacing-40) var(--container-padding-x); }
+}

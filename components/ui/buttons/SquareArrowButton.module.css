@@ -1,0 +1,42 @@
+/* SquareArrowButton — square (no radius) 2px-bordered button from the "hip-Image
+   Template 3" comp. Composes the shared button base; fills and borders map the comp's
+   palette onto the DS ramps. */
+.sqBtn {
+  composes: btn from "./base.module.css";
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border: 2px solid;
+  text-transform: uppercase;
+  transition: filter .25s ease, background .25s ease;
+}
+
+.sqBtn:hover { filter: brightness(1.08); }
+
+/* CTA fill, white border/ink (comp hero + footer CTA). */
+.cta {
+  background: var(--color-cta-500);
+  border-color: var(--color-base-white);
+  color: var(--color-base-white);
+}
+
+/* Secondary fill, dark border/ink (comp "Learn More" / doctor CTA). */
+.secondary {
+  background: var(--color-secondary-500);
+  border-color: var(--color-base-black);
+  color: var(--color-base-black);
+}
+
+/* Primary fill, tertiary border, white ink (comp treatment / reviews CTA). */
+.primary {
+  background: var(--color-primary-500);
+  border-color: var(--color-tertiary-500);
+  color: var(--color-base-white);
+}
+
+/* Primary fill, white border/ink (comp hero secondary action). */
+.neutral {
+  background: var(--color-primary-500);
+  border-color: var(--color-base-white);
+  color: var(--color-base-white);
+}

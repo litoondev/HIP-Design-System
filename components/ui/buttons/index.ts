@@ -32,6 +32,9 @@ export { default as BoldSweepButton } from "./BoldSweepButton";
 export { default as BoldSlabButton } from "./BoldSlabButton";
 export { default as BoldTabButton } from "./BoldTabButton";
 
+// Bold (Template 3 square family)
+export { default as SquareArrowButton } from "./SquareArrowButton";
+
 // Clean
 export { default as CleanOutlineButton } from "./CleanOutlineButton";
 export { default as CleanExpandButton } from "./CleanExpandButton";

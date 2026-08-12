@@ -1,0 +1,65 @@
+/* WhoWeHelp2 — Figma "hip-Image" Template 3 audiences section (node 1:48460) adapted
+   to the HIP DS. Editorial three-column layout with hairline dividers and text-link
+   CTAs. Type flows through the typography variants and shared TextContainer. */
+.hipWho2 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column;
+  gap: var(--spacing-60);
+}
+
+.hipWho2Head { display: flex; flex-direction: column; gap: var(--spacing-60); }
+
+.hipWho2HeadRow {
+  display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--grid-gap) * 2);
+  align-items: center;
+}
+
+.hipWho2Rule { width: 100%; height: 1px; background: var(--color-gray-200); }
+
+/* Three columns divided by hairlines (comp: 80px gap, 1px lines between). */
+.hipWho2Cards { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+.hipWho2Card {
+  display: flex; flex-direction: column; gap: var(--grid-gap);
+  padding: 0 var(--grid-gap); min-height: 662px;
+}
+
+.hipWho2Card + .hipWho2Card { border-left: 1px solid var(--color-gray-200); }
+
+.hipWho2Card:first-child { padding-left: 0; }
+
+.hipWho2Card:last-child { padding-right: 0; }
+
+.hipWho2Content { display: flex; flex-direction: column; gap: var(--heading-gap); }
+
+.hipWho2Title { margin: 0; text-transform: capitalize; color: var(--color-base-black); }
+
+.hipWho2Copy { margin: 0; color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+.hipWho2Links { display: flex; flex-wrap: wrap; gap: var(--button-gap); }
+
+/* Bare text links with arrows — Button type tokens, colored per treatment. */
+.hipWho2Link {
+  display: inline-flex; align-items: center; gap: var(--btn-icon-gap);
+  text-transform: uppercase; white-space: nowrap;
+}
+
+.linkBraces { color: var(--color-secondary-500); }
+
+.linkAligners { color: var(--color-cta-500); }
+
+/* The photo fills the remaining column height (comp Img flex-1). */
+.hipWho2Img {
+  position: relative; flex: 1; min-height: 300px;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipWho2HeadRow { grid-template-columns: 1fr; gap: var(--grid-gap); }
+  .hipWho2Cards { grid-template-columns: 1fr; gap: var(--spacing-60); }
+  .hipWho2Card { padding: 0; min-height: 0; }
+  .hipWho2Card + .hipWho2Card { border-left: none; border-top: 1px solid var(--color-gray-200); padding-top: var(--spacing-60); }
+  .hipWho2Img { min-height: 0; aspect-ratio: 4 / 3; flex: none; }
+}
