@@ -3,6 +3,7 @@ import styles from "./HeroPillNav.module.css";
 import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
+import ModernPillButton from "../buttons/ModernPillButton";
 
 /* Utility-bar link type comes from the Overline typography token — the same "overline"
    variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
@@ -111,39 +112,11 @@ export default function HeroPillNav() {
           <h1 className={heroH1Class}>
             Live Life <em>Smiling</em>
           </h1>
+          {/* Global Modern Pill buttons (the section's category) — the conversion CTA is
+              retargeted to the cta ramp; the secondary keeps the native primary pill. */}
           <div className={styles.w2HeroBtns}>
-            <a className={`${styles.w2Btn} ${styles.primary}`} href="#">
-              <span className={styles.w2BtnIcon}>
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  viewBox="0 0 24 24"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </span>
-              Request Free Consult
-            </a>
-            <a className={`${styles.w2Btn} ${styles.secondary}`} href="#">
-              <span className={styles.w2BtnIcon}>
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  viewBox="0 0 24 24"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </span>
-              What Sets Us Apart
-            </a>
+            <ModernPillButton label="Request Free Consult" className={styles.w2BtnCta} />
+            <ModernPillButton label="What Sets Us Apart" />
           </div>
         </div>
       </div>

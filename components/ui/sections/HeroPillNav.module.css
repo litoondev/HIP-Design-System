@@ -154,27 +154,10 @@
    smallest of the three heroes' buttons and the furthest from /buttons. The asymmetric
    padding and the 40px icon puck are this pill's own shape and stay. `height` is dropped:
    at the library's 20/30 desktop type a locked 56px would clip. */
-.w2Btn {
-          composes: btn from "../buttons/base.module.css";
-          padding:8px 24px 8px 8px;
-          gap:var(--btn-icon-gap);
-          border-radius:var(--radius-full);
-          text-transform:uppercase;
-        }
+/* Retarget for the global Modern Pill button: the conversion CTA moves from the pill's
+   native primary ramp to the cta ramp (base-black ink for contrast on the light fill);
+   doubled class beats the button module's declarations. */
+.w2BtnCta.w2BtnCta { background:var(--color-cta-base); color:var(--color-base-black); }
 
-.w2BtnIcon {
-          flex:0 0 40px; width:40px; height:40px;
-          border-radius:50%; display:grid; place-items:center;
-        }
-
-.w2BtnIcon svg { width:var(--btn-icon-size); height:var(--btn-icon-size); }
-
-.w2Btn.primary { background:var(--color-cta-500); color:var(--color-base-white); }
-
-.w2Btn.primary .w2BtnIcon { background:var(--color-navy); color:var(--color-base-white); }
-
-.w2Btn.secondary { background:var(--color-cta-500); color:var(--color-base-white); }
-
-.w2Btn.secondary .w2BtnIcon { background:var(--color-base-white); }
-
-.w2Btn.secondary .w2BtnIcon svg { color:var(--color-cta-500); }
+.w2BtnCta.w2BtnCta:hover,
+.w2BtnCta.w2BtnCta:focus-visible { background:var(--color-cta-600); color:var(--color-base-black); }

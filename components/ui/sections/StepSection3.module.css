@@ -1,0 +1,86 @@
+/* StepSection3 — "leaf card" Step Section variation, Figma reference node 12985:55117.
+   All colors, type, gaps, and radii resolve through the global DS tokens; the comp's
+   client palette (maroons/charcoal, Lora serif, smile glyph) maps onto the DS ramps,
+   a system serif, and no brand asset — per the never-reuse-client-assets rule. */
+.hipSteps3 {
+  background:var(--color-accent-base);
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding-left:var(--container-padding-x);
+}
+
+/* The white content panel with the signature 150px top-left corner over the band. */
+.hipSteps3Panel {
+  background:var(--color-base-white);
+  border-top-left-radius:150px;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display:flex; flex-direction:column; gap:calc(var(--grid-gap) * 2);
+}
+
+/* ── Top row: Text Container left, paragraph + leaf CTA right ── */
+.hipSteps3Top {
+  display:grid; grid-template-columns:1fr 1fr; gap:var(--grid-gap); align-items:start;
+}
+
+/* Copy markup/rhythm comes from the shared TextContainer; the CTA is the global
+   Elegant Fill button on its native ramp. */
+
+/* ── Leaf cards: tl/br 150px, tr/bl radius-md, toned grounds ── */
+.hipSteps3Cards {
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--grid-gap);
+}
+
+.hipSteps3Card {
+  display:flex; flex-direction:column; gap:var(--grid-gap);
+  padding:var(--grid-gap);
+  border-radius:150px var(--radius-md) 150px var(--radius-md);
+}
+
+/* White text passes on all three toned grounds (dark ends of the ramps). */
+.hipSteps3Card.tone1 { background:var(--color-tertiary-700); }
+
+.hipSteps3Card.tone2 { background:var(--color-tertiary-900); }
+
+.hipSteps3Card.tone3 { background:var(--color-accent-700); }
+
+/* Image echoes the card's leaf shape. */
+.hipSteps3Img {
+  position:relative; width:100%; aspect-ratio:395/362;
+  border-radius:150px var(--radius-md) 150px var(--radius-md);
+  overflow:hidden;
+  background:var(--color-gray-100);
+  display:flex; align-items:center; justify-content:center;
+}
+
+.hipSteps3Img span { font-family: var(--font-inter), 'Inter', sans-serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--color-gray-400); }
+
+.hipSteps3Foot { display:flex; align-items:center; gap:var(--heading-gap); }
+
+/* Outlined serif numeral — system serif stands in for the comp's Lora (client font). */
+.hipSteps3Num {
+  font-family: Georgia, 'Times New Roman', serif; font-weight:700;
+  font-size:67px; line-height:1.15; letter-spacing:-3px;
+  color:transparent; -webkit-text-stroke:2px var(--color-base-white);
+  flex-shrink:0;
+}
+
+/* Label on the global Button type tokens (20/18/16 · 1.25px · extrabold uppercase). */
+.hipSteps3Label {
+  font-size:var(--text-button-size); line-height:var(--text-button-leading);
+  letter-spacing:var(--text-button-tracking);
+  font-weight:800; text-transform:uppercase; color:var(--color-base-white);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipSteps3Top { grid-template-columns:1fr; }
+  .hipSteps3Cards { grid-template-columns:1fr; }
+  .hipSteps3Panel { border-top-left-radius:100px; }
+  .hipSteps3Num { font-size:54px; }
+}
+
+@media (max-width: 520px) {
+  .hipSteps3Panel { border-top-left-radius:64px; }
+  .hipSteps3Card { border-radius:100px var(--radius-md) 100px var(--radius-md); }
+  .hipSteps3Img { border-radius:100px var(--radius-md) 100px var(--radius-md); }
+  .hipSteps3Num { font-size:44px; letter-spacing:-2px; }
+}

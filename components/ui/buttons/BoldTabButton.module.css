@@ -1,0 +1,51 @@
+/* BoldTabButton — squared CTA from Figma "HIP Master V3" node 12986:56708 (Button).
+   Colors and type come from the global tokens (cta ramp); the white arrow tab is
+   flush against the right edge. Figma spacing: left 20 / gap 20 / tab pad 20 /
+   radius 8 / stroke 2. */
+.tabBtn {
+    composes: btn from "./base.module.css";
+    justify-content: center;
+    gap: var(--btn-icon-gap);
+    padding-left: var(--btn-padding-y);
+    border: 2px solid var(--color-cta-base);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--color-cta-base);
+    color: var(--color-base-white);
+    text-transform: uppercase;
+    transition: background-color 200ms ease-in, color 200ms ease-in;
+  }
+
+.tabBtnIcon {
+    display: grid;
+    place-items: center;
+    padding: var(--btn-padding-y);
+    background: var(--color-base-white);
+    color: var(--color-cta-base);
+    transition: color 200ms ease-in;
+  }
+
+.tabBtnIcon svg {
+    display: block;
+    width: var(--btn-icon-size);
+    height: var(--btn-icon-size);
+    transition: transform 300ms ease-in;
+  }
+
+.tabBtn:hover,
+.tabBtn:focus-visible {
+    background: transparent;
+    color: var(--color-cta-base);
+    outline: none;
+  }
+
+.tabBtn:hover .tabBtnIcon svg,
+.tabBtn:focus-visible .tabBtnIcon svg {
+    transform: translateX(4px);
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  .tabBtn,
+  .tabBtnIcon,
+  .tabBtnIcon svg { transition: none; }
+}

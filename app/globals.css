@@ -16,6 +16,7 @@
      instead of restating the ladder. Same rendered sizes at all three breakpoints. */
   --btn-icon-size: var(--icon-md);
   --btn-slider-pad: 20px; /* button/slider top-buttom & center gap (v2 slider CTA, arrows) */
+  --radius-md: 16px;     /* radius/16 — cards */
   --radius-full: 999px;  /* fully-rounded pills */
 }
 

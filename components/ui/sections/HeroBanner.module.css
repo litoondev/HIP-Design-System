@@ -165,16 +165,28 @@
    tablet → 16/24/0 mobile) instead of the fixed 16px / 800 / 1px it declared for itself —
    which is why it read a size smaller than every button on /buttons. Only the things that are
    genuinely this hero's own (padding, radius, colors, uppercase) stay here. */
-.hipHeroBtn {
-  composes: btn from "../buttons/base.module.css";
-  gap:var(--btn-icon-gap);
-  padding:var(--btn-padding-y) var(--btn-padding-x); border-radius:var(--radius-full);
-  text-transform:uppercase;
-  border:0;
+/* Retargets for the global Corporate Arrow buttons on the hero photo (doubled class
+   beats the button module). The conversion CTA stays on the cta ramp and keeps a filled
+   hover — a transparent hover would fail contrast on the photo; the secondary sits on
+   white with base-black ink. */
+.hipHeroBtnCta.hipHeroBtnCta {
+  background-color:var(--color-cta-base); border-color:var(--color-cta-base);
+  color:var(--color-base-black);
 }
 
-.hipHeroBtn svg { width:var(--btn-icon-size); height:var(--btn-icon-size); flex-shrink:0; }
+.hipHeroBtnCta.hipHeroBtnCta:hover,
+.hipHeroBtnCta.hipHeroBtnCta:focus-visible {
+  background-color:var(--color-cta-600); border-color:var(--color-cta-600);
+  color:var(--color-base-black);
+}
 
-.hipHeroBtn.primary { background:var(--color-cta-500); color:var(--color-base-white); }
+.hipHeroBtnAlt.hipHeroBtnAlt {
+  background-color:var(--color-base-white); border-color:var(--color-base-white);
+  color:var(--color-base-black);
+}
 
-.hipHeroBtn.secondary { background:var(--color-base-white); color:var(--color-cta-500); }
+.hipHeroBtnAlt.hipHeroBtnAlt:hover,
+.hipHeroBtnAlt.hipHeroBtnAlt:focus-visible {
+  background-color:var(--color-gray-100); border-color:var(--color-gray-100);
+  color:var(--color-base-black);
+}

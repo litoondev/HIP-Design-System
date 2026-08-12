@@ -19,7 +19,8 @@ export const TEXT_CONTAINER_CATEGORY = "Professional / Corporate";
 
 export interface TextContainerProps {
   preHeader?: string;
-  header: string;
+  /** Omit for copy-only blocks (paragraph + buttons asides). */
+  header?: string;
   /** H2 is the site standard; step up/down only when the section's hierarchy calls for it. */
   headerAs?: "h1" | "h2" | "h3";
   paragraphs?: string[];
@@ -74,9 +75,11 @@ export default function TextContainer({
         </p>
       )}
 
-      <HeaderTag className="font-header font-bold text-base-black text-[length:var(--text-h2-size)] leading-[var(--text-h2-leading)] m-0 mb-[var(--heading-gap)]">
-        {header}
-      </HeaderTag>
+      {header && (
+        <HeaderTag className="font-header font-bold text-base-black text-[length:var(--text-h2-size)] leading-[var(--text-h2-leading)] m-0 mb-[var(--heading-gap)]">
+          {header}
+        </HeaderTag>
+      )}
 
       {paragraphs.map((text, i) => (
         <p

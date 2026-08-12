@@ -40,9 +40,3 @@
     transform: rotate(0deg);
   }
 
-@media (max-width: 768px) {
-}
-
-@media (max-width: 480px) {
-  .olvButton { font-size: 16px; line-height: 24px; }
-}

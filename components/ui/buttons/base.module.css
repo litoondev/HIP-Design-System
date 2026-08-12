@@ -1,35 +1,19 @@
 /* Shared button base — every button module composes this class instead of
-   repeating the same declarations. Carries the global button type ramp
-   (Desk 20/30 / Tab 18/28 / Mobi 16/24, per the Responsive Type Scale table)
-   and the structural defaults common to all 25 buttons. Anything a specific
-   button does differently stays in its own module as an override. */
+   repeating the same declarations. Button type follows the global Responsive
+   Type Scale via the --text-button-* tokens defined in app/globals.css
+   (Desk 20/30 / Tab 18/28 / Mobi 16/24 — breakpoints handled there).
+   Anything a specific button does differently stays in its own module. */
 .btn {
   display: inline-flex;
   align-items: center;
   width: max-content;
   max-width: 100%;
   font-family: var(--font-figtree), "Figtree", sans-serif;
-  font-size: 20px;
+  font-size: var(--text-button-size, 20px);
   font-weight: 700;
-  line-height: 30px;
-  letter-spacing: 1.25px;
+  line-height: var(--text-button-leading, 30px);
+  letter-spacing: var(--text-button-tracking, 1.25px);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .btn {
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: 0.5px;
-  }
-}
-
-@media (max-width: 520px) {
-  .btn {
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0px;
-  }
 }

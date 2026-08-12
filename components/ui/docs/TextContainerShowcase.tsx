@@ -5,6 +5,7 @@ import TextContainer from "../sections/TextContainer";
 import TextContainerV2 from "../sections/TextContainerV2";
 import TextContainerV3 from "../sections/TextContainerV3";
 import TextContainerV4 from "../sections/TextContainerV4";
+import TextContainerV5 from "../sections/TextContainerV5";
 
 /** Text Container demos wired into the category-chip showcase shell. */
 export default function TextContainerShowcase() {
@@ -49,6 +50,16 @@ export default function TextContainerShowcase() {
             header="Title"
             headerHighlight="Here"
             paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum."
+          />
+        ),
+        "text-container-v5-demo": (align) => (
+          <TextContainerV5
+            align={align}
+            preHeader="Simple & Affordable"
+            header="3 Steps to a"
+            headerHighlight="Healthy Smile"
+            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum."
+            buttonLabel="Request Free Ortho Consult"
           />
         ),
       }}

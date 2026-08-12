@@ -3,6 +3,9 @@
    circle-chevron glyph sits tight against the pill edge, per the design. */
 .pillBtn {
     composes: btn from "./base.module.css";
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     justify-content: center;
     gap: var(--btn-icon-gap);
     padding: var(--btn-padding-y) calc(var(--btn-padding-x) / 2) var(--btn-padding-y) var(--btn-padding-x);
@@ -11,14 +14,33 @@
     color: var(--color-base-white);
     font-weight: 800;
     text-transform: uppercase;
-    transition: background-color 300ms ease;
+  }
+
+/* Sweep fill — darker shade slides in from the left on hover/focus. */
+.pillBtn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-primary-600);
+    border-radius: inherit;
+    transform: translateX(-101%);
+    transition: transform 350ms ease;
+  }
+
+.pillBtn:hover::before,
+.pillBtn:focus-visible::before {
+    transform: translateX(0);
   }
 
 .pillBtn:hover,
 .pillBtn:focus-visible {
-    background: var(--color-primary-600);
     outline: none;
   }
+
+@media (prefers-reduced-motion: reduce) {
+  .pillBtn::before { transition: none; }
+}
 
 .pillBtnIcon {
     display: grid;

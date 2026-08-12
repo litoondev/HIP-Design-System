@@ -5,6 +5,9 @@ import HeroSlider from "./HeroSlider";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
 import StepSection from "./StepSection";
+import StepSection2 from "./StepSection2";
+import StepSection3 from "./StepSection3";
+import StepSection4 from "./StepSection4";
 import OurPractice from "./OurPractice";
 import OurDoctors from "./OurDoctors";
 import WhoWeHelp from "./WhoWeHelp";
@@ -27,6 +30,9 @@ export const sectionComponents: Record<string, ComponentType> = {
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
   steps: StepSection,
+  steps2: StepSection2,
+  steps3: StepSection3,
+  steps4: StepSection4,
   practice: OurPractice,
   doctors: OurDoctors,
   "who-we-help": WhoWeHelp,

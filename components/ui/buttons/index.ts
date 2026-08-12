@@ -29,6 +29,7 @@ export { default as TextRollButton } from "./TextRollButton";
 export { default as BoldFillButton } from "./BoldFillButton";
 export { default as BoldSweepButton } from "./BoldSweepButton";
 export { default as BoldSlabButton } from "./BoldSlabButton";
+export { default as BoldTabButton } from "./BoldTabButton";
 
 // Clean
 export { default as CleanOutlineButton } from "./CleanOutlineButton";

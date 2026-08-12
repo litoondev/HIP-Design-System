@@ -50,7 +50,7 @@
 }
 
 @media (max-width: 480px) {
-  .freeConsult { width: 184px; height: 45px; padding: 8px 8px 8px var(--btn-padding-x); font-size: 16px; line-height: 24px; }
+  .freeConsult { width: 184px; height: 45px; padding: 8px 8px 8px var(--btn-padding-x); }
   .freeConsultContent { height: 29px; }
   .freeConsultIcon { flex: 0 0 29px; width: 29px; height: 29px; }
 }

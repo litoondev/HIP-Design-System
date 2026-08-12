@@ -17,8 +17,10 @@
     border: 2px solid var(--brown);
     background: transparent;
     color: var(--dark);
-    font: 700 22px/1 Arial, Helvetica, sans-serif;
-    letter-spacing: 1.1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--text-button-size, 20px);
+    line-height: var(--text-button-leading, 30px);
+    letter-spacing: var(--text-button-tracking, 1.25px);
     text-transform: uppercase;
     transition: background-color .3s ease, color .3s ease;
   }
@@ -55,11 +57,11 @@
   }
 
 @media (max-width: 768px) {
-  .bergenButton { height: 61px; padding-right: 8px; font-size: 20px; letter-spacing: 0.5px; }
+  .bergenButton { height: 61px; padding-right: 8px; }
   .bergenButtonIcon { width: 41px; height: 41px; }
 }
 
 @media (max-width: 480px) {
-  .bergenButton { height: 54px; padding-right: 7px; font-size: 18px; }
+  .bergenButton { height: 54px; padding-right: 7px; }
   .bergenButtonIcon { width: 37px; height: 37px; }
 }

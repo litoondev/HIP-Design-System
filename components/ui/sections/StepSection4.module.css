@@ -1,0 +1,142 @@
+/* StepSection4 — Figma Master V3 "Step section" (node 12986:56347, Desk 12986:55646)
+   adapted to the HIP DS. White ground; the comp's fuchsia/lavender/grape client palette
+   maps onto the cta/tertiary/secondary/primary ramps; all spacing, radii and type
+   resolve through the global tokens. */
+.hipSteps4 {
+  background: var(--color-base-white);
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column; align-items: center;
+  gap: calc(var(--grid-gap) * 2);
+}
+
+/* ── Split header: boxed two-tone heading left, Body1 copy right, baseline-aligned ── */
+.hipSteps4Header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--grid-gap) * 2);
+  align-items: end; width: 100%;
+}
+
+.hipSteps4Heading { display: flex; flex-direction: column; gap: var(--eyebrow-gap); }
+
+/* Eyebrow on the PreHeader tokens, led by the comp's short rule. */
+.hipSteps4Eyebrow {
+  margin: 0;
+  display: inline-flex; align-items: center; gap: 12px;
+  font-weight: 700; text-transform: uppercase;
+  font-size: var(--text-preheader-size); line-height: var(--text-preheader-leading);
+  letter-spacing: var(--text-preheader-tracking);
+  color: var(--color-cta-500);
+}
+
+.hipSteps4EyebrowLine { width: 50px; height: 2px; background: currentColor; flex-shrink: 0; }
+
+/* H2 on the global scale; line one in the cta hue, line two white on a primary box. */
+.hipSteps4H2 {
+  margin: 0;
+  font-weight: 700; text-transform: capitalize;
+  font-size: var(--text-h2-size); line-height: var(--text-h2-leading);
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+
+.hipSteps4H2Line { color: var(--color-cta-500); }
+
+.hipSteps4H2Box {
+  background: var(--color-primary-base); color: var(--color-base-white);
+  padding: 3px 10px; border-radius: 4px;
+}
+
+.hipSteps4Copy { padding-bottom: 8px; }
+
+/* ── Photo with overlapping cards ── */
+.hipSteps4Media { width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+.hipSteps4Img {
+  position: relative; width: 100%; aspect-ratio: 1240 / 659;
+  border-radius: 40px; overflow: hidden;
+  background: var(--color-gray-100);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hipSteps4Img span {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--color-gray-400);
+}
+
+/* Cards ride the photo's bottom edge (comp: 243px overlap on a 338px card). */
+.hipSteps4Cards {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 339px));
+  gap: var(--grid-gap); justify-content: center;
+  margin-top: -243px; position: relative; z-index: 1;
+  width: 100%;
+}
+
+.hipSteps4Card {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 40px 60px; border-radius: 40px;
+  text-align: center;
+}
+
+.hipSteps4Card.tone1 { background: var(--color-tertiary-700); }
+
+.hipSteps4Card.tone2 { background: var(--color-secondary-700); }
+
+.hipSteps4Card.tone3 { background: var(--color-primary-700); }
+
+/* Light band crossing behind the numeral tile (comp Divider, 10px at y=104). */
+.hipSteps4Divider {
+  position: absolute; left: 0; right: 0; top: 104px; height: 10px;
+  background: var(--color-gray-50);
+}
+
+/* Numeral tile — light ground, 20px radius, numeral in the card's own hue
+   (H1 Small Alt scale: 72/86 bold). */
+.hipSteps4Num {
+  position: relative; z-index: 1;
+  display: grid; place-items: center;
+  width: 138px; height: 138px; border-radius: 20px;
+  background: var(--color-gray-50);
+  font-size: 72px; line-height: 86px; font-weight: 700;
+}
+
+.hipSteps4Card.tone1 .hipSteps4Num { color: var(--color-tertiary-700); }
+
+.hipSteps4Card.tone2 .hipSteps4Num { color: var(--color-secondary-700); }
+
+.hipSteps4Card.tone3 .hipSteps4Num { color: var(--color-primary-700); }
+
+/* Label on the global Button type tokens, white on every card hue. */
+.hipSteps4Label {
+  margin-top: 40px;
+  font-size: var(--text-button-size); line-height: var(--text-button-leading);
+  letter-spacing: 1.25px;
+  font-weight: 700; text-transform: uppercase; color: var(--color-base-white);
+}
+
+/* ── CTA row ── */
+.hipSteps4Buttons {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: var(--button-gap);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipSteps4Header { grid-template-columns: 1fr; gap: var(--grid-gap); align-items: start; }
+  .hipSteps4Copy { padding-bottom: 0; }
+  /* Tab comp: photo keeps a squarer ratio; cards overlap less and tighten up. */
+  .hipSteps4Img { aspect-ratio: 708 / 659; border-radius: 32px; }
+  .hipSteps4Cards { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: -180px; }
+  .hipSteps4Card { padding: 28px 20px 40px; border-radius: 28px; }
+  .hipSteps4Divider { top: 80px; height: 8px; }
+  .hipSteps4Num { width: 104px; height: 104px; font-size: 54px; line-height: 64px; }
+  .hipSteps4Label { margin-top: 28px; }
+}
+
+@media (max-width: 767px) {
+  /* Mobi comp: square photo, cards stack in one column below a smaller overlap. */
+  .hipSteps4Img { aspect-ratio: 1 / 1; border-radius: 24px; }
+  .hipSteps4Cards { grid-template-columns: 1fr; margin-top: -80px; padding: 0 20px; }
+  .hipSteps4Card { border-radius: 24px; }
+  .hipSteps4Buttons { flex-direction: column; width: 100%; }
+}

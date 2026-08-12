@@ -38,6 +38,7 @@ export const componentCatalog: CatalogEntry[] = [
   { name: "Text Container V2", category: "Vibrant", anchor: "text-container-v2-demo", group: "Text Container", tab: "V2" },
   { name: "Text Container V3", category: "Modern", anchor: "text-container-v3-demo", group: "Text Container", tab: "V3" },
   { name: "Text Container V4", category: "Clean", anchor: "text-container-v4-demo", group: "Text Container", tab: "V4" },
+  { name: "Text Container V5", category: "Bold", anchor: "text-container-v5-demo", group: "Text Container", tab: "V5" },
   // Buttons (/buttons)
   { name: "Arrow Loop Button", category: "Modern", anchor: "arrow-loop-button-demo" },
   { name: "Panel Collapse Button", category: "Modern", anchor: "panel-collapse-button-demo" },
@@ -55,6 +56,7 @@ export const componentCatalog: CatalogEntry[] = [
   { name: "Bold Fill Button", category: "Bold", anchor: "bold-fill-button-demo" },
   { name: "Bold Sweep Button", category: "Bold", anchor: "bold-sweep-button-demo" },
   { name: "Bold Slab Button", category: "Bold", anchor: "bold-slab-button-demo" },
+  { name: "Bold Tab Button", category: "Bold", anchor: "bold-tab-button-demo" },
   { name: "Clean Outline Button", category: "Clean", anchor: "clean-outline-button-demo" },
   { name: "Clean Expand Button", category: "Clean", anchor: "clean-expand-button-demo" },
   { name: "Clean Fade Button", category: "Clean", anchor: "clean-fade-button-demo" },

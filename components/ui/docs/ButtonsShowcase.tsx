@@ -19,6 +19,7 @@ import {
   BoldFillButton,
   BoldSweepButton,
   BoldSlabButton,
+  BoldTabButton,
   CleanOutlineButton,
   CleanExpandButton,
   CleanFadeButton,
@@ -36,7 +37,7 @@ function row(align: DemoAlign, children: ReactNode) {
   return <div className={`flex ${align === "center" ? "justify-center" : "justify-start"}`}>{children}</div>;
 }
 
-/** All 26 button demos wired into the category-chip showcase shell. */
+/** All 27 button demos wired into the category-chip showcase shell. */
 export default function ButtonsShowcase() {
   return (
     <ComponentShowcase
@@ -65,6 +66,7 @@ export default function ButtonsShowcase() {
         "bold-fill-button-demo": (align) => row(align, <BoldFillButton />),
         "bold-sweep-button-demo": (align) => row(align, <BoldSweepButton />),
         "bold-slab-button-demo": (align) => row(align, <BoldSlabButton />),
+        "bold-tab-button-demo": (align) => row(align, <BoldTabButton practice="multi-specialty" />),
         "clean-outline-button-demo": (align) => row(align, <CleanOutlineButton />),
         "clean-expand-button-demo": (align) => row(align, <CleanExpandButton />),
         "clean-fade-button-demo": (align) => row(align, <CleanFadeButton />),

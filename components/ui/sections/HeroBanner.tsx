@@ -3,6 +3,7 @@ import styles from "./HeroBanner.module.css";
 import { sectionImage } from "./sectionImages";
 import Icon from "@/components/ui/icons/Icon";
 import { typographyClass } from "@/components/ui/typography/Typography";
+import CorporateArrowButton from "../buttons/CorporateArrowButton";
 
 /* Utility-bar link type comes from the Overline typography token — the same "overline"
    variant the Typography Foundation page documents (Inter 700, 14/20/1.25px, uppercase, at
@@ -127,35 +128,11 @@ export default function HeroBanner() {
         <h1 className={heroH1Class}>
           Live Life <em>Smiling</em>
         </h1>
+        {/* Global Corporate Arrow buttons (the section's category), retargeted for the
+            photo ground: conversion CTA on the cta ramp, secondary on white. */}
         <div className={styles.hipHeroActions}>
-          <button className={`${styles.hipHeroBtn} ${styles.primary}`}>
-            Free Consult
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
-          <button className={`${styles.hipHeroBtn} ${styles.secondary}`}>
-            What Sets Us Apart
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
+          <CorporateArrowButton label="Free Consult" className={styles.hipHeroBtnCta} />
+          <CorporateArrowButton label="What Sets Us Apart" className={styles.hipHeroBtnAlt} />
         </div>
       </div>
     </div>
