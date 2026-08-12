@@ -1,0 +1,139 @@
+/* OurPractice3 — Figma Master V3 "Our Practice" (node 12998:56855, Desk 12998:56155)
+   adapted to the HIP DS. The comp's maroon pair (light maroon card, deep maroon
+   eyebrow/button) maps onto the tertiary ramp (700 / 900 — same warm-ramp precedent as
+   StepSection3); charcoal ink maps to base-black. Photo is full-bleed; everything else
+   sits on the container gutter.
+
+   All type resolves through typographyClass(...) in OurPractice3.tsx — this module keeps
+   only layout, color, and the comp's casing where it goes beyond a variant's own style.
+   Spacing routes through the global primitives (--spacing-N) and layout tokens. */
+.hipPractice3 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) 0;
+  display: flex; flex-direction: column;
+  gap: calc(var(--grid-gap) * 2);
+}
+
+/* ── Heading row + overlapping card ── */
+.hipPractice3Head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--grid-gap);
+  padding: 0 var(--container-padding-x);
+  margin-bottom: calc(var(--grid-gap) * -2 - 68px); /* card rides the photo below */
+  position: relative; z-index: 2; pointer-events: none;
+}
+
+.hipPractice3Heading {
+  display: flex; flex-direction: column; gap: var(--spacing-12); max-width: 546px;
+  pointer-events: auto;
+}
+
+.hipPractice3Glyph { color: var(--color-tertiary-900); display: inline-flex; }
+
+/* Type from typographyClass("preHeader") — only color lives here. */
+.hipPractice3Eyebrow { margin: 0; color: var(--color-tertiary-900); }
+
+/* Type from typographyClass("header2"); the comp capitalizes. */
+.hipPractice3H2 { margin: 0; text-transform: capitalize; color: var(--color-base-black); }
+
+/* Dark card with the signature asymmetric corners (tl/br 50, tr/bl 5) + white border. */
+.hipPractice3Card {
+  width: 478px; flex-shrink: 0; pointer-events: auto;
+  background: var(--color-tertiary-700);
+  border: 2px solid var(--color-base-white);
+  border-radius: 50px 5px 50px 5px;
+  padding: var(--spacing-60);
+  display: flex; flex-direction: column; gap: var(--heading-gap);
+}
+
+/* Type from typographyClass("header3"); the comp capitalizes. */
+.hipPractice3CardH3 { margin: 0; text-transform: capitalize; color: var(--color-base-white); }
+
+/* Type from typographyClass("body1"). */
+.hipPractice3CardCopy { margin: 0; color: var(--color-base-white); }
+
+.hipPractice3CardList { list-style: none; margin: 0; padding: 0; }
+
+/* Rows on typographyClass("strong1") with the braces glyph, split by 10%-white
+   hairlines — only layout and color here. */
+.hipPractice3CardList li {
+  display: flex; align-items: center; gap: var(--spacing-8);
+  color: var(--color-base-white);
+  padding: var(--spacing-20) 0;
+  border-bottom: 2px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+}
+
+.hipPractice3CardList li:first-child { padding-top: 0; }
+
+.hipPractice3CardList li:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* ── Full-bleed photo (no radius, no gutter — comp IMG 1920×717) ── */
+.hipPractice3Img {
+  position: relative; width: 100%; aspect-ratio: 1920 / 717;
+  overflow: hidden;
+  background: var(--color-gray-100);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Uppercase statement + asymmetric-corner button ── */
+.hipPractice3Statement {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+  padding: 0 var(--container-padding-x);
+}
+
+/* Type from typographyClass("header5"); the comp sets it uppercase. */
+.hipPractice3StatementTxt {
+  margin: 0; max-width: 627px;
+  text-transform: uppercase;
+  color: var(--color-base-black);
+}
+
+/* Composes the shared `.btn` base (Button type tokens, responsive) — this module adds
+   only the deep tertiary ground, the mirrored 40px corners, and the global padding. */
+.hipPractice3Btn {
+  composes: btn from "../buttons/base.module.css";
+  gap: var(--btn-icon-gap);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: 40px 0 40px 0;
+  background: var(--color-tertiary-900); color: var(--color-base-white);
+  text-transform: uppercase;
+  transition: background .25s ease;
+  flex-shrink: 0;
+}
+
+.hipPractice3Btn:hover { background: var(--color-tertiary-700); }
+
+/* ── Credibility strip between hairlines ── */
+.hipPractice3Creds {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+  padding: var(--spacing-50) var(--container-padding-x);
+  border-top: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+/* Library logos (black variant), dimmed like the comp's grayscale strip. Height rides
+   the icon-3xl ladder (64 / 48 / 40) so the strip steps down with every other glyph;
+   width stays auto so each mark keeps its ratio. */
+.hipPractice3Cred {
+  height: var(--icon-3xl); width: auto; max-width: 260px;
+  object-fit: contain;
+  opacity: .8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipPractice3Head { flex-direction: column; margin-bottom: 0; }
+  .hipPractice3Card { width: 100%; padding: var(--spacing-40); border-radius: 40px 5px 40px 5px; }
+  .hipPractice3Img { aspect-ratio: 768 / 430; }
+  .hipPractice3Statement { flex-direction: column; align-items: flex-start; }
+  .hipPractice3Creds { justify-content: center; padding-top: var(--spacing-30); padding-bottom: var(--spacing-30); }
+}
+
+@media (max-width: 767px) {
+  .hipPractice3Card { padding: var(--spacing-24); border-radius: 30px 5px 30px 5px; }
+  .hipPractice3Img { aspect-ratio: 320 / 280; }
+  .hipPractice3Creds { gap: var(--spacing-20); }
+  .hipPractice3Cred { max-width: 180px; }
+}

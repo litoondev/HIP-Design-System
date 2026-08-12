@@ -15,6 +15,7 @@ export { default as LineSwapButton } from "./LineSwapButton";
 // Elegant
 export { default as ElegantFillButton } from "./ElegantFillButton";
 export { default as ElegantSweepButton } from "./ElegantSweepButton";
+export { default as ElegantShadowButton } from "./ElegantShadowButton";
 
 // Luxury
 export { default as LuxuryOverhangButton } from "./LuxuryOverhangButton";

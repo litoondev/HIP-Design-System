@@ -64,6 +64,7 @@ export const navLinks: NavLink[] = [
     ],
   },
   { label: "Icons", href: "/icons", group: "Assets" },
+  { label: "Logos", href: "/logos", group: "Assets" },
 ];
 
 /** Splits "/sections#hero" into ["/sections", "hero"]; a bare "/#colors" yields ["/", "colors"]. */

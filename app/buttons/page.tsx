@@ -3,7 +3,7 @@ import { DocShell } from "@/components/layout";
 
 export const metadata = {
   title: "Buttons — HIP Style Guide",
-  description: "All 27 HIP button treatments, filterable by Design Category.",
+  description: "All 28 HIP button treatments, filterable by Design Category.",
 };
 
 /** Buttons gallery — the 25 buttons from design-system/buttons.html, filtered via category chips. */

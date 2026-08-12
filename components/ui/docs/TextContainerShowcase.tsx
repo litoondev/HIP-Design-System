@@ -6,6 +6,7 @@ import TextContainerV2 from "../sections/TextContainerV2";
 import TextContainerV3 from "../sections/TextContainerV3";
 import TextContainerV4 from "../sections/TextContainerV4";
 import TextContainerV5 from "../sections/TextContainerV5";
+import TextContainerV6 from "../sections/TextContainerV6";
 
 /** Text Container demos wired into the category-chip showcase shell. */
 export default function TextContainerShowcase() {
@@ -60,6 +61,14 @@ export default function TextContainerShowcase() {
             headerHighlight="Healthy Smile"
             paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id augue semper arcu enim viverra sit ipsum. Nunc lorem a vulputate eget bibendum."
             buttonLabel="Request Free Ortho Consult"
+          />
+        ),
+        "text-container-v6-demo": (align) => (
+          <TextContainerV6
+            align={align}
+            header="Upgrade Your Smile"
+            headerLine2="in 3 Simple Steps"
+            paragraph="Getting the confident, healthy smile you deserve is simple — our team is here to guide you every step of the way."
           />
         ),
       }}

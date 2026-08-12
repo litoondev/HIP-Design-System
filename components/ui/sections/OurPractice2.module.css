@@ -1,0 +1,149 @@
+/* OurPractice2 — Figma Master V3 "Our Practice" (node 12994:55984, Desk 12994:55634)
+   adapted to the HIP DS. Dark elegant variation: the comp's forest-ash ground maps onto
+   base-black, its golden-yellow onto the accent ramp, and Trajan Pro onto a system serif
+   (client assets are never reused — same precedent as StepSection5). All spacing, radii
+   and type resolve through the global tokens. */
+.hipPractice2 {
+  background: var(--color-base-black);
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column;
+  gap: calc(var(--grid-gap) * 2);
+}
+
+/* ── Split header with the stat card overlapping the photo below ── */
+.hipPractice2Top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--grid-gap);
+  margin-bottom: calc(var(--grid-gap) * -2 - 86px); /* card rides the photo's top edge */
+  position: relative; z-index: 2; pointer-events: none;
+}
+
+.hipPractice2Header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--grid-gap); flex: 1; pointer-events: auto;
+}
+
+/* Serif H2 on the global scale at weight 400 uppercase (comp: Trajan 54/68). */
+.hipPractice2H2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
+  font-size: var(--text-h2-size); line-height: var(--text-h2-leading);
+  text-transform: uppercase; color: var(--color-base-white);
+  display: flex; flex-direction: column; align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.hipPractice2H2Row { display: inline-flex; align-items: center; gap: 16px; }
+
+/* Hairline trailing the first serif line (comp Line gp, gray-300). */
+.hipPractice2Rule { width: 130px; height: 2px; background: var(--color-gray-300); flex-shrink: 0; }
+
+/* Second line in the accent hue (comp: golden yellow). */
+.hipPractice2H2Accent { color: var(--color-accent-500); }
+
+.hipPractice2Copy {
+  margin: 0; max-width: 514px;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 300;
+  font-size: var(--text-body1-size); line-height: var(--text-body1-leading);
+  color: var(--color-base-white);
+}
+
+/* Accent stat card (comp Experience Info: 30px padding & radius, dark ink). */
+.hipPractice2Stat {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 30px; border-radius: 30px; width: 260px; flex-shrink: 0;
+  background: var(--color-accent-500); color: var(--color-base-black);
+  margin-top: 150px; pointer-events: auto;
+}
+
+/* Serif numeral on the comp's H1 Small scale (72/86). */
+.hipPractice2StatNum {
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
+  font-size: 72px; line-height: 86px; text-transform: uppercase;
+}
+
+/* Strong 1 tokens (20/30 +0.5px, medium). */
+.hipPractice2StatLabel {
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 500;
+  font-size: var(--text-h6-size); line-height: var(--text-h6-leading);
+  letter-spacing: var(--text-h6-tracking);
+}
+
+/* ── Wide team photo ── */
+.hipPractice2Img {
+  position: relative; width: 100%; aspect-ratio: 1240 / 700;
+  border-radius: 30px; overflow: hidden;
+  background: var(--color-gray-800);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hipPractice2Img span,
+.hipPractice2GalleryImg span {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--color-gray-400);
+}
+
+/* ── Highlights list + gallery ── */
+.hipPractice2Bottom {
+  display: flex; gap: calc(var(--grid-gap) * 1.5); align-items: flex-end;
+}
+
+.hipPractice2List {
+  flex: 1; display: flex; flex-direction: column; gap: var(--content-button-gap);
+  padding-top: 20px;
+}
+
+.hipPractice2List ul { list-style: none; margin: 0; padding: 0; }
+
+/* Strong-1 rows divided by hairlines in a mid gray (comp: forest-ash 500). */
+.hipPractice2List li {
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 500;
+  font-size: var(--text-h6-size); line-height: var(--text-h6-leading);
+  letter-spacing: var(--text-h6-tracking);
+  color: var(--color-base-white);
+  padding: 20px 0;
+  border-bottom: 2px solid var(--color-gray-700);
+}
+
+.hipPractice2List li:first-child { padding-top: 0; }
+
+.hipPractice2List li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.hipPractice2List > :global(button) { align-self: flex-start; }
+
+/* Two rounded-top photos, bottom-aligned with the list (comp Images Section). */
+.hipPractice2Gallery {
+  display: flex; gap: var(--grid-gap); align-items: flex-end;
+  width: 58%; flex-shrink: 0;
+}
+
+.hipPractice2GalleryImg {
+  position: relative; height: 536px; flex: 1;
+  border-radius: 20px 20px 0 0; overflow: hidden;
+  background: var(--color-gray-800);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hipPractice2GalleryImg.wide { flex: 1.2; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipPractice2Top { flex-direction: column; margin-bottom: 0; }
+  .hipPractice2Header { flex-direction: column; }
+  .hipPractice2Stat { margin-top: 0; align-self: flex-end; width: 220px; padding: 20px; border-radius: 24px; }
+  .hipPractice2StatNum { font-size: 54px; line-height: 64px; }
+  .hipPractice2Img { border-radius: 24px; }
+  .hipPractice2Bottom { flex-direction: column; align-items: stretch; }
+  .hipPractice2Gallery { width: 100%; }
+  .hipPractice2GalleryImg { height: 380px; }
+}
+
+@media (max-width: 767px) {
+  .hipPractice2Rule { width: 60px; }
+  .hipPractice2Stat { width: 100%; align-self: stretch; }
+  .hipPractice2Img { aspect-ratio: 4 / 3; border-radius: 20px; }
+  .hipPractice2Gallery { flex-direction: column; align-items: stretch; }
+  .hipPractice2GalleryImg { height: 260px; border-radius: 16px 16px 0 0; }
+}

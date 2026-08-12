@@ -11,6 +11,7 @@ const LINKS = [
   { label: "Buttons", href: "/buttons" },
   { label: "Homepage", href: "/homepage" },
   { label: "Icons", href: "/icons" },
+  { label: "Logos", href: "/logos" },
   { label: "Sections", href: "/sections" },
 ];
 

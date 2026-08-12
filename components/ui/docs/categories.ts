@@ -39,6 +39,7 @@ export const componentCatalog: CatalogEntry[] = [
   { name: "Text Container V3", category: "Modern", anchor: "text-container-v3-demo", group: "Text Container", tab: "V3" },
   { name: "Text Container V4", category: "Clean", anchor: "text-container-v4-demo", group: "Text Container", tab: "V4" },
   { name: "Text Container V5", category: "Bold", anchor: "text-container-v5-demo", group: "Text Container", tab: "V5" },
+  { name: "Text Container V6", category: "Elegant", anchor: "text-container-v6-demo", group: "Text Container", tab: "V6" },
   // Buttons (/buttons)
   { name: "Arrow Loop Button", category: "Modern", anchor: "arrow-loop-button-demo" },
   { name: "Panel Collapse Button", category: "Modern", anchor: "panel-collapse-button-demo" },
@@ -48,6 +49,7 @@ export const componentCatalog: CatalogEntry[] = [
   { name: "Line Swap Button", category: "Minimalist", anchor: "line-swap-button-demo" },
   { name: "Elegant Fill Button", category: "Elegant", anchor: "elegant-fill-button-demo" },
   { name: "Elegant Sweep Button", category: "Elegant", anchor: "elegant-sweep-button-demo" },
+  { name: "Elegant Shadow Button", category: "Elegant", anchor: "elegant-shadow-button-demo" },
   { name: "Luxury Overhang Button", category: "Luxury", anchor: "luxury-overhang-button-demo" },
   { name: "Offset Shadow Button", category: "Fun / Playful", anchor: "offset-shadow-button-demo" },
   { name: "Playful Collapse Button", category: "Fun / Playful", anchor: "playful-collapse-button-demo" },

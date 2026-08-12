@@ -1,0 +1,163 @@
+/* StepSection5 — Figma Master V3 "Step section" (node 12991:55562, Desk 12989:54988)
+   adapted to the HIP DS. White ground, elegant serif voice: the comp's Trajan Pro maps
+   onto a system serif (client fonts are never reused — same precedent as StepSection3's
+   numerals); its golden-yellow/lucky-green/lighter-blue outlines map onto the
+   accent/tertiary/secondary ramps. All spacing, radii and type resolve through tokens. */
+.hipSteps5 {
+  background: var(--color-base-white);
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column; align-items: center;
+  gap: calc(var(--grid-gap) * 1.5);
+}
+
+/* ── Centered serif heading with flanking rules ── */
+.hipSteps5Heading {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--heading-gap); text-align: center;
+  max-width: 688px;
+}
+
+/* Serif H2 on the global scale, weight 400 uppercase (comp: Trajan Regular 54/68). */
+.hipSteps5H2, .hipSteps5H3 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
+  font-size: var(--text-h2-size); line-height: var(--text-h2-leading);
+  text-transform: uppercase; color: var(--color-base-black);
+  display: flex; flex-direction: column;
+}
+
+.hipSteps5H2 { align-items: center; }
+
+.hipSteps5H3 { align-items: flex-start; text-align: left; }
+
+.hipSteps5H2Row { display: inline-flex; align-items: center; gap: 16px; }
+
+/* Thin rule flanking the serif lines (comp Line gp: 130px hairlines in gray-300). */
+.hipSteps5Rules { width: 130px; height: 2px; background: var(--color-gray-300); flex-shrink: 0; }
+
+/* Second line steps back to a muted gray (comp: moss gray). */
+.hipSteps5H2Muted { color: var(--color-gray-500); }
+
+.hipSteps5Intro {
+  margin: 0;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 300;
+  font-size: var(--text-body1-size); line-height: var(--text-body1-leading);
+  color: var(--color-textcolor-body, var(--color-gray-700));
+}
+
+/* ── Outlined step cards ── */
+.hipSteps5Cards {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 330px));
+  gap: var(--grid-gap); justify-content: center; width: 100%;
+}
+
+.hipSteps5Card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 32px 40px;
+  border: 2px solid; border-radius: 30px;
+  background: var(--color-base-white); text-align: center;
+}
+
+.hipSteps5Card.tone1 { border-color: var(--color-accent-500); }
+
+.hipSteps5Card.tone2 { border-color: var(--color-tertiary-500); }
+
+.hipSteps5Card.tone3 { border-color: var(--color-secondary-400); }
+
+/* Serif numeral on the H3 scale (comp: Trajan 42/46). */
+.hipSteps5Num {
+  font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
+  font-size: var(--text-h3-size); line-height: var(--text-h3-leading);
+  color: var(--color-gray-700);
+}
+
+/* Label on the PreHeader tokens (16/24 +3px), uppercase. */
+.hipSteps5Label {
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 500;
+  font-size: var(--text-preheader-size); line-height: var(--text-preheader-leading);
+  letter-spacing: var(--text-preheader-tracking);
+  text-transform: uppercase; color: var(--color-base-black);
+}
+
+/* ── Photo with rotating play badge ── */
+.hipSteps5Media { position: relative; width: 100%; }
+
+.hipSteps5Img {
+  position: relative; width: 100%; aspect-ratio: 1240 / 563;
+  border-radius: 30px; overflow: hidden;
+  background: var(--color-gray-100);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hipSteps5Img span {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--color-gray-400);
+}
+
+/* White disc riding the photo's top-left corner (comp Video badge). */
+.hipSteps5Badge {
+  position: absolute; top: 24px; left: 20px;
+  width: 126px; height: 126px; border-radius: 50%;
+  background: var(--color-base-white);
+  border: 1px solid var(--color-gray-50);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hipSteps5BadgeRing {
+  position: absolute; inset: 8px;
+  animation: hip-steps5-spin 12s linear infinite;
+}
+
+@keyframes hip-steps5-spin { to { transform: rotate(360deg); } }
+
+.hipSteps5BadgeBtn {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--color-gray-500); border: 2px solid var(--color-base-white);
+  display: grid; place-items: center;
+}
+
+.hipSteps5BadgeBtn svg { width: 18px; height: 18px; fill: var(--color-base-white); margin-left: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hipSteps5BadgeRing { animation: none; }
+}
+
+/* ── Split lower row ── */
+.hipSteps5Bottom {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap);
+  align-items: start; width: 100%;
+}
+
+.hipSteps5Copy {
+  margin: 0; max-width: 514px; justify-self: end;
+  font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 300;
+  font-size: var(--text-body1-size); line-height: var(--text-body1-leading);
+  color: var(--color-textcolor-body, var(--color-gray-700));
+}
+
+.hipSteps5Buttons { display: flex; justify-content: center; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipSteps5Cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); }
+  .hipSteps5Card { padding: 24px 16px; border-radius: 24px; }
+  .hipSteps5Img { aspect-ratio: 688 / 314; border-radius: 24px; }
+  .hipSteps5Badge { width: 88px; height: 88px; top: 16px; left: 16px; }
+  .hipSteps5BadgeBtn { width: 40px; height: 40px; }
+  .hipSteps5Bottom { grid-template-columns: 1fr; }
+  .hipSteps5Copy { justify-self: start; }
+  .hipSteps5Rules { width: 80px; }
+}
+
+@media (max-width: 767px) {
+  /* Mobi comp: cards stack, photo squares off, the badge shrinks to a corner chip. */
+  .hipSteps5Cards { grid-template-columns: 1fr; }
+  .hipSteps5Img { aspect-ratio: 280 / 150; border-radius: 20px; }
+  .hipSteps5Badge { width: 56px; height: 56px; top: 10px; left: 12px; }
+  .hipSteps5BadgeRing { display: none; }
+  .hipSteps5BadgeBtn { width: 32px; height: 32px; }
+  .hipSteps5BadgeBtn svg { width: 12px; height: 12px; }
+  .hipSteps5Rules { width: 40px; }
+}

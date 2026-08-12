@@ -8,7 +8,11 @@ import StepSection from "./StepSection";
 import StepSection2 from "./StepSection2";
 import StepSection3 from "./StepSection3";
 import StepSection4 from "./StepSection4";
+import StepSection5 from "./StepSection5";
 import OurPractice from "./OurPractice";
+import OurPractice2 from "./OurPractice2";
+import OurPractice3 from "./OurPractice3";
+import OurPractice4 from "./OurPractice4";
 import OurDoctors from "./OurDoctors";
 import WhoWeHelp from "./WhoWeHelp";
 import HowWeHelp from "./HowWeHelp";
@@ -33,7 +37,11 @@ export const sectionComponents: Record<string, ComponentType> = {
   steps2: StepSection2,
   steps3: StepSection3,
   steps4: StepSection4,
+  steps5: StepSection5,
   practice: OurPractice,
+  practice2: OurPractice2,
+  practice3: OurPractice3,
+  practice4: OurPractice4,
   doctors: OurDoctors,
   "who-we-help": WhoWeHelp,
   "how-we-help": HowWeHelp,

@@ -11,6 +11,7 @@ import {
   LineSwapButton,
   ElegantFillButton,
   ElegantSweepButton,
+  ElegantShadowButton,
   LuxuryOverhangButton,
   OffsetShadowButton,
   PlayfulCollapseButton,
@@ -37,7 +38,7 @@ function row(align: DemoAlign, children: ReactNode) {
   return <div className={`flex ${align === "center" ? "justify-center" : "justify-start"}`}>{children}</div>;
 }
 
-/** All 27 button demos wired into the category-chip showcase shell. */
+/** All 28 button demos wired into the category-chip showcase shell. */
 export default function ButtonsShowcase() {
   return (
     <ComponentShowcase
@@ -51,6 +52,14 @@ export default function ButtonsShowcase() {
         "line-swap-button-demo": (align) => row(align, <LineSwapButton />),
         "elegant-fill-button-demo": (align) => row(align, <ElegantFillButton />),
         "elegant-sweep-button-demo": (align) => row(align, <ElegantSweepButton />),
+        "elegant-shadow-button-demo": (align) =>
+          row(
+            align,
+            // Bottom padding gives the 4px hard shadow room to show
+            <div className="pb-[8px]">
+              <ElegantShadowButton label="Learn More" />
+            </div>
+          ),
         "luxury-overhang-button-demo": (align) => row(align, <LuxuryOverhangButton />),
         "offset-shadow-button-demo": (align) =>
           row(
