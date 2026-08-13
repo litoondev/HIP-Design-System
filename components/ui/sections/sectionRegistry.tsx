@@ -32,6 +32,8 @@ import InstagramSection from "./InstagramSection";
 import CtaSection from "./CtaSection";
 import CtaSection2 from "./CtaSection2";
 import CtaSection3 from "./CtaSection3";
+import CtaSection4 from "./CtaSection4";
+import CtaSection5 from "./CtaSection5";
 import Reviews from "./Reviews";
 import Reviews2 from "./Reviews2";
 import Reviews3 from "./Reviews3";
@@ -85,6 +87,8 @@ export const sectionComponents: Record<string, ComponentType> = {
   cta: CtaSection,
   cta2: CtaSection2,
   cta3: CtaSection3,
+  cta4: CtaSection4,
+  cta5: CtaSection5,
   reviews: Reviews,
   reviews2: Reviews2,
   reviews3: Reviews3,

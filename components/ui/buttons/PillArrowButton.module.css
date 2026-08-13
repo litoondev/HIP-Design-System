@@ -11,6 +11,9 @@
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+/* Soft-cornered variant (CTA V5 comp: 8px radius). */
+.rounded { border-radius: 8px; }
+
 .primary { background: var(--color-primary-500); color: var(--color-base-white); }
 
 .primary:hover, .primary:focus-visible { background: var(--color-primary-600); outline: none; }

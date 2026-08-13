@@ -55,6 +55,7 @@ export { default as NavBarPillOutlineButton } from "./NavBarPillOutlineButton";
 
 // Vibrant
 export { default as VibrantSweepButton } from "./VibrantSweepButton";
+export { default as CapsuleArrowButton } from "./CapsuleArrowButton";
 export { default as VibrantInvertButton } from "./VibrantInvertButton";
 
 // Tech / Hi-tech

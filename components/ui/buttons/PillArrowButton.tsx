@@ -10,6 +10,10 @@ export interface PillArrowButtonProps {
   practice?: PracticeType;
   /** Fill hue: primary (footer V5 comp), cta, or white (dark ink, for colored grounds). */
   tone?: PillArrowTone;
+  /** pill (default) or rounded — soft 8px corners (CTA V5 comp). */
+  shape?: "pill" | "rounded";
+  /** Trailing arrow direction: right (default) or up-right diagonal (CTA V5 comp). */
+  arrow?: "right" | "up-right";
   href?: string;
   className?: string;
 }
@@ -20,17 +24,20 @@ export default function PillArrowButton({
   label,
   practice,
   tone = "primary",
+  shape = "pill",
+  arrow = "right",
   href = "#",
   className,
 }: PillArrowButtonProps) {
   const text = label ?? defaultCta(practice, 0);
+  const shapeClass = shape === "rounded" ? ` ${styles.rounded}` : "";
   return (
     <a
-      className={`${styles.pillArrowBtn} ${styles[tone]}${className ? ` ${className}` : ""}`}
+      className={`${styles.pillArrowBtn} ${styles[tone]}${shapeClass}${className ? ` ${className}` : ""}`}
       href={href}
     >
       <span>{text}</span>
-      <Icon name="arrow-right" size="var(--btn-icon-size)" />
+      <Icon name={arrow === "up-right" ? "arrow-up-right" : "arrow-right"} size="var(--btn-icon-size)" />
     </a>
   );
 }

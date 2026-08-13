@@ -63,6 +63,7 @@ export const componentCatalog: CatalogEntry[] = [
   { name: "Square Arrow Button", category: "Bold", anchor: "square-arrow-button-demo" },
   { name: "Slider Arrow Button", category: "Clean", anchor: "slider-arrow-button-demo" },
   { name: "Pill Arrow Button", category: "Modern", anchor: "pill-arrow-button-demo" },
+  { name: "Capsule Arrow Button", category: "Vibrant", anchor: "capsule-arrow-button-demo" },
   { name: "Clean Outline Button", category: "Clean", anchor: "clean-outline-button-demo" },
   { name: "Clean Expand Button", category: "Clean", anchor: "clean-expand-button-demo" },
   { name: "Clean Fade Button", category: "Clean", anchor: "clean-fade-button-demo" },

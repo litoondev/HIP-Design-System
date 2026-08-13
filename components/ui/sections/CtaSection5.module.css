@@ -1,0 +1,40 @@
+/* CtaSection5 — Figma "hip-Image" CTA (node 49:22998) adapted to the HIP DS.
+   White page gutters around a full-bleed cta-500 band; full-height photo flush
+   left, ground-recolored Text Container right with the Pill Arrow CTA (white,
+   rounded, diagonal arrow). Type flows through the shared TextContainer. */
+.hipCta5 {
+  background: var(--color-base-white);
+  padding: 0 var(--container-padding-x);
+}
+
+.hipCta5Band {
+  background: var(--color-cta-500);
+  display: flex; align-items: stretch; gap: var(--spacing-80);
+  min-height: 636px;
+}
+
+/* Doctor photo flush with the band's top/bottom/left edges (comp: 532px). */
+.hipCta5Img {
+  position: relative; width: 40%; flex-shrink: 0;
+  overflow: hidden; background: var(--color-cta-600);
+}
+
+/* Text Container recolored for the cta ground (StepSection V1 precedent):
+   black preheader, white heading and body per the comp. */
+.hipCta5Content {
+  flex: 1; min-width: 0; align-self: center;
+  padding: var(--section-padding-y) var(--spacing-60) var(--section-padding-y) 0;
+}
+
+.hipCta5Content h2 { color: var(--color-base-white); }
+
+.hipCta5Content p { color: var(--color-base-white); }
+
+.hipCta5Content p:first-child { color: var(--color-base-black); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipCta5Band { flex-direction: column; gap: 0; min-height: 0; }
+  .hipCta5Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipCta5Content { padding: var(--spacing-40); align-self: stretch; }
+}
