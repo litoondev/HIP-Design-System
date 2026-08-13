@@ -22,6 +22,9 @@ import {
   BoldSlabButton,
   BoldTabButton,
   SquareArrowButton,
+  SliderArrowButton,
+  PillArrowButton,
+  LineArrowButton,
   CleanOutlineButton,
   CleanExpandButton,
   CleanFadeButton,
@@ -34,6 +37,7 @@ import {
   NavBarOutlineButton,
   NavBarPillOutlineButton,
   VibrantSweepButton,
+  CapsuleArrowButton,
   VibrantInvertButton,
   TechLoopButton,
 } from "../buttons";
@@ -90,6 +94,57 @@ export default function ButtonsShowcase() {
               <SquareArrowButton tone="secondary" label="Learn More" />
               <SquareArrowButton tone="primary" label="Explore Braces" />
               <SquareArrowButton tone="neutral" label="What Sets Us Apart" />
+            </div>
+          ),
+        "capsule-arrow-button-demo": (align) =>
+          row(
+            align,
+            // White tone shown on a cta swatch (its home ground), plus the ramp fills.
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="inline-flex rounded-full bg-[var(--color-cta-500)] p-3">
+                <CapsuleArrowButton tone="white" label="Request Free Consult" />
+              </span>
+              <CapsuleArrowButton tone="cta" label="Request Free Consult" />
+              <CapsuleArrowButton tone="primary" label="Get Started" />
+            </div>
+          ),
+        "pill-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Footer V5 pill tones on the DS ramps.
+            <div className="flex flex-wrap items-center gap-4">
+              <PillArrowButton tone="primary" label="Request Free Consult" />
+              <PillArrowButton tone="cta" label="Request Free Consult" />
+              <PillArrowButton tone="white" label="Request Free Consult" />
+            </div>
+          ),
+        "slider-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Prev/next pairs in the three ramp tones used by the review rails.
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="primary" />
+                <SliderArrowButton direction="next" tone="primary" />
+              </div>
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="secondary" />
+                <SliderArrowButton direction="next" tone="secondary" />
+              </div>
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="cta" />
+                <SliderArrowButton direction="next" tone="cta" />
+              </div>
+            </div>
+          ),
+        "line-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Template 06 tones: teal / primary outline, filled variant.
+            <div className="flex flex-wrap items-center gap-4">
+              <LineArrowButton tone="cta" label="Request Free Consult" />
+              <LineArrowButton tone="primary" label="Discover Us" />
+              <LineArrowButton tone="primary" filled label="Meet the Doctor" />
             </div>
           ),
         "clean-outline-button-demo": (align) => row(align, <CleanOutlineButton />),

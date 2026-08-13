@@ -1,0 +1,53 @@
+/* HowWeHelp3 — Figma "hip-Image" Template 06 treatments section (node 1:48645) adapted
+   to the HIP DS. Gray-50 ground, hairline-bordered alternating rows with hue-coded
+   treatment titles. Type flows through the typography variants and TextContainer. */
+.hipHow3 {
+  background: var(--color-gray-50);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.hipHow3Head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+}
+
+.hipHow3Intro { margin: 0; max-width: 577px; color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+/* Bordered treatment row (comp: 1px tertiary / cream border, 100px gap). */
+.hipHow3Row {
+  display: flex; align-items: center; gap: var(--spacing-100);
+  border: 1px solid;
+}
+
+.rowCta { border-color: var(--color-tertiary-100); padding-left: var(--spacing-60); }
+
+.rowPrimary { border-color: var(--color-secondary-50); padding-right: var(--spacing-60); }
+
+.hipHow3Text {
+  flex: 1; display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--heading-gap); padding: var(--spacing-40) 0;
+}
+
+/* Treatment titles carry their hue (comp: teal / caramel H2). */
+.titleCta { margin: 0; text-transform: capitalize; color: var(--color-cta-500); }
+
+.titlePrimary { margin: 0; text-transform: capitalize; color: var(--color-primary-500); }
+
+.hipHow3Copy { margin: 0 0 var(--spacing-16); color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+/* Tall photo flush with the row's edge (comp: 585×550). */
+.hipHow3Img {
+  position: relative; width: 47%; aspect-ratio: 585 / 550; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipHow3 { gap: var(--spacing-60); }
+  .hipHow3Head { flex-direction: column; align-items: flex-start; }
+  .hipHow3Row { flex-direction: column; gap: 0; padding: 0; }
+  .hipHow3Img { width: 100%; aspect-ratio: 4 / 3; order: 0; }
+  .hipHow3Text { order: 1; padding: var(--spacing-24); }
+}

@@ -1,0 +1,78 @@
+/* HowWeHelp4 — Figma "hip-Image" treatments (node 51:23018) adapted to the HIP DS.
+   Gray-50 ground; centered heading, then alternating rows of white card + photo +
+   a 120px color slab bleeding to the page edge. Card titles carry the row hue; the
+   CTA is the global Pill Arrow button (rounded, up-right arrow) in the same hue.
+   Type flows through the typography variants and shared TextContainer. */
+.hipHow4 {
+  background: var(--color-gray-50);
+  padding: var(--section-padding-y) 0;
+  display: flex; flex-direction: column; gap: var(--spacing-60);
+  overflow: hidden;
+}
+
+.hipHow4Head { align-self: center; max-width: 826px; padding: 0 var(--container-padding-x); }
+
+.hipHow4Rows { display: flex; flex-direction: column; gap: var(--spacing-100); }
+
+/* Row: card + photo left-aligned, color slab hugging the far edge (comp: 120px). */
+.hipHow4Row {
+  position: relative;
+  display: flex; align-items: center;
+  padding-left: var(--container-padding-x);
+}
+
+.hipHow4Row.flip { flex-direction: row-reverse; padding-left: 0; padding-right: var(--container-padding-x); }
+
+.hipHow4Slab { position: absolute; top: 0; bottom: 0; right: 0; width: 120px; }
+
+.hipHow4Row.flip .hipHow4Slab { right: auto; left: 0; }
+
+.tonePrimary .hipHow4Slab { background: var(--color-primary-500); }
+
+.toneCta .hipHow4Slab { background: var(--color-cta-500); }
+
+.toneDark .hipHow4Slab { background: var(--color-base-black); }
+
+/* White content card, rounded on its outer corners (comp: 24px, 675px wide). */
+.hipHow4Card {
+  position: relative;
+  background: var(--color-base-white);
+  width: 47%; flex-shrink: 0;
+  padding: var(--spacing-100) var(--spacing-100) var(--spacing-100) var(--spacing-120);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  align-self: stretch;
+  display: flex; align-items: center;
+}
+
+.hipHow4Row.flip .hipHow4Card {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--spacing-100) var(--spacing-120) var(--spacing-100) var(--spacing-100);
+}
+
+/* Card titles carry the row hue (comp: cyan / orange / black H3). */
+.tonePrimary .hipHow4Card h3 { color: var(--color-primary-500); }
+
+.toneCta .hipHow4Card h3 { color: var(--color-cta-500); }
+
+.toneDark .hipHow4Card h3 { color: var(--color-base-black); }
+
+/* Tall photo flush with the card (comp: 515×600). */
+.hipHow4Img {
+  position: relative; width: 36%; aspect-ratio: 515 / 600; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipHow4Rows { gap: var(--spacing-60); }
+  .hipHow4Row,
+  .hipHow4Row.flip { flex-direction: column; padding: 0 var(--container-padding-x); }
+  .hipHow4Slab { display: none; }
+  .hipHow4Card,
+  .hipHow4Row.flip .hipHow4Card {
+    width: 100%; order: 1;
+    padding: var(--spacing-30);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+  .hipHow4Img { width: 100%; aspect-ratio: 4 / 3; order: 0; }
+}

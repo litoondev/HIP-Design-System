@@ -32,6 +32,22 @@
     outline: none;
   }
 
+/* cta tone (footer V4 comp): cta fill, white ink, cta-100 hard shadow. */
+.toneCta {
+    background: var(--color-cta-500);
+    color: var(--color-base-white);
+    box-shadow: 0 6px 0 var(--color-cta-100);
+  }
+
+.toneCta:hover,
+.toneCta:focus-visible {
+    transform: translateY(6px);
+    border-color: var(--color-cta-500);
+    background: transparent;
+    box-shadow: 0 0 0 var(--color-cta-100);
+    color: var(--color-cta-500);
+  }
+
 @media (prefers-reduced-motion: reduce) {
   .pressButton,
   .pressButtonIcon { transition-duration: 0.01ms; }

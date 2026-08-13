@@ -1,0 +1,68 @@
+/* OurDoctors5 — Figma "hip-Image" doctors (node 53:23475) adapted to the HIP DS.
+   Gray-50 ground; wide inset team photo, centered heading, two doctor columns
+   with cta divider, primary-hued names, and the Modern Pill button retargeted
+   to the gray ramp. Type flows through the typography variants and TextContainer. */
+.hipDoctors5 {
+  background: var(--color-gray-50);
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* Wide team photo inset from the page edges (comp: 1280×534). */
+.hipDoctors5Banner {
+  position: relative; width: calc(100% - 2 * var(--spacing-80));
+  aspect-ratio: 1280 / 534;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipDoctors5Inner {
+  width: 100%;
+  padding: var(--spacing-100) var(--container-padding-x) var(--section-padding-y);
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--spacing-80);
+}
+
+.hipDoctors5Head { max-width: 870px; }
+
+.hipDoctors5Cols { display: flex; gap: var(--spacing-80); width: 100%; }
+
+.hipDoctors5Col { flex: 1; display: flex; flex-direction: column; gap: var(--spacing-50); }
+
+/* Tall portrait (comp: 600px). */
+.hipDoctors5Img {
+  position: relative; width: 100%; aspect-ratio: 580 / 600;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipDoctors5Text {
+  padding: 0 var(--spacing-30);
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+
+/* Short cta divider above the name (comp: 60px red rule). */
+.hipDoctors5Divider {
+  width: var(--spacing-60);
+  border-top: 2px solid var(--color-cta-500);
+  margin-bottom: var(--spacing-10);
+}
+
+/* Name in the primary hue with a smaller inline credential (comp Playfair H3). */
+.hipDoctors5Name { margin: 0 0 var(--spacing-24); text-transform: capitalize; color: var(--color-primary-600); }
+
+.hipDoctors5Cred { color: var(--color-primary-600); }
+
+.hipDoctors5Copy { margin: 0 0 var(--content-button-gap); color: var(--color-gray-600); }
+
+/* Modern Pill retargeted to the gray ramp (comp: cool-gray pill; retarget
+   precedent — doubled class outranks the button module). */
+.hipDoctors5Btn.hipDoctors5Btn { background: var(--color-gray-600); }
+
+.hipDoctors5Btn.hipDoctors5Btn:hover,
+.hipDoctors5Btn.hipDoctors5Btn:focus-visible { background: var(--color-gray-800); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipDoctors5Banner { width: 100%; aspect-ratio: 4 / 3; }
+  .hipDoctors5Inner { padding-top: var(--spacing-40); gap: var(--spacing-40); }
+  .hipDoctors5Cols { flex-direction: column; gap: var(--spacing-60); }
+  .hipDoctors5Text { padding: 0; }
+}

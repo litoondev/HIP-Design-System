@@ -1,0 +1,53 @@
+/* HowWeHelp5 — Figma "hip-Image" treatments (node 52:23078) adapted to the HIP DS.
+   White ground; centered heading, then four alternating rows of edge-bleed photo +
+   Text Container with the Pill Arrow button (secondary tone) and a 15%-black
+   hairline running from the title to the page edge. Type flows through the
+   typography variants and shared TextContainer. */
+.hipHow5 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) 0;
+  display: flex; flex-direction: column; gap: var(--spacing-80);
+  overflow: hidden;
+}
+
+.hipHow5Head { align-self: center; max-width: 833px; padding: 0 var(--container-padding-x); }
+
+.hipHow5Rows { display: flex; flex-direction: column; gap: var(--spacing-80); }
+
+/* Row: photo bleeds to one page edge, copy holds the opposite gutter (comp:
+   692×600 photo, 120px gap, hairline at title height). */
+.hipHow5Row {
+  position: relative;
+  display: flex; align-items: center; gap: var(--spacing-120);
+  padding-right: var(--container-padding-x);
+}
+
+.hipHow5Row.flip {
+  flex-direction: row-reverse;
+  padding-right: 0; padding-left: var(--container-padding-x);
+}
+
+.hipHow5Img {
+  position: relative; width: 48%; aspect-ratio: 692 / 600; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipHow5Text { flex: 1; min-width: 0; }
+
+/* Hairline from the title line to the outer page edge (comp: 15% black, 1px). */
+.hipHow5Line {
+  position: absolute; top: 32%; right: 0; width: var(--container-padding-x);
+  border-top: 1px solid color-mix(in srgb, var(--color-base-black) 15%, transparent);
+}
+
+.hipHow5Row.flip .hipHow5Line { right: auto; left: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipHow5 { gap: var(--spacing-40); }
+  .hipHow5Rows { gap: var(--spacing-60); }
+  .hipHow5Row,
+  .hipHow5Row.flip { flex-direction: column; gap: var(--grid-gap); padding: 0 var(--container-padding-x); }
+  .hipHow5Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipHow5Line { display: none; }
+}

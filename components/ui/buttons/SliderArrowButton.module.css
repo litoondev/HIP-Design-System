@@ -1,0 +1,20 @@
+/* SliderArrowButton — square icon-only carousel control shared by the review rails.
+   Geometry rides the slider/icon tokens; tones map onto the DS ramps. */
+.sliderBtn {
+  display: grid; place-items: center;
+  padding: var(--btn-slider-pad);
+  border: none; cursor: pointer;
+  transition: background .25s ease;
+}
+
+.primary { background: var(--color-primary-500); color: var(--color-base-white); }
+
+.primary:hover { background: var(--color-primary-600); }
+
+.secondary { background: var(--color-secondary-50); color: var(--color-base-black); }
+
+.secondary:hover { background: var(--color-secondary-100); }
+
+.cta { background: var(--color-cta-500); color: var(--color-base-white); }
+
+.cta:hover { background: var(--color-cta-600); }

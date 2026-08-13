@@ -3,6 +3,7 @@ import SectionImage from "./SectionImage";
 import TextContainer from "./TextContainer";
 import Icon from "@/components/ui/icons/Icon";
 import SquareArrowButton from "../buttons/SquareArrowButton";
+import SliderArrowButton from "../buttons/SliderArrowButton";
 import { typographyClass } from "@/components/ui/typography/Typography";
 
 const reviewCopyClass = typographyClass("body1", styles.hipReviews2Text);
@@ -59,12 +60,8 @@ export default function Reviews2() {
 
         <div className={styles.hipReviews2Footer}>
           <div className={styles.hipReviews2Arrows}>
-            <button type="button" aria-label="Previous review">
-              <Icon name="arrow-left" size="var(--btn-icon-size)" />
-            </button>
-            <button type="button" aria-label="Next review">
-              <Icon name="arrow-right" size="var(--btn-icon-size)" />
-            </button>
+            <SliderArrowButton direction="prev" tone="primary" ariaLabel="Previous review" />
+            <SliderArrowButton direction="next" tone="primary" ariaLabel="Next review" />
           </div>
           <SquareArrowButton tone="primary" label="Read More" />
         </div>

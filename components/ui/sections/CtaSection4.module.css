@@ -1,0 +1,53 @@
+/* CtaSection4 — Figma "hip-Image" CTA (node 49:22981) adapted to the HIP DS.
+   Cta-500 band; white-recolored Text Container + Capsule Arrow CTA beside a
+   pill-shaped photo in a white ring; concentric contour circles echo the comp's
+   decorative vector. Type flows through the shared TextContainer. */
+.hipCta4 {
+  position: relative; overflow: hidden;
+  background: var(--color-cta-500);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; align-items: center; gap: var(--spacing-80);
+}
+
+/* Concentric contour rings, bottom right (comp mix-blend vector, rebuilt in CSS). */
+.hipCta4Contours {
+  position: absolute; right: -10%; bottom: -55%;
+  width: 60vw; aspect-ratio: 1; border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    transparent 0,
+    transparent 46px,
+    color-mix(in srgb, var(--color-cta-600) 55%, transparent) 46px,
+    color-mix(in srgb, var(--color-cta-600) 55%, transparent) 48px
+  );
+  pointer-events: none;
+}
+
+/* Text Container recolored for the colored ground (StepSection V1 precedent). */
+.hipCta4Content { position: relative; flex: 1; min-width: 0; }
+
+.hipCta4Content h2,
+.hipCta4Content p { color: var(--color-base-white); }
+
+/* Pill photo in a white ring (comp IMG Group: ~5px border, 24px inset). */
+.hipCta4Capsule {
+  position: relative; width: 46%; flex-shrink: 0;
+  aspect-ratio: 589 / 384;
+  border: 5px solid var(--color-base-white);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-24);
+  display: flex;
+}
+
+.hipCta4Img {
+  position: relative; flex: 1;
+  border-radius: var(--radius-full); overflow: hidden;
+  background: var(--color-cta-600);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipCta4 { flex-direction: column; align-items: stretch; gap: var(--grid-gap); }
+  .hipCta4Capsule { width: 100%; aspect-ratio: 4 / 3; padding: var(--spacing-12); border-radius: var(--radius-md); }
+  .hipCta4Img { border-radius: var(--radius-md); }
+}

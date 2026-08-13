@@ -1,0 +1,57 @@
+/* StepSection7 — Figma "hip-Image" Template 06 step section (node 1:48601) adapted to
+   the HIP DS. Bordered content row + full-width color-block number band. Type flows
+   through the typography variants and shared TextContainer. */
+.hipSteps7 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column;
+}
+
+/* Hairline-bordered row (comp: secondary border top/right, photo flush left). */
+.hipSteps7Content {
+  border-top: 1px solid var(--color-secondary-50);
+  border-right: 1px solid var(--color-secondary-50);
+  padding-right: var(--spacing-60);
+  display: flex; align-items: stretch; gap: var(--spacing-120);
+}
+
+/* Tall square-cornered photo (comp: 588×590). */
+.hipSteps7Img {
+  position: relative; width: 47%; aspect-ratio: 588 / 590; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipSteps7Text { display: flex; align-items: center; padding: var(--section-padding-y) 0; }
+
+/* ── Number band: three flush color blocks (comp Cards, 293px tall) ── */
+.hipSteps7Cards { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+.hipSteps7Card {
+  min-height: 293px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--paragraph-gap); text-align: center; text-transform: uppercase;
+}
+
+.hipSteps7Card.tone1 { background: var(--color-primary-500); }
+
+.hipSteps7Card.tone2 { background: var(--color-cta-500); }
+
+.hipSteps7Card.tone3 { background: var(--color-gray-600); }
+
+/* Outlined step number on the Main Header scale (comp: 130px transparent fill). */
+.hipSteps7Num {
+  color: transparent;
+  -webkit-text-stroke: 2px color-mix(in srgb, var(--color-base-white) 60%, transparent);
+}
+
+/* Label on the H5 scale, white on every block. */
+.hipSteps7Label { margin: 0; color: var(--color-base-white); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipSteps7Content { flex-direction: column; gap: var(--grid-gap); padding-right: 0; border-right: none; }
+  .hipSteps7Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipSteps7Text { padding: 0 0 var(--spacing-40); }
+  .hipSteps7Cards { grid-template-columns: 1fr; }
+  .hipSteps7Card { min-height: 200px; }
+}

@@ -1,0 +1,46 @@
+/* OurDoctors3 — Figma "hip-Image" Template 06 team section (node 1:48621) adapted to
+   the HIP DS. Dimmed logo row + cream-bordered doctor card. Type flows through the
+   shared TextContainer; logos through the shared library. */
+.hipDoctors3 {
+  background: var(--color-base-white);
+  padding: var(--spacing-40) var(--container-padding-x) var(--spacing-100);
+  display: flex; flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+/* Dimmed credibility strip (comp: opacity .6, ~60-70px marks). */
+.hipDoctors3Logos {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap); opacity: .6;
+}
+
+.hipDoctors3Logos img {
+  height: var(--icon-3xl); width: auto; max-width: 240px;
+  object-fit: contain;
+}
+
+/* Cream-bordered card on 70% white (comp Container). */
+.hipDoctors3Card {
+  background: color-mix(in srgb, var(--color-base-white) 70%, transparent);
+  border: 1px solid var(--color-secondary-50);
+  padding-left: var(--spacing-120);
+  display: flex; align-items: center; gap: var(--spacing-120);
+}
+
+.hipDoctors3Text { flex: 1; padding: var(--spacing-60) 0; max-width: 385px; }
+
+/* Tall portrait flush with the card's right edge (comp: 615×688). */
+.hipDoctors3Img {
+  position: relative; width: 50%; aspect-ratio: 615 / 688; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipDoctors3 { gap: var(--spacing-40); }
+  .hipDoctors3Logos { justify-content: center; }
+  .hipDoctors3Logos img { height: var(--icon-2xl); }
+  .hipDoctors3Card { flex-direction: column; padding: var(--spacing-30); gap: var(--grid-gap); }
+  .hipDoctors3Text { max-width: none; padding: 0; }
+  .hipDoctors3Img { width: 100%; aspect-ratio: 4 / 3; }
+}

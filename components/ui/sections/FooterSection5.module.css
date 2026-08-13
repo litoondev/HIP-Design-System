@@ -1,0 +1,129 @@
+/* FooterSection5 — Figma "hip-Image" footer (node 44:22746) adapted to the HIP DS.
+   Cta-tinted page ground; dark rounded card with 10%-white hairlines dividing the
+   brand row, three link columns, and the legal block. Type flows through the
+   typography variants; the CTA is the global Pill Arrow button (primary tone). */
+.hipFooter5 {
+  background: var(--color-cta-200);
+  padding: var(--section-padding-y) var(--container-padding-x);
+}
+
+/* Dark rounded card (comp: 20px radius, 100px padding). */
+.hipFooter5Card {
+  background: var(--color-base-black);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-100);
+  display: flex; flex-direction: column;
+  color: var(--color-base-white);
+}
+
+/* Brand row over the first hairline (comp: logo left, pill CTA right). */
+.hipFooter5Top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+  padding-bottom: var(--spacing-60);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+}
+
+.hipFooter5Brand { display: inline-flex; color: var(--color-base-white); }
+
+/* Conversion CTA always rides the cta ramp — retarget the Corporate Chevron
+   button from navy to cta (Footer V1 precedent). */
+.hipFooter5Cta.hipFooter5Cta {
+  border-color: var(--color-cta-500);
+  background: var(--color-cta-500);
+  color: var(--color-base-white);
+}
+
+.hipFooter5Cta.hipFooter5Cta:hover,
+.hipFooter5Cta.hipFooter5Cta:focus-visible {
+  background: var(--color-base-white);
+  color: var(--color-cta-600);
+}
+
+/* Hairline-divided columns (comp: 10%-white right rules, 60px vertical padding). */
+.hipFooter5Cols { display: flex; gap: var(--spacing-60); }
+
+.hipFooter5Col {
+  flex: 1; display: flex; flex-direction: column; gap: var(--spacing-30);
+  padding: var(--spacing-60) 0;
+  border-right: 1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+}
+
+.hipFooter5Col:last-child { border-right: none; }
+
+/* Column titles carry the cta tint (comp: aqua Subtitle). */
+.hipFooter5ColTitle { margin: 0; text-transform: uppercase; color: var(--color-cta-300); }
+
+.hipFooter5Col ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-10);
+}
+
+.hipFooter5Link {
+  display: inline-flex; align-items: center; gap: var(--spacing-10);
+  color: var(--color-base-white); text-decoration: none;
+}
+
+.hipFooter5Link:hover { color: var(--color-cta-300); }
+
+.hipFooter5Link :global(svg) { color: var(--color-cta-300); flex-shrink: 0; }
+
+/* Socials separated by short 15%-white rules (comp: 2px × 20px lines). */
+.hipFooter5Socials { display: flex; align-items: center; gap: var(--spacing-10); }
+
+.hipFooter5Socials a { display: inline-flex; color: var(--color-base-white); }
+
+.hipFooter5Socials a:hover { color: var(--color-cta-300); }
+
+.hipFooter5Socials span[aria-hidden] {
+  width: 2px; height: var(--menu-divider-height);
+  background: color-mix(in srgb, var(--color-base-white) 15%, transparent);
+}
+
+/* Centered legal block over the second hairline, primary-tinted links. */
+.hipFooter5Legal {
+  border-top: 1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+  padding-top: var(--spacing-40);
+  display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4);
+  text-align: center;
+}
+
+.hipFooter5Legal p { margin: 0; color: var(--color-base-white); }
+
+.hipFooter5Legal p a { color: var(--color-primary-400); text-decoration: none; }
+
+.hipFooter5Legal p a:hover { text-decoration: underline; }
+
+/* Privacy chip pair (comp Button Group: 15%-white borders, 5px outer radius). */
+.hipFooter5Chips { display: flex; margin-top: var(--spacing-12); }
+
+.hipFooter5Chip {
+  display: inline-flex; align-items: center; gap: var(--spacing-10);
+  padding: var(--spacing-4) var(--spacing-12);
+  border: 1px solid color-mix(in srgb, var(--color-base-white) 15%, transparent);
+  color: var(--color-base-white); text-decoration: none;
+}
+
+.hipFooter5Chip:first-child { border-radius: 5px 0 0 5px; border-right: none; }
+
+.hipFooter5Chip:last-child { border-radius: 0 5px 5px 0; }
+
+/* Tiny check/close privacy toggle (comp Checkbox Container). */
+.hipFooter5Toggle { display: inline-flex; overflow: hidden; border-radius: var(--radius-full); }
+
+.hipFooter5ToggleOn,
+.hipFooter5ToggleOff { display: grid; place-items: center; padding: var(--spacing-4); }
+
+.hipFooter5ToggleOn { background: var(--color-base-white); color: var(--color-base-black); }
+
+.hipFooter5ToggleOff { background: var(--color-primary-500); width: 18px; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipFooter5 { padding: var(--spacing-40) var(--container-padding-x); }
+  .hipFooter5Card { padding: var(--spacing-30); }
+  .hipFooter5Top { flex-direction: column; align-items: flex-start; gap: var(--spacing-24); padding-bottom: var(--spacing-30); }
+  .hipFooter5Cols { flex-direction: column; gap: 0; }
+  .hipFooter5Col { border-right: none; padding: var(--spacing-24) 0; border-bottom: 1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent); }
+  .hipFooter5Col:last-child { border-bottom: none; }
+}

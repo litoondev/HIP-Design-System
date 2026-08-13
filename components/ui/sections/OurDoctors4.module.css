@@ -1,0 +1,67 @@
+/* OurDoctors4 — Figma "hip-Image" doctors (node 53:23342) adapted to the HIP DS.
+   White ground; centered heading, two gray-100 cards alternating copy/portrait
+   with an accent rule-and-dot over each name and the Square Arrow button.
+   Type flows through the typography variants and shared TextContainer. */
+.hipDoctors4 {
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--spacing-80);
+}
+
+.hipDoctors4Head { max-width: 870px; }
+
+.hipDoctors4Cards { display: flex; flex-direction: column; gap: var(--spacing-30); width: 100%; }
+
+/* Full-width gray card, copy and portrait split (comp: 40px padding, 62px gap). */
+.hipDoctors4Card {
+  background: var(--color-gray-100);
+  padding: var(--spacing-40);
+  display: flex; align-items: center; gap: var(--spacing-60);
+}
+
+.hipDoctors4Card.flip { flex-direction: row-reverse; }
+
+.hipDoctors4Text {
+  flex: 1; min-width: 0; align-self: center;
+  padding: var(--spacing-40);
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+
+/* Accent rule with a leading dot above the name (comp Line Elements, redrawn). */
+.hipDoctors4Rule {
+  position: relative; width: 100%; height: var(--spacing-12);
+  margin-bottom: var(--spacing-30);
+}
+
+.hipDoctors4Rule::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  border-top: 1px solid var(--color-tertiary-300, var(--color-primary-300));
+}
+
+.hipDoctors4Rule::after {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: var(--spacing-12); border-radius: var(--radius-full);
+  background: var(--color-tertiary-300, var(--color-primary-300));
+}
+
+.hipDoctors4Name { margin: 0 0 var(--spacing-12); text-transform: capitalize; color: var(--color-base-black); }
+
+.hipDoctors4Cred { margin: 0 0 var(--spacing-24); color: var(--color-gray-600); }
+
+.hipDoctors4Copy { margin: 0 0 var(--content-button-gap); color: var(--color-base-black); }
+
+/* Tall portrait (comp: 605px, ~1.1:1). */
+.hipDoctors4Img {
+  position: relative; width: 48%; aspect-ratio: 549 / 605; flex-shrink: 0;
+  overflow: hidden; background: var(--color-base-white);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipDoctors4 { gap: var(--spacing-40); }
+  .hipDoctors4Card,
+  .hipDoctors4Card.flip { flex-direction: column; gap: var(--grid-gap); padding: var(--spacing-20); }
+  .hipDoctors4Text { padding: var(--spacing-12); order: 1; }
+  .hipDoctors4Img { width: 100%; aspect-ratio: 4 / 3; order: 0; }
+}

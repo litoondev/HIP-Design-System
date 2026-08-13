@@ -1,0 +1,64 @@
+/* Reviews3 — Figma "hip-Image" Template 06 reviews (node 1:48669) adapted to the HIP
+   DS. Cream block behind the heading, overflowing card row, square slider arrows.
+   Type flows through the typography variants and shared TextContainer. */
+.hipReviews3 {
+  position: relative;
+  background: var(--color-base-white);
+  padding: var(--section-padding-y) 0 var(--section-padding-y) var(--container-padding-x);
+  overflow: hidden;
+}
+
+/* Cream block behind the top-left (comp bg: 724×455 secondary). */
+.hipReviews3Block {
+  position: absolute; left: 0; top: 0;
+  width: 50%; height: 455px;
+  background: var(--color-secondary-50);
+}
+
+.hipReviews3Inner {
+  position: relative;
+  display: flex; flex-direction: column; gap: var(--spacing-60);
+}
+
+/* Card row overflows the right edge (comp Cards: 370px wide, 30px gap). */
+.hipReviews3Cards {
+  display: flex; gap: var(--paragraph-gap);
+  overflow-x: auto;
+  padding-right: var(--container-padding-x);
+}
+
+.hipReviews3Card {
+  margin: 0; width: 370px; flex-shrink: 0;
+  background: var(--color-gray-50);
+  padding: var(--spacing-50);
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--spacing-24);
+}
+
+.hipReviews3Rating { display: flex; align-items: center; gap: var(--spacing-24); }
+
+.hipReviews3Stars { display: inline-flex; gap: var(--spacing-8); color: var(--color-accent-500); }
+
+.hipReviews3Text { margin: 0; color: var(--color-textcolor-body, var(--color-gray-700)); }
+
+.hipReviews3ReadMore { color: var(--color-cta-500); }
+
+.hipReviews3Divider { width: 100%; height: 2px; background: var(--color-gray-400); }
+
+.hipReviews3Name { margin: 0; text-transform: uppercase; color: var(--color-base-black); }
+
+.hipReviews3Footer {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap); padding-right: var(--container-padding-x);
+}
+
+.hipReviews3Arrows { display: flex; gap: var(--btn-slider-pad); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipReviews3 { padding-left: var(--container-padding-x); padding-right: var(--container-padding-x); }
+  .hipReviews3Block { width: 100%; height: 300px; }
+  .hipReviews3Cards { padding-right: 0; }
+  .hipReviews3Card { width: 300px; padding: var(--spacing-30); }
+  .hipReviews3Footer { padding-right: 0; flex-wrap: wrap; }
+}

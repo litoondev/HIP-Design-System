@@ -6,6 +6,8 @@ export interface PressShadowButtonProps {
   label?: string;
   /** Practice type used for the default CTA label when no label is given. */
   practice?: PracticeType;
+  /** white (original) or cta — cta-500 fill with a cta-100 hard shadow (footer V4 comp). */
+  tone?: "white" | "cta";
   onClick?: () => void;
   className?: string;
 }
@@ -14,6 +16,7 @@ export interface PressShadowButtonProps {
 export default function PressShadowButton({
   label,
   practice,
+  tone = "white",
   onClick,
   className,
 }: PressShadowButtonProps) {
@@ -21,7 +24,7 @@ export default function PressShadowButton({
   return (
     <button
       type="button"
-      className={`${styles.pressButton}${className ? ` ${className}` : ""}`}
+      className={`${styles.pressButton}${tone === "cta" ? ` ${styles.toneCta}` : ""}${className ? ` ${className}` : ""}`}
       onClick={onClick}
     >
       <span>{text}</span>

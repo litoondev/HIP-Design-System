@@ -1,0 +1,95 @@
+/* LocationSection5 — Figma "hip-Image" locations (node 48:22851) adapted to the HIP
+   DS. Gray-50 ground; Text Container beside a photo, then a full-width stylized map
+   with four pins and a zoom control, its right edge covered by a primary-100 info
+   panel. Type flows through the typography variants and shared TextContainer. */
+.hipLoc5 {
+  background: var(--color-gray-50);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column; gap: var(--spacing-60);
+}
+
+.hipLoc5Top { display: flex; align-items: center; gap: var(--spacing-60); }
+
+.hipLoc5Text { flex: 1; min-width: 0; }
+
+/* Square-cornered office photo (comp: 645px wide). */
+.hipLoc5Img {
+  position: relative; width: 46%; aspect-ratio: 645 / 380; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipLoc5Bottom { display: flex; align-items: stretch; }
+
+/* Stylized map ground (shared grid treatment; comp: 24px rounded left corners). */
+.hipLoc5Map {
+  position: relative; flex: 1; min-width: 0; min-height: 640px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  overflow: hidden;
+  background:
+    linear-gradient(color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    var(--color-gray-100);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+.hipLoc5Pin { position: absolute; color: var(--color-secondary-600); }
+
+/* White zoom control (comp: bordered +/− stack, top right). */
+.hipLoc5Zoom {
+  position: absolute; top: var(--spacing-40); right: var(--spacing-40);
+  display: flex; flex-direction: column;
+  border: 1px solid var(--color-gray-200); border-radius: 6px;
+  background: var(--color-base-white);
+  overflow: hidden;
+}
+
+.hipLoc5Zoom span {
+  display: grid; place-items: center;
+  width: 48px; height: 48px;
+  font-size: var(--text-button-size, 20px); font-weight: 700;
+  color: var(--color-base-black);
+}
+
+.hipLoc5Zoom span:first-child { border-bottom: 1px solid var(--color-gray-200); }
+
+/* Primary-tinted info panel flush on the map's right edge (comp: 40px padding). */
+.hipLoc5Panel {
+  width: 340px; flex-shrink: 0;
+  background: var(--color-primary-100);
+  padding: var(--spacing-40);
+  display: flex; flex-direction: column; gap: var(--spacing-30);
+}
+
+.hipLoc5Col { display: flex; flex-direction: column; gap: var(--spacing-16); }
+
+/* Panel titles in the primary hue (comp: brown Subtitle labels). */
+.hipLoc5ColTitle { margin: 0; text-transform: uppercase; color: var(--color-primary-600); }
+
+.hipLoc5List {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-24);
+}
+
+.hipLoc5List li { display: flex; flex-direction: column; gap: var(--spacing-4); }
+
+.hipLoc5Name { color: var(--color-secondary-600); }
+
+.hipLoc5Row { display: inline-flex; align-items: center; gap: var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc5Row :global(svg) { color: var(--color-secondary-600); flex-shrink: 0; }
+
+.hipLoc5Hours { border-collapse: collapse; }
+
+.hipLoc5Hours td { padding: 0 0 var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc5Hours td:first-child { padding-right: var(--spacing-20); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipLoc5 { gap: var(--spacing-40); }
+  .hipLoc5Top { flex-direction: column; align-items: stretch; gap: var(--grid-gap); }
+  .hipLoc5Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipLoc5Bottom { flex-direction: column; }
+  .hipLoc5Map { min-height: 360px; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .hipLoc5Panel { width: 100%; padding: var(--spacing-24); }
+}

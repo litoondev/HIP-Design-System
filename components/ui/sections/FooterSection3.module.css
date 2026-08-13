@@ -1,0 +1,72 @@
+/* FooterSection3 — Figma "hip-Image" Template 06 footer (node 1:48698) adapted to the
+   HIP DS. Black ground, boxed 5%-white columns, secondary-tinted titles, primary-tinted
+   legal links. Type flows through the typography variants. */
+.hipFooter3 {
+  background: var(--color-base-black);
+  padding: var(--section-padding-y) var(--container-padding-x) var(--spacing-60);
+  display: flex; flex-direction: column;
+  gap: var(--spacing-60);
+}
+
+.hipFooter3Top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+}
+
+.hipFooter3Brand { display: inline-flex; align-items: center; color: var(--color-base-white); }
+
+/* Boxed columns: 5%-white panel, 10%-white border, 40px padding (comp 01–03). */
+.hipFooter3Cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-60); }
+
+.hipFooter3Col {
+  background: color-mix(in srgb, var(--color-base-white) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-base-white) 10%, transparent);
+  padding: var(--spacing-40);
+  display: flex; flex-direction: column; gap: var(--paragraph-gap);
+}
+
+/* Column titles tinted with the cream secondary (comp: secondary subtitles). */
+.hipFooter3ColTitle { margin: 0; text-transform: uppercase; color: var(--color-secondary-100); }
+
+.hipFooter3Col ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-10);
+}
+
+.hipFooter3Link {
+  display: inline-flex; align-items: center; gap: var(--link-icon-gap);
+  color: var(--color-base-white); white-space: nowrap;
+}
+
+.hipFooter3Link:hover { color: var(--color-primary-300); }
+
+.hipFooter3Socials { display: flex; align-items: center; gap: var(--menu-social-gap); }
+
+.hipFooter3Socials a {
+  display: inline-flex; padding: var(--menu-social-padding);
+  color: var(--color-base-white);
+}
+
+.hipFooter3Socials span {
+  width: 2px; height: var(--menu-divider-height);
+  background: color-mix(in srgb, var(--color-base-white) 15%, transparent);
+}
+
+/* Centered legal block over the closing 15%-white hairline. */
+.hipFooter3Legal {
+  border-top: 1px solid color-mix(in srgb, var(--color-base-white) 15%, transparent);
+  padding-top: var(--content-button-gap);
+  display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4);
+  text-align: center;
+}
+
+.hipFooter3Legal p { margin: 0; color: var(--color-base-white); }
+
+.hipFooter3Legal a { color: var(--color-primary-300); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipFooter3Cols { grid-template-columns: 1fr; gap: var(--spacing-20); }
+  .hipFooter3Col { padding: var(--spacing-24); }
+  .hipFooter3Top { flex-direction: column; align-items: flex-start; }
+}

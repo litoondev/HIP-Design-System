@@ -1,0 +1,82 @@
+/* LineArrowButton — outline button with a leading arrow block behind a vertical rule,
+   from the "hip-Image Template 06" comp. Composes the shared button base; hues map the
+   comp's palette onto the DS ramps. */
+.lnBtn {
+  composes: btn from "./base.module.css";
+  position: relative;
+  overflow: hidden;
+  align-items: stretch;
+  gap: var(--btn-icon-gap);
+  padding: 0 var(--btn-padding-x) 0 0;
+  border: 2px solid;
+  text-transform: uppercase;
+}
+
+/* Sweep fill (same treatment as ElegantSweepButton): a tone-colored panel starts
+   at the divider — the arrow block's right edge — inset 4px, and scales in from
+   the left on hover while the label flips white. */
+.lnBtn::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: calc(var(--btn-icon-size) + 2 * var(--btn-slider-pad));
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 400ms ease;
+  pointer-events: none;
+}
+
+/* Arrow block: its right edge draws the comp's vertical rule (inset 4px). */
+.lnBtnIcon {
+  display: inline-flex; align-items: center;
+  padding: var(--btn-slider-pad);
+  position: relative;
+  z-index: 1;
+}
+
+.lnBtnIcon::after {
+  content: "";
+  position: absolute; right: 0; top: 4px; bottom: 4px; width: 2px;
+  background: currentColor;
+}
+
+.lnBtnLabel {
+  display: inline-flex; align-items: center; padding: var(--btn-padding-y) 0;
+  position: relative;
+  z-index: 1;
+  transition: color 160ms ease 80ms;
+}
+
+/* Hue pairings — border, arrow, rule and label share the tone's ink. */
+.cta { border-color: var(--color-cta-500); color: var(--color-cta-500); }
+
+.primary { border-color: var(--color-primary-500); color: var(--color-primary-500); }
+
+.white { border-color: var(--color-base-white); color: var(--color-base-white); }
+
+/* Photo/dark grounds: label flips white, border/arrow keep the tone (comp hero). */
+.onDark .lnBtnLabel { color: var(--color-base-white); }
+
+/* Solid white ground behind the outline (comp doctor CTA). */
+.filled { background: var(--color-base-white); }
+
+.lnBtn:hover,
+.lnBtn:focus-visible { outline: none; }
+
+.lnBtn:hover::before,
+.lnBtn:focus-visible::before { transform: scaleX(1); }
+
+.lnBtn:hover .lnBtnLabel,
+.lnBtn:focus-visible .lnBtnLabel { color: var(--color-base-white); }
+
+/* White tone sweeps a white fill — the label flips dark instead. */
+.white:hover .lnBtnLabel,
+.white:focus-visible .lnBtnLabel { color: var(--color-base-black); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lnBtn::before,
+  .lnBtnLabel { transition: none; }
+}
