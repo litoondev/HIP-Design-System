@@ -18,3 +18,45 @@
 .cta { background: var(--color-cta-500); color: var(--color-base-white); }
 
 .cta:hover { background: var(--color-cta-600); }
+
+/* Outline square: 2px primary border, fills on hover (Instagram strip comp). */
+.outline {
+  width: 60px; height: 60px; padding: 0;
+  background: transparent;
+  border: 2px solid var(--color-primary-base, var(--color-primary-500));
+  color: var(--color-primary-base, var(--color-primary-500));
+  transition: background-color .15s ease-out, color .15s ease-out;
+}
+
+.outline:hover:not(:disabled),
+.outline:focus-visible {
+  background: var(--color-primary-base, var(--color-primary-500));
+  color: var(--color-base-white);
+}
+
+/* Circular ghost ring for dark grounds (Reviews V1 comp). */
+.ghost {
+  width: 60px; height: 60px; padding: 0; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid color-mix(in srgb, var(--color-base-white) 20%, transparent);
+  color: color-mix(in srgb, var(--color-base-white) 60%, transparent);
+  transition: border-color .15s ease-out, color .15s ease-out;
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--color-base-white) 60%, transparent);
+  color: var(--color-base-white);
+}
+
+.sliderBtn:focus-visible { outline: 2px solid var(--color-cta-base, var(--color-cta-500)); outline-offset: 2px; }
+
+/* Disabled arrows stop reacting so they don't advertise a dead action. */
+.sliderBtn:disabled { opacity: .35; cursor: default; }
+
+@media (max-width: 768px) {
+  .outline, .ghost { width: 54px; height: 54px; }
+}
+
+@media (max-width: 480px) {
+  .outline, .ghost { width: 48px; height: 48px; }
+}

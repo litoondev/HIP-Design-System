@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./Reviews.module.css";
-import Icon from "../icons/Icon";
+import SliderArrowButton from "../buttons/SliderArrowButton";
 
 /**
  * The interactive half of the Reviews section: the scrolling card strip and the arrows that
@@ -86,26 +86,22 @@ export default function ReviewsSlider({
 
       <div className={styles.hipReviewsControls}>
         <div className={styles.hipSliderArrows}>
-          <button
-            type="button"
-            className={styles.hipArrow}
-            aria-label="Previous reviews"
-            aria-controls="reviews-strip"
+          <SliderArrowButton
+            direction="prev"
+            tone="ghost"
+            ariaLabel="Previous reviews"
+            ariaControls="reviews-strip"
             onClick={() => step(-1)}
             disabled={atStart}
-          >
-            <Icon name="chevron-left" size="var(--btn-icon-size)" />
-          </button>
-          <button
-            type="button"
-            className={styles.hipArrow}
-            aria-label="Next reviews"
-            aria-controls="reviews-strip"
+          />
+          <SliderArrowButton
+            direction="next"
+            tone="ghost"
+            ariaLabel="Next reviews"
+            ariaControls="reviews-strip"
             onClick={() => step(1)}
             disabled={atEnd}
-          >
-            <Icon name="chevron-right" size="var(--btn-icon-size)" />
-          </button>
+          />
         </div>
         {action}
       </div>

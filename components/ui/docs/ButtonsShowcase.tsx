@@ -37,7 +37,6 @@ import {
   NavBarOutlineButton,
   NavBarPillOutlineButton,
   VibrantSweepButton,
-  CapsuleArrowButton,
   VibrantInvertButton,
   TechLoopButton,
 } from "../buttons";
@@ -96,18 +95,6 @@ export default function ButtonsShowcase() {
               <SquareArrowButton tone="neutral" label="What Sets Us Apart" />
             </div>
           ),
-        "capsule-arrow-button-demo": (align) =>
-          row(
-            align,
-            // White tone shown on a cta swatch (its home ground), plus the ramp fills.
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="inline-flex rounded-full bg-[var(--color-cta-500)] p-3">
-                <CapsuleArrowButton tone="white" label="Request Free Consult" />
-              </span>
-              <CapsuleArrowButton tone="cta" label="Request Free Consult" />
-              <CapsuleArrowButton tone="primary" label="Get Started" />
-            </div>
-          ),
         "pill-arrow-button-demo": (align) =>
           row(
             align,
@@ -135,6 +122,14 @@ export default function ButtonsShowcase() {
                 <SliderArrowButton direction="prev" tone="cta" />
                 <SliderArrowButton direction="next" tone="cta" />
               </div>
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="outline" />
+                <SliderArrowButton direction="next" tone="outline" />
+              </div>
+              <span className="inline-flex gap-2 bg-[var(--color-base-black)] p-3">
+                <SliderArrowButton direction="prev" tone="ghost" />
+                <SliderArrowButton direction="next" tone="ghost" />
+              </span>
             </div>
           ),
         "line-arrow-button-demo": (align) =>
