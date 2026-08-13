@@ -1,0 +1,39 @@
+/* HighlightsBand — Figma "hip-Image" highlight band (node 53:23644) adapted to the
+   HIP DS. Dark ground; rounded 3×2 grid of cloud cells split by white hairlines,
+   each a large primary icon beside a small uppercase label. Type flows through
+   the typography variants. */
+.hipHl4 {
+  background: var(--color-base-black);
+  padding: var(--spacing-50) var(--spacing-60);
+  display: flex; justify-content: center;
+}
+
+/* Rounded band; the 1px white gaps come from the grid's white ground showing
+   through (comp: white borders between cells, 25px radius). */
+.hipHl4Grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--color-base-white);
+  border-radius: 25px; overflow: hidden;
+  width: 100%; max-width: 1320px;
+}
+
+.hipHl4Cell {
+  background: var(--color-gray-50);
+  padding: var(--spacing-60) var(--spacing-40);
+  display: flex; align-items: center; gap: var(--spacing-24);
+}
+
+.hipHl4Icon { color: var(--color-primary-600); flex-shrink: 0; }
+
+.hipHl4Label { text-transform: uppercase; color: var(--color-secondary-800, var(--color-base-black)); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipHl4 { padding: var(--spacing-30) var(--spacing-20); }
+  .hipHl4Grid { grid-template-columns: 1fr; border-radius: var(--radius-md); }
+  .hipHl4Cell { padding: var(--spacing-24); gap: var(--spacing-16); }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hipHl4Grid { grid-template-columns: repeat(2, 1fr); }
+}

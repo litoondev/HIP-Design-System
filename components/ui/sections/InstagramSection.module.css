@@ -74,41 +74,11 @@
 /* Square slider arrows: 2px primary border, sized to the global button height ladder. */
 .hipIgArrows { display:flex; gap:var(--hours-center-gap); }
 
-.hipIgArrow {
-  width:60px; height:60px;
-  display:grid; place-items:center;
-  background:transparent; border:2px solid var(--color-primary-base); color:var(--color-primary-base);
-  cursor:pointer;
-  transition:background-color .15s ease-out, color .15s ease-out;
-}
-
-.hipIgArrow:hover,
-.hipIgArrow:focus-visible { background:var(--color-primary-base); color:var(--color-base-white); }
-
-/* Keyboard focus needs to be distinguishable from hover — grouped with :hover above, the two
-   states looked identical, so tabbing to an arrow gave no visible signal. */
-.hipIgArrow:focus-visible { outline:2px solid var(--color-cta-base); outline-offset:2px; }
-
-/* At either end of the strip the corresponding arrow is disabled — it stops reacting to
-   hover so it doesn't advertise an action that does nothing. */
-.hipIgArrow:disabled {
-  opacity:.35;
-  cursor:default;
-  background:transparent;
-  color:var(--color-primary-base);
-}
-
-@media (max-width: 768px) {
-  .hipIgArrow { width:54px; height:54px; }
-}
+/* The prev/next controls are the global SliderArrowButton (outline tone). */
 
 @media (max-width: 860px) {
   .hipIgTile { flex-basis:225px; }
   /* Tab/Mobi comp stacks the footer centered: arrows above Follow Us. */
   .hipIgFooter { flex-direction:column-reverse; justify-content:center; }
   .hipIgFollow { flex-direction:column; justify-content:center; }
-}
-
-@media (max-width: 520px) {
-  .hipIgArrow { width:48px; height:48px; }
 }

@@ -1,5 +1,5 @@
 /* CtaSection4 — Figma "hip-Image" CTA (node 49:22981) adapted to the HIP DS.
-   Cta-500 band; white-recolored Text Container + Capsule Arrow CTA beside a
+   Cta-500 band; white-recolored Text Container + Clean Expand CTA beside a
    pill-shaped photo in a white ring; concentric contour circles echo the comp's
    decorative vector. Type flows through the shared TextContainer. */
 .hipCta4 {
@@ -28,6 +28,16 @@
 
 .hipCta4Content h2,
 .hipCta4Content p { color: var(--color-base-white); }
+
+/* Clean Expand button is built on --lm-green (pill fill + icon-circle ink) /
+   --lm-white (icon-circle fill + label ink) custom properties. Swapping them
+   keeps the button on the cta ramp (per the CTA-color rule) while giving it
+   contrast against this section's own cta-500 ground: white pill with a
+   cta-500 icon badge and cta-500 label, filling solid cta-500 on hover. */
+.hipCta4Cta.hipCta4Cta {
+  --lm-green: var(--color-base-white);
+  --lm-white: var(--color-cta-500);
+}
 
 /* Pill photo in a white ring (comp IMG Group: ~5px border, 24px inset). */
 .hipCta4Capsule {

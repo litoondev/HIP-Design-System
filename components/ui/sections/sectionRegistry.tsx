@@ -7,6 +7,8 @@ import HeroCenteredNav from "./HeroCenteredNav";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
 import HighlightsSplit from "./HighlightsSplit";
+import HighlightsBand from "./HighlightsBand";
+import HighlightsPanel from "./HighlightsPanel";
 import StepSection from "./StepSection";
 import StepSection2 from "./StepSection2";
 import StepSection3 from "./StepSection3";
@@ -69,6 +71,8 @@ export const sectionComponents: Record<string, ComponentType> = {
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
   highlights3: HighlightsSplit,
+  highlights4: HighlightsBand,
+  highlights5: HighlightsPanel,
   steps: StepSection,
   steps2: StepSection2,
   steps3: StepSection3,

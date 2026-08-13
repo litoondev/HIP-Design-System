@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./InstagramSection.module.css";
-import Icon from "../icons/Icon";
+import SliderArrowButton from "../buttons/SliderArrowButton";
 
 /**
  * The interactive half of the Instagram Section: the scrolling post strip and the arrows
@@ -93,26 +93,22 @@ export default function InstagramSlider({
         {follow}
 
         <div className={styles.hipIgArrows}>
-          <button
-            type="button"
-            className={styles.hipIgArrow}
-            aria-label="Previous posts"
-            aria-controls="instagram-strip"
+          <SliderArrowButton
+            direction="prev"
+            tone="outline"
+            ariaLabel="Previous posts"
+            ariaControls="instagram-strip"
             onClick={() => step(-1)}
             disabled={atStart}
-          >
-            <Icon name="arrow-left" size="var(--icon-md)" />
-          </button>
-          <button
-            type="button"
-            className={styles.hipIgArrow}
-            aria-label="Next posts"
-            aria-controls="instagram-strip"
+          />
+          <SliderArrowButton
+            direction="next"
+            tone="outline"
+            ariaLabel="Next posts"
+            ariaControls="instagram-strip"
             onClick={() => step(1)}
             disabled={atEnd}
-          >
-            <Icon name="arrow-right" size="var(--icon-md)" />
-          </button>
+          />
         </div>
       </div>
     </>

@@ -83,37 +83,7 @@
 
 /* Diameter tracks the Bold Fill button's height (60/54/48 at its own breakpoints) so the
    circles and the "More Reviews" button read as one control row. */
-.hipArrow {
-  width:60px; height:60px; border-radius:50%;
-  background:transparent;
-  border:1.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.6);
-  display:grid; place-items:center; cursor:pointer;
-  transition:border-color .15s ease-out, color .15s ease-out;
-}
-
-/* These were non-interactive <div>s with no hover, focus or disabled state — they are real
-   <button>s now, so they need the states a button is expected to have. */
-.hipArrow:hover { border-color:rgba(255,255,255,.6); color:var(--color-base-white); }
-
-.hipArrow:focus-visible {
-  outline:2px solid var(--color-cta-base); outline-offset:2px;
-  color:var(--color-base-white);
-}
-
-/* At either end the matching arrow is disabled and stops reacting, so it doesn't advertise
-   an action that would do nothing. */
-.hipArrow:disabled {
-  opacity:.35; cursor:default;
-  border-color:rgba(255,255,255,.2); color:rgba(255,255,255,.6);
-}
-
-@media (max-width: 768px) {
-  .hipArrow { width:54px; height:54px; }
-}
-
-@media (max-width: 480px) {
-  .hipArrow { width:48px; height:48px; }
-}
+/* The prev/next controls are the global SliderArrowButton (ghost tone). */
 
 /* Dark-ground contrast fix for the Bold Fill button (same as StepSection): its hover
    retracts the accent fill, which would leave navy text on base-black. Flip the hovered
