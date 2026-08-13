@@ -1,0 +1,28 @@
+/* PillArrowButton — filled pill CTA with a trailing arrow (Figma "hip-Image" node
+   44:22751). Geometry rides the shared button base and tokens; tones map onto the
+   DS ramps and darken one ramp step on hover. */
+.pillArrowBtn {
+  composes: btn from "./base.module.css";
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.primary { background: var(--color-primary-500); color: var(--color-base-white); }
+
+.primary:hover, .primary:focus-visible { background: var(--color-primary-600); outline: none; }
+
+.cta { background: var(--color-cta-500); color: var(--color-base-white); }
+
+.cta:hover, .cta:focus-visible { background: var(--color-cta-600); outline: none; }
+
+.white { background: var(--color-base-white); color: var(--color-base-black); }
+
+.white:hover, .white:focus-visible { background: var(--color-gray-100); outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pillArrowBtn { transition: none; }
+}

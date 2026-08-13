@@ -1,0 +1,109 @@
+/* LocationSection4 — Figma "hip-Image" locations (node 46:22841) adapted to the HIP
+   DS. Gray-50 ground; pill-shaped photo and map capsules with white inset rings inside
+   4px gray-200 borders; popup pin on the primary ramp. Type flows through the
+   typography variants and shared TextContainer. */
+.hipLoc4 {
+  background: var(--color-gray-50);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  display: flex; flex-direction: column; gap: var(--spacing-60);
+}
+
+.hipLoc4Top { display: flex; align-items: stretch; gap: var(--spacing-60); }
+
+/* Pill photo capsule: white ring inside a 4px gray-200 border (comp IMG Group). */
+.hipLoc4Capsule {
+  flex: 1; min-width: 0; min-height: 280px;
+  background: var(--color-base-white);
+  border: 4px solid var(--color-gray-200);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-16);
+  display: flex;
+}
+
+.hipLoc4Img {
+  position: relative; flex: 1;
+  border-radius: var(--radius-full); overflow: hidden;
+  background: var(--color-gray-100);
+}
+
+.hipLoc4Text { width: 46%; flex-shrink: 0; align-self: center; }
+
+.hipLoc4Bottom { display: flex; align-items: stretch; gap: var(--spacing-60); }
+
+.hipLoc4Info {
+  flex-shrink: 0; display: flex; flex-direction: column; gap: var(--spacing-30);
+}
+
+.hipLoc4Col { display: flex; flex-direction: column; gap: var(--spacing-16); }
+
+/* Column titles in the primary hue (comp: blue Subtitle labels). */
+.hipLoc4ColTitle { margin: 0; text-transform: uppercase; color: var(--color-primary-600); }
+
+.hipLoc4Row { display: inline-flex; align-items: center; gap: var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc4Row :global(svg) { color: var(--color-cta-500); flex-shrink: 0; }
+
+.hipLoc4Hours { border-collapse: collapse; }
+
+.hipLoc4Hours td { padding: 0 0 var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc4Hours td:first-child { padding-right: var(--spacing-20); }
+
+/* Pill map capsule (comp Map S: 30px white ring, 4px gray-200 border). */
+.hipLoc4MapCapsule {
+  flex: 1; min-width: 0; min-height: 460px;
+  background: var(--color-base-white);
+  border: 4px solid var(--color-gray-200);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-30);
+  display: flex;
+}
+
+/* Stylized map ground (shared grid treatment, Location V3 precedent). */
+.hipLoc4Map {
+  position: relative; flex: 1;
+  border-radius: var(--radius-full); overflow: hidden;
+  background:
+    linear-gradient(color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    var(--color-gray-100);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+/* Popup pin: primary bubble + tail over the map-pin glyph (comp Pin). */
+.hipLoc4Pin {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4);
+  color: var(--color-primary-500);
+}
+
+.hipLoc4PinBubble {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.hipLoc4PinLabel {
+  background: var(--color-primary-500); color: var(--color-base-white);
+  padding: var(--spacing-12) var(--spacing-28);
+  border-radius: 10px;
+  box-shadow: 0 10px 18px color-mix(in srgb, var(--color-base-black) 20%, transparent);
+  white-space: nowrap;
+}
+
+.hipLoc4PinTail {
+  width: 0; height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 13px solid var(--color-primary-500);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipLoc4 { gap: var(--spacing-40); }
+  .hipLoc4Top { flex-direction: column; gap: var(--grid-gap); }
+  .hipLoc4Capsule { min-height: 220px; width: 100%; }
+  .hipLoc4Text { width: 100%; }
+  .hipLoc4Bottom { flex-direction: column; gap: var(--grid-gap); }
+  .hipLoc4MapCapsule { min-height: 320px; border-radius: var(--radius-md); padding: var(--spacing-12); }
+  .hipLoc4Map { border-radius: var(--radius-md); }
+}

@@ -23,6 +23,7 @@ import {
   BoldTabButton,
   SquareArrowButton,
   SliderArrowButton,
+  PillArrowButton,
   LineArrowButton,
   CleanOutlineButton,
   CleanExpandButton,
@@ -92,6 +93,16 @@ export default function ButtonsShowcase() {
               <SquareArrowButton tone="secondary" label="Learn More" />
               <SquareArrowButton tone="primary" label="Explore Braces" />
               <SquareArrowButton tone="neutral" label="What Sets Us Apart" />
+            </div>
+          ),
+        "pill-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Footer V5 pill tones on the DS ramps.
+            <div className="flex flex-wrap items-center gap-4">
+              <PillArrowButton tone="primary" label="Request Free Consult" />
+              <PillArrowButton tone="cta" label="Request Free Consult" />
+              <PillArrowButton tone="white" label="Request Free Consult" />
             </div>
           ),
         "slider-arrow-button-demo": (align) =>

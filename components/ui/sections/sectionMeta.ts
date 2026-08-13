@@ -418,6 +418,26 @@ export const sectionMeta: SectionMeta[] = [
     prompt: `Design a split locations section (Figma "hip-Image" Template 06, node 1:48682). ${DS} White ground. Left column: the standard Text Container (H2 "Come Visit Us" + Body1), then two info columns — Locations (cta-600 uppercase Subtitle, Strong-1 names with primary map pins + Body1 addresses) and Call/Text, beside an Office Hours column (six-day Body1 table). Right column (42%): a stylized light-grid map (428px, cta teardrop pin) stacked over a square-cornered office photo filling the rest.`,
   },
   {
+    slug: "locations4",
+    num: "11D",
+    name: "Location Section — Pill Capsules",
+    category: "Fun / Playful",
+    tags: ["Gray-50 bg · Pill photo + map capsules · Popup pin"],
+    group: "Location Section",
+    tab: "V4",
+    prompt: `Design a capsule locations section (Figma "hip-Image", node 46:22841). ${DS} Ground gray-50. Top row: a pill-shaped photo capsule — office photo fully rounded inside a white 16px inset ring and 4px gray-200 border — beside the standard Text Container (preheader "Come Visit Us", H2 "Our Location", Body1). Bottom row: an info column with primary-600 uppercase Subtitle titles — Locations (cta map-pin + Body1 address), Contact Us (cta phone icon + Body1 number), Contact Hours (six-day Body1 table) — beside a large pill-shaped map capsule (white 30px ring, 4px gray-200 border) holding a stylized light-grid map with a popup pin: primary-500 rounded bubble "Location Name" (Strong-1 white, soft shadow) with a triangle tail over a primary map-pin glyph.`,
+  },
+  {
+    slug: "locations5",
+    num: "11E",
+    name: "Location Section — Map Panel",
+    category: "Clean",
+    tags: ["Gray-50 bg · Full-width map · Cream info panel"],
+    group: "Location Section",
+    tab: "V5",
+    prompt: `Design a map-panel locations section (Figma "hip-Image", node 48:22851). ${DS} Ground gray-50. Top row: the standard Text Container (preheader "Our Locations", H2 "Come Visit Us", Body1) beside a square-cornered office photo (46%). Bottom row: a full-width stylized light-grid map with rounded left corners, four secondary-hued teardrop pins spread across it, and a white bordered +/− zoom control top right; flush against the map's right edge, a primary-100 info panel (40px padding) with primary-600 uppercase Subtitle titles — Locations (four Strong-1 secondary names, each with a secondary map-pin + Body1 address), Contact Us (phone icon + Body1 number), Contact Hours (six-day Body1 table).`,
+  },
+  {
     slug: "footer",
     num: "12",
     name: "Footer Section",
@@ -456,6 +476,16 @@ export const sectionMeta: SectionMeta[] = [
     group: "Footer",
     tab: "V4",
     prompt: `Design a card-style site footer (Figma "hip-Image", node 43:22666). ${DS} Ground base-black. A white card with 60px bottom-only rounded corners and 60px padding holds four hairline-divided columns (1px primary-100 right rules): Quick Links (black uppercase Subtitle label + Body1 links), Contact Us (primary map-pin/phone icons beside Body1 links), Follow Us (four primary social icons separated by 2px primary-100 dividers), and the brand column — logo over the global Press Shadow pill (cta tone: cta-500 fill, cta-100 hard shadow) "Request Free Consult". Below on the black ground: centered Body2 legal text in white with accent-300 links (copyright, Sitemap | Privacy Policy | Accessibility Statement | Notice of Privacy Practices, HIP credit), then the joined privacy chip pair — 15%-white 1px borders, 5px outer radius — "Notice at collection" and "Your privacy choices" with the tiny white-check / primary-close toggle.`,
+  },
+  {
+    slug: "footer5",
+    num: "12E",
+    name: "Footer — Dark Card on Tint",
+    category: "Modern",
+    tags: ["Cta tint ground · Dark rounded card · Corporate Chevron CTA"],
+    group: "Footer",
+    tab: "V5",
+    prompt: `Design an inset-card site footer (Figma "hip-Image", node 44:22746). ${DS} Page ground cta-200; inside it a base-black card with 20px rounded corners and 100px padding. Brand row: white logo left, the global Corporate Chevron button retargeted to the cta ramp (conversion CTAs always ride the cta color) "Request Free Consult" right, over a 1px 10%-white hairline. Three hairline-divided columns (10%-white right rules, 60px vertical padding): Quick Links (cta-300 uppercase Subtitle label + Body1 white links), Contact Us (cta-300 map-pin/phone icons beside Body1 links), Follow Us (five white social icons separated by 2px 15%-white dividers). A second 10%-white hairline, then centered Body2 white legal text with primary-400 links (copyright, Sitemap | Privacy Policy | Accessibility Statement | Notice of Privacy Practices, HIP credit) and the joined privacy chip pair — 15%-white 1px borders, 5px outer radius — with the tiny white-check / primary-close toggle.`,
   },
 ];
 

@@ -38,10 +38,13 @@ import Reviews3 from "./Reviews3";
 import LocationSection from "./LocationSection";
 import LocationSection2 from "./LocationSection2";
 import LocationSection3 from "./LocationSection3";
+import LocationSection4 from "./LocationSection4";
+import LocationSection5 from "./LocationSection5";
 import FooterSection from "./FooterSection";
 import FooterSection2 from "./FooterSection2";
 import FooterSection3 from "./FooterSection3";
 import FooterSection4 from "./FooterSection4";
+import FooterSection5 from "./FooterSection5";
 
 /**
  * SERVER-ONLY slug → component map for the /sections/[slug] pages. Some sections read
@@ -88,8 +91,11 @@ export const sectionComponents: Record<string, ComponentType> = {
   locations: LocationSection,
   locations2: LocationSection2,
   locations3: LocationSection3,
+  locations4: LocationSection4,
+  locations5: LocationSection5,
   footer: FooterSection,
   footer2: FooterSection2,
   footer3: FooterSection3,
   footer4: FooterSection4,
+  footer5: FooterSection5,
 };

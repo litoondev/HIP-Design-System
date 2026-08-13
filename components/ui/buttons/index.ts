@@ -4,6 +4,7 @@ export { CTA_LANGUAGE, defaultCta, type PracticeType } from "./ctaLanguage";
 
 // Modern
 export { default as ArrowLoopButton } from "./ArrowLoopButton";
+export { default as PillArrowButton } from "./PillArrowButton";
 export { default as PanelCollapseButton } from "./PanelCollapseButton";
 export { default as ModernPillButton } from "./ModernPillButton";
 
