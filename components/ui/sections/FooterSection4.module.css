@@ -1,0 +1,102 @@
+/* FooterSection4 — Figma "hip-Image" footer (node 43:22666) adapted to the HIP DS.
+   Black ground; white card with rounded bottom corners and hairline-divided columns;
+   centered legal block with accent links and privacy-choices chips. Type flows through
+   the typography variants; the CTA is the global Press Shadow button (cta tone). */
+.hipFooter4 {
+  background: var(--color-base-black);
+  padding: 0 var(--container-padding-x) var(--section-padding-y);
+  display: flex; flex-direction: column; gap: var(--spacing-40);
+}
+
+/* White card, rounded only at the bottom (comp: 60px radius, 60px padding). */
+.hipFooter4Card {
+  background: var(--color-base-white);
+  border-radius: 0 0 var(--spacing-60) var(--spacing-60);
+  padding: var(--spacing-60);
+  display: flex; align-items: stretch; gap: var(--spacing-40);
+}
+
+/* Hairline-divided columns (comp: primary-100 right rules). */
+.hipFooter4Col {
+  flex: 1; display: flex; flex-direction: column; gap: var(--spacing-30);
+  border-right: 1px solid var(--color-primary-100);
+  padding-right: var(--spacing-40);
+}
+
+.hipFooter4ColTitle { margin: 0; text-transform: uppercase; color: var(--color-base-black); }
+
+.hipFooter4Col ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-10);
+}
+
+.hipFooter4Link {
+  display: inline-flex; align-items: center; gap: var(--spacing-10);
+  color: var(--color-base-black); text-decoration: none;
+}
+
+.hipFooter4Link:hover { color: var(--color-primary-600); }
+
+.hipFooter4Link :global(svg) { color: var(--color-primary-500); flex-shrink: 0; }
+
+/* Socials separated by short primary-100 rules (comp: 2px × 20px lines). */
+.hipFooter4Socials { display: flex; align-items: center; gap: var(--spacing-10); }
+
+.hipFooter4Socials a { display: inline-flex; color: var(--color-primary-500); }
+
+.hipFooter4Socials span[aria-hidden] {
+  width: 2px; height: var(--menu-divider-height);
+  background: var(--color-primary-100);
+}
+
+/* Brand column: logo over the Press Shadow pill (comp: 60px gap). */
+.hipFooter4Brand {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
+  gap: var(--spacing-60); padding-left: var(--spacing-20);
+  color: var(--color-base-black);
+}
+
+/* Centered legal block on the black ground with accent-tinted links. */
+.hipFooter4Legal {
+  display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4);
+  text-align: center; color: var(--color-base-white);
+}
+
+.hipFooter4Legal p { margin: 0; color: var(--color-base-white); }
+
+.hipFooter4Legal p a { color: var(--color-accent-300); text-decoration: none; }
+
+.hipFooter4Legal p a:hover { text-decoration: underline; }
+
+/* Privacy chip pair (comp Button Group: 15%-white borders, 5px radius). */
+.hipFooter4Chips { display: flex; margin-top: var(--spacing-12); }
+
+.hipFooter4Chip {
+  display: inline-flex; align-items: center; gap: var(--spacing-10);
+  padding: var(--spacing-4) var(--spacing-12);
+  border: 1px solid color-mix(in srgb, var(--color-base-white) 15%, transparent);
+  color: var(--color-base-white); text-decoration: none;
+}
+
+.hipFooter4Chip:first-child { border-radius: 5px 0 0 5px; border-right: none; }
+
+.hipFooter4Chip:last-child { border-radius: 0 5px 5px 0; }
+
+/* Tiny check/close privacy toggle (comp Checkbox Container). */
+.hipFooter4Toggle {
+  display: inline-flex; overflow: hidden; border-radius: var(--radius-full);
+}
+
+.hipFooter4ToggleOn,
+.hipFooter4ToggleOff { display: grid; place-items: center; padding: var(--spacing-4); }
+
+.hipFooter4ToggleOn { background: var(--color-base-white); color: var(--color-base-black); }
+
+.hipFooter4ToggleOff { background: var(--color-primary-500); width: 18px; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipFooter4Card { flex-wrap: wrap; padding: var(--spacing-30); border-radius: 0 0 var(--spacing-30) var(--spacing-30); }
+  .hipFooter4Col { flex: 1 1 40%; border-right: none; padding-right: 0; }
+  .hipFooter4Brand { flex: 1 1 100%; padding-left: 0; gap: var(--spacing-24); }
+}

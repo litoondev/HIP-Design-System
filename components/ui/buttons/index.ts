@@ -9,6 +9,7 @@ export { default as ModernPillButton } from "./ModernPillButton";
 
 // Minimalist
 export { default as MinimalOutlineButton } from "./MinimalOutlineButton";
+export { default as LineArrowButton } from "./LineArrowButton";
 export { default as LineSlideButton } from "./LineSlideButton";
 export { default as LineSwapButton } from "./LineSwapButton";
 
@@ -34,6 +35,7 @@ export { default as BoldTabButton } from "./BoldTabButton";
 
 // Bold (Template 3 square family)
 export { default as SquareArrowButton } from "./SquareArrowButton";
+export { default as SliderArrowButton } from "./SliderArrowButton";
 
 // Clean
 export { default as CleanOutlineButton } from "./CleanOutlineButton";

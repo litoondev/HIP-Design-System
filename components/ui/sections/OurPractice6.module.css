@@ -1,0 +1,65 @@
+/* OurPractice6 — Figma "hip-Image" Template 06 practice section (node 1:48610) adapted
+   to the HIP DS. Cream ground (comp secondary → secondary-50) with a white band behind
+   the row's lower half; pull-quote bar with a 4px cta rule; arrow-bullet list. Type
+   flows through the typography variants and shared TextContainer. */
+.hipPractice6 {
+  position: relative;
+  background: var(--color-secondary-50);
+  padding: var(--section-padding-y) var(--container-padding-x);
+  overflow: hidden;
+}
+
+/* White band crossing the section behind the content (comp: 450px strip). */
+.hipPractice6Band {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 55%;
+  background: var(--color-base-white);
+}
+
+.hipPractice6Row {
+  position: relative;
+  display: flex; align-items: flex-start; gap: var(--spacing-60);
+}
+
+/* Tall square-cornered photo (comp: 625×528). */
+.hipPractice6Img {
+  position: relative; width: 50%; aspect-ratio: 625 / 528; flex-shrink: 0;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipPractice6Text {
+  flex: 1; display: flex; flex-direction: column;
+  gap: var(--spacing-60);
+}
+
+.hipPractice6Detail {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--content-button-gap); padding-right: var(--spacing-60);
+}
+
+/* Pull-quote on a white bar with the comp's 4px cta rule on the left. */
+.hipPractice6Quote {
+  margin: 0; width: 100%;
+  background: var(--color-base-white);
+  border-left: 4px solid var(--color-cta-500);
+  padding: var(--spacing-10) var(--spacing-20);
+  color: var(--color-textcolor-body, var(--color-gray-700));
+}
+
+.hipPractice6List {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-20);
+}
+
+.hipPractice6List li {
+  display: inline-flex; align-items: center; gap: var(--spacing-8);
+  color: var(--color-textcolor-body, var(--color-gray-700));
+}
+
+.hipPractice6List li :global(svg) { color: var(--color-cta-500); flex-shrink: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipPractice6Row { flex-direction: column; }
+  .hipPractice6Img { width: 100%; aspect-ratio: 4 / 3; }
+  .hipPractice6Detail { padding-right: 0; }
+}

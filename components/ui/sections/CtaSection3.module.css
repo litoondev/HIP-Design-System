@@ -1,0 +1,24 @@
+/* CtaSection3 — Figma "hip-Image" Template 06 CTA (node 1:48663) adapted to the HIP
+   DS. Full-bleed photo under a near-opaque cta overlay; centered white Text Container.
+   The comp's corner doodles rode expiring asset URLs and are omitted. */
+.hipCta3 {
+  position: relative;
+  min-height: 554px;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  background: var(--color-cta-700);
+  background-size: cover; background-position: bottom;
+}
+
+/* Comp overlay: cta-500 at 96%. */
+.hipCta3Overlay {
+  position: absolute; inset: 0;
+  background: var(--color-cta-500); opacity: .96;
+}
+
+/* Recolors the shared Text Container white for the cta ground. */
+.hipCta3Content { position: relative; max-width: 659px; }
+
+.hipCta3Content h2, .hipCta3Content p { color: var(--color-base-white); }
+
+.hipCta3Content h2 { text-transform: capitalize; }

@@ -1,0 +1,67 @@
+/* LocationSection3 — Figma "hip-Image" Template 06 locations (node 1:48682) adapted to
+   the HIP DS from its metadata frame (522/932 split, map over photo right, hairline at
+   y=428). Type flows through the typography variants and shared TextContainer. */
+.hipLoc3 {
+  position: relative;
+  background: var(--color-base-white);
+  padding: 0 var(--container-padding-x);
+  display: flex; gap: var(--spacing-100);
+}
+
+.hipLoc3Left {
+  flex: 1; padding: var(--section-padding-y) 0;
+  display: flex; flex-direction: column; gap: var(--spacing-100);
+}
+
+.hipLoc3Info { display: flex; gap: var(--spacing-30); }
+
+.hipLoc3Col { flex: 1; display: flex; flex-direction: column; gap: var(--spacing-16); }
+
+/* Column titles in the cta hue (comp: teal subtitles elsewhere in the template). */
+.hipLoc3ColTitle { margin: 0; text-transform: uppercase; color: var(--color-cta-600); }
+
+.hipLoc3List {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-24);
+}
+
+.hipLoc3List li { display: flex; flex-direction: column; gap: var(--spacing-4); color: var(--color-base-black); }
+
+.hipLoc3Row { display: inline-flex; align-items: center; gap: var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc3Row :global(svg) { color: var(--color-primary-500); flex-shrink: 0; }
+
+.hipLoc3Hours { border-collapse: collapse; }
+
+.hipLoc3Hours td { padding: 0 0 var(--spacing-10); color: var(--color-base-black); }
+
+.hipLoc3Hours td:first-child { padding-right: var(--spacing-20); }
+
+/* Right column: stylized map over the office photo (comp: 428/504 split). */
+.hipLoc3Right { width: 42%; flex-shrink: 0; display: flex; flex-direction: column; }
+
+.hipLoc3Map {
+  position: relative; height: 428px;
+  background:
+    linear-gradient(color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-gray-200) 60%, transparent) 1px, transparent 1px),
+    var(--color-gray-100);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+.hipLoc3Pin { position: absolute; left: 45%; top: 40%; color: var(--color-cta-500); }
+
+.hipLoc3Img {
+  position: relative; flex: 1; min-height: 400px;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipLoc3 { flex-direction: column; gap: var(--grid-gap); padding-bottom: var(--section-padding-y); }
+  .hipLoc3Left { padding-bottom: 0; gap: var(--spacing-40); }
+  .hipLoc3Info { flex-direction: column; gap: var(--spacing-30); }
+  .hipLoc3Right { width: 100%; }
+  .hipLoc3Map { height: 280px; }
+  .hipLoc3Img { min-height: 0; aspect-ratio: 4 / 3; }
+}

@@ -22,6 +22,8 @@ import {
   BoldSlabButton,
   BoldTabButton,
   SquareArrowButton,
+  SliderArrowButton,
+  LineArrowButton,
   CleanOutlineButton,
   CleanExpandButton,
   CleanFadeButton,
@@ -90,6 +92,35 @@ export default function ButtonsShowcase() {
               <SquareArrowButton tone="secondary" label="Learn More" />
               <SquareArrowButton tone="primary" label="Explore Braces" />
               <SquareArrowButton tone="neutral" label="What Sets Us Apart" />
+            </div>
+          ),
+        "slider-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Prev/next pairs in the three ramp tones used by the review rails.
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="primary" />
+                <SliderArrowButton direction="next" tone="primary" />
+              </div>
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="secondary" />
+                <SliderArrowButton direction="next" tone="secondary" />
+              </div>
+              <div className="flex gap-2">
+                <SliderArrowButton direction="prev" tone="cta" />
+                <SliderArrowButton direction="next" tone="cta" />
+              </div>
+            </div>
+          ),
+        "line-arrow-button-demo": (align) =>
+          row(
+            align,
+            // Template 06 tones: teal / primary outline, filled variant.
+            <div className="flex flex-wrap items-center gap-4">
+              <LineArrowButton tone="cta" label="Request Free Consult" />
+              <LineArrowButton tone="primary" label="Discover Us" />
+              <LineArrowButton tone="primary" filled label="Meet the Doctor" />
             </div>
           ),
         "clean-outline-button-demo": (align) => row(align, <CleanOutlineButton />),

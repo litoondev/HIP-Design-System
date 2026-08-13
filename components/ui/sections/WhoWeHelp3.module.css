@@ -1,0 +1,65 @@
+/* WhoWeHelp3 — Figma "hip-Image" Template 06 audiences section (node 1:48633) adapted
+   to the HIP DS. Cream ground, edge-bleed photo mosaic, colored audience cards. Type
+   flows through the typography variants and shared TextContainer. */
+.hipWho3 {
+  background: var(--color-secondary-50);
+  display: flex; align-items: stretch; gap: var(--spacing-100);
+  padding-right: var(--container-padding-x);
+  overflow: hidden;
+}
+
+/* Photo mosaic bleeding to the left edge (comp Img Group, 4px gaps). */
+.hipWho3Mosaic {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-4);
+}
+
+.hipWho3MosaicTop { flex: 1; display: flex; gap: var(--spacing-4); }
+
+.hipWho3Img {
+  position: relative; flex: 1; min-height: 240px;
+  overflow: hidden; background: var(--color-gray-100);
+}
+
+.hipWho3Content {
+  width: 532px; max-width: 100%; flex-shrink: 0;
+  padding: var(--spacing-100) 0;
+  display: flex; flex-direction: column; gap: var(--spacing-60);
+}
+
+.hipWho3Cards { display: flex; flex-direction: column; gap: var(--paragraph-gap); }
+
+/* Colored card: big title beside copy + links (comp Card 01, 40px padding). */
+.hipWho3Card {
+  display: flex; align-items: flex-start; gap: var(--content-button-gap);
+  padding: var(--spacing-40);
+}
+
+.hipWho3Card.tone1 { background: var(--color-primary-500); }
+
+.hipWho3Card.tone2 { background: var(--color-cta-500); }
+
+.hipWho3Card.tone3 { background: var(--color-gray-600); }
+
+.hipWho3Title { margin: 0; text-transform: capitalize; color: var(--color-base-white); flex-shrink: 0; }
+
+.hipWho3CardBody { flex: 1; display: flex; flex-direction: column; gap: var(--paragraph-gap); }
+
+.hipWho3Copy { margin: 0; color: var(--color-base-white); }
+
+.hipWho3Links { display: flex; align-items: center; justify-content: space-between; gap: var(--button-gap); }
+
+/* Bare white text links with arrows on the Button type tokens. */
+.hipWho3Link {
+  display: inline-flex; align-items: center; gap: var(--btn-icon-gap);
+  text-transform: uppercase; color: var(--color-base-white); white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .hipWho3 { flex-direction: column; gap: 0; padding: 0 var(--container-padding-x) var(--section-padding-y); }
+  .hipWho3Mosaic { min-height: 420px; }
+  .hipWho3Content { width: 100%; padding: var(--spacing-40) 0 0; }
+  .hipWho3Card { flex-direction: column; gap: var(--spacing-16); padding: var(--spacing-24); }
+  .hipWho3Links { justify-content: flex-start; }
+}

@@ -1,0 +1,103 @@
+/* HeroBoxed — Figma "hip-Image" Template 06 hero (node 41:22665) adapted to the HIP DS.
+   The comp's Bitter serif maps onto the global header font; its cream/caramel/teal
+   palette onto the secondary-50/primary/cta ramps. Type resolves through the
+   typography variants; only layout and color live here. */
+.w5Header {
+  position: relative; width: 100%; min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+  background: var(--color-base-white);
+}
+
+/* Boxed nav: everything sits inside the container gutter with hairline borders. */
+.w5Nav {
+  padding: 0 var(--container-padding-x);
+  border-bottom: 1px solid var(--color-secondary-50);
+}
+
+/* Cream utility bar (comp: secondary ground, bordered box). */
+.w5Topbar {
+  background: var(--color-secondary-50);
+  border: 1px solid var(--color-secondary-50); border-top: none;
+  padding: var(--menu-bar-padding-y) var(--spacing-40);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+}
+
+.w5Socials { display: flex; align-items: center; gap: var(--menu-social-gap); }
+
+.w5Socials a {
+  display: inline-flex; padding: var(--menu-social-padding);
+  color: var(--color-base-black);
+}
+
+.w5Socials span { width: 1px; height: var(--menu-divider-height); background: var(--color-base-white); }
+
+.w5Utils { display: flex; align-items: center; gap: var(--menu-item-gap); }
+
+/* Type from typographyClass("overline"); layout & color only. */
+.w5UtilLink {
+  display: inline-flex; align-items: center; gap: var(--menu-item-text-gap);
+  color: var(--color-base-black); white-space: nowrap;
+}
+
+/* Second nav CTA retargets the shared NavBarButton to the primary ramp. */
+.w5NavBtnAlt.w5NavBtnAlt { background: var(--color-primary-500); color: var(--color-base-white); }
+
+/* Bordered menu row: centered logo + links (comp Menu_bar). */
+.w5Menubar {
+  border-left: 1px solid var(--color-secondary-50);
+  border-right: 1px solid var(--color-secondary-50);
+  padding: var(--nav-bar-padding-y) var(--spacing-40);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--grid-gap);
+}
+
+.w5Brand { display: inline-flex; align-items: center; color: var(--color-base-black); }
+
+.w5Navlinks { display: flex; align-items: center; gap: var(--spacing-50); }
+
+/* Type from typographyClass("menuItem"); layout & color only. */
+.w5Navlink {
+  display: inline-flex; align-items: center; gap: var(--menu-item-text-gap);
+  text-transform: capitalize; color: var(--color-base-black); white-space: nowrap;
+}
+
+/* ── Photo hero inset in the gutter ── */
+.w5HeroWrap { flex: 1; display: flex; padding: var(--spacing-60) var(--container-padding-x) 0; min-height: 560px; }
+
+.w5Hero {
+  position: relative; flex: 1; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--section-padding-y) var(--container-padding-x);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary-700) 100%);
+  background-size: cover; background-position: center;
+}
+
+.w5Overlay { position: absolute; inset: 0; background: var(--color-base-black); opacity: .5; pointer-events: none; }
+
+.w5Content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--content-button-gap); text-align: center;
+}
+
+/* Type from typographyClass("mainHeader"); uppercase white per the comp. */
+.w5H1 { margin: 0; text-transform: uppercase; color: var(--color-base-white); }
+
+.w5Btns { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--button-gap); }
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .w5Nav { padding: 0 var(--spacing-40); }
+  .w5Utils { gap: var(--spacing-12); }
+  .w5UtilLink { display: none; }
+  .w5Navlinks { gap: var(--spacing-20); }
+  .w5HeroWrap { padding: var(--spacing-40) var(--spacing-40) 0; }
+}
+
+@media (max-width: 767px) {
+  .w5Nav { padding: 0 var(--spacing-20); }
+  .w5Topbar, .w5Menubar { padding-left: var(--spacing-16); padding-right: var(--spacing-16); }
+  .w5Navlink { display: none; }
+  .w5HeroWrap { padding: var(--spacing-20) var(--spacing-20) 0; min-height: 460px; }
+}

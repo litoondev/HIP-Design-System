@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import HeroBanner from "./HeroBanner";
 import HeroPillNav from "./HeroPillNav";
 import HeroSlider from "./HeroSlider";
+import HeroBoxed from "./HeroBoxed";
 import HeroCenteredNav from "./HeroCenteredNav";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
@@ -11,26 +12,36 @@ import StepSection3 from "./StepSection3";
 import StepSection4 from "./StepSection4";
 import StepSection5 from "./StepSection5";
 import StepSection6 from "./StepSection6";
+import StepSection7 from "./StepSection7";
 import OurPractice from "./OurPractice";
 import OurPractice2 from "./OurPractice2";
 import OurPractice3 from "./OurPractice3";
 import OurPractice4 from "./OurPractice4";
 import OurPractice5 from "./OurPractice5";
+import OurPractice6 from "./OurPractice6";
 import OurDoctors from "./OurDoctors";
 import OurDoctors2 from "./OurDoctors2";
+import OurDoctors3 from "./OurDoctors3";
 import WhoWeHelp from "./WhoWeHelp";
 import WhoWeHelp2 from "./WhoWeHelp2";
+import WhoWeHelp3 from "./WhoWeHelp3";
 import HowWeHelp from "./HowWeHelp";
 import HowWeHelp2 from "./HowWeHelp2";
+import HowWeHelp3 from "./HowWeHelp3";
 import InstagramSection from "./InstagramSection";
 import CtaSection from "./CtaSection";
 import CtaSection2 from "./CtaSection2";
+import CtaSection3 from "./CtaSection3";
 import Reviews from "./Reviews";
 import Reviews2 from "./Reviews2";
+import Reviews3 from "./Reviews3";
 import LocationSection from "./LocationSection";
 import LocationSection2 from "./LocationSection2";
+import LocationSection3 from "./LocationSection3";
 import FooterSection from "./FooterSection";
 import FooterSection2 from "./FooterSection2";
+import FooterSection3 from "./FooterSection3";
+import FooterSection4 from "./FooterSection4";
 
 /**
  * SERVER-ONLY slug → component map for the /sections/[slug] pages. Some sections read
@@ -42,6 +53,7 @@ export const sectionComponents: Record<string, ComponentType> = {
   hero2: HeroPillNav,
   hero3: HeroSlider,
   hero4: HeroCenteredNav,
+  hero5: HeroBoxed,
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
   steps: StepSection,
@@ -50,24 +62,34 @@ export const sectionComponents: Record<string, ComponentType> = {
   steps4: StepSection4,
   steps5: StepSection5,
   steps6: StepSection6,
+  steps7: StepSection7,
   practice: OurPractice,
   practice2: OurPractice2,
   practice3: OurPractice3,
   practice4: OurPractice4,
   practice5: OurPractice5,
+  practice6: OurPractice6,
   doctors: OurDoctors,
   doctors2: OurDoctors2,
+  doctors3: OurDoctors3,
   "who-we-help": WhoWeHelp,
   "who-we-help2": WhoWeHelp2,
+  "who-we-help3": WhoWeHelp3,
   "how-we-help": HowWeHelp,
   "how-we-help2": HowWeHelp2,
+  "how-we-help3": HowWeHelp3,
   instagram: InstagramSection,
   cta: CtaSection,
   cta2: CtaSection2,
+  cta3: CtaSection3,
   reviews: Reviews,
   reviews2: Reviews2,
+  reviews3: Reviews3,
   locations: LocationSection,
   locations2: LocationSection2,
+  locations3: LocationSection3,
   footer: FooterSection,
   footer2: FooterSection2,
+  footer3: FooterSection3,
+  footer4: FooterSection4,
 };
