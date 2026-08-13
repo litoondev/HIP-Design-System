@@ -22,6 +22,14 @@
 
 .cta:hover, .cta:focus-visible { background: var(--color-cta-600); outline: none; }
 
+.secondary { background: var(--color-secondary-600); color: var(--color-base-white); }
+
+.secondary:hover, .secondary:focus-visible { background: var(--color-secondary-700); outline: none; }
+
+.dark { background: var(--color-gray-800); color: var(--color-base-white); }
+
+.dark:hover, .dark:focus-visible { background: var(--color-base-black); outline: none; }
+
 .white { background: var(--color-base-white); color: var(--color-base-black); }
 
 .white:hover, .white:focus-visible { background: var(--color-gray-100); outline: none; }

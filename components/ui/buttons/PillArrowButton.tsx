@@ -2,7 +2,7 @@ import styles from "./PillArrowButton.module.css";
 import Icon from "../icons/Icon";
 import { defaultCta, type PracticeType } from "./ctaLanguage";
 
-export type PillArrowTone = "primary" | "cta" | "white";
+export type PillArrowTone = "primary" | "secondary" | "cta" | "white" | "dark";
 
 export interface PillArrowButtonProps {
   label?: string;

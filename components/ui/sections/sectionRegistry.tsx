@@ -6,6 +6,7 @@ import HeroBoxed from "./HeroBoxed";
 import HeroCenteredNav from "./HeroCenteredNav";
 import HighlightsGrid from "./HighlightsGrid";
 import TrustBadges from "./TrustBadges";
+import HighlightsSplit from "./HighlightsSplit";
 import StepSection from "./StepSection";
 import StepSection2 from "./StepSection2";
 import StepSection3 from "./StepSection3";
@@ -22,12 +23,18 @@ import OurPractice6 from "./OurPractice6";
 import OurDoctors from "./OurDoctors";
 import OurDoctors2 from "./OurDoctors2";
 import OurDoctors3 from "./OurDoctors3";
+import OurDoctors4 from "./OurDoctors4";
+import OurDoctors5 from "./OurDoctors5";
 import WhoWeHelp from "./WhoWeHelp";
 import WhoWeHelp2 from "./WhoWeHelp2";
 import WhoWeHelp3 from "./WhoWeHelp3";
+import WhoWeHelp4 from "./WhoWeHelp4";
+import WhoWeHelp5 from "./WhoWeHelp5";
 import HowWeHelp from "./HowWeHelp";
 import HowWeHelp2 from "./HowWeHelp2";
 import HowWeHelp3 from "./HowWeHelp3";
+import HowWeHelp4 from "./HowWeHelp4";
+import HowWeHelp5 from "./HowWeHelp5";
 import InstagramSection from "./InstagramSection";
 import CtaSection from "./CtaSection";
 import CtaSection2 from "./CtaSection2";
@@ -61,6 +68,7 @@ export const sectionComponents: Record<string, ComponentType> = {
   hero5: HeroBoxed,
   highlights: HighlightsGrid,
   highlights2: TrustBadges,
+  highlights3: HighlightsSplit,
   steps: StepSection,
   steps2: StepSection2,
   steps3: StepSection3,
@@ -77,12 +85,18 @@ export const sectionComponents: Record<string, ComponentType> = {
   doctors: OurDoctors,
   doctors2: OurDoctors2,
   doctors3: OurDoctors3,
+  doctors4: OurDoctors4,
+  doctors5: OurDoctors5,
   "who-we-help": WhoWeHelp,
   "who-we-help2": WhoWeHelp2,
   "who-we-help3": WhoWeHelp3,
+  "who-we-help4": WhoWeHelp4,
+  "who-we-help5": WhoWeHelp5,
   "how-we-help": HowWeHelp,
   "how-we-help2": HowWeHelp2,
   "how-we-help3": HowWeHelp3,
+  "how-we-help4": HowWeHelp4,
+  "how-we-help5": HowWeHelp5,
   instagram: InstagramSection,
   cta: CtaSection,
   cta2: CtaSection2,
